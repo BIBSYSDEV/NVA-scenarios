@@ -1,23 +1,23 @@
 # encoding: utf-8
 # language: en
 
-Feature: A user adds a PDF
-  Given that the user is logged in and has the role teacher
-  When they click add thing
-  And fill in metadata for the thing regarding
-    | creator(s)           |
-    | creator type         |
-    | title                |
-    | length of the donkey |
-  And set access privileges for the thing
-  And add the file for upload
-  And click OK
-  Then they receive a receipt containing information about
-    | receipt id        |
-    | owner             |
-    | owner institution |
-    | file location     |
-    | file checksum     |
-    | Handle id         |
-    | file version      |
-    | metadata summary  |
+Feature: A publisher adds a file and metadata
+
+  Scenario: A user adds a file
+    Given that the user is logged in and has the role publisher
+    When they click Add resource
+    And add the file for upload
+    And click Upload
+    And fill in metadata for the thing regarding
+      | creator(s)           |
+      | title                |
+      | date of publication  |
+    And clicks on the checkbox for resource publication
+    And click Publish
+    Then they receive see the generated resource page containing information about
+      | owner             |
+      | owner institution |
+      | file location     |
+      | file checksum     |
+      | Handle id         |
+      | metadata summary  |
