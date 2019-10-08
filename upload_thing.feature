@@ -12,6 +12,7 @@ Feature: A publisher adds a file and metadata
       | creator(s)           |
       | title                |
       | date of publication  |
+    And they select CC-BY license
     And clicks on the checkbox for resource publication
     And click Publish
     Then they receive see the generated resource page containing information about
