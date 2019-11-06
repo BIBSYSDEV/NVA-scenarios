@@ -23,6 +23,7 @@ Feature: A registrar adds a file and metadata
         | Handle |
     And they click search
     Then they see that the display updates
+    And they see that the breadcrumb information is Home > Workspace > New publication
     And contains metadata about the resource title
     And the "Next" button is enabled
 
@@ -31,6 +32,7 @@ Feature: A registrar adds a file and metadata
     And they have looked up a link
     When they click "Next"
     Then they see that the "Description" Tab is in focus
+    And they see that the breadcrumb information is Home > Workspace > New publication
     And they verify information for
         | Title                    |
         | Alternative Title        |
@@ -121,9 +123,10 @@ Feature: A registrar adds a file and metadata
 
   Scenario: A user verifies the information for Reference for a Journal article
     Given that the user is logged in and has the role registrar
-    And they are on the Reference page for a looked-up link
-    When they view the page
-    Then they see that Journal article is selected for resource type
+    When they are on the Reference page for a looked-up link
+    Then they see that the Reference tab is selected
+    And they see that the breadcrumb information is Home > Workspace > New publication
+    And they see that Journal article is selected for resource type
     And that the correct information is present for
         | Link           |
         | Journal title  |
@@ -225,6 +228,111 @@ Feature: A registrar adds a file and metadata
     When they view Peer-Review Data
     Then they see that the radio button is selected for (Peer-reviewed|Not peer-reviewed)
     And that this corresponds to the expected value for the Journal article
+
+  Scenario: A user verifies the information for Contributors for a Journal article
+    Given that the user is logged in and has the role registrar
+    When they are on the Contributor page for a looked-up link
+    Then they see that the Contributors tab is selected
+    And they see that the breadcrumb information is Home > Workspace > New publication
+    And they see a list of Author Contributors
+    And they see a list of Non-Author Contributors
+    And they verify that the Author Contributors are in the correct order
+    And they verify that the correct Author Contributor is marked as the Corresponding Author
+    And they verify that each Author Contributor has the correct information
+    And they verify that Non-Author Contributors have the correct information
+    And they see that the Next button is enabled
+
+  Scenario: A user verifies the information for an Author Contributor
+    Given that the user is logged in and has the role registrar
+    And they are on the Contributor page for a looked-up link
+    When they look at an Author Contributor
+    Then they see that the Author has a name represented in the format First name, Middle name(s), Last name(s)
+    And they see that the Author is Verified
+    And that the Author's Affiliation is correct for the looked up link
+    And they see that the Author is either Corresponding Author or not
+    And they see that they Author's ORCID is present if they have one
+    And they see that their placement in the Contributors list is correct
+
+  Scenario: A user verifies the information for a Non-Author Contributor
+    Given that the user is logged in and has the role registrar
+    And they are on the Contributor page for a looked-up link
+    When they look at a Non-Author Contributor
+    Then they see that the Non-Author Contributor has a name represented in the format First name, Middle name(s), Last name(s)
+    And they see that the Non-Author-Contributor role is specified
+    And that the Author's Affiliation is correct for the looked up link
+
+  Scenario: A user verifies the information for Files and Licenses for a Journal article
+    Given that the user is logged in and has the role registrar
+    When they are on the Files and Licenses page for a looked-up link
+    Then they see that the Files and Licenses tab is selected
+    And they see that the breadcrumb information is Home > Workspace > New publication
+    And they verify the information for Open Access Status
+    And they verify the information for Sherpa Romeo
+    And they verify the information for Licensing
+    And they verify the Uploaded File for the article
+    And they see that the Next button is enabled
+
+  Scenario: A user verifies the information for Open Access Status
+    Given that the user is logged in and has the role registrar
+    And they are on the Files and Licenses page for a looked-up link
+    When they view information for Open Access Status
+    Then they see that the Article is published in a Journal that has a Open Access Status
+    And that this Open Access Status corresponds to the expected value
+
+  Scenario: A user verifies the information for Sherpa Romeo
+    Given that the user is logged in and has the role registrar
+    And they are on the Files and Licenses page for a looked-up link
+    When they view information for Sherpa Romeo
+    Then what?
+    And what?
+    And isn't this the same as OA?
+
+  Scenario: A user verifies the information for Licensing
+    Given that the user is logged in and has the role registrar
+    And they are on the Files and Licenses page for a looked-up link
+    When they view information for Licensing
+    Then they see that the Article is published with an Open License approved by the Corresponding Author's institution
+
+  Scenario: A user verifies the information for a File
+    Given that the user is logged in and has the role registrar
+    And they are on the Files and Licenses page for a looked-up link
+    When they view information for Uploaded file
+    Then they see information for
+        | File name |
+        | Upload date |
+        | Version     |
+        | Embargo     |
+    And they see a preview of the file
+
+  Scenario: A user verifies the information for Registration Summary for a Journal article
+    Given that the user is logged in and has the role registrar
+    When they are on the Summary page for a looked-up link
+    Then they see that the Summary tab is selected
+    And they see that the breadcrumb information is Home > Workspace > New publication
+    And see information about
+        | Type |
+        | Title |
+        | Contributors |
+        | Summary      |
+        | NPI academic discipline |
+        | Year of publicatiion    |
+        | Language                |
+        | Project                 |
+        | Reference               |
+        | Files and licenses      |
+    And they see that the Publish in NVA button is enabled
+
+  Scenario: A user publishes a looked up Journal article in NVA
+    Given that the user is logged in and has the role registrar
+    And they are on the Summary page for a looked-up link
+    When they click the Publish in NVA button
+    Then they see a Splash page
+    And they can select options for
+      | Syncing with ORCID |
+      | DOI creation       | # Really, on a looked-up DOI?
+      | Link to publication |
+
+
 
   Scenario: A registrar adds a file
     Given that the user is logged in and has the role registrar
