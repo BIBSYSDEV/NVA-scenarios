@@ -50,7 +50,6 @@ Feature: Login and log out
         | Role(s)                      |
         | Group                        |
         | E-mail                       |
-        | Applications                 |
 
   Scenario: A user logs out
     Given that the user is already logged in
