@@ -62,7 +62,7 @@ Feature: User with no Author identity in the Authority Register for Personas see
 
   Scenario: User registers initial metadata for a Publication based on a Link
     Given that the user begins registering a Link
-    And they see that the title metdata for the Link look-up is correct
+    And they see that the title metadata for the Link look-up is correct
     When they click next
     Then they see that the Publication metadata registration page is pre-filled with suggested metadata values
     And they fill in/edit the obligatory values
@@ -85,8 +85,76 @@ Feature: User with no Author identity in the Authority Register for Personas see
         | search results based by free-text search for the the user's name in the Cristin Projects DB           |
     And they select a Project
     Then the Project ID is added to the Publication metadata
+    And the available data about people associated with the project is available to the NVA application
     # Note that ORCIDs are not registered in the Cristin Projects DB at this time
 
-  Scenario:
+  Scenario: User verifies a DOI from a Publication based on a Link
+    Given that a user associates a Publication with a Project they have previously registered a Publication
+    And the Publication has a DOI
+    When they click Open DOI
+    Then they see the correct article in the resulting webpage
+
+  Scenario: User verifies information for Journal for a Publication based on a Link
+    Given that a user associates a Publication with a Project they have previously registered a Publication
+    And the publication is a Journal Article
+    When they verify the information from Kanalregisteret that appears in the Journal Metadata
+    Then they see that the information for Journal Title is correct
+    And they see that the information for ISSN is correct
+    And they see that the information for eISSN is correct
+    And they see that the information for Publisher is correct
+    And they see that the information for Academic Level is correct
+
+  Scenario: User verifies information for a Journal Article Publication data for a publication based on a Link
+    Given that a user associates a Publication with a Project they have previously registered a Publication
+    And the publication is a Journal Article
+    When they verify that the information about the Journal Article Publication
+    Then they see information for Volume
+    And they see information for Issue
+    And they see Page Number information or an Article Number
+    # it is implicit that these fields are editable
+
+  Scenario: User sets the value for Publication Type for a Journal Article Publication data for a publication based on a Link
+    Given that the user associates a Publication with a Project they have previously registered a Publication
+    And have clicked Next
+    And they are on the screen for registering information about the Publication Reference
+    When they select a Reference Type from the list
+        | Journal Article |
+    And they select a Publication Subtype from the list
+        | Article              |
+        | Short communication  |
+        | Leader               |
+        | Letter to the editor |
+        | Review               |
+    And they verify a (non-obligatory) DOI from a Publication based on a Link
+    And they verify information for Journal for a publication based on a Link
+    And they verify (non-obligatory) information for a Journal Article Publication data for a publication based on a Link
+    And they select a value for Peer-review
+    And they upload a (non-obligatory) Author Agreement
+    Then they see that the Next button is enabled
+
+  # Happy day scenario for a DOI-sourced Academic Publication
+  # The DOI dereferences to a data document that contains ORCIDs for every Contributor
+  # The DOI dereferences to a data document that contains a Grant ID
+  # The Grant ID is available in Cristin Project DB
+  # Cristin Project DB data document contains the ORCIDs for project members
+  # There is a match between all ORCIDs from the DOI data document and (a subset of) the Cristin Project DB Project data document ORCIDs
+  # All of the ORCIDs are in the Authority Register for Personas
+
+  Scenario: User processes Contributor information for a Journal Article Publication data for a publication based on a Link
+    Given the user sets the value for Publication Type for a Journal Article Publication data for a publication based on a Link
+    And they have clicked Next
+    When they review the information for Contributors
+    Then they see that the Contributors are grouped in sections Authors and Other Contributors
+    And they see that the Authors are verified in the Authority Register for Personas
+    And they see that the Authors are in the expected order
+    And they see that the Authors have the expected institutional affiliations
+    And they see that the correct authors have the expected value for Corresponding Author
+    And they see that the Other Contributors are listed alphabetically by Surname
+    And they see that the Other Contributors have the correct Role, Name and Institution
+    And the Next button is enabled
+
+    # Corresponding Author is not in fact present in the Datacite data, but probably will be soon
+
+
 
 
