@@ -155,6 +155,42 @@ Feature: User with no Author identity in the Authority Register for Personas see
 
     # Corresponding Author is not in fact present in the Datacite data, but probably will be soon
 
+  # Important note about the "License": This assumes that the article is published in a journal that has a special Unit
+  # agreement, which entails that Unit has negotiated a contract for Norwegian corresponding authors
+  # In all other cases, a License-picker is provided
 
+  Scenario: User adds license and files to a Publication
+    Given the user processes Contributor information for a Journal Article Publication data for a publication based on a Link
+    When they click Next
+    Then they see the page for Licenses and Files
+    And they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from Kanalregisteret
+    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from Kanalregisteret
+    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from Kanalregisteret
+    And they upload files for the Publication
 
+    # Kanalregisteret perhaps does not provide all the information we need, this must be viewed as TODO for Kanalregisteret
 
+  Scenario: User uploads files for the Publication
+    Given that the user adds license and files to a Publication
+    When they drag and drop a file into the File drag-and-drop area
+    And they check
+        | Accepted version  |
+        | Published version |
+    And they check Embargo
+    And they specify Embargo length
+    Then the file is uploaded
+    And they can view the File Preview
+    And the Next button is enabled
+
+  Scenario: User views Summary
+    Given the user uploads files for the Publication
+    When they click Next
+    Then they see all of the data they have entered
+    And validation information for the entered data
+    And the Publish in NVA button is enabled
+
+  Scenario: User published Publication
+    Given the user views Summary
+    When they click Publish in NVA
+    Then they see the Publication page containing all data and files
+    And the page contains a notification that the Publication is Published
