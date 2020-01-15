@@ -14,6 +14,8 @@ Feature: User with no Author identity in the Authority Register for Personas see
     Given that a user with no Author identity in the Authority Register for Personas sees possible Author identities
     When they select a Author identity
     Then the user's Feide ID is added to the record for the Author identity in the Authority Register for Personas
+    And the user's Feide organistation id is mapped to a Organisational ID (Cristin ID)
+    And the user's Organisational ID (Cristin ID) is added to the record for the Author identity in the Authority Register for Personas
     And the Next button is enabled
     # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
   # Does the response from BARE contain the FEIDE ID?
