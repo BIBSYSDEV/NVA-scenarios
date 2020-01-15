@@ -196,3 +196,55 @@ Feature: User with no Author identity in the Authority Register for Personas see
     When they click Publish in NVA
     Then they see the Publication page containing all data and files
     And the page contains a notification that the Publication is Published
+	
+Scenario: User sees a menu
+    Given the user is not logged in
+    When they look at any page in NVA
+    Then they see an menu containing
+      | Logg inn |
+    
+  Scenario: User sees a menu
+    Given the user is logged in
+    When they look at any page in NVA
+    Then they see a menu containing
+            | Min Profil  |
+            | Logg ut |
+
+  Scenario: User sees the menu for Registrator
+    Given the user is logged in
+    and has the role of Registrator
+    When they look at any page in NVA
+    Then they see a menu containing
+            | Ny Registrering  |
+            | Mine publiseringer |
+            | Meldinger |
+
+  Scenario: User sees the menu for Institusjonskurator
+    Given the user is logged in
+    and has the role of Institusjonskurator
+    When they look at any page in NVA
+    Then they see a menu containing
+            | Min Arbeidsliste  |
+            
+  Scenario: User sees the menu for Institusjonsadmin
+    Given the user is logged in
+    and has the role of Institusjonsadmin
+    When they look at any page in NVA
+    Then they see a menu containing
+            | Brukeradministrasjon  |
+            | Min Institusjon |
+  
+  Scenario: User sees the menu for Institusjonsredaktør
+    Given the user is logged in
+    and has the role of Institusjonsredaktør
+    When they look at any page in NVA
+    Then they see a menu containing
+            | Redaktøroppsett  |
+
+  Scenario: User sees the menu for Applikasjonsadministrator
+    Given the user is logged in
+    and has the role of Applikasjonsadministrator
+    When they look at any page in NVA
+    Then they see a menu containing
+            | Institusjoner  |
+
