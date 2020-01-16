@@ -67,10 +67,10 @@ Feature: User with no Author identity in the Authority Register for Personas see
     And they see that the title metadata for the Link look-up is correct
     When they click Start
     Then they see that the Publication metadata registration page is pre-filled with suggested metadata values for
-		| Title |
-		| Abstract |
-		| Year |
-		| Pubclication date |
+	| Title |
+	| Abstract |
+	| Year |
+	| Publication date |
 	And the Publication is saved and available in My Publications
 
   Scenario: User adds NPI data for a Publication based on a Link
@@ -204,62 +204,62 @@ Feature: User with no Author identity in the Authority Register for Personas see
     Given the user is not logged in (and has no role)
     When they look at any page in NVA
     Then they see an menu containing
-		| Logg inn |
+	| Logg inn |
     
   Scenario: User sees a menu when logged in
     Given the user is logged in (and has no NVA-role)
     When they look at any page in NVA
     Then they see a menu containing
-		| Min Profil |
-		| Logg ut |
+	| Min Profil |
+	| Logg ut |
 
   Scenario: User sees the menu for Registrator
     Given the user is logged in
     And has the role of Registrator
     When they look at any page in NVA
     Then they see a menu containing
-		| Min Profil  |
-		| Logg ut |
-		| Ny Registrering  |
-		| Mine publiseringer |
-		| Meldinger |
+	| Min Profil  |
+	| Logg ut |
+	| Ny Registrering  |
+	| Mine publiseringer |
+	| Meldinger |
 
   Scenario: User sees the menu for Institusjonskurator
     Given the user is logged in
     And has the role of Institusjonskurator
     When they look at any page in NVA
     Then they see a menu containing
-		| Min Profil  |
-		| Logg ut |
-		| Min Arbeidsliste  |
+	| Min Profil  |
+	| Logg ut |
+	| Min Arbeidsliste  |
             
   Scenario: User sees the menu for Institusjonsadmin
     Given the user is logged in
     And has the role of Institusjonsadmin
     When they look at any page in NVA
     Then they see a menu containing
-		| Min Profil  |
-		| Logg ut |
-		| Brukeradministrasjon  |
-		| Min Institusjon |
+	| Min Profil  |
+	| Logg ut |
+	| Brukeradministrasjon  |
+	| Min Institusjon |
   
   Scenario: User sees the menu for Institusjonsredaktør
     Given the user is logged in 
     And has the role of Institusjonsredaktør
     When they look at any page in NVA
     Then they see a menu containing
-		| Min Profil  |
-		| Logg ut |
-		| Redaktøroppsett  |
+	| Min Profil  |
+	| Logg ut |
+	| Redaktøroppsett  |
 
   Scenario: User sees the menu for Applikasjonsadministrator
     Given the user is logged in
     And has the role of Applikasjonsadministrator
     When they look at any page in NVA
     Then they see a menu containing
-		| Min Profil  |
-		| Logg ut |
-		| Institusjoner  |
+	| Min Profil  |
+	| Logg ut |
+	| Institusjoner  |
 
   # Description of each menu item
   
@@ -288,13 +288,13 @@ Feature: User with no Author identity in the Authority Register for Personas see
     When they click the menu item Min Arbeidsliste
     Then the page Min Arbeidsliste is opened
 	And the user see the lists 
-		| Til Godkjenning | 
-		| Brukerstøtte |
-		| DOI-forespørsler |
+	| Til Godkjenning | 
+	| Brukerstøtte |
+	| DOI-forespørsler |
 	And the lists has fields
-		| Saken gjelder |
-		| Innsender |
-		| Dato |
+	| Saken gjelder |
+	| Innsender |
+	| Dato |
 	And a button Åpne that is enabled 
 
   # Actions from Min Arbeidsliste
@@ -321,9 +321,9 @@ Feature: User with no Author identity in the Authority Register for Personas see
 	And the user see a liste of all users connected to his institution
 	And the users are grouped by the NVA-roles
 	And has the fileds
-		| ID | 
-		| Navn |
-		| Dato opprettet |
+	| ID | 
+	| Navn |
+	| Dato opprettet |
 	And a button Fjern that is enabled
 	And a link to add a user with a specific role
 
@@ -331,6 +331,6 @@ Feature: User with no Author identity in the Authority Register for Personas see
     Given the user is logged in as Institusjonsadmin
     When they click the link Ny <role> in the page Brukeradministrasjon
     Then the page adds a line with the fields
-		| ID | 
-		| Navn |
+	| ID | 
+	| Navn |
 	And a button Legg til that is enabled
