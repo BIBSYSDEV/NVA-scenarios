@@ -65,11 +65,12 @@ Feature: User with no Author identity in the Authority Register for Personas see
   Scenario: User registers initial metadata for a Publication based on a Link
     Given that the user begins registering a Link
     And they see that the title metadata for the Link look-up is correct
-    When they click next
-    Then they see that the Publication metadata registration page is pre-filled with suggested metadata values
-    And they fill in/edit the obligatory values
+    When they click Start
+    Then they see that the Publication metadata registration page is pre-filled with suggested metadata values for
         | Title |
-        | Year  |
+		| Abstract |
+        | Pubclication date |
+	And the Publication is saved and available in My Publications
 
   Scenario: User adds NPI data for a Publication based on a Link
     Given the the user registers initial metadata for a Publication based on a Link
@@ -197,54 +198,138 @@ Feature: User with no Author identity in the Authority Register for Personas see
     Then they see the Publication page containing all data and files
     And the page contains a notification that the Publication is Published
 	
-Scenario: User sees a menu
-    Given the user is not logged in
+  # Access to the different menu items
+  Scenario: User sees menu when not logged in
+    Given the user is not logged in (and has no role)
     When they look at any page in NVA
     Then they see an menu containing
-      | Logg inn |
+			| Logg inn |
     
-  Scenario: User sees a menu
-    Given the user is logged in
+  Scenario: User sees a menu when logged in
+    Given the user is logged in (and has no NVA-role)
     When they look at any page in NVA
     Then they see a menu containing
-            | Min Profil  |
+            | Min Profil |
             | Logg ut |
 
   Scenario: User sees the menu for Registrator
     Given the user is logged in
-    and has the role of Registrator
+    And has the role of Registrator
     When they look at any page in NVA
     Then they see a menu containing
-            | Ny Registrering  |
+            | Min Profil  |
+            | Logg ut |
+			| Ny Registrering  |
             | Mine publiseringer |
             | Meldinger |
 
   Scenario: User sees the menu for Institusjonskurator
     Given the user is logged in
-    and has the role of Institusjonskurator
+    And has the role of Institusjonskurator
     When they look at any page in NVA
     Then they see a menu containing
+            | Min Profil  |
+            | Logg ut |
             | Min Arbeidsliste  |
             
   Scenario: User sees the menu for Institusjonsadmin
     Given the user is logged in
-    and has the role of Institusjonsadmin
+    And has the role of Institusjonsadmin
     When they look at any page in NVA
     Then they see a menu containing
+            | Min Profil  |
+            | Logg ut |
             | Brukeradministrasjon  |
             | Min Institusjon |
   
   Scenario: User sees the menu for Institusjonsredaktør
-    Given the user is logged in
-    and has the role of Institusjonsredaktør
+    Given the user is logged in 
+    And has the role of Institusjonsredaktør
     When they look at any page in NVA
     Then they see a menu containing
+            | Min Profil  |
+            | Logg ut |
             | Redaktøroppsett  |
 
   Scenario: User sees the menu for Applikasjonsadministrator
     Given the user is logged in
-    and has the role of Applikasjonsadministrator
+    And has the role of Applikasjonsadministrator
     When they look at any page in NVA
     Then they see a menu containing
+            | Min Profil  |
+            | Logg ut |
             | Institusjoner  |
 
+  # Description of each menu item
+  
+  # Menu items for anonymous
+  Scenario: User opens login page
+    Given the user is not logged in
+    When they click the menu item Logg inn
+    Then the page for login with Feide is opened
+
+  # Menu items for logged in person
+  Scenario: User opens the page Min Profil
+    Given the user is logged in
+    When they click the menu item Min Profil
+    Then the page Min Profil is opened
+
+  Scenario: User logs out
+    Given the user is logged in
+    When they click the menu item Logg ut
+    Then the search page is opened
+	And the user is logged out from Feide
+	And the users sees menu when not logged in
+
+  # Menuitems for Institusjonskurator
+  Scenario: User opens Min Arbeidsliste
+    Given the user is logged in as Institusjonskurator
+    When they click the menu item Min Arbeidsliste
+    Then the page Min Arbeidsliste is opened
+	And the user see the lists 
+			| Til Godkjenning | 
+			| Brukerstøtte |
+			| DOI-forespørsler |
+	And the lists has fields
+			| Saken gjelder |
+			| Innsender |
+			| Dato |
+	And a button Åpne that is enabled 
+
+  # Actions from Min Arbeidsliste
+  Scenario: User opens an item in the Til Godkjenning list
+    Given the user is logged in as Institusjonskurator
+	And has opened the page Min Arbeidsliste
+    When they click Åpne on an item
+    Then the item is opened in the wizard
+	And the user sees the Innsending tab
+	And a button Publiser that is enabled 
+
+  Scenario: User opens an item in the DOI forespørsler list
+    Given the user is logged in as Institusjonskurator
+	And has opened the page Min Arbeidsliste
+    When they click Åpne on an item
+    Then the item is opened in the wizard
+	And the user sees the Innsending tab
+	And a button Opprett DOI that is enabled 
+
+  Scenario: The user opens Brukeradministrasjon
+    Given the user is logged in as Institusjonsadmin
+    When they click the menu item Brukeradministrasjon
+    Then the page Brukeradministrasjon is opened
+	And the user see a liste of all users connected to his institution
+	And the users are grouped by the NVA-roles
+	And has the fileds
+			| ID | 
+			| Navn |
+			| Dato opprettet |
+	And a button Fjern that is enabled
+	And a link to add a user with a specific role
+
+  Scenario: User adds a role to a user
+    Given the user is logged in as Institusjonsadmin
+    When they click the link Ny <role> in the page Brukeradministrasjon
+    Then the page adds a line with the fields
+			| ID | 
+			| Navn |
+	And a button Legg til that is enabled
