@@ -319,7 +319,49 @@ Feature: User with no Author identity in the Authority Register for Personas see
 	And the search page is opened
     And the user sees non-logged-in menu
 
-  # Menuitems for Institusjonskurator
+   # Menuitems for Registrator
+  Scenario: User opens Ny Registrering
+    Given the user is logged in as Registrator
+    When they click the menu item Ny Registrering
+    Then the page Ny Registrering is opened
+	And the user see tabs
+        | Start med å laste opp fil |
+        | Start med en lenke til publikasjon |
+        | Start med forslag fra din ORCID |
+
+  Scenario: User opens Mine Publiseringer
+    Given the user is logged in as Registrator
+    When they click the menu item Mine Registreringer
+    Then the page Mine Registreringer is opened
+	And a list of all unpublished registrations with the fields
+        | Navn på publisering |
+        | <Status> |
+        | Opprettet |
+        Examples:
+            | Status |
+            | Kladd |
+            | Avvist |
+    And each list item has a button Slett and Rediger that is enabled
+
+  # Actions from Page : Mine Publiseringer (Rediger)
+  Scenario: User opens an item in the Mine Publiseringer list
+    Given the user is logged in as Registrator
+	And has opened the page Mine Publiseringer
+    When they click Rediger on an item
+    Then the item is opened in the wizard
+	And the user sees the Beskrivelse tab
+    And the fields in the wizard are populated with values from the saved publication
+
+  # Actions from Page : Mine Publiseringer (Slett)
+  Scenario: User opens an item in the Mine Publiseringer list
+    Given the user is logged in as Registrator
+	And has opened the page Mine Publiseringer
+    When they click Slett on an item
+    Then a comfirmation pop-up is opened
+	When the user selects Yes the publication is marked as Deleted
+    When the user selects No the pop-up is closed
+
+ # Menuitems for Institusjonskurator
   Scenario: User opens Min Arbeidsliste
     Given the user is logged in as Institusjonskurator
     When they click the menu item Min Arbeidsliste
@@ -334,7 +376,7 @@ Feature: User with no Author identity in the Authority Register for Personas see
         | Dato |
 	And a button Åpne that is enabled 
 
-  # Actions from Min Arbeidsliste
+  # Actions from Page : Min Arbeidsliste
   Scenario: User opens an item in the Til Godkjenning or DOI request list
     Given the user is logged in as Institusjonskurator
 	And has opened the page Min Arbeidsliste
@@ -349,6 +391,7 @@ Feature: User with no Author identity in the Authority Register for Personas see
           | Til Godkjenning | Publish |
           | DOI request | Create DOI |
 
+  # Menuitems for Institusjonsadmin
   Scenario: The user opens Brukeradministrasjon
     Given the user is logged in as Institusjonsadmin
     When they click the menu item Brukeradministrasjon
@@ -362,6 +405,22 @@ Feature: User with no Author identity in the Authority Register for Personas see
 	And a button Fjern that is enabled for each user
 	And a link to add a user with a specific role
 
+  Scenario: The user opens Min Institusjon
+    Given the user is logged in as Institusjonsadmin
+    When they click the menu item Min Institusjon
+    Then the page Min Institusjon is opened
+	And has the fields
+        | Navn i organisasjonsregisteret | 
+        | Visningsnavn |
+        | Forkortet visningsnavn |
+        | CNAME |
+        | Institusjons DNS |
+    And a checkbox
+        | Publisering må godkjennes av kurator |
+	And a button Last opp ny logo that is enabled
+	And a button Last opp fil that is enabled
+
+  # Actions from page : Brukeradministrasjon
   Scenario: Institusjonsadmin adds a role to a user
     Given the user is logged in as Institusjonsadmin
     When they click the link Ny <role> in the page Brukeradministrasjon
@@ -377,3 +436,40 @@ Feature: User with no Author identity in the Authority Register for Personas see
             | Registrator |
             | Applikasjonsadministrator |
             | Bruker |
+
+  # Menuitems for Redaktør
+  Scenario: The user opens Redaktøroppsett
+    Given the user is logged in as Redaktør
+    When they click the menu item Redaktøroppsett
+    Then the page Redaktøroppsett is opened
+	And has the fields
+        | Epost | 
+	And a button Lagre that is enabled
+ 
+  # Menuitems for Applikasjonsadmin
+  Scenario: The user opens Institusjoner
+    Given the user is logged in as Applikasjonsadmin
+    When they click the menu item Institusjoner
+    Then the page Institusjoner is opened
+	And the user see a liste of all institution (customers)
+	And has the fields
+        | Institusjon | 
+        | Oprettet |
+        | Redaktør |
+	And a button Åpne that is enabled for each institution
+    And a button Opprett institusjon that is enabled
+
+  # Actions from page : Institusjon (Add/Update)
+  Scenario: Applikasjonsadmin changes a new institution
+    Given the user is logged in as Applikasjonsadmin
+    When they click the link Opprett institusjon or Åpne in the page Institusjoner
+    Then the page Institusjon is opened with the fields
+        | Navn i organisasjonsregisteret | 
+        | Visningsnavn på institusjonen |
+        | Forkortet navn på institusjonen |
+        | Arkivnavn |
+        | CNAME |
+        | Institusjonsadmin ID |
+        | Feide Organisasjons ID |
+	And a button Legg til that is enabled
+ 
