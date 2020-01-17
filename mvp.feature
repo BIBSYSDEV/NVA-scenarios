@@ -40,7 +40,13 @@ Feature: User with no Author identity in the Authority Register for Personas see
     And see their profile page which includes information for
         | Real name |
         | Feide ID  |
+        | Email     |
         | ORCID     |
+        | Role(s)      |
+        | Institution |
+        | Profile picture |
+        | Contact info |
+        | Preferred language |
 
   Scenario: User begins registering a Publication
     Given that the user is logged in
@@ -57,7 +63,7 @@ Feature: User with no Author identity in the Authority Register for Personas see
         | Direct data from Datacite/Crossref (in case link is a DOI)                 |
         | Data from Datacite/Crossref from citation_doi meta tag (DOI)               |
         | Data from Datacite/Crossref from dc:identifier meta tag (if a valid DOI)   |
-        | Data from DC meta tags                                                     |
+        | Data from DC meta tags                                                      |
         | Data from title tag                                                        |
     # There is a logical hierarchy in which these should be requested/used
     # The intention of this step is twofold: 1) NVA knows some useful metadata about the resource, 2) researcher knows that they are linking to the right resource
@@ -66,12 +72,42 @@ Feature: User with no Author identity in the Authority Register for Personas see
     Given that the user begins registering a Link
     And they see that the title metadata for the Link look-up is correct
     When they click Start
-    Then they see that the Publication metadata registration page is pre-filled with suggested metadata values for
+    And the Publication metadata registration page is loaded 
+    Then they see that the Beskrivelse tab is pre-populated with suggested metadata values (if available in the input data from the link) for
         | Title |
+        | Alternative title(s) |
         | Abstract |
-        | Year |
+        | Alternative abstract(s) |
+        | Description |
         | Publication date |
-	And the Publication is saved and available in My Publications
+        | NPI-fagfelt |
+        | Keywords |
+        | Primary language for publication |
+    And they they see that the Reference tab is pre-populated with suggested metadata values (if available in the input data from the link) for
+        | Publication type |
+        | Link (the link that was provided by the user) |
+        | The unmapped text for Journal |
+        | Volume |
+        | Issue |
+        | Page from | 
+        | Page to |
+        | Article number |
+        | Peer-review |          
+    And they they see that the Contributors tab Authors section is pre-populated with suggested metadata values (if available in the input data from the link) for <Author>, <Institution> and <CorrespondingAuthor>
+    And they they see that the Contributors tab Contributors section is pre-populated with suggested metadata values (if available in the input data from the link) for <ContributionType>, <Name> and <Institution>
+    And they they see that the Files and Licenses tab is pre-populated with suggested metadata values (if available in the input data from the link) for
+        | Possible mapped value for License, Archiving policy and Unit agreement |
+        | Possible file for upload  (Filename, File size) |
+	And the Publication is saved and the title is listed in My Publications and marked as Kladd
+    
+        Examples:
+            | Author | Institution | CorrespondingAuthor |
+            | Name Nameson (Not found) | NTNU (Found) | True |
+            | Jan Jansson (Found) | MTNU (Not Found) | False |
+        
+        Examples:
+            | ContributionType | Name | Institution |
+            | Photographer | Jim Jimsson | AVH (Not found) |            
 
   Scenario: User adds NPI data for a Publication based on a Link
     Given the the user registers initial metadata for a Publication based on a Link
@@ -200,7 +236,7 @@ Feature: User with no Author identity in the Authority Register for Personas see
     And the page contains a notification that the Publication is Published
 	
   # Access to the different menu items
-  Scenario: User sees menu when not logged in
+  Scenario: User sees non-logged-in menu
     Given the user is not logged in (and has no role)
     When they look at any page in NVA
     Then they see an menu containing
@@ -274,13 +310,14 @@ Feature: User with no Author identity in the Authority Register for Personas see
     Given the user is logged in
     When they click the menu item Min Profil
     Then the page Min Profil is opened
+    # Write a new Scenario for this
 
   Scenario: User logs out
     Given the user is logged in
     When they click the menu item Logg ut
-    Then the search page is opened
-	And the user is logged out from Feide
-	And the users sees menu when not logged in
+    Then the user is logged out from Feide
+	And the search page is opened
+    And the user sees non-logged-in menu
 
   # Menuitems for Institusjonskurator
   Scenario: User opens Min Arbeidsliste
@@ -291,46 +328,52 @@ Feature: User with no Author identity in the Authority Register for Personas see
         | Til Godkjenning | 
         | Brukerstøtte |
         | DOI-forespørsler |
-	And the lists has fields
+	And the lists have fields
         | Saken gjelder |
         | Innsender |
         | Dato |
 	And a button Åpne that is enabled 
 
   # Actions from Min Arbeidsliste
-  Scenario: User opens an item in the Til Godkjenning list
+  Scenario: User opens an item in the Til Godkjenning or DOI request list
     Given the user is logged in as Institusjonskurator
 	And has opened the page Min Arbeidsliste
+    And they select a <Tab>
     When they click Åpne on an item
     Then the item is opened in the wizard
 	And the user sees the Innsending tab
-	And a button Publiser that is enabled 
-
-  Scenario: User opens an item in the DOI forespørsler list
-    Given the user is logged in as Institusjonskurator
-	And has opened the page Min Arbeidsliste
-    When they click Åpne on an item
-    Then the item is opened in the wizard
-	And the user sees the Innsending tab
-	And a button Opprett DOI that is enabled 
+	And <Button> is enabled 
+    
+        Examples:
+          | Tab | Button |
+          | Til Godkjenning | Publish |
+          | DOI request | Create DOI |
 
   Scenario: The user opens Brukeradministrasjon
     Given the user is logged in as Institusjonsadmin
     When they click the menu item Brukeradministrasjon
     Then the page Brukeradministrasjon is opened
-	And the user see a liste of all users connected to his institution
-	And the users are grouped by the NVA-roles
-	And has the fileds
+	And the user see a liste of all users connected to their institution
+	And the users are grouped by NVA-roles
+	And has the fields
         | ID | 
         | Navn |
         | Dato opprettet |
-	And a button Fjern that is enabled
+	And a button Fjern that is enabled for each user
 	And a link to add a user with a specific role
 
-  Scenario: User adds a role to a user
+  Scenario: Institusjonsadmin adds a role to a user
     Given the user is logged in as Institusjonsadmin
     When they click the link Ny <role> in the page Brukeradministrasjon
     Then the page adds a line with the fields
         | ID | 
         | Navn |
 	And a button Legg til that is enabled
+        Examples:
+            | Role |
+            | Institusjonsadmin |
+            | Institusjonskurator |
+            | Redaktør |
+            | Registrator |
+            | Applikasjonsadministrator |
+            | Bruker |
