@@ -40,7 +40,13 @@ Feature: User with no Author identity in the Authority Register for Personas see
     And see their profile page which includes information for
         | Real name |
         | Feide ID  |
+        | Email     |
         | ORCID     |
+        | Role(s)      |
+        | Institution |
+        | Profile picture |
+        | Contact info |
+        | Preferred language |
 
   Scenario: User begins registering a Publication
     Given that the user is logged in
@@ -57,7 +63,7 @@ Feature: User with no Author identity in the Authority Register for Personas see
         | Direct data from Datacite/Crossref (in case link is a DOI)                 |
         | Data from Datacite/Crossref from citation_doi meta tag (DOI)               |
         | Data from Datacite/Crossref from dc:identifier meta tag (if a valid DOI)   |
-        | Data from DC meta tags                                                     |
+        | Data from DC meta tags                                                      |
         | Data from title tag                                                        |
     # There is a logical hierarchy in which these should be requested/used
     # The intention of this step is twofold: 1) NVA knows some useful metadata about the resource, 2) researcher knows that they are linking to the right resource
@@ -65,11 +71,43 @@ Feature: User with no Author identity in the Authority Register for Personas see
   Scenario: User registers initial metadata for a Publication based on a Link
     Given that the user begins registering a Link
     And they see that the title metadata for the Link look-up is correct
-    When they click next
-    Then they see that the Publication metadata registration page is pre-filled with suggested metadata values
-    And they fill in/edit the obligatory values
+    When they click Start
+    And the Publication metadata registration page is loaded 
+    Then they see that the Beskrivelse tab is pre-populated with suggested metadata values (if available in the input data from the link) for
         | Title |
-        | Year  |
+        | Alternative title(s) |
+        | Abstract |
+        | Alternative abstract(s) |
+        | Description |
+        | Publication date |
+        | NPI-fagfelt |
+        | Keywords |
+        | Primary language for publication |
+    And they they see that the Reference tab is pre-populated with suggested metadata values (if available in the input data from the link) for
+        | Publication type |
+        | Link (the link that was provided by the user) |
+        | The unmapped text for Journal |
+        | Volume |
+        | Issue |
+        | Page from | 
+        | Page to |
+        | Article number |
+        | Peer-review |          
+    And they they see that the Contributors tab Authors section is pre-populated with suggested metadata values (if available in the input data from the link) for <Author>, <Institution> and <CorrespondingAuthor>
+    And they they see that the Contributors tab Contributors section is pre-populated with suggested metadata values (if available in the input data from the link) for <ContributionType>, <Name> and <Institution>
+    And they they see that the Files and Licenses tab is pre-populated with suggested metadata values (if available in the input data from the link) for
+        | Possible mapped value for License, Archiving policy and Unit agreement |
+        | Possible file for upload  (Filename, File size) |
+	And the Publication is saved and the title is listed in My Publications and marked as Kladd
+    
+        Examples:
+            | Author | Institution | CorrespondingAuthor |
+            | Name Nameson (Not found) | NTNU (Found) | True |
+            | Jan Jansson (Found) | MTNU (Not Found) | False |
+        
+        Examples:
+            | ContributionType | Name | Institution |
+            | Photographer | Jim Jimsson | AVH (Not found) |            
 
   Scenario: User adds NPI data for a Publication based on a Link
     Given the the user registers initial metadata for a Publication based on a Link
@@ -196,3 +234,252 @@ Feature: User with no Author identity in the Authority Register for Personas see
     When they click Publish in NVA
     Then they see the Publication page containing all data and files
     And the page contains a notification that the Publication is Published
+	
+  # Access to the different menu items
+  Scenario: User sees non-logged-in menu
+    Given the user is not logged in (and has no role)
+    When they look at any page in NVA
+    Then they see an menu containing
+        | Logg inn |
+    
+  Scenario: User sees a menu when logged in
+    Given the user is logged in (and has no NVA-role)
+    When they look at any page in NVA
+    Then they see a menu containing
+        | Min Profil |
+        | Logg ut |
+
+  Scenario: User sees the menu for Registrator
+    Given the user is logged in
+    And has the role of Registrator
+    When they look at any page in NVA
+    Then they see a menu containing
+        | Min Profil  |
+        | Logg ut |
+        | Ny Registrering  |
+        | Mine publiseringer |
+        | Meldinger |
+
+  Scenario: User sees the menu for Institusjonskurator
+    Given the user is logged in
+    And has the role of Institusjonskurator
+    When they look at any page in NVA
+    Then they see a menu containing
+        | Min Profil  |
+        | Logg ut |
+        | Min Arbeidsliste  |
+            
+  Scenario: User sees the menu for Institusjonsadmin
+    Given the user is logged in
+    And has the role of Institusjonsadmin
+    When they look at any page in NVA
+    Then they see a menu containing
+        | Min Profil  |
+        | Logg ut |
+        | Brukeradministrasjon  |
+        | Min Institusjon |
+  
+  Scenario: User sees the menu for Institusjonsredaktør
+    Given the user is logged in 
+    And has the role of Institusjonsredaktør
+    When they look at any page in NVA
+    Then they see a menu containing
+        | Min Profil  |
+        | Logg ut |
+        | Redaktøroppsett  |
+
+  Scenario: User sees the menu for Applikasjonsadministrator
+    Given the user is logged in
+    And has the role of Applikasjonsadministrator
+    When they look at any page in NVA
+    Then they see a menu containing
+        | Min Profil  |
+        | Logg ut |
+        | Institusjoner  |
+
+  # Description of each menu item
+  
+  # Menu items for anonymous
+  Scenario: User opens login page
+    Given the user is not logged in
+    When they click the menu item Logg inn
+    Then the page for login with Feide is opened
+
+  # Menu items for logged in person
+  Scenario: User opens the page Min Profil
+    Given the user is logged in
+    When they click the menu item Min Profil
+    Then the page Min Profil is opened
+    # Write a new Scenario for this
+
+  Scenario: User logs out
+    Given the user is logged in
+    When they click the menu item Logg ut
+    Then the user is logged out from Feide
+	And the search page is opened
+    And the user sees non-logged-in menu
+
+   # Menuitems for Registrator
+  Scenario: User opens Ny Registrering
+    Given the user is logged in as Registrator
+    When they click the menu item Ny Registrering
+    Then the page Ny Registrering is opened
+	And the user see tabs
+        | Start med å laste opp fil |
+        | Start med en lenke til publikasjon |
+        | Start med forslag fra din ORCID |
+
+  Scenario: User opens Mine Publiseringer
+    Given the user is logged in as Registrator
+    When they click the menu item Mine Registreringer
+    Then the page Mine Registreringer is opened
+	And a list of all unpublished registrations with the fields
+        | Navn på publisering |
+        | <Status> |
+        | Opprettet |
+        Examples:
+            | Status |
+            | Kladd |
+            | Avvist |
+    And each list item has a button Slett and Rediger that is enabled
+
+  # Actions from Page : Mine Publiseringer (Rediger)
+  Scenario: User opens an item in the Mine Publiseringer list
+    Given the user is logged in as Registrator
+	And has opened the page Mine Publiseringer
+    When they click Rediger on an item
+    Then the item is opened in the wizard
+	And the user sees the Beskrivelse tab
+    And the fields in the wizard are populated with values from the saved publication
+
+  # Actions from Page : Mine Publiseringer (Slett)
+  Scenario: User opens an item in the Mine Publiseringer list
+    Given the user is logged in as Registrator
+	And has opened the page Mine Publiseringer
+    When they click Slett on an item
+    Then a comfirmation pop-up is opened
+	When the user selects Yes the publication is marked as Deleted
+    When the user selects No the pop-up is closed
+
+ # Menuitems for Institusjonskurator
+  Scenario: User opens Min Arbeidsliste
+    Given the user is logged in as Institusjonskurator
+    When they click the menu item Min Arbeidsliste
+    Then the page Min Arbeidsliste is opened
+	And the user see the lists 
+        | Til Godkjenning | 
+        | Brukerstøtte |
+        | DOI-forespørsler |
+	And the lists have fields
+        | Saken gjelder |
+        | Innsender |
+        | Dato |
+	And a button Åpne that is enabled 
+
+  # Actions from Page : Min Arbeidsliste
+  Scenario: User opens an item in the Til Godkjenning or DOI request list
+    Given the user is logged in as Institusjonskurator
+	And has opened the page Min Arbeidsliste
+    And they select a <Tab>
+    When they click Åpne on an item
+    Then the item is opened in the wizard
+	And the user sees the Innsending tab
+	And <Button> is enabled 
+    
+        Examples:
+          | Tab | Button |
+          | Til Godkjenning | Publish |
+          | DOI request | Create DOI |
+
+  # Menuitems for Institusjonsadmin
+  Scenario: The user opens Brukeradministrasjon
+    Given the user is logged in as Institusjonsadmin
+    When they click the menu item Brukeradministrasjon
+    Then the page Brukeradministrasjon is opened
+	And the user sees a list of all users connected to their institution
+	And the users are grouped by NVA-roles
+	And has the fields
+        | ID | 
+        | Navn |
+        | Dato opprettet |
+	And a button Fjern that is enabled for each user
+	And a link to add a user with a specific role
+
+  Scenario: The user opens Min Institusjon
+    Given the user is logged in as Institusjonsadmin
+    When they click the menu item Min Institusjon
+    Then are on the page Min Institusjon
+    
+  Scenario: The Admin user creates an Organization
+    Given the admin user has opened Min Institusjon
+    When they fill in the fields
+        | Navn i organisasjonsregisteret | 
+        | Visningsnavn |
+        | Forkortet visningsnavn |
+        | CNAME |
+        | Institusjons DNS |
+    And check a checkbox
+        | Publisering må godkjennes av kurator |
+	And upload a new logo  #might need describing
+	Then they see a message telling them that the information was saved
+    And they can click the link to the institutional portal 
+    
+  Scenario: Admin user views the institutional portal
+    Given the admin user has created an Organization
+    When they click the link to the institutional portal on the Organization page
+    Then they see the web address in their web browser is the CName + nva.unit.no
+    And the page has the same title as they entered in the Organization page
+
+  # Actions from page : Brukeradministrasjon
+  Scenario: Institusjonsadmin adds a role to a user
+    Given the user is logged in as Institusjonsadmin
+    When they click the link Ny <role> in the page Brukeradministrasjon
+    Then the page adds a line with the fields
+        | ID | 
+        | Navn |
+	And a button Legg til that is enabled
+        Examples:
+            | Role |
+            | Institusjonsadmin |
+            | Institusjonskurator |
+            | Redaktør |
+            | Registrator |
+            | Applikasjonsadministrator |
+            | Bruker |
+
+  # Menuitems for Redaktør
+  Scenario: The user opens Redaktøroppsett
+    Given the user is logged in as Redaktør
+    When they click the menu item Redaktøroppsett
+    Then the page Redaktøroppsett is opened
+	And has the fields
+        | Epost | 
+	And a button Lagre that is enabled
+ 
+  # Menuitems for Applikasjonsadmin
+  Scenario: The user opens Institusjoner
+    Given the user is logged in as Applikasjonsadmin
+    When they click the menu item Institusjoner
+    Then the page Institusjoner is opened
+	And the user see a liste of all institution (customers)
+	And has the fields
+        | Institusjon | 
+        | Oprettet |
+        | Redaktør |
+	And a button Åpne that is enabled for each institution
+    And a button Opprett institusjon that is enabled
+
+  # Actions from page : Institusjon (Add/Update)
+  Scenario: Applikasjonsadmin changes a new institution
+    Given the user is logged in as Applikasjonsadmin
+    When they click the link Opprett institusjon or Åpne in the page Institusjoner
+    Then the page Institusjon is opened with the fields
+        | Navn i organisasjonsregisteret | 
+        | Visningsnavn på institusjonen |
+        | Forkortet navn på institusjonen |
+        | Arkivnavn |
+        | CNAME |
+        | Institusjonsadmin ID |
+        | Feide Organisasjons ID |
+	And a button Legg til that is enabled
+ 
