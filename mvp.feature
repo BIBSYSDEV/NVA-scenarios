@@ -396,7 +396,7 @@ Feature: User with no Author identity in the Authority Register for Personas see
     Given the user is logged in as Institusjonsadmin
     When they click the menu item Brukeradministrasjon
     Then the page Brukeradministrasjon is opened
-	And the user see a liste of all users connected to their institution
+	And the user sees a list of all users connected to their institution
 	And the users are grouped by NVA-roles
 	And has the fields
         | ID | 
@@ -408,17 +408,27 @@ Feature: User with no Author identity in the Authority Register for Personas see
   Scenario: The user opens Min Institusjon
     Given the user is logged in as Institusjonsadmin
     When they click the menu item Min Institusjon
-    Then the page Min Institusjon is opened
-	And has the fields
+    Then are on the page Min Institusjon
+    
+  Scenario: The Admin user creates an Organization
+    Given the admin user has opened Min Institusjon
+    When they fill in the fields
         | Navn i organisasjonsregisteret | 
         | Visningsnavn |
         | Forkortet visningsnavn |
         | CNAME |
         | Institusjons DNS |
-    And a checkbox
+    And check a checkbox
         | Publisering må godkjennes av kurator |
-	And a button Last opp ny logo that is enabled
-	And a button Last opp fil that is enabled
+	And upload a new logo  #might need describing
+	Then they see a message telling them that the information was saved
+    And they can click the link to the institutional portal 
+    
+  Scenario: Admin user views the institutional portal
+    Given the admin user has created an Organization
+    When they click the link to the institutional portal on the Organization page
+    Then they see the web address in their web browser is the CName + nva.unit.no
+    And the page has the same title as they entered in the Organization page
 
   # Actions from page : Brukeradministrasjon
   Scenario: Institusjonsadmin adds a role to a user
