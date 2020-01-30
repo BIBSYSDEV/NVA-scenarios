@@ -13,9 +13,9 @@
   Scenario: User updates an Author identity
     Given that a user with no Feide ID in the Authority Register for Personas sees matching Author identities
     When they select an Author identity
-    And the user clicks the button to Connect the author ID
+    And the user click the button to Connect the author ID
     Then the user's Feide ID is added to the Author identity
-    And the user's Feide organisation number is mapped to a Organisational ID (Cristin ID)
+    And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
     And the user's Organisational ID (Cristin ID) is added to the Author identity
     And the Next button is enabled
   # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
@@ -24,10 +24,10 @@
   Scenario: User creates an Author identity
     Given that a user has no matching Author identities
     And they see that their name is selected
-    When they click the button to Create an Author identity
-    Then the user is created in the Authority Register for Personas
+    When they click Create an Author identity
+    Then the user's identity is added to the Authority Register for Personas
     And the user's Feide ID is added to the Author identity
-    And the user's Feide organisation number is mapped to a Organisational ID (Cristin ID)
+    And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
     And the user's Organisational ID (Cristin ID) is added to the Author identity
     And the Next button is enabled
 
@@ -72,7 +72,7 @@
   Scenario: User begins registration by uploading a file
     Given that the user begins registering a Publication
     When they click Upload file
-    And uploads a file
+    And they upload a file
     Then they see a thumbnail of the file
     And the Start button is enabled
 
@@ -112,7 +112,6 @@
       | Alternative abstract(s)          |
       | Description                      |
       | Publication date                 |
-      | NPI-fagfelt                      |
       | Keywords                         |
       | Primary language for publication |
     And they they see that the Reference tab is populated with metadata values for
@@ -145,7 +144,7 @@
     Given the user registers initial metadata for a Publication based on a Link
     When they select a value in the drop-down for NPI subject area
     Then this is added to the metadata for the Publication
-    And the metadata is listed in the summary
+    And the NPI subject area is listed in the summary
 
   @231
   Scenario: User associates Projects with a Publication
@@ -160,7 +159,7 @@
     And the user can add another project
 
   @233
-  Scenario: User verifies information for Journal for a Publication based on a Link
+  Scenario: User verifies Kanalregister information for a Publication based on a Link
     Given that the user registers initial metadata for a Publication based on a Link
     And the Publication is a Publication in Journal
     And the Journal for the Publication is found in Kanalregisteret
@@ -171,21 +170,20 @@
     And they see that the information for Academic Level is correct
 
   @234
-  Scenario: User verifies information for a Publication in Journal Publication data for a publication based on a Link
+  Scenario: User verifies Reference information for a publication based on a Link
     Given that the user registers initial metadata for a Publication based on a Link
     And the Publication is a Publication in Journal
-    When they verify that the information about the Publication in Journal Publication
+    When they navigate to the Reference tab
     Then they see information for Volume
     And they see information for Issue
     And they see Page Number information
     And they see an Article Number
-  # it is implicit that these fields are editable
 
   @274
   Scenario: User sets the value for Publication Type for a Publication in Journal Publication
     Given that the user registers initial metadata for a Publication based on a Link
     And have clicked Next
-    And they are on the screen for registering information about the Publication Reference
+    And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
       | Publication in Journal |
     And they select a Publication Subtype from the list
@@ -194,9 +192,13 @@
       | Leader               |
       | Letter to the editor |
       | Review               |
-    And they verify a (non-obligatory) DOI from a Publication based on a Link
-    And they verify information for Journal for a publication based on a Link
-    And they verify (non-obligatory) information for a Publication in Journal Publication data for a publication based on a Link
+    And they verify a (non-obligatory) DOI
+    And they verify information for Journal
+    And they verify (non-obligatory) Volume
+    And they verify (non-obligatory) Issue
+    And they verify (non-obligatory) Pages from
+    And they verify (non-obligatory) Pages to
+    And they verify (non-obligatory) Article number
     And they select a value for Peer-review
     And they view the Summary Page
     Then they see that the information is registered
@@ -205,13 +207,13 @@
   Scenario: User sets the value for Publication Type for a Book
     Given that the user registers initial metadata for a Publication based on a Link
     And have clicked Next
-    And they are on the screen for registering information about the Publication Reference
+    And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
       | Book |
     And they select a Publication Subtype from the list
       | Monography |
       | Anthology  |
-    And they verify information for Publisher for a publication based on a Link
+    And they verify information for Publisher
     And they verify (non-obligatory) ISBN
     And they select a value for Peer-review
     And they selet a value for (non-obligatory) Is this a textbook
@@ -225,7 +227,7 @@
   Scenario: User sets the value for Publication Type for a Report
     Given that the user registers initial metadata for a Publication based on a Link
     And have clicked Next
-    And they are on the screen for registering information about the Publication Reference
+    And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
       | Report |
     And they select a Publication Subtype from the list
@@ -233,7 +235,7 @@
       | Research report |
       | Policy report   |
       | Working paper   |
-    And they verify information for Publisher for a publication based on a Link
+    And they verify information for Publisher
     And they verify (non-obligatory) ISBN
     And they select a value for (non-obligatory) Total number of pages
     And they select a value for (non-obligatory) Title of the Series
@@ -244,14 +246,14 @@
   Scenario: User sets the value for Publication Type for a Degree
     Given that the user registers initial metadata for a Publication based on a Link
     And have clicked Next
-    And they are on the screen for registering information about the Publication Reference
+    And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
       | Degree |
     And they select a Publication Subtype from the list
       | Bachelor  |
       | Master    |
       | Doctorate |
-    And they verify information for Publisher for a publication based on a Link
+    And they verify information for Publisher
     And they select a value for (non-obligatory) Title of the Series
     And they view the Summary Page
     Then they see that the information is registered
@@ -260,7 +262,7 @@
   Scenario: User sets the value for Publication Type for a Chapter
     Given that the user registers initial metadata for a Publication based on a Link
     And have clicked Next
-    And they are on the screen for registering information about the Publication Reference
+    And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
       | Chapter |
     And they select a value for Book
@@ -292,9 +294,9 @@
     And they see that the Other Contributors have the correct Role, Name and Institution
 
   @417
-  Scenario: User navigates to <Contributor> tab
+  Scenario: User navigates to Contributor tab
     Given that the user verifies initial metadata for a Publication based on a Link
-    When they select the <Contributor> tab
+    When they select the Contributor tab
     Then they see that there are no Contributors registered
     And a grid is shown with the fields
       | Name           |
@@ -311,7 +313,7 @@
     When they click the to add an Author
     Then the dialog to add an Author is opened
     And the dialog contains fields for
-      | Author-search      |
+      | Author search      |
       | Institution search |
     And a button to add an Author is enabled
 
@@ -319,7 +321,7 @@
   Scenario: User adds an Author to the Author list
     Given that the user opens the add Author dialog
     And enters a Name in the Author search box
-    And see search results for the Author-search containing the last publication
+    And see search results for the Author search containing the last publication
     And see the Institution from the Author Register
     When they click the button to Add an Author
     Then the dialog is closed
@@ -493,7 +495,7 @@
   @406
   Scenario: User views a list of sub-units to their Institution from My Profile
     Given user opens the page My Profile
-    When they click the button to change the Institution
+    When they click the button Change Institution
     Then the user sees the Change Institution window
     And their Institution from the Authority Registry is selected
     And a dropdown with the units connected to the Institution is shown
@@ -503,7 +505,7 @@
   Scenario: User adds a sub-unit to their Institution from My Profile
     Given user views a list of sub-units to their Institution from My Profile
     When the user selects a sub-unit
-    And save the change
+    And save the changes
     Then the changes are saved to the Authority Registry
     And the changes are shown in My Profile
 
@@ -517,7 +519,7 @@
   @410
   Scenario: User open Add Institution from My Profile
     Given user opens the page My Profile
-    When click the Add (Inistitution)
+    When click the Add (Institution)
     Then the Add Institution window is opened
     And the user can search for Institutions
 
@@ -532,9 +534,9 @@
     And the user sees the new Institution in My Profile
 
   @383
-  Scenario: User removes a ORCID connection from My Profile
+  Scenario: User removes an ORCID connection from My Profile
     Given user opens the page My Profile
-    When they click the button to remove a ORCID connection
+    When they click the button to remove an ORCID connection
     Then the user is asked to confirm
     And their ORCID is removed from the Authority Registry
 
@@ -547,7 +549,6 @@
     And the user sees non-logged-in menu
 
   # Menuitems for Creator
-  Slå sammen: Dette er @226)
   Scenario: User opens New Registration
     Given the user is logged in as Creator
     When they click the menu item New Registration
@@ -708,10 +709,10 @@
       | Email |
     And a button Save that is enabled
 
-  # Menuitems for Applikasjonsadmin
+  # Menuitems for Application adminstrator
   @365
-  Scenario: The Applikasjonsadmin opens Institutions
-    Given the user is logged in as Applikasjonsadmin
+  Scenario: The Application adminstrator opens Institutions
+    Given the user is logged in as Application adminstrator
     When they click the menu item Institutions
     Then the page Institutions is opened
     And the user sees a table of all institutions (customers)
@@ -724,8 +725,8 @@
 
   # Actions from page : Institution (Add/Update)
   @NP-366
-  Scenario: Applikasjonsadmin changes / adds an institution
-    Given the user is logged in as Applikasjonsadmin
+  Scenario: Application adminstrator changes / adds an institution
+    Given the user is logged in as Application adminstrator
     When they click <Button> in the page Institutions
     Then the page Institution is opened with the fields
       | Name in organisation registry |
