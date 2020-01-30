@@ -584,7 +584,7 @@
 
   # Actions from Page : My Publications (Delete)
   @356
-  Scenario: User opens an item in the My Publications list
+  Scenario: User delete an item in the My Publications list
     Given the user is logged in as Creator
     And has opened the page My Publications
     When they click Delete on an item
