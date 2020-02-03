@@ -22,9 +22,9 @@
 
   @384
   Scenario: User creates an Author identity
-    Given that a user has no matching Author identities
+    Given that a user has no matching Author identity
     And they see that their name is selected
-    When they click Create an Author identity
+    When they click Create Author identity
     Then the user's identity is added to the Authority Register for Personas
     And the user's Feide ID is added to the Author identity
     And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
@@ -55,66 +55,233 @@
     When they click Register new publication
     Then they are redirected to the Register new publication page
 
+  @443
+  Scenario: User starts registering a Publication
+    Given that the user begins registering a Publication
+    And they have selected one of the method for starting the wizard
+    When they click Start
+    Then the Wizard is started
+
   @228
-  Scenario: User begins registering with a Link
+  Scenario: User begins registering with a Link with direct data from Datacite/Crossref
     Given that the user begins registering a Publication
     When they click Link to publication
-    And enter a Link
+    And enter a <Link>
     And click Search
-    Then they see metadata about the Link in the field below the link retrieved from one of
-      | Direct data from Datacite/Crossref (in case link is a DOI)               |
-      | Data from Datacite/Crossref from citation_doi meta tag (DOI)             |
-      | Data from Datacite/Crossref from dc:identifier meta tag (if a valid DOI) |
-      | Data from DC meta tags                                                   |
-      | Data from title tag                                                      |
+    Then they see metadata about the Link
+    Examples:
+      | Link                              |
+      | https://doi.org/10.18711/yjieaump |
+
+  @439
+  Scenario: User begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link                                                               |
+      | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945 |
+      | https://loar.kb.dk/handle/1902/1674?show=full                      |
+
+  @440
+  Scenario: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link |
+      | ...  |
+
+  @441
+  Scenario: User begins registering with a Link with data from DC ans DCTERMS meta tags
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link                                                     |
+      | https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973 |
+
+  @442
+  Scenario: User begins registering with a Link with data from Open Graph tag
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link                                                                                            |
+      | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
+
+  Scenario: User start Wizard registration
+    Given that the user starts registering a Publication
+    When they click Start
+    Then they see the tab Description with fields for
+      | Title                        |
+      | Alternative title(s)         |
+      | Abstract                     |
+      | Alternative abstract(s)      |
+      | Description                  |
+      | Date published               |
+      | NPI disciplines              |
+      | Keywords                     |
+      | Primary language for content |
+      | Project association          |
+    And they see the tab Description is selected
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
+
+  Scenario: User navigates to the Reference tab
+    Given that the starts registering a Publication
+    When they navigate to the Reference tab
+    Then they see the tab Reference with fields for
+      | Type |
+    And they see the tab Description is clickable
+    And they see the tab Reference is selected
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
+
+  @417
+  Scenario: User navigates to the Constributor tab
+    Given that the starts registering a Publication
+    When they navigate to the Constributor tab
+    Then they see the tab Constributor with fields for
+      | Name           |
+      | Institution    |
+      | Corresponding  |
+      | Move up / down |
+      | Edit           |
+      | Delete         |
+    And a button to add an Author is enabled
+    And they see the tab Description is clickable
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is selected
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
+
+  @275
+  Scenario: User navigates to the Files and License tab
+    Given that the starts registering a Publication
+    When they navigate to the Files and License tab
+    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
+    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
+    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Norwegian Register
+    And they can upload files for the Publication
+    And they see the tab Description is clickable
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is selected
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
+
+  @277
+  Scenario: User navigates to the Submission tab
+    Given that the starts registering a Publication
+    When they navigate to the Submission tab
+    Then they see all of the data they have entered including obligatory fields
+      | Title                   |
+      | Resource (file or link) |
+      | License                 |
+    And they see the tab Description is clickable
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is selected
+    And they see Next is enabled
+    And they see Save is enabled
+    And they see Publish is enabled
 
   @385
   Scenario: User begins registration by uploading a file
     Given that the user begins registering a Publication
     When they click Upload file
     And they upload a file
-    Then they see a thumbnail of the file
-    And the Start button is enabled
+    Then they see the filesize and checksum
+    And Delete file is enabled
+    And the Start is enabled
+
+  #Scenario: User start Wizard registration by uploading a file
+  #  Given that the user begins registration by uploading a file
+  #  When they click Start
+  #  Then they see the tab Description
 
   @386
   Scenario: User begins registration by using suggestions from ORCID
     Given that the user begins registering a Publication
     When they click Suggestions from ORCID
-    Then they see suggestions from ORCID
-    And the Start button is enabled
+    Then they see a list of last publications from ORCID API assosiated with the users ORCID ID
+    And each list entry contains metadata for:
+      | title         |
+      | year          |
+      | journal title |
+      | DOI           |
+    And that each entry is selectable
+
+  #Scenario: User start Wizard registration by using suggestions from ORCID
+  #  Given that the user begins registration by using suggestions from ORCID
+  #  When they click Start
+  #  Then they see the tab Description
 
   @388
-  Scenario: User sees publication for a Publication based on a Link
+  Scenario: User sees a Publication based on a Link
     Given that the user begins registering with a Link
-    And they see that the title metadata for the Link is correct
+    And they see that the title <Metadata> for the Link is correct
     When they click Start
     And they click My Publications
-    Then they see the Publication is saved and the title is listed and marked as Kladd
+    Then they see the Publication is saved and the title is listed and marked as Draft
+    Examples:
+      | Metadata |
+      | Title    |
+  #| First three authors |
+  #| Publication date    |
 
   @391
-  Scenario: User sees publication for a Publication based on uploading a file
+  Scenario: User sees publication for a registration based on uploading a file
     Given User begins registration by uploading a file
-    And they see that the thumbnail and filesize is correct
+    And they see that filesize and checksum
     When they click Start
     And they click My Publications
-    Then they see the Publication is saved and the title is listed (filename) and marked as Kladd
+    Then they see the Publication is saved and the title is listed (filename) and marked as Draft
+
+  @432
+  Scenario: User verifies file upload for a registration based on uploading a file
+    Given User sees publication for a Publication based on uploading a file
+    When they open the item in the Wizard
+    And select the tab Files and licenses
+    Then the files are available for download
 
   @229
-  Scenario: User verifies initial metadata for a Publication based on a Link
-    Given that the user begins registering with a Link
-    And they see that the title metadata for the Link is correct
-    When they click Start
-    And the Publication metadata registration page loads
-    Then they see that the Description tab is populated with metadata values for
-      | Title                            |
-      | Alternative title(s)             |
-      | Abstract                         |
-      | Alternative abstract(s)          |
-      | Description                      |
-      | Publication date                 |
-      | Keywords                         |
-      | Primary language for publication |
-    And they they see that the Reference tab is populated with metadata values for
+  Scenario: User verifies initial metadata on the Description tab for a registration
+    Given that the user start Wizard registration with a Link
+    When they see the Description tab
+    Then they see that the Description tab is populated with metadata for
+      | Title                        |
+      | Alternative title(s)         |
+      | Abstract                     |
+      | Alternative abstract(s)      |
+      | Description                  |
+      | Date published               |
+      | Primary language for content |
+
+  # Dette er av typen "Publication in Journal"
+  Scenario: User verifies initial metadata on the Reference tab for a registration
+    Given that the user start Wizard registration with a Link
+    Then they they see that the Reference tab is populated with metadata values for
       | Publication type                              |
       | Link (the link that was provided by the user) |
       | The unmapped text for Journal                 |
@@ -124,12 +291,11 @@
       | Page to                                       |
       | Article number                                |
       | Peer-review                                   |
-    And they see that the Contributors tab Authors section is populated with metadata values for <Author> and <Institution>
-    And they see that the Contributors tab Contributors section is populated with metadata values for <ContributionType>, <Name> and <Institution>
-    And they see that the Files and Licenses tab is pre-populated with metadata values for
-      | Possible mapped value for License, Archiving policy and Unit agreement |
-      | Possible file for upload  (Filename, File size)                        |
 
+  Scenario: User verifies initial metadata on the Contributors tab for a registration
+    Given that the user start Wizard registration with a Link
+    Then they see that the Contributors tab Authors section is populated with metadata values for <Author> and <Institution>
+    And they see that the Contributors tab Contributors section is populated with metadata values for <ContributionType>, <Name> and <Institution>
     Examples:
       | Author       | Institution |
       | Name Nameson | NTNU        |
@@ -139,38 +305,59 @@
       | ContributionType | Name        | Institution |
       | Photographer     | Jim Jimsson | AVH         |
 
+  Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
+    Given that the user start Wizard registration with a Link
+    Then they see that the Files and Licenses tab is pre-populated with metadata values for
+      | Possible mapped value for License, Archiving policy and Unit agreement |
+      | Possible file for upload  (Filename, File size)                        |
+
   @230
   Scenario: User adds NPI data for a Publication
-    Given the user registers initial metadata for a Publication based on a Link
+    Given that the user starts registering a Publication
     When they select a value in the drop-down for NPI subject area
     Then this is added to the metadata for the Publication
     And the NPI subject area is listed in the summary
 
   @231
-  Scenario: User associates Projects with a Publication
-    Given that the user registers initial metadata for a Publication based on a Link
-    And the user's project participation is known via their previously registered publications in NVA
+  Scenario: User views Projects widget
+    Given that the user starts registering a Publication
     When they click the Projects search box
-    And they see a drop-down containing ten active projects in Cristin Projects DB, ranked-by-year, filtered results
-      | their previously registered projects in NVA                                                |
-      | search results based by free-text search for the projects title in the Cristin Projects DB |
-    And they select a Project
+    Then they see a list of up to ten most recent active projects in NVA associated with their ID
+    And an empty search box
+
+  @444
+  Scenario: User selects pre-populated Project from initial drop-down
+    Given that the user views Project widget
+    When they click a project in the widget
     Then the Project ID is added to the Publication metadata
-    And the user can add another project
+    And the user can add another Project
+
+  @445
+  Scenario: User searches for a Project
+    Given that the user views Project widget
+    When they write a project name in the search box
+    Then they see a list of results based on free-text search for Project title in the Projects API
+
+  @446
+  Scenario: User selects searched-up Project from initial drop-down
+    Given that the user searches for a Project
+    When they click a project in the widget
+    Then the Project ID is added to the Publication metadata
+    And the user can add another Project
 
   @233
-  Scenario: User verifies Kanalregister information for a Publication based on a Link
+  Scenario: User verifies Norwegian Registry information for a Publication based on a Link
     Given that the user registers initial metadata for a Publication based on a Link
     And the Publication is a Publication in Journal
-    And the Journal for the Publication is found in Kanalregisteret
-    When they verify the information from Kanalregisteret that appears in the Journal Metadata
+    And the Journal for the Publication is found in the Norwegian Register
+    When they verify the information from the Norwegian Register that appears in the Journal Metadata
     Then they see that the information for Journal Title is correct
     And they see that the information for Print ISSN is correct
     And they see that the information for Online ISSN is correct
     And they see that the information for Academic Level is correct
 
   @234
-  Scenario: User verifies Reference information for a publication based on a Link
+  Scenario: User verifies Reference information for a publication
     Given that the user registers initial metadata for a Publication based on a Link
     And the Publication is a Publication in Journal
     When they navigate to the Reference tab
@@ -181,7 +368,7 @@
 
   @274
   Scenario: User sets the value for Publication Type for a Publication in Journal Publication
-    Given that the user registers initial metadata for a Publication based on a Link
+    Given that the user starts registering a Publication
     And have clicked Next
     And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
@@ -205,7 +392,7 @@
 
   @392
   Scenario: User sets the value for Publication Type for a Book
-    Given that the user registers initial metadata for a Publication based on a Link
+    Given that the user starts registering a Publication
     And have clicked Next
     And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
@@ -217,15 +404,15 @@
     And they verify (non-obligatory) ISBN
     And they select a value for Peer-review
     And they selet a value for (non-obligatory) Is this a textbook
-    And they select a value for (non-obligatory) Total number of pages
-    And they select a value for (non-obligatory) the Title of the Series
+    And they enter a value for (non-obligatory) Total number of pages
+    And they enter a value for (non-obligatory) the Title of the Series
     And they see the value for NVI
     And they view the Summary Page
     Then they see that the information is registered
 
   @393
   Scenario: User sets the value for Publication Type for a Report
-    Given that the user registers initial metadata for a Publication based on a Link
+    Given that the user starts registering a Publication
     And have clicked Next
     And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
@@ -237,14 +424,14 @@
       | Working paper   |
     And they verify information for Publisher
     And they verify (non-obligatory) ISBN
-    And they select a value for (non-obligatory) Total number of pages
-    And they select a value for (non-obligatory) Title of the Series
+    And they enter a value for (non-obligatory) Total number of pages
+    And they enter a value for (non-obligatory) Title of the Series
     And they view the Summary Page
     Then they see that the information is registered
 
   @394
   Scenario: User sets the value for Publication Type for a Degree
-    Given that the user registers initial metadata for a Publication based on a Link
+    Given that the user starts registering a Publication
     And have clicked Next
     And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
@@ -254,21 +441,21 @@
       | Master    |
       | Doctorate |
     And they verify information for Publisher
-    And they select a value for (non-obligatory) Title of the Series
+    And they enter a value for (non-obligatory) Title of the Series
     And they view the Summary Page
     Then they see that the information is registered
 
   @395
   Scenario: User sets the value for Publication Type for a Chapter
-    Given that the user registers initial metadata for a Publication based on a Link
+    Given that the user starts registering a Publication
     And have clicked Next
     And they are on the Page for registering information about the Publication Reference
     When they select a Reference Type from the list
       | Chapter |
-    And they select a value for Book
+    And they enter a value for Book
     And they select a value for Peer-review
-    And they select a value for (non-obligatory) pagenumber from and pagenumber to
-    And they select a value for (non-obligatory) Title of the Series
+    And they enter a value for (non-obligatory) pagenumber from and pagenumber to
+    And they enter a value for (non-obligatory) Title of the Series
     And they view the Summary Page
     Then they see that the information is registered
 
@@ -293,29 +480,14 @@
     And they see that the Other Contributors are listed alphabetically by Surname
     And they see that the Other Contributors have the correct Role, Name and Institution
 
-  @417
-  Scenario: User navigates to Contributor tab
-    Given that the user verifies initial metadata for a Publication based on a Link
-    When they select the Contributor tab
-    Then they see that there are no Contributors registered
-    And a grid is shown with the fields
-      | Name           |
-      | Institution    |
-      | Corresponding  |
-      | Move up / down |
-      | Edit           |
-      | Delete         |
-    And a button to add an Author is enabled
-
   @418
   Scenario: User opens the add Author dialog
-    Given that the user navigates to <Contributor> tab
-    When they click the to add an Author
+    Given that the user navigates to Contributor tab
+    When they click Add Author
     Then the dialog to add an Author is opened
     And the dialog contains fields for
-      | Author search      |
-      | Institution search |
-    And a button to add an Author is enabled
+      | Author search |
+    And a button to add an Author is disabled
 
   @419
   Scenario: User adds an Author to the Author list
@@ -325,7 +497,7 @@
     And see the Institution from the Author Register
     When they click the button to Add an Author
     Then the dialog is closed
-    And the Author is shown in the Author grid in the Constributor tab
+    And the Author is shown in the Author table in the Constributor tab
 
   # Tegn delete og fullfør beskrivelse
   @
@@ -336,7 +508,7 @@
     And enter Institution details
     When they click the button to Add an Author
     Then the dialog is closed
-    And the Author is shown in the Author grid in the Constributor tab
+    And the Author is shown in the Author table in the Constributor tab
 
   #Legg til Scenario for delete, edit, move, korresponding
 
@@ -346,7 +518,7 @@
     And they have clicked Next
     When they review the information for Contributors
     Then they see that the Contributors are grouped in sections Authors and Other Contributors
-    And they set the correctvalues authors have the expected value for Corresponding Author
+    And they set the correct values for Corresponding Author
     And they see that the Other Contributors are listed alphabetically by Surname
     And they see that the Other Contributors have the correct Role, Name and Institution
 
@@ -355,18 +527,6 @@
   # Important note about the "License": This assumes that the article is published in a journal that has a special Unit
   # agreement, which entails that Unit has negotiated a contract for Norwegian corresponding authors
   # In all other cases, a License-picker is provided
-
-  @275
-  Scenario: User navigates to files and licenses
-    Given the user processes Contributor information for a Publication in Journal Publication data for a publication based on a Link
-    When they click Next
-    Then they see the page for Licenses and Files
-    And they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from Kanalregisteret
-    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from Kanalregisteret
-    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from Kanalregisteret
-    And they can upload files for the Publication
-
-  # Kanalregisteret perhaps does not provide all the information we need, this must be viewed as TODO for Kanalregisteret
 
   @276
   Scenario: User uploads files for the Publication
@@ -381,16 +541,6 @@
     And they go to the Summary Page
     Then they see that the files are uploaded
     And the data is correct
-
-  @277
-  Scenario: User views Summary
-    Given the user uploads files for the Publication
-    When they click Next
-    Then they see all of the data they have entered including obligatory fields
-      | Title                   |
-      | Resource (file or link) |
-      | License                 |
-    And the Publish button is enabled
 
   @278
   Scenario: User publishes Publication
@@ -427,7 +577,8 @@
       | My Publications  |
       | My Messages      |
 
-    @347) User sees the menu for Curator
+  @347
+  Scenario: User sees the menu for Curator
     Given the user is logged in
     And has the role of Curator
     When they look at any page in NVA
@@ -493,9 +644,9 @@
       | Preferred language |
 
   @406
-  Scenario: User views a list of sub-units to their Institution from My Profile
-    Given user opens the page My Profile
-    When they click the button Change Institution
+  Scenario: User views a list of sub-units at their Institution on My Profile
+    Given user opens My Profile
+    When they click Change Institution
     Then the user sees the Change Institution window
     And their Institution from the Authority Registry is selected
     And a dropdown with the units connected to the Institution is shown
@@ -510,27 +661,27 @@
     And the changes are shown in My Profile
 
   @409
-  Scenario: User show all sub-units belonging to their Institution from My Profile
-    Given user views a list of sub-units to their Institution from My Profile
+  Scenario: User views all sub-units at their Institution on My Profile
+    Given the user views a list of sub-units at their Institution on My Profile
     When the users selects a sub-unit
     Then they see a dropdown with sub-units
     And they see a new sub-unit dropdown until there are no more sub-unit-levels
 
   @410
-  Scenario: User open Add Institution from My Profile
+  Scenario: User opens Add Institution from My Profile
     Given user opens the page My Profile
-    When click the Add (Institution)
+    When they click Add (Institution)
     Then the Add Institution window is opened
     And the user can search for Institutions
 
   @411
-  Scenario: User Adds an Institutuion from My Profile
-    Given User open Add Institution from My Profile
-    When searched for an Institution
-    And selects an Institutuion
-    And clicks the Add button
+  Scenario: User Adds an Institution from My Profile
+    Given User opens Add Institution from My Profile
+    When they have searched for an Institution
+    And they have selected an Institution
+    And they have clicked Add
     Then the Add Institution window is closed
-    And the Institution is saved to the Authority Registry
+    And the Institution ID is saved to the Authority Registry
     And the user sees the new Institution in My Profile
 
   @383
