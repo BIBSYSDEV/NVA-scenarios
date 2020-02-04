@@ -58,7 +58,7 @@
   @443
   Scenario: User starts registering a Publication
     Given that the user begins registering a Publication
-    And they have selected one of the method for starting the wizard
+    And they have selected one of the methods for starting the Wizard
     When they click Start
     Then the Wizard is started
 
@@ -118,11 +118,13 @@
       | Link                                                                                            |
       | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
 
-  Scenario: User start Wizard registration
+  Scenario: User start Wizard registration and navigates to Description tab
     Given that the user starts registering a Publication
-    When they click Start
-    Then they see the tab Description with fields for
-      | Title                        |
+    When they navigate to the Description tab
+    Then they see the tab Description is selected
+    And they see mandatory fields for
+      | Title |
+    And optional fields for
       | Alternative title(s)         |
       | Abstract                     |
       | Alternative abstract(s)      |
@@ -132,7 +134,6 @@
       | Keywords                     |
       | Primary language for content |
       | Project association          |
-    And they see the tab Description is selected
     And they see the tab Reference is clickable
     And they see the tab Constributor is clickable
     And they see the tab Files and License is clickable
@@ -143,7 +144,7 @@
   Scenario: User navigates to the Reference tab
     Given that the starts registering a Publication
     When they navigate to the Reference tab
-    Then they see the tab Reference with fields for
+    Then they see mandatory fields for
       | Type |
     And they see the tab Description is clickable
     And they see the tab Reference is selected
@@ -153,11 +154,95 @@
     And they see Next is enabled
     And they see Save is enabled
 
+  @274
+  Scenario: User navigates to the Reference tab and selects Publication in Journal
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Publication in Journal |
+    Then they can select a Publication Subtype from the list
+      | Article              |
+      | Short communication  |
+      | Leader               |
+      | Letter to the editor |
+      | Review               |
+    And they see mandatory fields for
+      | Search-box for Journal |
+    And they see optional fields for
+      | DOI            |
+      | Volume         |
+      | Issue          |
+      | Pages from     |
+      | Pages to       |
+      | Article number |
+      | Peer-review    |
+
+  @392
+  Scenario: User navigates to the Reference tab and selects Book
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Book |
+    And they select a Publication Subtype from the list
+      | Monography |
+      | Anthology  |
+    And they see mandatory fields for
+      | Search-box for Publisher |
+    And they see optional fields for
+      | ISBN                  |
+      | Peer-review           |
+      | Is this a textbook    |
+      | Total number of pages |
+      | Title of the Series   |
+    And they see the value for NVI
+
+  @393
+  Scenario: User navigates to the Reference tab and selects Report
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Report |
+    And they select a Publication Subtype from the list
+      | Report          |
+      | Research report |
+      | Policy report   |
+      | Working paper   |
+    And they see mandatory fields for
+      | Search-box for Publisher |
+    And they see optional fields for
+      | ISBN                  |
+      | Peer-review           |
+      | Total number of pages |
+      | Title of the Series   |
+
+  @394
+  Scenario: User navigates to the Reference tab and selects Degree
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Degree |
+    And they select a Publication Subtype from the list
+      | Bachelor  |
+      | Master    |
+      | Doctorate |
+    And they see mandatory fields for
+      | Search-box for Publisher |
+    And they see optional fields for
+      | Title of the Series |
+
+  @395
+  Scenario: User navigates to the Reference tab and selects Chapter
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Chapter |
+    And they see mandatory fields for
+      | Search-box for Book |
+    And they see optional fields for
+      | Title of the Series               |
+      | pagenumber from and pagenumber to |
+    And they see the value for NVI
+
   @417
   Scenario: User navigates to the Constributor tab
     Given that the starts registering a Publication
     When they navigate to the Constributor tab
-    Then they see the tab Constributor with fields for
+    Then they see mandatory fields for
       | Name           |
       | Institution    |
       | Corresponding  |
@@ -193,7 +278,7 @@
   Scenario: User navigates to the Submission tab
     Given that the starts registering a Publication
     When they navigate to the Submission tab
-    Then they see all of the data they have entered including obligatory fields
+    Then they see all of the data they have entered including mandatory fields
       | Title                   |
       | Resource (file or link) |
       | License                 |
@@ -213,7 +298,7 @@
     And they upload a file
     Then they see the filesize and checksum
     And Delete file is enabled
-    And the Start is enabled
+    And Start is enabled
 
   #Scenario: User start Wizard registration by uploading a file
   #  Given that the user begins registration by uploading a file
@@ -311,12 +396,26 @@
       | Possible mapped value for License, Archiving policy and Unit agreement |
       | Possible file for upload  (Filename, File size)                        |
 
+  # SLETT?
+  @236
+  Scenario: User verifies Contributor information
+    Given that the user registers initial metadata for a Publication based on a Link
+    And they have clicked Next
+    When they review the information for Contributors
+    Then they see that the Contributors are grouped in sections Authors and Other Contributors
+    And they see that the Authors are verified in the Authority Register for Personas
+    And they see that the Authors are in the expected order
+    And they see that the Authors have the expected institutional affiliations
+    And they see that the correct authors have the expected value for Corresponding Author
+    And they see that the Other Contributors are listed alphabetically by Surname
+    And they see that the Other Contributors have the correct Role, Name and Institution
+
   @230
   Scenario: User adds NPI data for a Publication
     Given that the user starts registering a Publication
     When they select a value in the drop-down for NPI subject area
     Then this is added to the metadata for the Publication
-    And the NPI subject area is listed in the summary
+    And the NPI subject area is listed in the Submission
 
   @231
   Scenario: User views Projects widget
@@ -356,109 +455,6 @@
     And they see that the information for Online ISSN is correct
     And they see that the information for Academic Level is correct
 
-  @234
-  Scenario: User verifies Reference information for a publication
-    Given that the user registers initial metadata for a Publication based on a Link
-    And the Publication is a Publication in Journal
-    When they navigate to the Reference tab
-    Then they see information for Volume
-    And they see information for Issue
-    And they see Page Number information
-    And they see an Article Number
-
-  @274
-  Scenario: User sets the value for Publication Type for a Publication in Journal Publication
-    Given that the user starts registering a Publication
-    And have clicked Next
-    And they are on the Page for registering information about the Publication Reference
-    When they select a Reference Type from the list
-      | Publication in Journal |
-    And they select a Publication Subtype from the list
-      | Article              |
-      | Short communication  |
-      | Leader               |
-      | Letter to the editor |
-      | Review               |
-    And they verify a (non-obligatory) DOI
-    And they verify information for Journal
-    And they verify (non-obligatory) Volume
-    And they verify (non-obligatory) Issue
-    And they verify (non-obligatory) Pages from
-    And they verify (non-obligatory) Pages to
-    And they verify (non-obligatory) Article number
-    And they select a value for Peer-review
-    And they view the Summary Page
-    Then they see that the information is registered
-
-  @392
-  Scenario: User sets the value for Publication Type for a Book
-    Given that the user starts registering a Publication
-    And have clicked Next
-    And they are on the Page for registering information about the Publication Reference
-    When they select a Reference Type from the list
-      | Book |
-    And they select a Publication Subtype from the list
-      | Monography |
-      | Anthology  |
-    And they verify information for Publisher
-    And they verify (non-obligatory) ISBN
-    And they select a value for Peer-review
-    And they selet a value for (non-obligatory) Is this a textbook
-    And they enter a value for (non-obligatory) Total number of pages
-    And they enter a value for (non-obligatory) the Title of the Series
-    And they see the value for NVI
-    And they view the Summary Page
-    Then they see that the information is registered
-
-  @393
-  Scenario: User sets the value for Publication Type for a Report
-    Given that the user starts registering a Publication
-    And have clicked Next
-    And they are on the Page for registering information about the Publication Reference
-    When they select a Reference Type from the list
-      | Report |
-    And they select a Publication Subtype from the list
-      | Report          |
-      | Research report |
-      | Policy report   |
-      | Working paper   |
-    And they verify information for Publisher
-    And they verify (non-obligatory) ISBN
-    And they enter a value for (non-obligatory) Total number of pages
-    And they enter a value for (non-obligatory) Title of the Series
-    And they view the Summary Page
-    Then they see that the information is registered
-
-  @394
-  Scenario: User sets the value for Publication Type for a Degree
-    Given that the user starts registering a Publication
-    And have clicked Next
-    And they are on the Page for registering information about the Publication Reference
-    When they select a Reference Type from the list
-      | Degree |
-    And they select a Publication Subtype from the list
-      | Bachelor  |
-      | Master    |
-      | Doctorate |
-    And they verify information for Publisher
-    And they enter a value for (non-obligatory) Title of the Series
-    And they view the Summary Page
-    Then they see that the information is registered
-
-  @395
-  Scenario: User sets the value for Publication Type for a Chapter
-    Given that the user starts registering a Publication
-    And have clicked Next
-    And they are on the Page for registering information about the Publication Reference
-    When they select a Reference Type from the list
-      | Chapter |
-    And they enter a value for Book
-    And they select a value for Peer-review
-    And they enter a value for (non-obligatory) pagenumber from and pagenumber to
-    And they enter a value for (non-obligatory) Title of the Series
-    And they view the Summary Page
-    Then they see that the information is registered
-
   # Happy day scenario for a DOI-sourced Academic Publication
   # The DOI dereferences to a data document that contains ORCIDs for every Contributor
   # The DOI dereferences to a data document that contains a Grant ID
@@ -466,19 +462,6 @@
   # Cristin Project DB data document contains the ORCIDs for project members
   # There is a match between all ORCIDs from the DOI data document and (a subset of) the Cristin Project DB Project data document ORCIDs
   # All of the ORCIDs are in the Authority Register for Personas
-
-  @236
-  Scenario: User verifies Contributor information
-    Given that the user registers initial metadata for a Publication based on a Link
-    And they have clicked Next
-    When they review the information for Contributors
-    Then they see that the Contributors are grouped in sections Authors and Other Contributors
-    And they see that the Authors are verified in the Authority Register for Personas
-    And they see that the Authors are in the expected order
-    And they see that the Authors have the expected institutional affiliations
-    And they see that the correct authors have the expected value for Corresponding Author
-    And they see that the Other Contributors are listed alphabetically by Surname
-    And they see that the Other Contributors have the correct Role, Name and Institution
 
   @418
   Scenario: User opens the add Author dialog
@@ -532,19 +515,55 @@
   Scenario: User uploads files for the Publication
     Given that the user navigates to files and licenses
     When they drag and drop a file into the File drag-and-drop area
-    And they check
+    Then they see that the files are uploaded
+    And for each file they see the file receipt and settings
+
+  Scenario: User views file receipt and settings the Publication
+    Given that the user uploads files for the Publication
+    When the view each file
+    Then they see that the files are uploaded
+    And for each file they see the file receipt and file settings
+    And they see the original filename
+    And they see the filesize
+    And they see the checksum for the uploaded file
+    And see mandatory radio Select version with values
       | Accepted version  |
       | Published version |
-    And they enter a optional date for postponed publication
-    And they mark the file as administrative
-    And they have selected a license
-    And they go to the Summary Page
-    Then they see that the files are uploaded
-    And the data is correct
+    And see mandatory dropdown for License with values
+      | CC-BY 4.0 |
+    And optional fields for
+      | postponed publication |
+    And optional checkbox for Administrative contract
+    And a Preview button
+    And a Remove button
+
+  Scenario: User select values for uploaded files
+    Given that the user uploads files for the Publication
+    When set values for the <Field>
+    And they navigate to the Submission Page
+    And they look at the Files section
+    Then they see the <Value> for the <Field>
+    Examples:
+      | Field               | Value                 |
+      | Filename            | original-filename.pdf |
+      | Filesize            | 128k                  |
+      | Version             | Accepted version      |
+      | License             | CC-BY 4.0             |
+      | Delayed Publication | 2032-12-21            |
+
+  Scenario: User selects Administrative contract for uploaded files
+    Given that the user uploads files for the Publication
+    When the user selects Administrative contract
+    Then they see the original filename
+    And they see the filesize
+    And they see the checksum for the uploaded file
+    And optional checkbox for Administrative contract
+    And a Preview button
+    And a Remove button
 
   @278
   Scenario: User publishes Publication
-    Given the user views Summary
+    Given the user views Submission
     When they click Publish
     Then they see the Public page containing all data and files
     And they see the Publication is Published
