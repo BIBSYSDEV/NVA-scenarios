@@ -5,13 +5,19 @@ Feature: MVP features for NVA
 
   @217
   Scenario: User with no Feide ID in ARP sees matching Author identities
-    Given that a user has a valid Feide ID and password
+    Given that Kim Smith has a valid Feide ID and password
     And they do not have a Feide ID in their ARP entry
+    And there are entries in ARP
+      | Smith, Kim (died 2019) |
+      | Smith, Kim F.          |
+      | Smith, Kim             |
     When they log in
     Then they see a list containing <Author name> and <Last publication> for each ARP entry matching their <Name>
     Examples:
-      | Name      | Author name | Last publication |
-      | Kim Smith | Smith, Kim  | Some Title       |
+      | Name      | Author name   | Last publication  |
+      | Kim Smith | Smith, Kim    | Some Title        |
+      | Kim Smith | Smith, Kim    | Some Other Title  |
+      | Kim Smith | Smith, Kim F. | Yet Another Title |
 
   @219
   Scenario: User updates an Author identity
@@ -25,7 +31,6 @@ Feature: MVP features for NVA
     And they are redirected to the ORCID dialog
     # This last step hides cases where an ORCID already exists in ARP
   # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
-
 
   @384
   Scenario: User creates an Author identity
