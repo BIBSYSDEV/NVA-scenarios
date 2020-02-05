@@ -196,7 +196,7 @@ Feature: MVP features for NVA
       | Primary language for content |
       | Project association          |
     And they see the tab Reference is clickable
-    And they see the tab Constributor is clickable
+    And they see the tab Contributor is clickable
     And they see the tab Files and License is clickable
     And they see the tab Submission is clickable
     And they see Next is enabled
@@ -210,7 +210,7 @@ Feature: MVP features for NVA
       | Type |
     And they see the tab Description is clickable
     And they see the tab Reference is selected
-    And they see the tab Constributor is clickable
+    And they see the tab Contributor is clickable
     And they see the tab Files and License is clickable
     And they see the tab Submission is clickable
     And they see Next is enabled
