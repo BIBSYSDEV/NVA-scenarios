@@ -44,13 +44,12 @@ Feature: MVP features for NVA
   @384
   Scenario: User creates an Author identity
     Given that a user has no matching Author identity
-    And they see that their name is selected
     When they click Create Author identity
-    Then the user's identity is added to ARP
-    And the user's Feide ID is added to the Author identity
-    And the user's Feide organization number is mapped to an Organizational ID (Cristin ID)
-    And the user's Organizational ID (Cristin ID) is added to the Author identity
-    And the Next button is enabled
+    Then their identity is added to ARP
+    And their Feide ID is added to the Author identity
+    And their Feide organization number is mapped to an Organizational ID (Cristin ID)
+    And their Organizational ID (Cristin ID) is added to their Author identity
+    And they are redirected to the ORCID dialog
 
   @221
   Scenario: User has no ORCID associated with their Author identity
