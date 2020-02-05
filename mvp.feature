@@ -40,9 +40,9 @@ Feature: MVP features for NVA
     When they click on the Menu
     And they click Log out
     Then they are logged out of the NVA application
-    
+
   @217
-  Scenario: User with no Feide ID in ARP sees matching Author identities
+  Scenario Outline: User with no Feide ID in ARP sees matching Author identities
     Given that Kim Smith has a valid Feide ID and password
     And they do not have a Feide ID in their ARP entry
     And there are entries in ARP
@@ -108,7 +108,11 @@ Feature: MVP features for NVA
     And they are on the Start Page
     When they click Register new publication
     Then they are redirected to the Register new publication page
+    And they see an Expansion panel for Upload file
+    And they see an Expansion panel for Link to publication
+    And they see an Expansion panel for Suggestions from ORCID
 
+  @wip
   @443
   Scenario: User starts registering a Publication
     Given that the user begins registering a Publication
