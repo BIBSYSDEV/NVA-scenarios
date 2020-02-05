@@ -15,7 +15,7 @@
   Scenario: User updates an Author identity
     Given that a user with no Feide ID in ARP sees matching Author identities
     When they select an Author identity
-    And the user click the button to Connect the author ID
+    And they click Connect Author ID
     Then the user's Feide ID is added to the Author identity
     And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
     And the user's Organisational ID (Cristin ID) is added to the Author identity
@@ -482,7 +482,7 @@
     And enters a Name in the Author search box
     And see search results for the Author search containing the last publication
     And see the Institution from ARP
-    When they click the button to Add an Author
+    When they click Add Author
     Then the dialog is closed
     And the Author is shown in the Author table in the Constributor tab
 
@@ -493,7 +493,7 @@
     And they click the link to create a new Author
     And enters a Name in the Author name box
     And enter Institution details
-    When they click the button to Add an Author
+    When they click Add Author
     Then the dialog is closed
     And the Author is shown in the Author table in the Constributor tab
 
@@ -712,8 +712,8 @@
   @383
   Scenario: User removes an ORCID connection from My Profile
     Given user opens the page My Profile
-    When they click the button to remove an ORCID connection
-    Then the user is asked to confirm
+    When they click Remove ORCID
+    Then they are asked to confirm
     And their ORCID is removed from ARP
 
   @353
