@@ -118,6 +118,7 @@
       | Link                                                                                            |
       | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
 
+  @452
   Scenario: User start Wizard registration and navigates to Description tab
     Given that the user starts registering a Publication
     When they navigate to the Description tab
@@ -141,6 +142,7 @@
     And they see Next is enabled
     And they see Save is enabled
 
+  @453
   Scenario: User navigates to the Reference tab
     Given that the starts registering a Publication
     When they navigate to the Reference tab
@@ -470,7 +472,7 @@
     Then the dialog to add an Author is opened
     And the dialog contains fields for
       | Author search |
-    And a button to add an Author is disabled
+    And a button to close the dialog
 
   @419
   Scenario: User adds an Author to the Author list
@@ -518,6 +520,7 @@
     Then they see that the files are uploaded
     And for each file they see the file receipt and settings
 
+  @454
   Scenario: User views file receipt and settings the Publication
     Given that the user uploads files for the Publication
     When the view each file
@@ -551,6 +554,7 @@
       | License             | CC-BY 4.0             |
       | Delayed Publication | 2032-12-21            |
 
+  @455
   Scenario: User selects Administrative contract for uploaded files
     Given that the user uploads files for the Publication
     When the user selects Administrative contract
