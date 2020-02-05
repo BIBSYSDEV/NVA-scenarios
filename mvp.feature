@@ -1,187 +1,407 @@
-# encoding: utf-8
-# language: en
+  # encoding: utf-8
+  # language: en
 
-Feature: User with no Author identity in the Authority Register for Personas sees possible Author identities
-  # This assumes that the Authority Register for Personas is used as an identity keyring
-  Scenario:
+  @217
+  Scenario: User with no Feide ID in the Authority Register for Personas sees matching Author identities
     Given that a user has a valid Feide ID and password
-    And they have do not have an identity in the Authority Register for Personas
-    When they log in to NVA
-    Then the user sees a list of possible Author identities based on a free-text search for their registered name from Feide in the Authority Register for Personas
-    And they see the last registered publication for each Author identity based on a SCN (System Control Number) lookup in Alma
+    And they have do not have a Feide ID in the Authority Register for Personas
+    When they log in
+    Then the user sees a list of matching Author identities based on a free-text search for their Registered name from Feide in the Authority Register for Personas
+    And they see the last publication by year for each Author identity based on a SCN (System Control Number) lookup in Alma
 
-  Scenario: User creates an Author identity
-    Given that a user with no Author identity in the Authority Register for Personas sees possible Author identities
-    When they select a Author identity
-    Then the user's Feide ID is added to the record for the Author identity in the Authority Register for Personas
-    And the user's Feide organistation id is mapped to a Organisational ID (Cristin ID)
-    And the user's Organisational ID (Cristin ID) is added to the record for the Author identity in the Authority Register for Personas
+  @219
+  Scenario: User updates an Author identity
+    Given that a user with no Feide ID in the Authority Register for Personas sees matching Author identities
+    When they select an Author identity
+    And the user click the button to Connect the author ID
+    Then the user's Feide ID is added to the Author identity
+    And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
+    And the user's Organisational ID (Cristin ID) is added to the Author identity
     And the Next button is enabled
-    # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
-  # Does the response from BARE contain the FEIDE ID?
+  # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
 
-  Scenario: User has no ORCID associated with their Author identity in the Authority Register for Personas
-    Given that the user has created an Author identity
+  @384
+  Scenario: User creates an Author identity
+    Given that a user has no matching Author identity
+    And they see that their name is selected
+    When they click Create Author identity
+    Then the user's identity is added to the Authority Register for Personas
+    And the user's Feide ID is added to the Author identity
+    And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
+    And the user's Organisational ID (Cristin ID) is added to the Author identity
+    And the Next button is enabled
+
+  @221
+  Scenario: User has no ORCID associated with their Author identity
+    Given that the user has updated an Author identity
     When they click the Next button
     Then they are asked if they want to add or create an ORCID
-    # Does the response body from BARE contain the ORCID?
 
-  Scenario: User attempts to add an ORCID to their Author identity in the Authority Register for Personas
-    Given that the user has no ORCID associated with their Author identity in the Authority Register for Personas
+  @222
+  Scenario: User attempts to add an ORCID to their Author identity
+    Given that the user has no ORCID associated with their Author identity
     When they click Add ORCID
-    Then the user is redirected to ORCID for login
-
-  Scenario: User successfully associates an existing ORCID to their Author identity
-    Given that the user attempts to add an ORCID to their Author identity in the Authority Register for Personas
-    When they log into ORCID
+    And the user is redirected to ORCID for login
+    And they log into ORCID
     And they accept that NVA uses their data
     Then they are redirected back to NVA
-    And their ORCID is added to their Author identity in the Authority Register for Personas
-    And see their profile page which includes information for
-        | Real name |
-        | Feide ID  |
-        | Email     |
-        | ORCID     |
-        | Role(s)      |
-        | Institution |
-        | Profile picture |
-        | Contact info |
-        | Preferred language |
+    And their ORCID is added to their Author identity
+    And they see their ORCID on their Profile page
 
+  @226
   Scenario: User begins registering a Publication
     Given that the user is logged in
-    And they are on the start page for logged-in users
+    And they are on the Start Page
     When they click Register new publication
     Then they are redirected to the Register new publication page
 
-  Scenario: User begins registering a Link
+  @443
+  Scenario: User starts registering a Publication
+    Given that the user begins registering a Publication
+    And they have selected one of the methods for starting the Wizard
+    When they click Start
+    Then the Wizard is started
+
+  @228
+  Scenario: User begins registering with a Link with direct data from Datacite/Crossref
     Given that the user begins registering a Publication
     When they click Link to publication
-    And enter a Link
+    And enter a <Link>
     And click Search
-    Then they see metadata about the Link in the field below the link retrieved from one of
-        | Direct data from Datacite/Crossref (in case link is a DOI)                 |
-        | Data from Datacite/Crossref from citation_doi meta tag (DOI)               |
-        | Data from Datacite/Crossref from dc:identifier meta tag (if a valid DOI)   |
-        | Data from DC meta tags                                                      |
-        | Data from title tag                                                        |
-    # There is a logical hierarchy in which these should be requested/used
-    # The intention of this step is twofold: 1) NVA knows some useful metadata about the resource, 2) researcher knows that they are linking to the right resource
+    Then they see metadata about the Link
+    Examples:
+      | Link                              |
+      | https://doi.org/10.18711/yjieaump |
 
-  Scenario: User registers initial metadata for a Publication based on a Link
-    Given that the user begins registering a Link
-    And they see that the title metadata for the Link look-up is correct
-    When they click Start
-    And the Publication metadata registration page is loaded 
-    Then they see that the Beskrivelse tab is pre-populated with suggested metadata values (if available in the input data from the link) for
-        | Title |
-        | Alternative title(s) |
-        | Abstract |
-        | Alternative abstract(s) |
-        | Description |
-        | Publication date |
-        | NPI-fagfelt |
-        | Keywords |
-        | Primary language for publication |
-    And they they see that the Reference tab is pre-populated with suggested metadata values (if available in the input data from the link) for
-        | Publication type |
-        | Link (the link that was provided by the user) |
-        | The unmapped text for Journal |
-        | Volume |
-        | Issue |
-        | Page from | 
-        | Page to |
-        | Article number |
-        | Peer-review |          
-    And they they see that the Contributors tab Authors section is pre-populated with suggested metadata values (if available in the input data from the link) for <Author>, <Institution> and <CorrespondingAuthor>
-    And they they see that the Contributors tab Contributors section is pre-populated with suggested metadata values (if available in the input data from the link) for <ContributionType>, <Name> and <Institution>
-    And they they see that the Files and Licenses tab is pre-populated with suggested metadata values (if available in the input data from the link) for
-        | Possible mapped value for License, Archiving policy and Unit agreement |
-        | Possible file for upload  (Filename, File size) |
-	And the Publication is saved and the title is listed in My Publications and marked as Kladd
-    
-        Examples:
-            | Author | Institution | CorrespondingAuthor |
-            | Name Nameson (Not found) | NTNU (Found) | True |
-            | Jan Jansson (Found) | MTNU (Not Found) | False |
-        
-        Examples:
-            | ContributionType | Name | Institution |
-            | Photographer | Jim Jimsson | AVH (Not found) |            
+  @439
+  Scenario: User begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link                                                               |
+      | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945 |
+      | https://loar.kb.dk/handle/1902/1674?show=full                      |
 
-  Scenario: User adds NPI data for a Publication based on a Link
-    Given the the user registers initial metadata for a Publication based on a Link
-    When they click and select a value in the drop-down for NPI subject area
-    Then this is added to the metdata for the Publication
+  @440
+  Scenario: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link |
+      | ...  |
 
-  Scenario: User associates a Publication with a Project they have previously registered a Publication
-    Given that the user registers initial metadata for a Publication based on a Link
-    And the user's project participation is known via their previously registered publications in NVA
-    When they click the Projects search box
-    And they see a drop-down containing ten active projects in Cristin Projects DB, ranked-by-year, filtered results
-        | their previously registered projects in NVA                                                           |
-        | any projects registered in the Cristin Projects DB with their ORCID                                   |
-        | any projects associated with a Grant ID from metadata from the Link lookup in the Cristin Projects DB |
-        | search results based by free-text search for the the user's name in the Cristin Projects DB           |
-    And they select a Project
-    Then the Project ID is added to the Publication metadata
-    And the available data about people associated with the project is available to the NVA application
-    # Note that ORCIDs are not registered in the Cristin Projects DB at this time
+  @441
+  Scenario: User begins registering with a Link with data from DC ans DCTERMS meta tags
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link                                                     |
+      | https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973 |
 
-  Scenario: User verifies a DOI from a Publication based on a Link
-    Given that a user associates a Publication with a Project they have previously registered a Publication
-    And the Publication has a DOI
-    When they click Open DOI
-    Then they see the correct article in the resulting webpage
+  @442
+  Scenario: User begins registering with a Link with data from Open Graph tag
+    Given that the user begins registering a Publication
+    When they click Link to publication
+    And enter a <Link>
+    And click Search
+    Then they see metadata about the Link
+    Examples:
+      | Link                                                                                            |
+      | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
 
-  Scenario: User verifies information for Journal for a Publication based on a Link
-    Given that a user associates a Publication with a Project they have previously registered a Publication
-    And the publication is a Journal Article
-    When they verify the information from Kanalregisteret that appears in the Journal Metadata
-    Then they see that the information for Journal Title is correct
-    And they see that the information for ISSN is correct
-    And they see that the information for eISSN is correct
-    And they see that the information for Publisher is correct
-    And they see that the information for Academic Level is correct
+  @452
+  Scenario: User start Wizard registration and navigates to Description tab
+    Given that the user starts registering a Publication
+    When they navigate to the Description tab
+    Then they see the tab Description is selected
+    And they see mandatory fields for
+      | Title |
+    And optional fields for
+      | Alternative title(s)         |
+      | Abstract                     |
+      | Alternative abstract(s)      |
+      | Description                  |
+      | Date published               |
+      | NPI disciplines              |
+      | Keywords                     |
+      | Primary language for content |
+      | Project association          |
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
 
-  Scenario: User verifies information for a Journal Article Publication data for a publication based on a Link
-    Given that a user associates a Publication with a Project they have previously registered a Publication
-    And the publication is a Journal Article
-    When they verify that the information about the Journal Article Publication
-    Then they see information for Volume
-    And they see information for Issue
-    And they see Page Number information or an Article Number
-    # it is implicit that these fields are editable
+  @453
+  Scenario: User navigates to the Reference tab
+    Given that the starts registering a Publication
+    When they navigate to the Reference tab
+    Then they see mandatory fields for
+      | Type |
+    And they see the tab Description is clickable
+    And they see the tab Reference is selected
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
 
-  Scenario: User sets the value for Publication Type for a Journal Article Publication data for a publication based on a Link
-    Given that the user associates a Publication with a Project they have previously registered a Publication
-    And have clicked Next
-    And they are on the screen for registering information about the Publication Reference
+  @274
+  Scenario: User navigates to the Reference tab and selects Publication in Journal
+    Given that the navigates to the Reference tab
     When they select a Reference Type from the list
-        | Journal Article |
+      | Publication in Journal |
+    Then they can select a Publication Subtype from the list
+      | Article              |
+      | Short communication  |
+      | Leader               |
+      | Letter to the editor |
+      | Review               |
+    And they see mandatory fields for
+      | Search-box for Journal |
+    And they see optional fields for
+      | DOI            |
+      | Volume         |
+      | Issue          |
+      | Pages from     |
+      | Pages to       |
+      | Article number |
+      | Peer-review    |
+
+  @392
+  Scenario: User navigates to the Reference tab and selects Book
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Book |
     And they select a Publication Subtype from the list
-        | Article              |
-        | Short communication  |
-        | Leader               |
-        | Letter to the editor |
-        | Review               |
-    And they verify a (non-obligatory) DOI from a Publication based on a Link
-    And they verify information for Journal for a publication based on a Link
-    And they verify (non-obligatory) information for a Journal Article Publication data for a publication based on a Link
-    And they select a value for Peer-review
-    And they upload a (non-obligatory) Author Agreement
-    Then they see that the Next button is enabled
+      | Monography |
+      | Anthology  |
+    And they see mandatory fields for
+      | Search-box for Publisher |
+    And they see optional fields for
+      | ISBN                  |
+      | Peer-review           |
+      | Is this a textbook    |
+      | Total number of pages |
+      | Title of the Series   |
+    And they see the value for NVI
 
-  # Happy day scenario for a DOI-sourced Academic Publication
-  # The DOI dereferences to a data document that contains ORCIDs for every Contributor
-  # The DOI dereferences to a data document that contains a Grant ID
-  # The Grant ID is available in Cristin Project DB
-  # Cristin Project DB data document contains the ORCIDs for project members
-  # There is a match between all ORCIDs from the DOI data document and (a subset of) the Cristin Project DB Project data document ORCIDs
-  # All of the ORCIDs are in the Authority Register for Personas
+  @393
+  Scenario: User navigates to the Reference tab and selects Report
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Report |
+    And they select a Publication Subtype from the list
+      | Report          |
+      | Research report |
+      | Policy report   |
+      | Working paper   |
+    And they see mandatory fields for
+      | Search-box for Publisher |
+    And they see optional fields for
+      | ISBN                  |
+      | Peer-review           |
+      | Total number of pages |
+      | Title of the Series   |
 
-  Scenario: User processes Contributor information for a Journal Article Publication data for a publication based on a Link
-    Given the user sets the value for Publication Type for a Journal Article Publication data for a publication based on a Link
+  @394
+  Scenario: User navigates to the Reference tab and selects Degree
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Degree |
+    And they select a Publication Subtype from the list
+      | Bachelor  |
+      | Master    |
+      | Doctorate |
+    And they see mandatory fields for
+      | Search-box for Publisher |
+    And they see optional fields for
+      | Title of the Series |
+
+  @395
+  Scenario: User navigates to the Reference tab and selects Chapter
+    Given that the navigates to the Reference tab
+    When they select a Reference Type from the list
+      | Chapter |
+    And they see mandatory fields for
+      | Search-box for Book |
+    And they see optional fields for
+      | Title of the Series               |
+      | pagenumber from and pagenumber to |
+    And they see the value for NVI
+
+  @417
+  Scenario: User navigates to the Constributor tab
+    Given that the starts registering a Publication
+    When they navigate to the Constributor tab
+    Then they see mandatory fields for
+      | Name           |
+      | Institution    |
+      | Corresponding  |
+      | Move up / down |
+      | Edit           |
+      | Delete         |
+    And a button to add an Author is enabled
+    And they see the tab Description is clickable
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is selected
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
+
+  @275
+  Scenario: User navigates to the Files and License tab
+    Given that the starts registering a Publication
+    When they navigate to the Files and License tab
+    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
+    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
+    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Norwegian Register
+    And they can upload files for the Publication
+    And they see the tab Description is clickable
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is selected
+    And they see the tab Submission is clickable
+    And they see Next is enabled
+    And they see Save is enabled
+
+  @277
+  Scenario: User navigates to the Submission tab
+    Given that the starts registering a Publication
+    When they navigate to the Submission tab
+    Then they see all of the data they have entered including mandatory fields
+      | Title                   |
+      | Resource (file or link) |
+      | License                 |
+    And they see the tab Description is clickable
+    And they see the tab Reference is clickable
+    And they see the tab Constributor is clickable
+    And they see the tab Files and License is clickable
+    And they see the tab Submission is selected
+    And they see Next is enabled
+    And they see Save is enabled
+    And they see Publish is enabled
+
+  @385
+  Scenario: User begins registration by uploading a file
+    Given that the user begins registering a Publication
+    When they click Upload file
+    And they upload a file
+    Then they see the filesize and checksum
+    And Delete file is enabled
+    And Start is enabled
+
+  #Scenario: User start Wizard registration by uploading a file
+  #  Given that the user begins registration by uploading a file
+  #  When they click Start
+  #  Then they see the tab Description
+
+  @386
+  Scenario: User begins registration by using suggestions from ORCID
+    Given that the user begins registering a Publication
+    When they click Suggestions from ORCID
+    Then they see a list of last publications from ORCID API assosiated with the users ORCID ID
+    And each list entry contains metadata for:
+      | title         |
+      | year          |
+      | journal title |
+      | DOI           |
+    And that each entry is selectable
+
+  #Scenario: User start Wizard registration by using suggestions from ORCID
+  #  Given that the user begins registration by using suggestions from ORCID
+  #  When they click Start
+  #  Then they see the tab Description
+
+  @388
+  Scenario: User sees a Publication based on a Link
+    Given that the user begins registering with a Link
+    And they see that the title <Metadata> for the Link is correct
+    When they click Start
+    And they click My Publications
+    Then they see the Publication is saved and the title is listed and marked as Draft
+    Examples:
+      | Metadata |
+      | Title    |
+  #| First three authors |
+  #| Publication date    |
+
+  @391
+  Scenario: User sees publication for a registration based on uploading a file
+    Given User begins registration by uploading a file
+    And they see that filesize and checksum
+    When they click Start
+    And they click My Publications
+    Then they see the Publication is saved and the title is listed (filename) and marked as Draft
+
+  @432
+  Scenario: User verifies file upload for a registration based on uploading a file
+    Given User sees publication for a Publication based on uploading a file
+    When they open the item in the Wizard
+    And select the tab Files and licenses
+    Then the files are available for download
+
+  @229
+  Scenario: User verifies initial metadata on the Description tab for a registration
+    Given that the user start Wizard registration with a Link
+    When they see the Description tab
+    Then they see that the Description tab is populated with metadata for
+      | Title                        |
+      | Alternative title(s)         |
+      | Abstract                     |
+      | Alternative abstract(s)      |
+      | Description                  |
+      | Date published               |
+      | Primary language for content |
+
+  # Dette er av typen "Publication in Journal"
+  Scenario: User verifies initial metadata on the Reference tab for a registration
+    Given that the user start Wizard registration with a Link
+    Then they they see that the Reference tab is populated with metadata values for
+      | Publication type                              |
+      | Link (the link that was provided by the user) |
+      | The unmapped text for Journal                 |
+      | Volume                                        |
+      | Issue                                         |
+      | Page from                                     |
+      | Page to                                       |
+      | Article number                                |
+      | Peer-review                                   |
+
+  Scenario: User verifies initial metadata on the Contributors tab for a registration
+    Given that the user start Wizard registration with a Link
+    Then they see that the Contributors tab Authors section is populated with metadata values for <Author> and <Institution>
+    And they see that the Contributors tab Contributors section is populated with metadata values for <ContributionType>, <Name> and <Institution>
+    Examples:
+      | Author       | Institution |
+      | Name Nameson | NTNU        |
+      | Jan Jansson  | MTNU        |
+
+    Examples:
+      | ContributionType | Name        | Institution |
+      | Photographer     | Jim Jimsson | AVH         |
+
+  Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
+    Given that the user start Wizard registration with a Link
+    Then they see that the Files and Licenses tab is pre-populated with metadata values for
+      | Possible mapped value for License, Archiving policy and Unit agreement |
+      | Possible file for upload  (Filename, File size)                        |
+
+  # SLETT?
+  @236
+  Scenario: User verifies Contributor information
+    Given that the user registers initial metadata for a Publication based on a Link
     And they have clicked Next
     When they review the information for Contributors
     Then they see that the Contributors are grouped in sections Authors and Other Contributors
@@ -191,295 +411,507 @@ Feature: User with no Author identity in the Authority Register for Personas see
     And they see that the correct authors have the expected value for Corresponding Author
     And they see that the Other Contributors are listed alphabetically by Surname
     And they see that the Other Contributors have the correct Role, Name and Institution
-    And the Next button is enabled
 
-    # Corresponding Author is not in fact present in the Datacite data, but probably will be soon
+  @230
+  Scenario: User adds NPI data for a Publication
+    Given that the user starts registering a Publication
+    When they select a value in the drop-down for NPI subject area
+    Then this is added to the metadata for the Publication
+    And the NPI subject area is listed in the Submission
+
+  @231
+  Scenario: User views Projects widget
+    Given that the user starts registering a Publication
+    When they click the Projects search box
+    Then they see a list of up to ten most recent active projects in NVA associated with their ID
+    And an empty search box
+
+  @444
+  Scenario: User selects pre-populated Project from initial drop-down
+    Given that the user views Project widget
+    When they click a project in the widget
+    Then the Project ID is added to the Publication metadata
+    And the user can add another Project
+
+  @445
+  Scenario: User searches for a Project
+    Given that the user views Project widget
+    When they write a project name in the search box
+    Then they see a list of results based on free-text search for Project title in the Projects API
+
+  @446
+  Scenario: User selects searched-up Project from initial drop-down
+    Given that the user searches for a Project
+    When they click a project in the widget
+    Then the Project ID is added to the Publication metadata
+    And the user can add another Project
+
+  @233
+  Scenario: User verifies Norwegian Registry information for a Publication based on a Link
+    Given that the user registers initial metadata for a Publication based on a Link
+    And the Publication is a Publication in Journal
+    And the Journal for the Publication is found in the Norwegian Register
+    When they verify the information from the Norwegian Register that appears in the Journal Metadata
+    Then they see that the information for Journal Title is correct
+    And they see that the information for Print ISSN is correct
+    And they see that the information for Online ISSN is correct
+    And they see that the information for Academic Level is correct
+
+  # Happy day scenario for a DOI-sourced Academic Publication
+  # The DOI dereferences to a data document that contains ORCIDs for every Contributor
+  # The DOI dereferences to a data document that contains a Grant ID
+  # The Grant ID is available in Cristin Project DB
+  # Cristin Project DB data document contains the ORCIDs for project members
+  # There is a match between all ORCIDs from the DOI data document and (a subset of) the Cristin Project DB Project data document ORCIDs
+  # All of the ORCIDs are in the Authority Register for Personas
+
+  @418
+  Scenario: User opens the add Author dialog
+    Given that the user navigates to Contributor tab
+    When they click Add Author
+    Then the dialog to add an Author is opened
+    And the dialog contains fields for
+      | Author search |
+    And a button to close the dialog
+
+  @419
+  Scenario: User adds an Author to the Author list
+    Given that the user opens the add Author dialog
+    And enters a Name in the Author search box
+    And see search results for the Author search containing the last publication
+    And see the Institution from the Author Register
+    When they click the button to Add an Author
+    Then the dialog is closed
+    And the Author is shown in the Author table in the Constributor tab
+
+  # Tegn delete og fullfør beskrivelse
+  @
+  Scenario: User creates a new Author in the Author dialog
+    Given that the user opens the add Author dialog
+    And they click the link to create a new Author
+    And enters a Name in the Author name box
+    And enter Institution details
+    When they click the button to Add an Author
+    Then the dialog is closed
+    And the Author is shown in the Author table in the Constributor tab
+
+  #Legg til Scenario for delete, edit, move, korresponding
+
+  @
+  Scenario: User registers Corresponding Author
+    Given that the user registers initial metadata for a Publication based on a Link
+    And they have clicked Next
+    When they review the information for Contributors
+    Then they see that the Contributors are grouped in sections Authors and Other Contributors
+    And they set the correct values for Corresponding Author
+    And they see that the Other Contributors are listed alphabetically by Surname
+    And they see that the Other Contributors have the correct Role, Name and Institution
+
+  # Corresponding Author is not in fact present in the Datacite data, but probably will be soon
 
   # Important note about the "License": This assumes that the article is published in a journal that has a special Unit
   # agreement, which entails that Unit has negotiated a contract for Norwegian corresponding authors
   # In all other cases, a License-picker is provided
 
-  Scenario: User adds license and files to a Publication
-    Given the user processes Contributor information for a Journal Article Publication data for a publication based on a Link
-    When they click Next
-    Then they see the page for Licenses and Files
-    And they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from Kanalregisteret
-    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from Kanalregisteret
-    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from Kanalregisteret
-    And they upload files for the Publication
-
-    # Kanalregisteret perhaps does not provide all the information we need, this must be viewed as TODO for Kanalregisteret
-
+  @276
   Scenario: User uploads files for the Publication
-    Given that the user adds license and files to a Publication
+    Given that the user navigates to files and licenses
     When they drag and drop a file into the File drag-and-drop area
-    And they check
-        | Accepted version  |
-        | Published version |
-    And they check Embargo
-    And they specify Embargo length
-    Then the file is uploaded
-    And they can view the File Preview
-    And the Next button is enabled
+    Then they see that the files are uploaded
+    And for each file they see the file receipt and settings
 
-  Scenario: User views Summary
-    Given the user uploads files for the Publication
-    When they click Next
-    Then they see all of the data they have entered
-    And validation information for the entered data
-    And the Publish in NVA button is enabled
+  @454
+  Scenario: User views file receipt and settings the Publication
+    Given that the user uploads files for the Publication
+    When the view each file
+    Then they see that the files are uploaded
+    And for each file they see the file receipt and file settings
+    And they see the original filename
+    And they see the filesize
+    And they see the checksum for the uploaded file
+    And see mandatory radio Select version with values
+      | Accepted version  |
+      | Published version |
+    And see mandatory dropdown for License with values
+      | CC-BY 4.0 |
+    And optional fields for
+      | postponed publication |
+    And optional checkbox for Administrative contract
+    And a Preview button
+    And a Remove button
 
-  Scenario: User published Publication
-    Given the user views Summary
-    When they click Publish in NVA
-    Then they see the Publication page containing all data and files
-    And the page contains a notification that the Publication is Published
-	
+  Scenario: User select values for uploaded files
+    Given that the user uploads files for the Publication
+    When set values for the <Field>
+    And they navigate to the Submission Page
+    And they look at the Files section
+    Then they see the <Value> for the <Field>
+    Examples:
+      | Field               | Value                 |
+      | Filename            | original-filename.pdf |
+      | Filesize            | 128k                  |
+      | Version             | Accepted version      |
+      | License             | CC-BY 4.0             |
+      | Delayed Publication | 2032-12-21            |
+
+  @455
+  Scenario: User selects Administrative contract for uploaded files
+    Given that the user uploads files for the Publication
+    When the user selects Administrative contract
+    Then they see the original filename
+    And they see the filesize
+    And they see the checksum for the uploaded file
+    And optional checkbox for Administrative contract
+    And a Preview button
+    And a Remove button
+
+  @278
+  Scenario: User publishes Publication
+    Given the user views Submission
+    When they click Publish
+    Then they see the Public page containing all data and files
+    And they see the Publication is Published
+
   # Access to the different menu items
+  @244
   Scenario: User sees non-logged-in menu
-    Given the user is not logged in (and has no role)
+    Given the user is not logged in
     When they look at any page in NVA
     Then they see an menu containing
-        | Logg inn |
-    
+      | Logg inn |
+
+  @345
   Scenario: User sees a menu when logged in
     Given the user is logged in (and has no NVA-role)
     When they look at any page in NVA
     Then they see a menu containing
-        | Min Profil |
-        | Logg ut |
+      | My Profile |
+      | Log Out    |
 
-  Scenario: User sees the menu for Registrator
+  @346
+  Scenario: User sees the menu for Creator
     Given the user is logged in
-    And has the role of Registrator
+    And has the role of Creator
     When they look at any page in NVA
     Then they see a menu containing
-        | Min Profil  |
-        | Logg ut |
-        | Ny Registrering  |
-        | Mine publiseringer |
-        | Meldinger |
+      | My Profile       |
+      | Log Out          |
+      | New Registration |
+      | My Publications  |
+      | My Messages      |
 
-  Scenario: User sees the menu for Institusjonskurator
+  @347
+  Scenario: User sees the menu for Curator
     Given the user is logged in
-    And has the role of Institusjonskurator
+    And has the role of Curator
     When they look at any page in NVA
     Then they see a menu containing
-        | Min Profil  |
-        | Logg ut |
-        | Min Arbeidsliste  |
-            
-  Scenario: User sees the menu for Institusjonsadmin
-    Given the user is logged in
-    And has the role of Institusjonsadmin
-    When they look at any page in NVA
-    Then they see a menu containing
-        | Min Profil  |
-        | Logg ut |
-        | Brukeradministrasjon  |
-        | Min Institusjon |
-  
-  Scenario: User sees the menu for Institusjonsredaktør
-    Given the user is logged in 
-    And has the role of Institusjonsredaktør
-    When they look at any page in NVA
-    Then they see a menu containing
-        | Min Profil  |
-        | Logg ut |
-        | Redaktøroppsett  |
+      | My Profile  |
+      | Log Out     |
+      | My Worklist |
 
-  Scenario: User sees the menu for Applikasjonsadministrator
+  @348
+  Scenario: User sees the menu for Administrator
     Given the user is logged in
-    And has the role of Applikasjonsadministrator
+    And has the role of Administrator
     When they look at any page in NVA
     Then they see a menu containing
-        | Min Profil  |
-        | Logg ut |
-        | Institusjoner  |
+      | My Profile          |
+      | Log Out             |
+      | User administration |
+      | My Institution      |
+
+  @349
+  Scenario: User sees the menu for Editor
+    Given the user is logged in
+    And has the role of Editor
+    When they look at any page in NVA
+    Then they see a menu containing
+      | My Profile            |
+      | Log Out               |
+      | Editor administration |
+
+  @350
+  Scenario: User sees the menu for Application administrator
+    Given the user is logged in
+    And has the role of Application administrator
+    When they look at any page in NVA
+    Then they see a menu containing
+      | My Profile   |
+      | Log Out      |
+      | Institutions |
 
   # Description of each menu item
-  
+
   # Menu items for anonymous
+  @351
   Scenario: User opens login page
     Given the user is not logged in
     When they click the menu item Logg inn
     Then the page for login with Feide is opened
 
   # Menu items for logged in person
-  Scenario: User opens the page Min Profil
+  @352
+  Scenario: User opens the page My Profile
     Given the user is logged in
-    When they click the menu item Min Profil
-    Then the page Min Profil is opened
-    # Write a new Scenario for this
+    When they click the menu item My Profile
+    Then the page My Profile is opened
+    And see their Profile page which includes information for
+      | Real name          |
+      | Feide ID           |
+      | Email              |
+      | ORCID              |
+      | Role(s)            |
+      | Institution        |
+      | Contact info       |
+      | Preferred language |
 
+  @406
+  Scenario: User views a list of sub-units at their Institution on My Profile
+    Given user opens My Profile
+    When they click Change Institution
+    Then the user sees the Change Institution window
+    And their Institution from the Authority Registry is selected
+    And a dropdown with the units connected to the Institution is shown
+    And a Change button is available
+
+  @407
+  Scenario: User adds a sub-unit to their Institution from My Profile
+    Given user views a list of sub-units to their Institution from My Profile
+    When the user selects a sub-unit
+    And save the changes
+    Then the changes are saved to the Authority Registry
+    And the changes are shown in My Profile
+
+  @409
+  Scenario: User views all sub-units at their Institution on My Profile
+    Given the user views a list of sub-units at their Institution on My Profile
+    When the users selects a sub-unit
+    Then they see a dropdown with sub-units
+    And they see a new sub-unit dropdown until there are no more sub-unit-levels
+
+  @410
+  Scenario: User opens Add Institution from My Profile
+    Given user opens the page My Profile
+    When they click Add (Institution)
+    Then the Add Institution window is opened
+    And the user can search for Institutions
+
+  @411
+  Scenario: User Adds an Institution from My Profile
+    Given User opens Add Institution from My Profile
+    When they have searched for an Institution
+    And they have selected an Institution
+    And they have clicked Add
+    Then the Add Institution window is closed
+    And the Institution ID is saved to the Authority Registry
+    And the user sees the new Institution in My Profile
+
+  @383
+  Scenario: User removes an ORCID connection from My Profile
+    Given user opens the page My Profile
+    When they click the button to remove an ORCID connection
+    Then the user is asked to confirm
+    And their ORCID is removed from the Authority Registry
+
+  @353
   Scenario: User logs out
     Given the user is logged in
-    When they click the menu item Logg ut
+    When they click the menu item Log Out
     Then the user is logged out from Feide
-	And the search page is opened
+    And the search page is opened
     And the user sees non-logged-in menu
 
-   # Menuitems for Registrator
-  Scenario: User opens Ny Registrering
-    Given the user is logged in as Registrator
-    When they click the menu item Ny Registrering
-    Then the page Ny Registrering is opened
-	And the user see tabs
-        | Start med å laste opp fil |
-        | Start med en lenke til publikasjon |
-        | Start med forslag fra din ORCID |
+  # Menuitems for Creator
+  Scenario: User opens New Registration
+    Given the user is logged in as Creator
+    When they click the menu item New Registration
+    Then the page New Registration is opened
+    And the user sees options
+      | Start med å laste opp fil          |
+      | Start med en lenke til publikasjon |
+      | Start med forslag fra din ORCID    |
 
-  Scenario: User opens Mine Publiseringer
-    Given the user is logged in as Registrator
-    When they click the menu item Mine Registreringer
-    Then the page Mine Registreringer is opened
-	And a list of all unpublished registrations with the fields
-        | Navn på publisering |
-        | <Status> |
-        | Opprettet |
-        Examples:
-            | Status |
-            | Kladd |
-            | Avvist |
-    And each list item has a button Slett and Rediger that is enabled
+  @354
+  Scenario: User opens My Publications
+    Given the user is logged in as Creator
+    When they click the menu item My Publications
+    Then the page My Publications is opened
+    And a list of all unpublished registrations with the fields
+      | Title    |
+      | <Status> |
+      | Created  |
+    Examples:
+      | Status   |
+      | Draft    |
+      | Rejected |
+    And each list item has a button Delete and Edit that is enabled
 
-  # Actions from Page : Mine Publiseringer (Rediger)
-  Scenario: User opens an item in the Mine Publiseringer list
-    Given the user is logged in as Registrator
-	And has opened the page Mine Publiseringer
-    When they click Rediger on an item
-    Then the item is opened in the wizard
-	And the user sees the Beskrivelse tab
-    And the fields in the wizard are populated with values from the saved publication
+  # Actions from Page : My Publications (Edit)
+  @355
+  Scenario: User opens an item in the My Publication list
+    Given the user is logged in as Creator
+    And has opened the page My Publications
+    When they click Edit on an item
+    Then the item is opened in the Wizard
+    And the user sees the Description tab
+    And the fields in the Wizard are populated with values from the saved publication
 
-  # Actions from Page : Mine Publiseringer (Slett)
-  Scenario: User opens an item in the Mine Publiseringer list
-    Given the user is logged in as Registrator
-	And has opened the page Mine Publiseringer
-    When they click Slett on an item
+  # Actions from Page : My Publications (Delete)
+  @356
+  Scenario: User delete an item in the My Publications list
+    Given the user is logged in as Creator
+    And has opened the page My Publications
+    When they click Delete on an item
     Then a comfirmation pop-up is opened
-	When the user selects Yes the publication is marked as Deleted
+    When the user selects Yes the publication is marked as Deleted
     When the user selects No the pop-up is closed
 
- # Menuitems for Institusjonskurator
-  Scenario: User opens Min Arbeidsliste
-    Given the user is logged in as Institusjonskurator
-    When they click the menu item Min Arbeidsliste
-    Then the page Min Arbeidsliste is opened
-	And the user see the lists 
-        | Til Godkjenning | 
-        | Brukerstøtte |
-        | DOI-forespørsler |
-	And the lists have fields
-        | Saken gjelder |
-        | Innsender |
-        | Dato |
-	And a button Åpne that is enabled 
+  @421
+  Scenario: User opens their Public Profile from My Publications Page
+    Given the user is logged in as Creator
+    And has opened the page My Publications
+    When they click to go to their public profile
+    Then their public profile page is open
+    And the page fields for
+      | Name                                       |
+      | Institutions                               |
+      | Public email                               |
+      | ORCID                                      |
+      | List of publications with status Published |
 
-  # Actions from Page : Min Arbeidsliste
-  Scenario: User opens an item in the Til Godkjenning or DOI request list
-    Given the user is logged in as Institusjonskurator
-	And has opened the page Min Arbeidsliste
+  # Menuitems for Curator
+  @357
+  Scenario: User opens My Worklist
+    Given the user is logged in as Curator
+    When they click the menu item My Worklist
+    Then the page My Worklist is opened
+    And the user see the lists
+      | For Approval |
+      | Support      |
+      | DOI-request  |
+    And the lists have fields
+      | Title     |
+      | Submitter |
+      | Date      |
+    And a button Open that is enabled
+
+  # Actions from Page : My Worklist
+  @358
+  Scenario: User opens an item in the For Approval or DOI-request list
+    Given the user is logged in as Curator
+    And has opened the page My Worklist
     And they select a <Tab>
-    When they click Åpne on an item
+    When they click Open on an item
     Then the item is opened in the wizard
-	And the user sees the Innsending tab
-	And <Button> is enabled 
-    
-        Examples:
-          | Tab | Button |
-          | Til Godkjenning | Publish |
-          | DOI request | Create DOI |
+    And the user sees the Submission tab
+    And <Button> is enabled
 
-  # Menuitems for Institusjonsadmin
-  Scenario: The user opens Brukeradministrasjon
-    Given the user is logged in as Institusjonsadmin
-    When they click the menu item Brukeradministrasjon
-    Then the page Brukeradministrasjon is opened
-	And the user sees a list of all users connected to their institution
-	And the users are grouped by NVA-roles
-	And has the fields
-        | ID | 
-        | Navn |
-        | Dato opprettet |
-	And a button Fjern that is enabled for each user
-	And a link to add a user with a specific role
+    Examples:
+      | Tab          | Button     |
+      | For Approval | Publish    |
+      | For Approval | Reject     |
+      | DOI request  | Create DOI |
 
-  Scenario: The user opens Min Institusjon
-    Given the user is logged in as Institusjonsadmin
-    When they click the menu item Min Institusjon
-    Then are on the page Min Institusjon
-    
-  Scenario: The Admin user creates an Organization
-    Given the admin user has opened Min Institusjon
-    When they fill in the fields
-        | Navn i organisasjonsregisteret | 
-        | Visningsnavn |
-        | Forkortet visningsnavn |
-        | CNAME |
-        | Institusjons DNS |
-    And check a checkbox
-        | Publisering må godkjennes av kurator |
-	And upload a new logo  #might need describing
-	Then they see a message telling them that the information was saved
-    And they can click the link to the institutional portal 
-    
-  Scenario: Admin user views the institutional portal
-    Given the admin user has created an Organization
-    When they click the link to the institutional portal on the Organization page
-    Then they see the web address in their web browser is the CName + nva.unit.no
-    And the page has the same title as they entered in the Organization page
+  # Menuitems for Administrator
+  @359
+  Scenario: The user opens User administration
+    Given the user is logged in as Administrator
+    When they click the menu item User administration
+    Then the page User administration is opened
+    And the user sees a list of all users connected to their institution
+    And the users are grouped by NVA-roles
+    And has the fields
+      | Autentication ID |
+      | Name             |
+      | ORCID            |
+      | Last login       |
+      | Created          |
+    And a button Remove that is enabled for each user
+    And a Button to add a user with a specific role
 
-  # Actions from page : Brukeradministrasjon
-  Scenario: Institusjonsadmin adds a role to a user
-    Given the user is logged in as Institusjonsadmin
-    When they click the link Ny <role> in the page Brukeradministrasjon
+  @360
+  Scenario: The user opens My Institution
+    Given the user is logged in as Administrator
+    When they click the menu item My Institution
+    Then are on the page My Institution
+
+  @361
+  Scenario: The Administrator edits an Institution
+    Given the Administrator has opened My Institution
+    When they edit the fields
+      | Name in organisation registry |
+      | Display name                  |
+      | Short displayname             |
+      | CNAME                         |
+      | Intitution DNS                |
+    And select Pubications must be approved by Curator
+    And upload a new logo
+    Then they see a message telling them that the information was saved
+    And they can visit the institutional portal
+
+  @362
+  Scenario: Administrator views the institutional portal
+    Given the Administrator edits an Institution
+    When they visit the institutional portal from My Institution
+    Then they see the web address in their web browser is the CName + .nva.unit.no
+    And the page title is the same as the Display Name that they entered on My Institution
+
+  # Actions from page : Useradministration
+  @363
+  Scenario: Administrator adds a role to a user
+    Given the user is logged in as Administrator
+    And they are on the User Administration Page
+    When they click Add User under the <Section>
     Then the page adds a line with the fields
-        | ID | 
-        | Navn |
-	And a button Legg til that is enabled
-        Examples:
-            | Role |
-            | Institusjonsadmin |
-            | Institusjonskurator |
-            | Redaktør |
-            | Registrator |
-            | Applikasjonsadministrator |
-            | Bruker |
+      | ID   |
+      | Name |
+    And a button Add that is enabled
+    Examples:
+      | Section       |
+      | Administrator |
+      | Curator       |
+      | Editor        |
 
-  # Menuitems for Redaktør
-  Scenario: The user opens Redaktøroppsett
-    Given the user is logged in as Redaktør
-    When they click the menu item Redaktøroppsett
-    Then the page Redaktøroppsett is opened
-	And has the fields
-        | Epost | 
-	And a button Lagre that is enabled
- 
-  # Menuitems for Applikasjonsadmin
-  Scenario: The user opens Institusjoner
-    Given the user is logged in as Applikasjonsadmin
-    When they click the menu item Institusjoner
-    Then the page Institusjoner is opened
-	And the user see a liste of all institution (customers)
-	And has the fields
-        | Institusjon | 
-        | Oprettet |
-        | Redaktør |
-	And a button Åpne that is enabled for each institution
-    And a button Opprett institusjon that is enabled
+  # Menuitems for Editor
+  @364
+  Scenario: The user opens Editor administration
+    Given the user is logged in as Editor
+    When they click the menu item Editor administration
+    Then the page Editor administration is opened
+    And has the fields
+      | Email |
+    And a button Save that is enabled
 
-  # Actions from page : Institusjon (Add/Update)
-  Scenario: Applikasjonsadmin changes a new institution
-    Given the user is logged in as Applikasjonsadmin
-    When they click the link Opprett institusjon or Åpne in the page Institusjoner
-    Then the page Institusjon is opened with the fields
-        | Navn i organisasjonsregisteret | 
-        | Visningsnavn på institusjonen |
-        | Forkortet navn på institusjonen |
-        | Arkivnavn |
-        | CNAME |
-        | Institusjonsadmin ID |
-        | Feide Organisasjons ID |
-	And a button Legg til that is enabled
- 
+  # Menuitems for Application adminstrator
+  @365
+  Scenario: The Application adminstrator opens Institutions
+    Given the user is logged in as Application adminstrator
+    When they click the menu item Institutions
+    Then the page Institutions is opened
+    And the user sees a table of all institutions (customers)
+    And the table contains the fields
+      | Institution |
+      | Created     |
+      | Editor      |
+    And a button Open that is enabled for each institution
+    And a button Create Institution that is enabled
+
+  # Actions from page : Institution (Add/Update)
+  @NP-366
+  Scenario: Application adminstrator changes / adds an institution
+    Given the user is logged in as Application adminstrator
+    When they click <Button> in the page Institutions
+    Then the page Institution is opened with the fields
+      | Name in organisation registry |
+      | Display name                  |
+      | Short displayname             |
+      | CNAME                         |
+      | Intitution DNS                |
+      | Administration ID             |
+      | Feide Organisation ID         |
+    And a button Add that is enabled
+    Examples:
+      | Button |
+      | Add    |
+      | Save   |
