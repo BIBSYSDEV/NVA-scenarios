@@ -2,6 +2,7 @@
 # language: en
 
 Feature: MVP features for NVA
+
   Scenario: A user logs in with Feide for the first time
     Given that the user is on the Start page
     When they click on the Log-in button
@@ -112,14 +113,6 @@ Feature: MVP features for NVA
     And they see an Expansion panel for Link to publication
     And they see an Expansion panel for Suggestions from ORCID
 
-  @wip
-  @443
-  Scenario: User starts registering a Publication
-    Given that the user begins registering a Publication
-    And they have selected one of the methods for starting the Wizard
-    When they click Start
-    Then the Wizard is started
-
   @228
   Scenario: User begins registering with a Link with direct data from Datacite/Crossref
     Given that the user begins registering a Publication
@@ -148,8 +141,8 @@ Feature: MVP features for NVA
     And click Search
     Then they see metadata about the Link in the Expansion panel
     Examples:
-      | Link |
-      | https://loar.kb.dk/handle/1902/1674?show=full                      |
+      | Link                                          |
+      | https://loar.kb.dk/handle/1902/1674?show=full |
 
   @441
   Scenario Outline: User begins registering with a Link with data from DC ans DCTERMS meta tags
@@ -173,8 +166,20 @@ Feature: MVP features for NVA
       | Link                                                                                            |
       | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
 
+  @443
+  Scenario Outline: User starts registering a Publication
+    Given that the user begins registering a Publication
+    And they have selected one of the <Methods> for starting the Wizard
+    When they click Start
+    Then the Wizard is started
+    Examples:
+      | Methods                |
+      | Link to publication    |
+      | Upload file            |
+      | Suggestions from ORCID |
+
   @452
-  Scenario: User start Wizard registration and navigates to Description tab
+  Scenario: User starts Wizard registration and navigates to Description tab
     Given that the user starts registering a Publication
     When they navigate to the Description tab
     Then they see the tab Description is selected
