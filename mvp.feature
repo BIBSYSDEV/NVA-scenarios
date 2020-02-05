@@ -1,6 +1,7 @@
   # encoding: utf-8
   # language: en
 
+
   @217
   Scenario: User with no Feide ID in ARP sees matching Author identities
     Given that a user has a valid Feide ID and password
@@ -15,11 +16,13 @@
   Scenario: User updates an Author identity
     Given that a user with no Feide ID in ARP sees matching Author identities
     When they select an Author identity
-    And they click Connect Author ID
+    And they click Connect Author identity
     Then the user's Feide ID is added to the Author identity
     And the user's Feide organization number is mapped to an Organizational ID (Cristin ID)
     And the user's Organizational ID (Cristin ID) is added to the Author identity
-    And the Next button is enabled
+    And they see a notification that confirms the connection
+    And they are redirected to the ORCID dialog
+    # This last step hides cases where an ORCID already exists in ARP
   # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
 
   @384
