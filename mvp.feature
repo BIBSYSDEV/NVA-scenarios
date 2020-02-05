@@ -19,6 +19,15 @@ Feature: MVP features for NVA
       | Kim Smith | Smith, Kim    | Some Other Title  |
       | Kim Smith | Smith, Kim F. | Yet Another Title |
 
+
+  Scenario: User has no matching Author identity
+    Given that Sandy Jones has a valid Feide ID and password
+    And they do not have a Feide ID in their ARP entry
+    And there are no matching entries in ARP
+    When they log in
+    Then they see the Create Authority dialog
+    And that their name is selected
+
   @219
   Scenario: User updates an Author identity
     Given that a user with no Feide ID in ARP sees matching Author identities
