@@ -1,6 +1,7 @@
-  # encoding: utf-8
-  # language: en
+# encoding: utf-8
+# language: en
 
+Feature: MVP features for NVA
 
   @217
   Scenario: User with no Feide ID in ARP sees matching Author identities
@@ -8,9 +9,9 @@
     And they do not have a Feide ID in their ARP entry
     When they log in
     Then they see a list containing <Author name> and <Last publication> for each ARP entry matching their <Name>
-      Examples:
-        | Name | Author name | Last publication |
-        | Kim Smith | Smith, Kim | Some Title |
+    Examples:
+      | Name      | Author name | Last publication |
+      | Kim Smith | Smith, Kim  | Some Title       |
 
   @219
   Scenario: User updates an Author identity
@@ -24,6 +25,7 @@
     And they are redirected to the ORCID dialog
     # This last step hides cases where an ORCID already exists in ARP
   # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
+
 
   @384
   Scenario: User creates an Author identity
