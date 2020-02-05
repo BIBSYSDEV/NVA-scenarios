@@ -2,7 +2,7 @@
   # language: en
 
   @217
-  Scenario: User with no Feide ID in the ARP sees matching Author identities
+  Scenario: User with no Feide ID in ARP sees matching Author identities
     Given that a user has a valid Feide ID and password
     And they do not have a Feide ID in their ARP entry
     When they log in
@@ -13,7 +13,7 @@
 
   @219
   Scenario: User updates an Author identity
-    Given that a user with no Feide ID in the Authority Register for Personas sees matching Author identities
+    Given that a user with no Feide ID in ARP sees matching Author identities
     When they select an Author identity
     And the user click the button to Connect the author ID
     Then the user's Feide ID is added to the Author identity
@@ -27,7 +27,7 @@
     Given that a user has no matching Author identity
     And they see that their name is selected
     When they click Create Author identity
-    Then the user's identity is added to the Authority Register for Personas
+    Then the user's identity is added to ARP
     And the user's Feide ID is added to the Author identity
     And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
     And the user's Organisational ID (Cristin ID) is added to the Author identity
@@ -407,7 +407,7 @@
     And they have clicked Next
     When they review the information for Contributors
     Then they see that the Contributors are grouped in sections Authors and Other Contributors
-    And they see that the Authors are verified in the Authority Register for Personas
+    And they see that the Authors are verified in ARP
     And they see that the Authors are in the expected order
     And they see that the Authors have the expected institutional affiliations
     And they see that the correct authors have the expected value for Corresponding Author
@@ -465,7 +465,7 @@
   # The Grant ID is available in Cristin Project DB
   # Cristin Project DB data document contains the ORCIDs for project members
   # There is a match between all ORCIDs from the DOI data document and (a subset of) the Cristin Project DB Project data document ORCIDs
-  # All of the ORCIDs are in the Authority Register for Personas
+  # All of the ORCIDs are in ARP
 
   @418
   Scenario: User opens the add Author dialog
@@ -481,7 +481,7 @@
     Given that the user opens the add Author dialog
     And enters a Name in the Author search box
     And see search results for the Author search containing the last publication
-    And see the Institution from the Author Register
+    And see the Institution from ARP
     When they click the button to Add an Author
     Then the dialog is closed
     And the Author is shown in the Author table in the Constributor tab
@@ -673,7 +673,7 @@
     Given user opens My Profile
     When they click Change Institution
     Then the user sees the Change Institution window
-    And their Institution from the Authority Registry is selected
+    And their Institution from ARP is selected
     And a dropdown with the units connected to the Institution is shown
     And a Change button is available
 
@@ -682,7 +682,7 @@
     Given user views a list of sub-units to their Institution from My Profile
     When the user selects a sub-unit
     And save the changes
-    Then the changes are saved to the Authority Registry
+    Then the changes are saved to the ARP
     And the changes are shown in My Profile
 
   @409
@@ -706,7 +706,7 @@
     And they have selected an Institution
     And they have clicked Add
     Then the Add Institution window is closed
-    And the Institution ID is saved to the Authority Registry
+    And the Institution ID is saved to ARP
     And the user sees the new Institution in My Profile
 
   @383
@@ -714,7 +714,7 @@
     Given user opens the page My Profile
     When they click the button to remove an ORCID connection
     Then the user is asked to confirm
-    And their ORCID is removed from the Authority Registry
+    And their ORCID is removed from ARP
 
   @353
   Scenario: User logs out
