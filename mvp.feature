@@ -51,12 +51,6 @@ Feature: MVP features for NVA
     And their Organizational ID (Cristin ID) is added to their Author identity
     And they are redirected to the ORCID dialog
 
-  @221
-  Scenario: User has no ORCID associated with their Author identity
-    Given that the user has updated an Author identity
-    When they click the Next button
-    Then they are asked if they want to add or create an ORCID
-
   @222
   Scenario: User attempts to add an ORCID to their Author identity
     Given that the user has no ORCID associated with their Author identity
