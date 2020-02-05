@@ -123,55 +123,52 @@ Feature: MVP features for NVA
   @228
   Scenario: User begins registering with a Link with direct data from Datacite/Crossref
     Given that the user begins registering a Publication
-    When they click Link to publication
-    And enter a <Link>
+    When they expand Link to publication
+    And enter a DOI or a fully qualified DOI URL
     And click Search
-    Then they see metadata about the Link
-    Examples:
-      | Link                              |
-      | https://doi.org/10.18711/yjieaump |
+    Then they see metadata about the Link in the Expansion panel
 
   @439
-  Scenario: User begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
+  Scenario Outline: User begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
     Given that the user begins registering a Publication
-    When they click Link to publication
+    When they expand Link to publication
     And enter a <Link>
     And click Search
-    Then they see metadata about the Link
+    Then they see metadata about the Link in the Expansion panel
     Examples:
       | Link                                                               |
       | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945 |
-      | https://loar.kb.dk/handle/1902/1674?show=full                      |
+    #DLR does not have a meta tag with a DOI
 
   @440
-  Scenario: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
+  Scenario Outline: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
     Given that the user begins registering a Publication
-    When they click Link to publication
+    When they expand Link to publication
     And enter a <Link>
     And click Search
-    Then they see metadata about the Link
+    Then they see metadata about the Link in the Expansion panel
     Examples:
       | Link |
-      | ...  |
+      | https://loar.kb.dk/handle/1902/1674?show=full                      |
 
   @441
-  Scenario: User begins registering with a Link with data from DC ans DCTERMS meta tags
+  Scenario Outline: User begins registering with a Link with data from DC ans DCTERMS meta tags
     Given that the user begins registering a Publication
-    When they click Link to publication
+    When they expand Link to publication
     And enter a <Link>
     And click Search
-    Then they see metadata about the Link
+    Then they see metadata about the Link in the Expansion panel
     Examples:
       | Link                                                     |
       | https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973 |
 
   @442
-  Scenario: User begins registering with a Link with data from Open Graph tag
+  Scenario Outline: User begins registering with a Link with data from Open Graph tag
     Given that the user begins registering a Publication
-    When they click Link to publication
+    When they expand Link to publication
     And enter a <Link>
     And click Search
-    Then they see metadata about the Link
+    Then they see metadata about the Link in the Expansion panel
     Examples:
       | Link                                                                                            |
       | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
