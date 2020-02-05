@@ -2,7 +2,45 @@
 # language: en
 
 Feature: MVP features for NVA
+  Scenario: A user logs in with Feide for the first time
+    Given that the user is on the Start page
+    When they click on the Log-in button
+    And they are redirected to Feide
+    And they enter their valid Feide credentials
+    And they approve sharing of data with the NVA application regarding
+      | Username            |
+      | E-mail address      |
+      | Real name           |
+      | Affiliation         |
+      | Organization number |
+    Then they are redirected back to the Start page
+    And they see their name in the Menu
+    And they see the Connect Author dialog
 
+  Scenario: A user logs in with Feide not for the first time
+    Given that the user is on the Start page
+    When they click on the Log-in button
+    And they are redirected to Feide
+    And they enter their valid Feide credentials
+    Then they are redirected back to the Start page
+    And they see their name in the Menu
+    And they see the Connect ORCID dialog
+
+  Scenario: A user is already authenticated with Feide (single sign on)
+    Given that the user is already authenticated with Feide
+    When they navigate to the Start page
+    And they click on the Log-in button
+    And they are redirected to Feide
+    And they click on the identity they wish to proceed with in the Feide interface
+    Then they are redirected back to the Start page
+    And they see their name in the Menu
+
+  Scenario: A user logs out
+    Given that the user is already logged in
+    When they click on the Menu
+    And they click Log out
+    Then they are logged out of the NVA application
+    
   @217
   Scenario: User with no Feide ID in ARP sees matching Author identities
     Given that Kim Smith has a valid Feide ID and password
@@ -63,7 +101,6 @@ Feature: MVP features for NVA
     Then they are redirected back to NVA
     And their ORCID is added to their Author identity
     And they see their ORCID on their Profile page
-
 
   @226
   Scenario: User begins registering a Publication
