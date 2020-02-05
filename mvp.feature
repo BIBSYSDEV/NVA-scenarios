@@ -17,8 +17,8 @@
     When they select an Author identity
     And they click Connect Author ID
     Then the user's Feide ID is added to the Author identity
-    And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
-    And the user's Organisational ID (Cristin ID) is added to the Author identity
+    And the user's Feide organization number is mapped to an Organizational ID (Cristin ID)
+    And the user's Organizational ID (Cristin ID) is added to the Author identity
     And the Next button is enabled
   # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
 
@@ -29,8 +29,8 @@
     When they click Create Author identity
     Then the user's identity is added to ARP
     And the user's Feide ID is added to the Author identity
-    And the user's Feide organisation number is mapped to an Organisational ID (Cristin ID)
-    And the user's Organisational ID (Cristin ID) is added to the Author identity
+    And the user's Feide organization number is mapped to an Organizational ID (Cristin ID)
+    And the user's Organizational ID (Cristin ID) is added to the Author identity
     And the Next button is enabled
 
   @221
@@ -842,7 +842,7 @@
   Scenario: The Administrator edits an Institution
     Given the Administrator has opened My Institution
     When they edit the fields
-      | Name in organisation registry |
+      | Name in organization registry |
       | Display name                  |
       | Short displayname             |
       | CNAME                         |
@@ -905,13 +905,13 @@
     Given the user is logged in as Application adminstrator
     When they click <Button> in the page Institutions
     Then the page Institution is opened with the fields
-      | Name in organisation registry |
+      | Name in organization registry |
       | Display name                  |
       | Short displayname             |
       | CNAME                         |
       | Intitution DNS                |
       | Administration ID             |
-      | Feide Organisation ID         |
+      | Feide Organization ID         |
     And a button Add that is enabled
     Examples:
       | Button |
