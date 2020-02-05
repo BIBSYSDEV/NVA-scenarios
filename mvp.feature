@@ -53,14 +53,17 @@ Feature: MVP features for NVA
 
   @222
   Scenario: User attempts to add an ORCID to their Author identity
-    Given that the user has no ORCID associated with their Author identity
+    Given that the user:
+      | User updates an Author identity |
+      | User creates an Author identity |
     When they click Add ORCID
-    And the user is redirected to ORCID for login
+    And they are redirected to ORCID for login
     And they log into ORCID
     And they accept that NVA uses their data
     Then they are redirected back to NVA
     And their ORCID is added to their Author identity
     And they see their ORCID on their Profile page
+
 
   @226
   Scenario: User begins registering a Publication
