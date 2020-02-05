@@ -10,7 +10,7 @@ Feature: MVP features for NVA
     And they enter their valid Feide credentials
     And they approve sharing of data with the NVA application regarding
       | Username            |
-      | E-mail address      |
+      | Email address       |
       | Real name           |
       | Affiliation         |
       | Organization number |
@@ -77,7 +77,7 @@ Feature: MVP features for NVA
     And their Organizational ID (Cristin ID) is added to their Author identity
     And they see a notification that confirms the connection
     And they are redirected to the ORCID dialog
-    # This last step hides cases where an ORCID already exists in ARP
+  # This last step hides cases where an ORCID already exists in ARP
   # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
 
   @384
@@ -131,7 +131,7 @@ Feature: MVP features for NVA
     Examples:
       | Link                                                               |
       | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945 |
-    #DLR does not have a meta tag with a DOI
+  #DLR does not have a meta tag with a DOI
 
   @440
   Scenario Outline: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
@@ -204,7 +204,7 @@ Feature: MVP features for NVA
 
   @453
   Scenario: User navigates to the Reference tab
-    Given that the starts registering a Publication
+    Given that the user starts registering a Publication
     When they navigate to the Reference tab
     Then they see mandatory fields for
       | Type |
@@ -218,7 +218,7 @@ Feature: MVP features for NVA
 
   @274
   Scenario: User navigates to the Reference tab and selects Publication in Journal
-    Given that the navigates to the Reference tab
+    Given that the user navigates to the Reference tab
     When they select a Reference Type from the list
       | Publication in Journal |
     Then they can select a Publication Subtype from the list
@@ -228,7 +228,7 @@ Feature: MVP features for NVA
       | Letter to the editor |
       | Review               |
     And they see mandatory fields for
-      | Search-box for Journal |
+      | Search box for Journal |
     And they see optional fields for
       | DOI            |
       | Volume         |
@@ -236,21 +236,21 @@ Feature: MVP features for NVA
       | Pages from     |
       | Pages to       |
       | Article number |
-      | Peer-review    |
+      | Peer review    |
 
   @392
   Scenario: User navigates to the Reference tab and selects Book
-    Given that the navigates to the Reference tab
+    Given that the user navigates to the Reference tab
     When they select a Reference Type from the list
       | Book |
     And they select a Publication Subtype from the list
       | Monography |
       | Anthology  |
     And they see mandatory fields for
-      | Search-box for Publisher |
+      | Search box for Publisher |
     And they see optional fields for
       | ISBN                  |
-      | Peer-review           |
+      | Peer review           |
       | Is this a textbook    |
       | Total number of pages |
       | Title of the Series   |
@@ -258,7 +258,7 @@ Feature: MVP features for NVA
 
   @393
   Scenario: User navigates to the Reference tab and selects Report
-    Given that the navigates to the Reference tab
+    Given that the user navigates to the Reference tab
     When they select a Reference Type from the list
       | Report |
     And they select a Publication Subtype from the list
@@ -267,16 +267,16 @@ Feature: MVP features for NVA
       | Policy report   |
       | Working paper   |
     And they see mandatory fields for
-      | Search-box for Publisher |
+      | Search box for Publisher |
     And they see optional fields for
       | ISBN                  |
-      | Peer-review           |
+      | Peer review           |
       | Total number of pages |
       | Title of the Series   |
 
   @394
   Scenario: User navigates to the Reference tab and selects Degree
-    Given that the navigates to the Reference tab
+    Given that the user navigates to the Reference tab
     When they select a Reference Type from the list
       | Degree |
     And they select a Publication Subtype from the list
@@ -284,26 +284,26 @@ Feature: MVP features for NVA
       | Master    |
       | Doctorate |
     And they see mandatory fields for
-      | Search-box for Publisher |
+      | Search box for Publisher |
     And they see optional fields for
       | Title of the Series |
 
   @395
   Scenario: User navigates to the Reference tab and selects Chapter
-    Given that the navigates to the Reference tab
+    Given that the user navigates to the Reference tab
     When they select a Reference Type from the list
       | Chapter |
     And they see mandatory fields for
-      | Search-box for Book |
+      | Search box for Book |
     And they see optional fields for
-      | Title of the Series               |
-      | pagenumber from and pagenumber to |
+      | Title of the Series                 |
+      | Page number from and Page number to |
     And they see the value for NVI
 
   @417
-  Scenario: User navigates to the Constributor tab
-    Given that the starts registering a Publication
-    When they navigate to the Constributor tab
+  Scenario: User navigates to the Contributor tab
+    Given that the user starts registering a Publication
+    When they navigate to the Contributor tab
     Then they see mandatory fields for
       | Name           |
       | Institution    |
@@ -314,7 +314,7 @@ Feature: MVP features for NVA
     And a button to add an Author is enabled
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
-    And they see the tab Constributor is selected
+    And they see the tab Contributor is selected
     And they see the tab Files and License is clickable
     And they see the tab Submission is clickable
     And they see Next is enabled
@@ -322,7 +322,7 @@ Feature: MVP features for NVA
 
   @275
   Scenario: User navigates to the Files and License tab
-    Given that the starts registering a Publication
+    Given that the user starts registering a Publication
     When they navigate to the Files and License tab
     Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
     And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
@@ -330,7 +330,7 @@ Feature: MVP features for NVA
     And they can upload files for the Publication
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
-    And they see the tab Constributor is clickable
+    And they see the tab Contributor is clickable
     And they see the tab Files and License is selected
     And they see the tab Submission is clickable
     And they see Next is enabled
@@ -338,7 +338,7 @@ Feature: MVP features for NVA
 
   @277
   Scenario: User navigates to the Submission tab
-    Given that the starts registering a Publication
+    Given that the user starts registering a Publication
     When they navigate to the Submission tab
     Then they see all of the data they have entered including mandatory fields
       | Title                   |
@@ -346,7 +346,7 @@ Feature: MVP features for NVA
       | License                 |
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
-    And they see the tab Constributor is clickable
+    And they see the tab Contributor is clickable
     And they see the tab Files and License is clickable
     And they see the tab Submission is selected
     And they see Next is enabled
@@ -373,9 +373,9 @@ Feature: MVP features for NVA
     When they click Suggestions from ORCID
     Then they see a list of last publications from ORCID API assosiated with the users ORCID ID
     And each list entry contains metadata for:
-      | title         |
-      | year          |
-      | journal title |
+      | Title         |
+      | Year          |
+      | Journal title |
       | DOI           |
     And that each entry is selectable
 
@@ -414,7 +414,7 @@ Feature: MVP features for NVA
 
   @229
   Scenario: User verifies initial metadata on the Description tab for a registration
-    Given that the user start Wizard registration with a Link
+    Given that the user starts Wizard registration with a Link
     When they see the Description tab
     Then they see that the Description tab is populated with metadata for
       | Title                        |
@@ -427,7 +427,7 @@ Feature: MVP features for NVA
 
   # Dette er av typen "Publication in Journal"
   Scenario: User verifies initial metadata on the Reference tab for a registration
-    Given that the user start Wizard registration with a Link
+    Given that the user starts Wizard registration with a Link
     Then they they see that the Reference tab is populated with metadata values for
       | Publication type                              |
       | Link (the link that was provided by the user) |
@@ -437,24 +437,24 @@ Feature: MVP features for NVA
       | Page from                                     |
       | Page to                                       |
       | Article number                                |
-      | Peer-review                                   |
+      | Peer review                                   |
 
   Scenario: User verifies initial metadata on the Contributors tab for a registration
-    Given that the user start Wizard registration with a Link
+    Given that the user starts Wizard registration with a Link
     Then they see that the Contributors tab Authors section is populated with metadata values for <Author> and <Institution>
-    And they see that the Contributors tab Contributors section is populated with metadata values for <ContributionType>, <Name> and <Institution>
+    And they see that the Contributors tab Contributors section is populated with metadata values for <Contribution Type>, <Name> and <Institution>
     Examples:
       | Author       | Institution |
       | Name Nameson | NTNU        |
       | Jan Jansson  | MTNU        |
 
     Examples:
-      | ContributionType | Name        | Institution |
-      | Photographer     | Jim Jimsson | AVH         |
+      | Contribution Type | Name        | Institution |
+      | Photographer      | Jim Jimsson | AVH         |
 
   Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
-    Given that the user start Wizard registration with a Link
-    Then they see that the Files and Licenses tab is pre-populated with metadata values for
+    Given that the user starts Wizard registration with a Link
+    Then they see that the Files and Licenses tab is prepopulated with metadata values for
       | Possible mapped value for License, Archiving policy and Unit agreement |
       | Possible file for upload  (Filename, File size)                        |
 
@@ -475,34 +475,34 @@ Feature: MVP features for NVA
   @230
   Scenario: User adds NPI data for a Publication
     Given that the user starts registering a Publication
-    When they select a value in the drop-down for NPI subject area
+    When they select a value in the dropdown for NPI subject area
     Then this is added to the metadata for the Publication
     And the NPI subject area is listed in the Submission
 
   @231
-  Scenario: User views Projects widget
+  Scenario: User views Projects Widget
     Given that the user starts registering a Publication
     When they click the Projects search box
     Then they see a list of up to ten most recent active projects in NVA associated with their ID
     And an empty search box
 
   @444
-  Scenario: User selects pre-populated Project from initial drop-down
-    Given that the user views Project widget
-    When they click a project in the widget
+  Scenario: User selects prepopulated Project from initial dropdown
+    Given that the user views Project Widget
+    When they click a project in the Widget
     Then the Project ID is added to the Publication metadata
     And the user can add another Project
 
   @445
   Scenario: User searches for a Project
-    Given that the user views Project widget
+    Given that the user views Project Widget
     When they write a project name in the search box
-    Then they see a list of results based on free-text search for Project title in the Projects API
+    Then they see a list of results based on free text search for Project title in the Projects API
 
   @446
-  Scenario: User selects searched-up Project from initial drop-down
+  Scenario: User selects Project from dropdown
     Given that the user searches for a Project
-    When they click a project in the widget
+    When they click a project in the Widget
     Then the Project ID is added to the Publication metadata
     And the user can add another Project
 
@@ -542,7 +542,7 @@ Feature: MVP features for NVA
     And see the Institution from ARP
     When they click Add Author
     Then the dialog is closed
-    And the Author is shown in the Author table in the Constributor tab
+    And the Author is shown in the Author table in the Contributor tab
 
   # Tegn delete og fullfør beskrivelse
   @
@@ -553,7 +553,7 @@ Feature: MVP features for NVA
     And enter Institution details
     When they click Add Author
     Then the dialog is closed
-    And the Author is shown in the Author table in the Constributor tab
+    And the Author is shown in the Author table in the Contributor tab
 
   #Legg til Scenario for delete, edit, move, korresponding
 
@@ -595,7 +595,7 @@ Feature: MVP features for NVA
     And see mandatory dropdown for License with values
       | CC-BY 4.0 |
     And optional fields for
-      | postponed publication |
+      | Postponed publication |
     And optional checkbox for Administrative contract
     And a Preview button
     And a Remove button
@@ -627,7 +627,7 @@ Feature: MVP features for NVA
 
   @278
   Scenario: User publishes Publication
-    Given the user views Submission
+    Given that the user views Submission
     When they click Publish
     Then they see the Public page containing all data and files
     And they see the Publication is Published
@@ -635,14 +635,14 @@ Feature: MVP features for NVA
   # Access to the different menu items
   @244
   Scenario: User sees non-logged-in menu
-    Given the user is not logged in
+    Given that the user is not logged in
     When they look at any page in NVA
-    Then they see an menu containing
+    Then they see a menu containing
       | Logg inn |
 
   @345
   Scenario: User sees a menu when logged in
-    Given the user is logged in (and has no NVA-role)
+    Given that the user is logged in (and has no NVA role)
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile |
@@ -650,7 +650,7 @@ Feature: MVP features for NVA
 
   @346
   Scenario: User sees the menu for Creator
-    Given the user is logged in
+    Given that the user is logged in
     And has the role of Creator
     When they look at any page in NVA
     Then they see a menu containing
@@ -662,7 +662,7 @@ Feature: MVP features for NVA
 
   @347
   Scenario: User sees the menu for Curator
-    Given the user is logged in
+    Given that the user is logged in
     And has the role of Curator
     When they look at any page in NVA
     Then they see a menu containing
@@ -672,7 +672,7 @@ Feature: MVP features for NVA
 
   @348
   Scenario: User sees the menu for Administrator
-    Given the user is logged in
+    Given that the user is logged in
     And has the role of Administrator
     When they look at any page in NVA
     Then they see a menu containing
@@ -683,7 +683,7 @@ Feature: MVP features for NVA
 
   @349
   Scenario: User sees the menu for Editor
-    Given the user is logged in
+    Given that the user is logged in
     And has the role of Editor
     When they look at any page in NVA
     Then they see a menu containing
@@ -693,7 +693,7 @@ Feature: MVP features for NVA
 
   @350
   Scenario: User sees the menu for Application administrator
-    Given the user is logged in
+    Given that the user is logged in
     And has the role of Application administrator
     When they look at any page in NVA
     Then they see a menu containing
@@ -706,14 +706,14 @@ Feature: MVP features for NVA
   # Menu items for anonymous
   @351
   Scenario: User opens login page
-    Given the user is not logged in
+    Given that the user is not logged in
     When they click the menu item Logg inn
     Then the page for login with Feide is opened
 
   # Menu items for logged in person
   @352
   Scenario: User opens the page My Profile
-    Given the user is logged in
+    Given that the user is logged in
     When they click the menu item My Profile
     Then the page My Profile is opened
     And see their Profile page which includes information for
@@ -727,7 +727,7 @@ Feature: MVP features for NVA
       | Preferred language |
 
   @406
-  Scenario: User views a list of sub-units at their Institution on My Profile
+  Scenario: User views a list of subunits at their Institution on My Profile
     Given user opens My Profile
     When they click Change Institution
     Then the user sees the Change Institution window
@@ -736,19 +736,19 @@ Feature: MVP features for NVA
     And a Change button is available
 
   @407
-  Scenario: User adds a sub-unit to their Institution from My Profile
-    Given user views a list of sub-units to their Institution from My Profile
-    When the user selects a sub-unit
-    And save the changes
-    Then the changes are saved to the ARP
+  Scenario: User adds a subunit to their Institution from My Profile
+    Given user views a list of subunits to their Institution from My Profile
+    When the user selects a subunit
+    And saves the changes
+    Then the changes are saved to ARP
     And the changes are shown in My Profile
 
   @409
-  Scenario: User views all sub-units at their Institution on My Profile
-    Given the user views a list of sub-units at their Institution on My Profile
-    When the users selects a sub-unit
-    Then they see a dropdown with sub-units
-    And they see a new sub-unit dropdown until there are no more sub-unit-levels
+  Scenario: User views all subunits at their Institution on My Profile
+    Given that the user views a list of subunits at their Institution on My Profile
+    When the users selects a subunit
+    Then they see a dropdown with subunits
+    And they see a new subunit dropdown until there are no more subunit levels
 
   @410
   Scenario: User opens Add Institution from My Profile
@@ -776,7 +776,7 @@ Feature: MVP features for NVA
 
   @353
   Scenario: User logs out
-    Given the user is logged in
+    Given that the user is logged in
     When they click the menu item Log Out
     Then the user is logged out from Feide
     And the search page is opened
@@ -784,7 +784,7 @@ Feature: MVP features for NVA
 
   # Menuitems for Creator
   Scenario: User opens New Registration
-    Given the user is logged in as Creator
+    Given that the user is logged in as Creator
     When they click the menu item New Registration
     Then the page New Registration is opened
     And the user sees options
@@ -794,7 +794,7 @@ Feature: MVP features for NVA
 
   @354
   Scenario: User opens My Publications
-    Given the user is logged in as Creator
+    Given that the user is logged in as Creator
     When they click the menu item My Publications
     Then the page My Publications is opened
     And a list of all unpublished registrations with the fields
@@ -810,7 +810,7 @@ Feature: MVP features for NVA
   # Actions from Page : My Publications (Edit)
   @355
   Scenario: User opens an item in the My Publication list
-    Given the user is logged in as Creator
+    Given that the user is logged in as Creator
     And has opened the page My Publications
     When they click Edit on an item
     Then the item is opened in the Wizard
@@ -820,7 +820,7 @@ Feature: MVP features for NVA
   # Actions from Page : My Publications (Delete)
   @356
   Scenario: User delete an item in the My Publications list
-    Given the user is logged in as Creator
+    Given that the user is logged in as Creator
     And has opened the page My Publications
     When they click Delete on an item
     Then a comfirmation pop-up is opened
@@ -829,7 +829,7 @@ Feature: MVP features for NVA
 
   @421
   Scenario: User opens their Public Profile from My Publications Page
-    Given the user is logged in as Creator
+    Given that the user is logged in as Creator
     And has opened the page My Publications
     When they click to go to their public profile
     Then their public profile page is open
@@ -843,13 +843,13 @@ Feature: MVP features for NVA
   # Menuitems for Curator
   @357
   Scenario: User opens My Worklist
-    Given the user is logged in as Curator
+    Given that the user is logged in as Curator
     When they click the menu item My Worklist
     Then the page My Worklist is opened
     And the user see the lists
       | For Approval |
       | Support      |
-      | DOI-request  |
+      | DOI request  |
     And the lists have fields
       | Title     |
       | Submitter |
@@ -858,12 +858,12 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Worklist
   @358
-  Scenario: User opens an item in the For Approval or DOI-request list
-    Given the user is logged in as Curator
+  Scenario: User opens an item in the For Approval or DOI request list
+    Given that the user is logged in as Curator
     And has opened the page My Worklist
     And they select a <Tab>
     When they click Open on an item
-    Then the item is opened in the wizard
+    Then the item is opened in the Wizard
     And the user sees the Submission tab
     And <Button> is enabled
 
@@ -876,11 +876,11 @@ Feature: MVP features for NVA
   # Menuitems for Administrator
   @359
   Scenario: The user opens User administration
-    Given the user is logged in as Administrator
+    Given that the user is logged in as Administrator
     When they click the menu item User administration
     Then the page User administration is opened
     And the user sees a list of all users connected to their institution
-    And the users are grouped by NVA-roles
+    And the users are grouped by NVA roles
     And has the fields
       | Autentication ID |
       | Name             |
@@ -892,7 +892,7 @@ Feature: MVP features for NVA
 
   @360
   Scenario: The user opens My Institution
-    Given the user is logged in as Administrator
+    Given that the user is logged in as Administrator
     When they click the menu item My Institution
     Then are on the page My Institution
 
@@ -920,7 +920,7 @@ Feature: MVP features for NVA
   # Actions from page : Useradministration
   @363
   Scenario: Administrator adds a role to a user
-    Given the user is logged in as Administrator
+    Given that the user is logged in as Administrator
     And they are on the User Administration Page
     When they click Add User under the <Section>
     Then the page adds a line with the fields
@@ -936,7 +936,7 @@ Feature: MVP features for NVA
   # Menuitems for Editor
   @364
   Scenario: The user opens Editor administration
-    Given the user is logged in as Editor
+    Given that the user is logged in as Editor
     When they click the menu item Editor administration
     Then the page Editor administration is opened
     And has the fields
@@ -946,7 +946,7 @@ Feature: MVP features for NVA
   # Menuitems for Application adminstrator
   @365
   Scenario: The Application adminstrator opens Institutions
-    Given the user is logged in as Application adminstrator
+    Given that the user is logged in as Application adminstrator
     When they click the menu item Institutions
     Then the page Institutions is opened
     And the user sees a table of all institutions (customers)
@@ -958,9 +958,9 @@ Feature: MVP features for NVA
     And a button Create Institution that is enabled
 
   # Actions from page : Institution (Add/Update)
-  @NP-366
+  @366
   Scenario: Application adminstrator changes / adds an institution
-    Given the user is logged in as Application adminstrator
+    Given that the user is logged in as Application adminstrator
     When they click <Button> in the page Institutions
     Then the page Institution is opened with the fields
       | Name in organization registry |
