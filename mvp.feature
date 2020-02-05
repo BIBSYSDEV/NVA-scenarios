@@ -2,12 +2,14 @@
   # language: en
 
   @217
-  Scenario: User with no Feide ID in the Authority Register for Personas sees matching Author identities
+  Scenario: User with no Feide ID in the ARP sees matching Author identities
     Given that a user has a valid Feide ID and password
-    And they have do not have a Feide ID in the Authority Register for Personas
+    And they do not have a Feide ID in their ARP entry
     When they log in
-    Then the user sees a list of matching Author identities based on a free-text search for their Registered name from Feide in the Authority Register for Personas
-    And they see the last publication by year for each Author identity based on a SCN (System Control Number) lookup in Alma
+    Then they see a list containing <Author name> and <Last publication> for each ARP entry matching their <Name>
+      Examples:
+        | Name | Author name | Last publication |
+        | Kim Smith | Smith, Kim | Some Title |
 
   @219
   Scenario: User updates an Author identity
