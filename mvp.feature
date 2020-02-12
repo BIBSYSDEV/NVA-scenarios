@@ -232,7 +232,7 @@ Feature: MVP features for NVA
     And they select a Publication Subtype from the list
       | Monograph  |
       | Anthology  |
-    And they see Search box for "Publisher name" #this needs to be tested for mandatory-ness
+    Then they see Search box for "Publisher name" #this needs to be tested for mandatory-ness
     And they see a checkbox for "Is this a textbook?"
     And they see fields for
       | ISBN                  |
