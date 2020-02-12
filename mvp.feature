@@ -377,16 +377,15 @@ Feature: MVP features for NVA
     Then they see the Publication is saved and the title is listed and marked as Draft
 
   @391
-  Scenario: User sees publication for a registration based on uploading a file
-    Given User begins registration by uploading a file
-    And they see that filesize and checksum
+  Scenario: User sees Publication based on file upload is saved
+    Given that the user begins registration by uploading a file
     When they click Start
     And they click My Publications
     Then they see the Publication is saved and the title is listed (filename) and marked as Draft
 
   @432
   Scenario: User verifies file upload for a registration based on uploading a file
-    Given User sees publication for a Publication based on uploading a file
+    Given that the user sees Publication based on file upload is saved
     When they open the item in the Wizard
     And they select the tab Files and Licenses
     Then the files are available for download
