@@ -432,32 +432,21 @@ Feature: MVP features for NVA
     And they see that each Author information box contains a symbol to show whether it is a verified profile or not
     And they see that each Author information box can be dragged and dropped to change their order in the list
 
-  Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
-    Given that the user begins Wizard registration with a Link
-    Then they see that the Files and Licenses tab is prepopulated with metadata values for
-      | Possible mapped value for License, Archiving policy and Unit agreement |
-      | Possible file for upload  (Filename, File size)                        |
-
-  # SLETT?
-  @236
-  Scenario: User verifies Contributor information
-    Given that the user registers initial metadata for a Publication based on a Link
-    And they have clicked Next
-    When they review the information for Contributors
-    Then they see that the Contributors are grouped in sections Authors and Other Contributors
-    And they see that the Authors are verified in ARP
-    And they see that the Authors are in the expected order
-    And they see that the Authors have the expected institutional affiliations
-    And they see that the correct authors have the expected value for Corresponding Author
-    And they see that the Other Contributors are listed alphabetically by Surname
-    And they see that the Other Contributors have the correct Role, Name and Institution
+#  Unclear that we actually have this data at all
+#  Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
+#    Given that the user begins Wizard registration with a Link
+#    When they click the Files and Licenses tab
+#    Then they see that the Files and Licenses tab is prepopulated with metadata values for
+#      | Possible mapped value for License, Archiving policy and Unit agreement |
+#      | Possible file for upload  (Filename, File size)                        |
 
   @230
   Scenario: User adds NPI data for a Publication
     Given that the user begins registering a Publication
+    And they are on the Description tab
     When they select a value in the dropdown for NPI subject area
-    Then this is added to the metadata for the Publication
-    And the NPI subject area is listed in the Submission
+    And they click the Submission tab
+    Then they see the NPI subject area is listed
 
   @231
   Scenario: User views Projects Widget
