@@ -457,11 +457,16 @@ Feature: MVP features for NVA
     And a pre-filled selectable list of results featuring the ten most recent active projects in NVA associated with their User
 
   @444
-  Scenario: User selects prepopulated Project from initial dropdown
-    Given that the user views Project Widget
-    When they click a project in the Widget
-    Then the Project ID is added to the Publication metadata
-    And the user can add another Project
+  Scenario: User selects prepopulated Project from Autosearch dropdown for Project
+    Given that the user views Autosearch dropdown for Project
+    When they click a project in the dropdown
+    Then they see the project details in a new Project Information box
+    And they see the Project Information box contains information about:
+      | Project title |
+      | Grant ID      |
+      | Financed by   |
+    And they see that Project Information box Delete button is enabled
+    And they see a Autosearch dropdown for Project above the Project Information box
 
   @445
   Scenario: User searches for a Project
