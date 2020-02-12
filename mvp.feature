@@ -228,20 +228,18 @@ Feature: MVP features for NVA
   @392
   Scenario: User navigates to the Reference tab and selects Book
     Given that the user navigates to the Reference tab
-    When they select a Reference Type from the list
-      | Book |
+    When they select a Reference Type — Book
     And they select a Publication Subtype from the list
-      | Monography |
+      | Monograph  |
       | Anthology  |
-    And they see mandatory fields for
-      | Search box for Publisher |
-    And they see optional fields for
+    And they see Search box for "Publisher name" #this needs to be tested for mandatory-ness
+    And they see a checkbox for "Is this a textbook?"
+    And they see fields for
       | ISBN                  |
-      | Peer review           |
-      | Is this a textbook    |
       | Total number of pages |
-      | Title of the Series   |
-    And they see the value for NVI
+    And they see Search box for "Title of the Series"
+    And they see a preselected value for Peer review "Not peer reviewed" #also mandatory
+    And they see the NVI evaluation is Not NVI Applicable
 
   @393
   Scenario: User navigates to the Reference tab and selects Report
