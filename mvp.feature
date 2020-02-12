@@ -270,14 +270,15 @@ Feature: MVP features for NVA
   @395
   Scenario: User navigates to the Reference tab and selects Chapter
     Given that the user navigates to the Reference tab
-    When they select a Reference Type from the list
-      | Chapter |
-    And they see mandatory fields for
-      | Search box for Book |
-    And they see optional fields for
-      | Title of the Series                 |
-      | Page number from and Page number to |
-    And they see the value for NVI
+    When they select a Reference Type — Chapter
+    Then they see an Information box with text "Before you register the chapter, register the book so you can look it up"
+    And they see field "Link to publication"
+    And they see Search box for "Published in"
+    And they see a preselected value for Peer review "Not peer reviewed" #also mandatory
+    And they see field for Page number from
+    And they see field for Page number to
+    And they see Search box "Series title"
+    And they see the NVI evaluation is Not NVI Applicable
 
   @417
   Scenario: User navigates to the Contributor tab
