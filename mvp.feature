@@ -696,14 +696,6 @@ Feature: MVP features for NVA
       | Institutions |
       | Log Out      |
 
-  # Description of each menu item
-
-  # Menu items for anonymous
-  @351
-  Scenario: User opens login page
-    Given that the user is not logged in
-    When they click the menu item Logg inn
-    Then the page for login with Feide is opened
 
   # Menu items for logged in person
   @352
