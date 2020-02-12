@@ -564,14 +564,18 @@ Feature: MVP features for NVA
   #Legg til Scenario for delete, edit, move, korresponding
 
   @
-  Scenario: User registers Corresponding Author
+  Scenario: User views Corresponding Author Email field
     Given that the user registers initial metadata for a Publication based on a Link
-    And they have clicked Next
-    When they review the information for Contributors
-    Then they see that the Contributors are grouped in sections Authors and Other Contributors
-    And they set the correct values for Corresponding Author
-    And they see that the Other Contributors are listed alphabetically by Surname
-    And they see that the Other Contributors have the correct Role, Name and Institution
+    And they are on the Contributors tab
+    When they click Corresponding Author checkbox on an Author
+    Then they see an input field for Email
+
+  Scenario: User registers Corresponding Author
+    Given that the user views Corresponding Author Email field
+    When they enter a valid Email address
+    And they blur out of the Corresponding Author Email field
+    And they click the Summary tab
+    Then they see that the Author is registered as the Corresponding Author for the publication
 
   # Corresponding Author is not in fact present in the Datacite data, but probably will be soon
 
