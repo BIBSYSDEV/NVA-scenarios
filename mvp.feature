@@ -635,7 +635,8 @@ Feature: MVP features for NVA
 
   @345
   Scenario: User sees a menu when logged in
-    Given that the user is logged in and has no NVA role
+    Given that the user is logged in
+    And has no NVA role
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile |
