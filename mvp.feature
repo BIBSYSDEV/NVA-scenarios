@@ -122,49 +122,38 @@ Feature: MVP features for NVA
     Then they see metadata about the Link in the Expansion panel
 
   @439
-  Scenario Outline: User begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
+  Scenario: User begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
     Given that the user begins registering a Publication
     When they expand Link to publication
-    And enter a <Link>
+    And they enter https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945
     And click Search
     Then they see metadata about the Link in the Expansion panel
-    Examples:
-      | Link                                                               |
-      | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945 |
+
   #DLR does not have a meta tag with a DOI
 
   @440
-  Scenario Outline: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
+  Scenario: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
     Given that the user begins registering a Publication
     When they expand Link to publication
-    And enter a <Link>
+    And they enter https://loar.kb.dk/handle/1902/1674?show=full
     And click Search
     Then they see metadata about the Link in the Expansion panel
-    Examples:
-      | Link                                          |
-      | https://loar.kb.dk/handle/1902/1674?show=full |
 
   @441
-  Scenario Outline: User begins registering with a Link with data from DC ans DCTERMS meta tags
+  Scenario: User begins registering with a Link with data from DC and DCTERMS meta tags
     Given that the user begins registering a Publication
     When they expand Link to publication
-    And enter a <Link>
+    And they enter a https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
     And click Search
     Then they see metadata about the Link in the Expansion panel
-    Examples:
-      | Link                                                     |
-      | https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973 |
 
   @442
-  Scenario Outline: User begins registering with a Link with data from Open Graph tag
+  Scenario: User begins registering with a Link with data from Open Graph tag
     Given that the user begins registering a Publication
     When they expand Link to publication
-    And enter a <Link>
+    And they enter https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788
     And click Search
     Then they see metadata about the Link in the Expansion panel
-    Examples:
-      | Link                                                                                            |
-      | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
 
   @443
   Scenario Outline: User starts registering a Publication
