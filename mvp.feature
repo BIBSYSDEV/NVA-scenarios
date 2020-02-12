@@ -37,6 +37,7 @@ Feature: MVP features for NVA
     Then they are redirected back to the Start page
     And they see their name in the Menu
 
+  @353
   Scenario: A user logs out
     Given that the user is already logged in
     When they click on the Menu
