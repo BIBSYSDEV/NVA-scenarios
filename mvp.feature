@@ -207,24 +207,23 @@ Feature: MVP features for NVA
   @274
   Scenario: User navigates to the Reference tab and selects Publication in Journal
     Given that the user navigates to the Reference tab
-    When they select a Reference Type from the list
-      | Publication in Journal |
+    When they select a Reference Type — Publication in Journal
     Then they can select a Publication Subtype from the list
       | Article              |
       | Short communication  |
       | Leader               |
       | Letter to the editor |
       | Review               |
-    And they see mandatory fields for
-      | Search box for Journal |
-    And they see optional fields for
+    And they see the Search box for Journal #this needs to be tested for mandatory-ness
+    And they see fields for
       | DOI            |
       | Volume         |
       | Issue          |
       | Pages from     |
       | Pages to       |
       | Article number |
-      | Peer review    |
+    And they see a preselected value for Peer review "Not peer reviewed" #also mandatory
+    And they see the NVI evaluation is Not NVI Applicable
 
   @392
   Scenario: User navigates to the Reference tab and selects Book
