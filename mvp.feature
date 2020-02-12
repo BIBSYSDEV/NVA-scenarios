@@ -521,7 +521,8 @@ Feature: MVP features for NVA
 
   Scenario: User views Author search results
     Given that the user opens the Add Author dialog
-    When they enter a name in the Author search
+    And there are matching results for Name Nameson in ARP
+    When they enter Name Nameson in the Author search
     Then they see search results for the Author search
     And they see each Author result contains:
       | Author name                   |
@@ -536,16 +537,29 @@ Feature: MVP features for NVA
     Then the dialog is closed
     And the Author is shown in the Authors section in the Contributor tab
 
-  # Tegn delete og fullfør beskrivelse
-  @
+  @DeveloperPretendsToBeProductOwner
+  Scenario: User finds no matching Author in Author Search
+    Given that the user opens the Add Author dialog
+    And there are no matching results for Name Nameson in ARP
+    When they enter Name Nameson in the Author search
+    Then they see no matching results
+    And they see the Create New Author button
+
+  @DeveloperPretendsToBeProductOwner
+  Scenario: User views New Author in the Author dialog
+    Given that the user finds no matching Author in Author Search
+    When they click Create New Author
+    Then they see a field for Author name
+    And they see an Autosearch box for Affiliation
+
+  @DeveloperPretendsToBeProductOwner
   Scenario: User creates a new Author in the Author dialog
-    Given that the user opens the add Author dialog
-    And they click the link to create a new Author
-    And enters a Name in the Author name box
-    And enter Institution details
-    When they click Add Author
-    Then the dialog is closed
-    And the Author is shown in the Author table in the Contributor tab
+    Given that the user views New Author in the Author dialog
+    When they fill in field for Author name
+    And they search and select an affiliation
+    And they click Add
+    Then they see that the Add Author dialog is closed
+    And they see the new Author in the Author section of the Contributors tab
 
   #Legg til Scenario for delete, edit, move, korresponding
 
