@@ -370,17 +370,11 @@ Feature: MVP features for NVA
   #  Then they see the tab Description
 
   @388
-  Scenario Outline: User sees a Publication based on a Link
+  Scenario: User sees a Publication based on a Link is saved
     Given that the user begins registering with a Link
-    And they see that the title <Metadata> for the Link is correct
     When they click Start
     And they click My Publications
     Then they see the Publication is saved and the title is listed and marked as Draft
-    Examples:
-      | Metadata |
-      | Title    |
-  #| First three authors |
-  #| Publication date    |
 
   @391
   Scenario: User sees publication for a registration based on uploading a file
