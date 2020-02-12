@@ -403,20 +403,6 @@ Feature: MVP features for NVA
     And the Download button in the File Detail box is enabled
     And the Delete button in the File Detail box is enabled
 
-
-  @229
-  Scenario: User verifies initial metadata on the Description tab for a registration
-    Given that the user begins Wizard registration with a Link
-    When they see the Description tab
-    Then they see that the Description tab is populated with metadata for
-      | Title                        |
-      | Alternative title(s)         |
-      | Abstract                     |
-      | Alternative abstract(s)      |
-      | Description                  |
-      | Date published               |
-      | Primary language for content |
-
   # Dette er av typen "Publication in Journal"
   Scenario: User verifies initial metadata on the Reference tab for a registration
     Given that the user begins Wizard registration with a Link
@@ -808,7 +794,14 @@ Feature: MVP features for NVA
     When they click Edit on an item
     Then the item is opened in the Wizard
     And the user sees the Description tab
-    And the fields in the Wizard are populated with values from the saved publication
+    And they see populated fields:
+      | Title                        |
+      | Alternative title(s)         |
+      | Abstract                     |
+      | Alternative abstract(s)      |
+      | Description                  |
+      | Date published               |
+      | Primary language for content |
 
   # Actions from Page : My Publications (Delete)
   @356
