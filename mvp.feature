@@ -614,9 +614,8 @@ Feature: MVP features for NVA
     Then they see the original filename
     And they see the filesize
     And they see the checksum for the uploaded file
-    And optional checkbox for Administrative contract
-    And a Preview button
-    And a Remove button
+    And they see a message stating that the file is Adminsitrative and has no License and has restricted viewing rights
+    And a Delete button
 
   @278
   Scenario: User publishes Publication
