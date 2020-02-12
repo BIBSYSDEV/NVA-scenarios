@@ -565,7 +565,7 @@ Feature: MVP features for NVA
 
   @276
   Scenario: User uploads files for the Publication
-    Given that the user navigates to files and License
+    Given that the user navigates to Files and Licenses
     When they drag and drop a file into the File drag-and-drop area
     Then they see that the files are uploaded
     And for each file they see the file receipt and settings
