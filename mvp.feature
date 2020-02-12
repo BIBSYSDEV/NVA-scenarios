@@ -259,16 +259,13 @@ Feature: MVP features for NVA
   @394
   Scenario: User navigates to the Reference tab and selects Degree
     Given that the user navigates to the Reference tab
-    When they select a Reference Type from the list
-      | Degree |
+    When they select a Reference Type — Degree
     And they select a Publication Subtype from the list
       | Bachelor  |
       | Master    |
       | Doctorate |
-    And they see mandatory fields for
-      | Search box for Publisher |
-    And they see optional fields for
-      | Title of the Series |
+    Then they see Search box for "Publisher name"
+    And they see Search box for "Title of the Series"
 
   @395
   Scenario: User navigates to the Reference tab and selects Chapter
