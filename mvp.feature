@@ -631,12 +631,11 @@ Feature: MVP features for NVA
   Scenario: User sees non-logged-in menu
     Given that the user is not logged in
     When they look at any page in NVA
-    Then they see a menu containing
-      | Logg inn |
+    Then they see the Log in button
 
   @345
   Scenario: User sees a menu when logged in
-    Given that the user is logged in (and has no NVA role)
+    Given that the user is logged in and has no NVA role
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile |
