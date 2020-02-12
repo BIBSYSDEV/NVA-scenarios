@@ -487,15 +487,21 @@ Feature: MVP features for NVA
     And they see a Autosearch dropdown for Project above the Project Information box
 
   @233
-  Scenario: User verifies Norwegian Registry information for a Publication based on a Link
+  Scenario: User sees journal title suggestion from a Link
     Given that the user registers initial metadata for a Publication based on a Link
     And the Publication is a Publication in Journal
-    And the Journal for the Publication is found in the Norwegian Register
-    When they verify the information from the Norwegian Register that appears in the Journal Metadata
-    Then they see that the information for Journal Title is correct
-    And they see that the information for Print ISSN is correct
-    And they see that the information for Online ISSN is correct
-    And they see that the information for Academic Level is correct
+    And the Journal for the Publication is in the Publication Channel Register
+    When they click the Reference Tab
+    Then they see the Autosearch dropdown for Journal contains a journal title
+
+  Scenario: User sees Publication Channel Register information for a Journal
+    Given that the user sees journal title suggestion from a Link
+    When they click the Autosearch dropdown for Journal
+    And they click a result
+    Then they see a Information box for Journal
+    And they see that the Information box for Journal contains a Title
+    And they see that the Information box for Journal contains an Academic level
+    And they see that the Information box for Journal contains a Delete button
 
   # Happy day scenario for a DOI-sourced Academic Publication
   # The DOI dereferences to a data document that contains ORCIDs for every Contributor
