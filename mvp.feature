@@ -244,20 +244,17 @@ Feature: MVP features for NVA
   @393
   Scenario: User navigates to the Reference tab and selects Report
     Given that the user navigates to the Reference tab
-    When they select a Reference Type from the list
-      | Report |
+    When they select a Reference Type — Report
     And they select a Publication Subtype from the list
       | Report          |
       | Research report |
       | Policy report   |
       | Working paper   |
-    And they see mandatory fields for
-      | Search box for Publisher |
-    And they see optional fields for
+    Then they see Search box for "Publisher name"
+    And they see fields for
       | ISBN                  |
-      | Peer review           |
       | Total number of pages |
-      | Title of the Series   |
+    And they see Search box for "Title of the Series"
 
   @394
   Scenario: User navigates to the Reference tab and selects Degree
