@@ -338,7 +338,9 @@ Feature: MVP features for NVA
     Given that the user begins registering a Publication
     When they click Upload file
     And they upload a file
-    Then they see the filesize and checksum
+    Then they see the file name
+    And they see the file size
+    And they see the file checksum
     And Delete file is enabled
     And Start is enabled
 
