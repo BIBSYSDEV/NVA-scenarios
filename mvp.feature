@@ -519,15 +519,22 @@ Feature: MVP features for NVA
     And they see Author search
     And they can cancel the dialog
 
+  Scenario: User views Author search results
+    Given that the user opens the Add Author dialog
+    When they enter a name in the Author search
+    Then they see search results for the Author search
+    And they see each Author result contains:
+      | Author name                   |
+      | the Author's last publication |
+      | Affiliation(s)                |
+
   @419
   Scenario: User adds an Author to the Author list
-    Given that the user opens the add Author dialog
-    And enters a Name in the Author search box
-    And see search results for the Author search containing the last publication
-    And see the Institution from ARP
-    When they click Add Author
+    Given the user views Author search results
+    When they click an Author
+    And they click Add Author
     Then the dialog is closed
-    And the Author is shown in the Author table in the Contributor tab
+    And the Author is shown in the Authors section in the Contributor tab
 
   # Tegn delete og fullfør beskrivelse
   @
