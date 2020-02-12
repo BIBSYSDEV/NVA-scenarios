@@ -302,17 +302,20 @@ Feature: MVP features for NVA
   Scenario: User navigates to the Files and Licenses tab
     Given that the user begins registering a Publication
     When they navigate to the Files and Licenses tab
-    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
-    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
-    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Norwegian Register
-    And they can upload files for the Publication
-    And they see the tab Description is clickable
-    And they see the tab Reference is clickable
-    And they see the tab Contributor is clickable
-    And they see the tab Files and Licenses is selected
-    And they see the tab Submission is clickable
-    And they see Next is enabled
-    And they see Save is enabled
+    Then they see the Publication Channel Information box
+    And they see the File upload widget
+
+#    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
+#    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
+#    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Norwegian Register
+#    And they can upload files for the Publication
+#    And they see the tab Description is clickable
+#    And they see the tab Reference is clickable
+#    And they see the tab Contributor is clickable
+#    And they see the tab Files and Licenses is selected
+#    And they see the tab Submission is clickable
+#    And they see Next is enabled
+#    And they see Save is enabled
 
   @277
   Scenario: User navigates to the Submission tab
