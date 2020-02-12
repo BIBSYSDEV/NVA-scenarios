@@ -191,13 +191,11 @@ Feature: MVP features for NVA
     And they see Next is enabled
     And they see Save is enabled
 
-  @here
   @453
   Scenario: User navigates to the Reference tab
     Given that the user starts registering a Publication
     When they navigate to the Reference tab
-    Then they see mandatory fields for
-      | Type |
+    Then they see the mandatory field for Type
     And they see the tab Description is clickable
     And they see the tab Reference is selected
     And they see the tab Contributor is clickable
