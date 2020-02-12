@@ -405,7 +405,9 @@ Feature: MVP features for NVA
 
   # Dette er av typen "Publication in Journal"
   Scenario: User verifies initial metadata on the Reference tab for a registration
-    Given that the user begins Wizard registration with a Link
+    Given that the user begins registration with a Link to a Journal Article
+    When they click Start
+    And they click the Reference Tab
     Then they they see that the Reference tab is populated with metadata values for
       | Publication type                              |
       | Link (the link that was provided by the user) |
