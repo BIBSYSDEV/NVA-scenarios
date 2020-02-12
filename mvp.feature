@@ -156,7 +156,7 @@ Feature: MVP features for NVA
     Then they see metadata about the Link in the Expansion panel
 
   @443
-  Scenario Outline: User starts registering a Publication
+  Scenario Outline: User begins registering a Publication
     Given that the user begins registering a Publication
     And they have selected one of the <Methods> for starting the Wizard
     When they click Start
@@ -168,8 +168,8 @@ Feature: MVP features for NVA
       | Suggestions from ORCID |
 
   @452
-  Scenario: User starts Wizard registration and navigates to Description tab
-    Given that the user starts registering a Publication
+  Scenario: User begins Wizard registration and navigates to Description tab
+    Given that the user begins registering a Publication
     When they navigate to the Description tab
     Then they see the tab Description is selected
     And they see mandatory fields for
@@ -193,7 +193,7 @@ Feature: MVP features for NVA
 
   @453
   Scenario: User navigates to the Reference tab
-    Given that the user starts registering a Publication
+    Given that the user begins registering a Publication
     When they navigate to the Reference tab
     Then they see the mandatory field for Type
     And they see the tab Description is clickable
@@ -230,8 +230,8 @@ Feature: MVP features for NVA
     Given that the user navigates to the Reference tab
     When they select a Reference Type — Book
     And they select a Publication Subtype from the list
-      | Monograph  |
-      | Anthology  |
+      | Monograph |
+      | Anthology |
     Then they see Search box for "Publisher name" #this needs to be tested for mandatory-ness
     And they see a checkbox for "Is this a textbook?"
     And they see fields for
@@ -282,7 +282,7 @@ Feature: MVP features for NVA
 
   @417
   Scenario: User navigates to the Contributor tab
-    Given that the user starts registering a Publication
+    Given that the user begins registering a Publication
     When they navigate to the Contributor tab
     Then they see Add Author is enabled
     And they see the tab Description is clickable
@@ -295,7 +295,7 @@ Feature: MVP features for NVA
 
   @275
   Scenario: User navigates to the Files and Licenses tab
-    Given that the user starts registering a Publication
+    Given that the user begins registering a Publication
     When they navigate to the Files and Licenses tab
     Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
     And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
@@ -311,7 +311,7 @@ Feature: MVP features for NVA
 
   @277
   Scenario: User navigates to the Submission tab
-    Given that the user starts registering a Publication
+    Given that the user begins registering a Publication
     When they navigate to the Submission tab
     Then they see all of the data they have entered including mandatory fields
       | Title                   |
@@ -387,7 +387,7 @@ Feature: MVP features for NVA
 
   @229
   Scenario: User verifies initial metadata on the Description tab for a registration
-    Given that the user starts Wizard registration with a Link
+    Given that the user begins Wizard registration with a Link
     When they see the Description tab
     Then they see that the Description tab is populated with metadata for
       | Title                        |
@@ -400,7 +400,7 @@ Feature: MVP features for NVA
 
   # Dette er av typen "Publication in Journal"
   Scenario: User verifies initial metadata on the Reference tab for a registration
-    Given that the user starts Wizard registration with a Link
+    Given that the user begins Wizard registration with a Link
     Then they they see that the Reference tab is populated with metadata values for
       | Publication type                              |
       | Link (the link that was provided by the user) |
@@ -413,7 +413,7 @@ Feature: MVP features for NVA
       | Peer review                                   |
 
   Scenario Outline: User verifies initial metadata on the Contributors tab for a registration
-    Given that the user starts Wizard registration with a Link
+    Given that the user begins Wizard registration with a Link
     Then they see that the Contributors tab Authors section is populated with metadata values for <Author> and <Institution>
     And they see that the Contributors tab Contributors section is populated with metadata values for <Contribution Type>, <Name> and <Institution>
     Examples:
@@ -426,7 +426,7 @@ Feature: MVP features for NVA
       | Photographer      | Jim Jimsson | AVH         |
 
   Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
-    Given that the user starts Wizard registration with a Link
+    Given that the user begins Wizard registration with a Link
     Then they see that the Files and Licenses tab is prepopulated with metadata values for
       | Possible mapped value for License, Archiving policy and Unit agreement |
       | Possible file for upload  (Filename, File size)                        |
@@ -447,14 +447,14 @@ Feature: MVP features for NVA
 
   @230
   Scenario: User adds NPI data for a Publication
-    Given that the user starts registering a Publication
+    Given that the user begins registering a Publication
     When they select a value in the dropdown for NPI subject area
     Then this is added to the metadata for the Publication
     And the NPI subject area is listed in the Submission
 
   @231
   Scenario: User views Projects Widget
-    Given that the user starts registering a Publication
+    Given that the user begins registering a Publication
     When they click the Projects search box
     Then they see a list of up to ten most recent active projects in NVA associated with their ID
     And an empty search box
