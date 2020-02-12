@@ -696,7 +696,6 @@ Feature: MVP features for NVA
       | Institutions |
       | Log Out      |
 
-
   # Menu items for logged in person
   @352
   Scenario: User opens the page My Profile
@@ -713,14 +712,67 @@ Feature: MVP features for NVA
       | Contact info       |
       | Preferred language |
 
+  @410
+  Scenario: User opens Add Institution from My Profile
+    Given user opens the page My Profile
+    When they click Add Institution
+    Then the Add Institution dialog is opened
+    And they see the Autosearch box for Institutions
+
+  @411
+  Scenario: User Adds an Institution from My Profile
+    Given the user opens Add Institution from My Profile
+    When they enter an Institution name
+    And they select an Institution
+    And they click Save
+    Then the Add Institution dialog is closed
+    And the user sees the new Institution in My Profile
+
+  Scenario: User views a Subunit from My Profile
+    Given the user opens Add Institution from My Profile
+    When they enter an Institution name
+    And they select an Institution
+    Then they see Subunit dropdown containing all the subunits at their Institution
+
+  Scenario: User selects a Subunit from My Profile
+    Given user views a subunit from My Profile
+    When they select a subunit from the Subunit dropdown
+    And they click Save
+    Then the Add Institution dialog is closed
+    And the user sees the new Institution and subunit in My Profile
+
+  Scenario: User views a Subsubunit from My Profile
+    Given the user views a Subunit from My Profile
+    When they click the Subunit dropdown
+    Then they see a Subsubunit dropdown containing all the Subsubunits at their Subunit
+
+  Scenario: User selects a Subsubunit from My Profile
+    Given user views a Subsubunit from My Profile
+    When they select a Subsubunit from the Subsubunit dropdown
+    And they click Save
+    Then the Add Institution dialog is closed
+    And the user sees the new Institution and Subunit and Subsubunit in My Profile
+
+  Scenario: User views a Subsubsubunit from My Profile
+    Given the user views a Subsubunit from My Profile
+    And they select a Subsubunit from the Subsubunit dropdown
+    When they click the Subsubsubunit dropdown
+    Then they see a Subsubsubunit dropdown containing all the Subsubsubunits at their Subsubunit
+
+  Scenario: User selects a Subsubsubunit from My Profile
+    Given user views a Subsubsubunit from My Profile
+    When they select a Subsubsubunit from the Subsubsubunit dropdown
+    And they click Save
+    Then the Add Institution dialog is closed
+    And the user sees the new Institution and Subunit and Subsubunit and Subsubsubunit in My Profile
+
   @406
   Scenario: User views a list of subunits at their Institution on My Profile
     Given user opens My Profile
     When they click Change Institution
-    Then the user sees the Change Institution window
-    And their Institution from ARP is selected
-    And a dropdown with the units connected to the Institution is shown
-    And a Change button is available
+    Then the user sees the Change Institution dialog
+    And they see a dropdown with the units connected to their Institution
+    And they see a Save button
 
   @407
   Scenario: User adds a subunit to their Institution from My Profile
@@ -736,23 +788,6 @@ Feature: MVP features for NVA
     When the users selects a subunit
     Then they see a dropdown with subunits
     And they see a new subunit dropdown until there are no more subunit levels
-
-  @410
-  Scenario: User opens Add Institution from My Profile
-    Given user opens the page My Profile
-    When they click Add (Institution)
-    Then the Add Institution window is opened
-    And the user can search for Institutions
-
-  @411
-  Scenario: User Adds an Institution from My Profile
-    Given User opens Add Institution from My Profile
-    When they have searched for an Institution
-    And they have selected an Institution
-    And they have clicked Add
-    Then the Add Institution window is closed
-    And the Institution ID is saved to ARP
-    And the user sees the new Institution in My Profile
 
   @383
   Scenario: User removes an ORCID connection from My Profile
