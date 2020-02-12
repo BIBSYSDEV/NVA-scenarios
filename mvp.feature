@@ -728,12 +728,14 @@ Feature: MVP features for NVA
     Then the Add Institution dialog is closed
     And the user sees the new Institution in My Profile
 
+  @406
   Scenario: User views a Subunit from My Profile
     Given the user opens Add Institution from My Profile
     When they enter an Institution name
     And they select an Institution
     Then they see Subunit dropdown containing all the subunits at their Institution
 
+  @407
   Scenario: User selects a Subunit from My Profile
     Given user views a subunit from My Profile
     When they select a subunit from the Subunit dropdown
@@ -741,6 +743,7 @@ Feature: MVP features for NVA
     Then the Add Institution dialog is closed
     And the user sees the new Institution and subunit in My Profile
 
+  @409
   Scenario: User views a Subsubunit from My Profile
     Given the user views a Subunit from My Profile
     When they click the Subunit dropdown
@@ -765,29 +768,6 @@ Feature: MVP features for NVA
     And they click Save
     Then the Add Institution dialog is closed
     And the user sees the new Institution and Subunit and Subsubunit and Subsubsubunit in My Profile
-
-  @406
-  Scenario: User views a list of subunits at their Institution on My Profile
-    Given user opens My Profile
-    When they click Change Institution
-    Then the user sees the Change Institution dialog
-    And they see a dropdown with the units connected to their Institution
-    And they see a Save button
-
-  @407
-  Scenario: User adds a subunit to their Institution from My Profile
-    Given user views a list of subunits to their Institution from My Profile
-    When the user selects a subunit
-    And saves the changes
-    Then the changes are saved to ARP
-    And the changes are shown in My Profile
-
-  @409
-  Scenario: User views all subunits at their Institution on My Profile
-    Given that the user views a list of subunits at their Institution on My Profile
-    When the users selects a subunit
-    Then they see a dropdown with subunits
-    And they see a new subunit dropdown until there are no more subunit levels
 
   @383
   Scenario: User removes an ORCID connection from My Profile
