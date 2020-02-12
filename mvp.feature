@@ -321,7 +321,7 @@ Feature: MVP features for NVA
   Scenario: User navigates to the Submission tab
     Given that the user begins registering a Publication
     When they navigate to the Submission tab
-    Then they see all of the data they have entered including mandatory fields
+    Then they see all of the data they have entered including
       | Title                   |
       | Resource (file or link) |
       | License                 |
@@ -330,7 +330,6 @@ Feature: MVP features for NVA
     And they see the tab Contributor is clickable
     And they see the tab Files and Licenses is clickable
     And they see the tab Submission is selected
-    And they see Next is enabled
     And they see Save is enabled
     And they see Publish is enabled
 
