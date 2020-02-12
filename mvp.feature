@@ -214,7 +214,7 @@ Feature: MVP features for NVA
       | Leader               |
       | Letter to the editor |
       | Review               |
-    And they see the Search box for Journal #this needs to be tested for mandatory-ness
+    And they see the Search box for "Journal title" #this needs to be tested for mandatory-ness
     And they see fields for
       | DOI            |
       | Volume         |
