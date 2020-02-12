@@ -5,7 +5,7 @@ Feature: MVP features for NVA
 
   Scenario: A user logs in with Feide for the first time
     Given that the user is on the Start page
-    When they click on the Log-in button
+    When they click Log in
     And they are redirected to Feide
     And they enter their valid Feide credentials
     And they approve sharing of data with the NVA application regarding
@@ -20,7 +20,7 @@ Feature: MVP features for NVA
 
   Scenario: A user logs in with Feide not for the first time
     Given that the user is on the Start page
-    When they click on the Log-in button
+    When they click Log in
     And they are redirected to Feide
     And they enter their valid Feide credentials
     Then they are redirected back to the Start page
@@ -30,7 +30,7 @@ Feature: MVP features for NVA
   Scenario: A user is already authenticated with Feide (single sign on)
     Given that the user is already authenticated with Feide
     When they navigate to the Start page
-    And they click on the Log-in button
+    And they click Log in
     And they are redirected to Feide
     And they click on the identity they wish to proceed with in the Feide interface
     Then they are redirected back to the Start page
@@ -106,7 +106,7 @@ Feature: MVP features for NVA
   @226
   Scenario: User begins registering a Publication
     Given that the user is logged in
-    And they are on the Start Page
+    And they are on the Start page
     When they click Register new publication
     Then they are redirected to the Register new publication page
     And they see an Expansion panel for Upload file
@@ -197,11 +197,12 @@ Feature: MVP features for NVA
       | Project association          |
     And they see the tab Reference is clickable
     And they see the tab Contributor is clickable
-    And they see the tab Files and License is clickable
+    And they see the tab Files and Licenses is clickable
     And they see the tab Submission is clickable
     And they see Next is enabled
     And they see Save is enabled
 
+  @here
   @453
   Scenario: User navigates to the Reference tab
     Given that the user starts registering a Publication
@@ -211,7 +212,7 @@ Feature: MVP features for NVA
     And they see the tab Description is clickable
     And they see the tab Reference is selected
     And they see the tab Contributor is clickable
-    And they see the tab Files and License is clickable
+    And they see the tab Files and Licenses is clickable
     And they see the tab Submission is clickable
     And they see Next is enabled
     And they see Save is enabled
@@ -315,15 +316,15 @@ Feature: MVP features for NVA
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
     And they see the tab Contributor is selected
-    And they see the tab Files and License is clickable
+    And they see the tab Files and Licenses is clickable
     And they see the tab Submission is clickable
     And they see Next is enabled
     And they see Save is enabled
 
   @275
-  Scenario: User navigates to the Files and License tab
+  Scenario: User navigates to the Files and Licenses tab
     Given that the user starts registering a Publication
-    When they navigate to the Files and License tab
+    When they navigate to the Files and Licenses tab
     Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
     And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
     And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Norwegian Register
@@ -331,7 +332,7 @@ Feature: MVP features for NVA
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
     And they see the tab Contributor is clickable
-    And they see the tab Files and License is selected
+    And they see the tab Files and Licenses is selected
     And they see the tab Submission is clickable
     And they see Next is enabled
     And they see Save is enabled
@@ -347,7 +348,7 @@ Feature: MVP features for NVA
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
     And they see the tab Contributor is clickable
-    And they see the tab Files and License is clickable
+    And they see the tab Files and Licenses is clickable
     And they see the tab Submission is selected
     And they see Next is enabled
     And they see Save is enabled
@@ -409,7 +410,7 @@ Feature: MVP features for NVA
   Scenario: User verifies file upload for a registration based on uploading a file
     Given User sees publication for a Publication based on uploading a file
     When they open the item in the Wizard
-    And select the tab Files and licenses
+    And they select the tab Files and Licenses
     Then the files are available for download
 
   @229
@@ -575,7 +576,7 @@ Feature: MVP features for NVA
 
   @276
   Scenario: User uploads files for the Publication
-    Given that the user navigates to files and licenses
+    Given that the user navigates to files and License
     When they drag and drop a file into the File drag-and-drop area
     Then they see that the files are uploaded
     And for each file they see the file receipt and settings
