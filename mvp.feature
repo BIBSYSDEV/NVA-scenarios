@@ -284,14 +284,7 @@ Feature: MVP features for NVA
   Scenario: User navigates to the Contributor tab
     Given that the user starts registering a Publication
     When they navigate to the Contributor tab
-    Then they see mandatory fields for
-      | Name           |
-      | Institution    |
-      | Corresponding  |
-      | Move up / down |
-      | Edit           |
-      | Delete         |
-    And a button to add an Author is enabled
+    Then they see Add Author is enabled
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
     And they see the tab Contributor is selected
