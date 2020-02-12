@@ -208,13 +208,13 @@ Feature: MVP features for NVA
   Scenario: User navigates to the Reference tab and selects Publication in Journal
     Given that the user navigates to the Reference tab
     When they select a Reference Type — Publication in Journal
-    Then they can select a Publication Subtype from the list
+    And they can select a Publication Subtype from the list
       | Article              |
       | Short communication  |
       | Leader               |
       | Letter to the editor |
       | Review               |
-    And they see the Search box for "Journal title" #this needs to be tested for mandatory-ness
+    Then they see the Search box for "Journal title" #this needs to be tested for mandatory-ness
     And they see fields for
       | DOI            |
       | Volume         |
