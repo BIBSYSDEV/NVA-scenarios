@@ -390,6 +390,12 @@ Feature: MVP features for NVA
   Scenario: User verifies file upload for a registration based on uploading a file
     Given that the user opens an item in the My Publication list
     When they select the tab Files and Licenses
+    Then the user sees upload information
+
+  @454
+  Scenario: User sees upload information
+    Given the user is on the Files and Licenses tab
+    When they view the page
     Then they see the File Detail box contains information about:
       | File name |
       | File size |
@@ -587,28 +593,7 @@ Feature: MVP features for NVA
   Scenario: User uploads files for the Publication
     Given that the user navigates to Files and Licenses
     When they drag and drop a file into the File drag-and-drop area
-    Then they see that the files are uploaded
-    And for each file they see the file receipt and settings
-
-  @454
-  Scenario: User views file receipt and settings the Publication
-    Given that the user uploads files for the Publication
-    When the view each file
-    Then they see that the files are uploaded
-    And for each file they see the file receipt and file settings
-    And they see the original filename
-    And they see the filesize
-    And they see the checksum for the uploaded file
-    And see mandatory radio Select version with values
-      | Accepted version  |
-      | Published version |
-    And see mandatory dropdown for License with values
-      | CC-BY 4.0 |
-    And optional fields for
-      | Postponed publication |
-    And optional checkbox for Administrative contract
-    And a Preview button
-    And a Remove button
+    Then the user sees upload information
 
   Scenario Outline: User select values for uploaded files
     Given that the user uploads files for the Publication
