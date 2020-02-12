@@ -619,10 +619,18 @@ Feature: MVP features for NVA
 
   @278
   Scenario: User publishes Publication
-    Given that the user views Submission
+    Given that the user sees Publication Channel Register information for a Journal
+    And they select values for uploaded files
+    And they are on the Submission tab
     When they click Publish
-    Then they see the Public page containing all data and files
-    And they see the Publication is Published
+    Then they are redirected to the Publication public page
+    And they see the Publication confirmation message
+
+  Scenario: User visits public page for a Publication
+    Given that the user publishes Publication
+    And they are on the Public Search page
+    When they search for the Publication
+    Then they see the Publication in the search results
 
   # Access to the different menu items
   @244
