@@ -443,17 +443,18 @@ Feature: MVP features for NVA
   @230
   Scenario: User adds NPI data for a Publication
     Given that the user begins registering a Publication
-    And they are on the Description tab
+    And they click the Description tab
     When they select a value in the dropdown for NPI subject area
     And they click the Submission tab
     Then they see the NPI subject area is listed
 
   @231
-  Scenario: User views Projects Widget
+  Scenario: User views Autosearch dropdown for Project
     Given that the user begins registering a Publication
+    And they click the Description tab
     When they click the Projects search box
-    Then they see a list of up to ten most recent active projects in NVA associated with their ID
-    And an empty search box
+    Then they see a Autosearch dropdown with an empty search field
+    And a pre-filled selectable list of results featuring the ten most recent active projects in NVA associated with their User
 
   @444
   Scenario: User selects prepopulated Project from initial dropdown
