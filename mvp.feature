@@ -661,8 +661,8 @@ Feature: MVP features for NVA
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile  |
-      | Log Out     |
       | My Worklist |
+      | Log Out     |
 
   @348
   Scenario: User sees the menu for Administrator
@@ -671,9 +671,9 @@ Feature: MVP features for NVA
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile          |
-      | Log Out             |
       | User administration |
       | My Institution      |
+      | Log Out             |
 
   @349
   Scenario: User sees the menu for Editor
@@ -682,8 +682,8 @@ Feature: MVP features for NVA
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile            |
-      | Log Out               |
       | Editor administration |
+      | Log Out               |
 
   @350
   Scenario: User sees the menu for Application administrator
@@ -692,8 +692,8 @@ Feature: MVP features for NVA
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile   |
-      | Log Out      |
       | Institutions |
+      | Log Out      |
 
   # Description of each menu item
 
