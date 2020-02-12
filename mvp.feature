@@ -382,13 +382,27 @@ Feature: MVP features for NVA
     When they click Start
     And they click My Publications
     Then they see the Publication is saved and the title is listed (filename) and marked as Draft
+    And they see that Edit is enabled
+    And they see that Delete is enabled
+
 
   @432
   Scenario: User verifies file upload for a registration based on uploading a file
-    Given that the user sees Publication based on file upload is saved
-    When they open the item in the Wizard
-    And they select the tab Files and Licenses
-    Then the files are available for download
+    Given that the user opens an item in the My Publication list
+    When they select the tab Files and Licenses
+    Then they see the File Detail box contains information about:
+      | File name |
+      | File size |
+      | Checksum  |
+    And they see the File Detail box has a checkbox for Administrative agreement
+    And they see the File Detail box has a radio for Version with values:
+      | Accepted version  |
+      | Published version |
+    And they see the File Detail box has a date picker for embargo
+    And they see the File Detail box has a drop down for Licenses
+    And the Download button in the File Detail box is enabled
+    And the Delete button in the File Detail box is enabled
+
 
   @229
   Scenario: User verifies initial metadata on the Description tab for a registration
