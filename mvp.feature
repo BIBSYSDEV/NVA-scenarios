@@ -375,7 +375,7 @@ Feature: MVP features for NVA
   #  Then they see the tab Description
 
   @388
-  Scenario: User sees a Publication based on a Link
+  Scenario Outline: User sees a Publication based on a Link
     Given that the user begins registering with a Link
     And they see that the title <Metadata> for the Link is correct
     When they click Start
@@ -429,7 +429,7 @@ Feature: MVP features for NVA
       | Article number                                |
       | Peer review                                   |
 
-  Scenario: User verifies initial metadata on the Contributors tab for a registration
+  Scenario Outline: User verifies initial metadata on the Contributors tab for a registration
     Given that the user starts Wizard registration with a Link
     Then they see that the Contributors tab Authors section is populated with metadata values for <Author> and <Institution>
     And they see that the Contributors tab Contributors section is populated with metadata values for <Contribution Type>, <Name> and <Institution>
@@ -590,7 +590,7 @@ Feature: MVP features for NVA
     And a Preview button
     And a Remove button
 
-  Scenario: User select values for uploaded files
+  Scenario Outline: User select values for uploaded files
     Given that the user uploads files for the Publication
     When set values for the <Field>
     And they navigate to the Submission Page
@@ -783,7 +783,7 @@ Feature: MVP features for NVA
       | Start med forslag fra din ORCID    |
 
   @354
-  Scenario: User opens My Publications
+  Scenario Outline: User opens My Publications
     Given that the user is logged in as Creator
     When they click the menu item My Publications
     Then the page My Publications is opened
@@ -791,11 +791,12 @@ Feature: MVP features for NVA
       | Title    |
       | <Status> |
       | Created  |
+    And each list item has a button Delete and Edit that is enabled
+
     Examples:
       | Status   |
       | Draft    |
       | Rejected |
-    And each list item has a button Delete and Edit that is enabled
 
   # Actions from Page : My Publications (Edit)
   @355
@@ -848,7 +849,7 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Worklist
   @358
-  Scenario: User opens an item in the For Approval or DOI request list
+  Scenario Outline: User opens an item in the For Approval or DOI request list
     Given that the user is logged in as Curator
     And has opened the page My Worklist
     And they select a <Tab>
@@ -909,7 +910,7 @@ Feature: MVP features for NVA
 
   # Actions from page : Useradministration
   @363
-  Scenario: Administrator adds a role to a user
+  Scenario Outline: Administrator adds a role to a user
     Given that the user is logged in as Administrator
     And they are on the User Administration Page
     When they click Add User under the <Section>
@@ -949,7 +950,7 @@ Feature: MVP features for NVA
 
   # Actions from page : Institution (Add/Update)
   @366
-  Scenario: Application adminstrator changes / adds an institution
+  Scenario Outline: Application adminstrator changes / adds an institution
     Given that the user is logged in as Application adminstrator
     When they click <Button> in the page Institutions
     Then the page Institution is opened with the fields
