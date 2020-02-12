@@ -649,10 +649,10 @@ Feature: MVP features for NVA
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile       |
-      | Log Out          |
       | New Registration |
       | My Publications  |
       | My Messages      |
+      | Log Out          |
 
   @347
   Scenario: User sees the menu for Curator
