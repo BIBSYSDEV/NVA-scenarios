@@ -590,24 +590,22 @@ Feature: MVP features for NVA
   # In all other cases, a License-picker is provided
 
   @276
-  Scenario: User uploads files for the Publication
+  Scenario: User uploads files for a Publication
     Given that the user navigates to Files and Licenses
     When they drag and drop a file into the File drag-and-drop area
     Then the user sees upload information
 
   Scenario Outline: User select values for uploaded files
-    Given that the user uploads files for the Publication
-    When set values for the <Field>
-    And they navigate to the Submission Page
+    Given that the user uploads files for a Publication
+    When they set values for <Field>
+    And they navigate to the Submission tab
     And they look at the Files section
     Then they see the <Value> for the <Field>
     Examples:
-      | Field               | Value                 |
-      | Filename            | original-filename.pdf |
-      | Filesize            | 128k                  |
-      | Version             | Accepted version      |
-      | License             | CC-BY 4.0             |
-      | Delayed Publication | 2032-12-21            |
+      | Field   | Value            |
+      | Version | Accepted version |
+      | License | CC-BY 4.0        |
+      | Embargo | 2032-12-21       |
 
   @455
   Scenario: User selects Administrative contract for uploaded files
