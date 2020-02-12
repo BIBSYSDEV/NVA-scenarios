@@ -419,18 +419,18 @@ Feature: MVP features for NVA
       | Article number                                |
       | Peer review                                   |
 
-  Scenario Outline: User verifies initial metadata on the Contributors tab for a registration
+  Scenario: User verifies initial metadata on the Contributors tab for a registration
     Given that the user begins Wizard registration with a Link
-    Then they see that the Contributors tab Authors section is populated with metadata values for <Author> and <Institution>
-    And they see that the Contributors tab Contributors section is populated with metadata values for <Contribution Type>, <Name> and <Institution>
-    Examples:
-      | Author       | Institution |
-      | Name Nameson | NTNU        |
-      | Jan Jansson  | MTNU        |
-
-    Examples:
-      | Contribution Type | Name        | Institution |
-      | Photographer      | Jim Jimsson | AVH         |
+    When they click the Contributors tab
+    Then they see that the Authors section contains Author Information boxes containing:
+      | Author name |
+      | Affiliation |
+    And they see that each Author information box contains a checkbox for Corresponding Author
+    And they see that each Author information box contains a Search box to Add Affiliation
+    And they see that each Author information box contains a Delete Author button
+    And they see that each Author information box contains a field containing an integer for Sequence in the list
+    And they see that each Author information box contains a symbol to show whether it is a verified profile or not
+    And they see that each Author information box can be dragged and dropped to change their order in the list
 
   Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
     Given that the user begins Wizard registration with a Link
