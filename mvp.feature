@@ -738,8 +738,8 @@ Feature: MVP features for NVA
 
   @407
   Scenario: User selects a Subunit from My Profile
-    Given user views a subunit from My Profile
-    When they select a subunit from the Subunit dropdown
+    Given user views a Subunit from My Profile
+    When they select a Subunit from the Subunit dropdown
     And they click Save
     Then the Add Institution dialog is closed
     And the user sees the new Institution and subunit in My Profile
