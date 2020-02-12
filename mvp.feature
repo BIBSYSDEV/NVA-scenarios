@@ -206,8 +206,9 @@ Feature: MVP features for NVA
 
   @274
   Scenario: User navigates to the Reference tab and selects Publication in Journal
-    Given that the user navigates to the Reference tab
-    When they select a Reference Type — Publication in Journal
+    Given that the user begins registering a Publication
+    When they navigate to the Reference tab
+    And they select a Reference Type — Publication in Journal
     And they can select a Publication Subtype from the list
       | Article              |
       | Short communication  |
@@ -227,8 +228,9 @@ Feature: MVP features for NVA
 
   @392
   Scenario: User navigates to the Reference tab and selects Book
-    Given that the user navigates to the Reference tab
-    When they select a Reference Type — Book
+    Given that the user begins registering a Publication
+    When they navigate to the Reference tab
+    And they select a Reference Type — Book
     And they select a Publication Subtype from the list
       | Monograph |
       | Anthology |
@@ -243,8 +245,9 @@ Feature: MVP features for NVA
 
   @393
   Scenario: User navigates to the Reference tab and selects Report
-    Given that the user navigates to the Reference tab
-    When they select a Reference Type — Report
+    Given that the user begins registering a Publication
+    When they navigate to the Reference tab
+    And they select a Reference Type — Report
     And they select a Publication Subtype from the list
       | Report          |
       | Research report |
@@ -258,8 +261,9 @@ Feature: MVP features for NVA
 
   @394
   Scenario: User navigates to the Reference tab and selects Degree
-    Given that the user navigates to the Reference tab
-    When they select a Reference Type — Degree
+    Given that the user begins registering a Publication
+    When they navigate to the Reference tab
+    And they select a Reference Type — Degree
     And they select a Publication Subtype from the list
       | Bachelor  |
       | Master    |
@@ -269,8 +273,9 @@ Feature: MVP features for NVA
 
   @395
   Scenario: User navigates to the Reference tab and selects Chapter
-    Given that the user navigates to the Reference tab
-    When they select a Reference Type — Chapter
+    Given that the user begins registering a Publication
+    When they navigate to the Reference tab
+    And they select a Reference Type — Chapter
     Then they see an Information box with text "Before you register the chapter, register the book so you can look it up"
     And they see field "Link to publication"
     And they see Search box for "Published in"
