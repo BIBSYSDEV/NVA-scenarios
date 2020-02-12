@@ -305,9 +305,9 @@ Feature: MVP features for NVA
     Then they see the Publication Channel Information box
     And they see the File upload widget
 
-#    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Norwegian Register
-#    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Norwegian Register
-#    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Norwegian Register
+#    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Publication Channel Register
+#    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Publication Channel Register
+#    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Publication Channel Register
 #    And they can upload files for the Publication
 #    And they see the tab Description is clickable
 #    And they see the tab Reference is clickable
@@ -432,13 +432,13 @@ Feature: MVP features for NVA
     And they see that each Author information box contains a symbol to show whether it is a verified profile or not
     And they see that each Author information box can be dragged and dropped to change their order in the list
 
-#  Unclear that we actually have this data at all
-#  Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
-#    Given that the user begins Wizard registration with a Link
-#    When they click the Files and Licenses tab
-#    Then they see that the Files and Licenses tab is prepopulated with metadata values for
-#      | Possible mapped value for License, Archiving policy and Unit agreement |
-#      | Possible file for upload  (Filename, File size)                        |
+  @NotMVP
+  Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
+    Given that the user begins Wizard registration with a Link
+    When they click the Files and Licenses tab
+    Then they see that the Files and Licenses tab is prepopulated with metadata values for
+      | Possible mapped value for License, Archiving policy and Unit agreement |
+      | Possible file for upload  (Filename, File size)                        |
 
   @230
   Scenario: User adds NPI data for a Publication
