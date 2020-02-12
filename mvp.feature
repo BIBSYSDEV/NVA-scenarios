@@ -469,17 +469,22 @@ Feature: MVP features for NVA
     And they see a Autosearch dropdown for Project above the Project Information box
 
   @445
-  Scenario: User searches for a Project
-    Given that the user views Project Widget
-    When they write a project name in the search box
-    Then they see a list of results based on free text search for Project title in the Projects API
+  Scenario: User searches for a Project in the Autosearch dropdown for Project
+    Given that the user views Autosearch dropdown for Project
+    When they enter a project name in the search box
+    Then they see a list of clickable results
 
   @446
-  Scenario: User selects Project from dropdown
-    Given that the user searches for a Project
-    When they click a project in the Widget
-    Then the Project ID is added to the Publication metadata
-    And the user can add another Project
+  Scenario: User selects Project from Autosearch dropdown for Project
+    Given that the user searches for a Project in the Autosearch dropdown for Project
+    When they click a project in the Autosearch dropdown for Project
+    Then they see the project details in a new Project Information box
+    And they see the Project Information box contains information about:
+      | Project title |
+      | Grant ID      |
+      | Financed by   |
+    And they see that Project Information box Delete button is enabled
+    And they see a Autosearch dropdown for Project above the Project Information box
 
   @233
   Scenario: User verifies Norwegian Registry information for a Publication based on a Link
