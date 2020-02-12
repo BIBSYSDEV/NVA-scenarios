@@ -353,13 +353,16 @@ Feature: MVP features for NVA
   Scenario: User begins registration by using suggestions from ORCID
     Given that the user begins registering a Publication
     When they click Suggestions from ORCID
-    Then they see a list of last publications from ORCID API assosiated with the users ORCID ID
-    And each list entry contains metadata for:
+    Then they see a list of last publications from ORCID API associated with the user's ORCID
+    And they see the list contains up to ten entries
+    And they see the list is ordered by publication date, descending
+    And they see each list entry contains metadata for:
       | Title         |
       | Year          |
       | Journal title |
       | DOI           |
-    And that each entry is selectable
+    And they see that the radio for the first entry is selected
+    And they see Start is enabled
 
   #Scenario: User start Wizard registration by using suggestions from ORCID
   #  Given that the user begins registration by using suggestions from ORCID
