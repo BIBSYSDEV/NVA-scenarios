@@ -3,6 +3,7 @@
 
 Feature: MVP features for NVA
 
+  @351
   Scenario: A user logs in with Feide for the first time
     Given that the user is on the Start page
     When they click Log in
@@ -305,17 +306,17 @@ Feature: MVP features for NVA
     Then they see the Publication Channel Information box
     And they see the File upload widget
 
-#    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Publication Channel Register
-#    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Publication Channel Register
-#    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Publication Channel Register
-#    And they can upload files for the Publication
-#    And they see the tab Description is clickable
-#    And they see the tab Reference is clickable
-#    And they see the tab Contributor is clickable
-#    And they see the tab Files and Licenses is selected
-#    And they see the tab Submission is clickable
-#    And they see Next is enabled
-#    And they see Save is enabled
+  #    Then they see information about the Open Access Status for the Journal which they selected on the Reference page based in information from the Publication Channel Register
+  #    And they see the Sherpa Romeo data for the Journal which they selected on the Reference page based in information from the Publication Channel Register
+  #    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Publication Channel Register
+  #    And they can upload files for the Publication
+  #    And they see the tab Description is clickable
+  #    And they see the tab Reference is clickable
+  #    And they see the tab Contributor is clickable
+  #    And they see the tab Files and Licenses is selected
+  #    And they see the tab Submission is clickable
+  #    And they see Next is enabled
+  #    And they see Save is enabled
 
   @277
   Scenario: User navigates to the Submission tab
