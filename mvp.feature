@@ -512,13 +512,12 @@ Feature: MVP features for NVA
   # All of the ORCIDs are in ARP
 
   @418
-  Scenario: User opens the add Author dialog
+  Scenario: User opens the Add Author dialog
     Given that the user navigates to Contributor tab
     When they click Add Author
-    Then the dialog to add an Author is opened
-    And the dialog contains fields for
-      | Author search |
-    And a button to close the dialog
+    Then the Add Author dialog is opened
+    And they see Author search
+    And they can cancel the dialog
 
   @419
   Scenario: User adds an Author to the Author list
