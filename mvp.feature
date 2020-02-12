@@ -341,8 +341,8 @@ Feature: MVP features for NVA
     Then they see the file name
     And they see the file size
     And they see the file checksum
-    And Delete file is enabled
-    And Start is enabled
+    And they see Delete file is enabled
+    And they see Start is enabled
 
   #Scenario: User start Wizard registration by uploading a file
   #  Given that the user begins registration by uploading a file
