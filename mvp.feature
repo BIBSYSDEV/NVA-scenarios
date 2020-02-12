@@ -774,26 +774,18 @@ Feature: MVP features for NVA
   Scenario: User removes an ORCID connection from My Profile
     Given user opens the page My Profile
     When they click Remove ORCID
-    Then they are asked to confirm
-    And their ORCID is removed from ARP
-
-  @353
-  Scenario: User logs out
-    Given that the user is logged in
-    When they click the menu item Log Out
-    Then the user is logged out from Feide
-    And the search page is opened
-    And the user sees non-logged-in menu
+    And they click Confirm
+    Then they see a confirmation that the ORCID is removed
 
   # Menuitems for Creator
   Scenario: User opens New Registration
     Given that the user is logged in as Creator
     When they click the menu item New Registration
-    Then the page New Registration is opened
+    Then the New Registration page is opened
     And the user sees options
-      | Start med å laste opp fil          |
-      | Start med en lenke til publikasjon |
-      | Start med forslag fra din ORCID    |
+      | Upload file            |
+      | Link                   |
+      | Suggestions from ORCID |
 
   @354
   Scenario Outline: User opens My Publications
