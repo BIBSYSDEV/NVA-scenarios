@@ -59,8 +59,7 @@ Feature: MVP features for NVA
       | Kim Smith | Smith, Kim    | Some Title        |
       | Kim Smith | Smith, Kim    | Some Other Title  |
       | Kim Smith | Smith, Kim F. | Yet Another Title |
-
-
+    
   Scenario: User has no matching Author identity
     Given that Sandy Jones has a valid Feide ID and password
     And they do not have a Feide ID in their ARP entry
@@ -106,8 +105,9 @@ Feature: MVP features for NVA
     And they see their ORCID on their Profile page
 
   @226
-  Scenario: User begins registering a Publication
+  Scenario: Creator begins registering a Publication
     Given that the user is logged in
+    And they have Role Creator
     And they are on the Start page
     When they click Register new publication
     Then they are redirected to the Register new publication page
@@ -117,7 +117,7 @@ Feature: MVP features for NVA
 
   @228
   Scenario: User begins registering with a Link with direct data from Datacite/Crossref
-    Given that the user begins registering a Publication
+    Given that the Creator begins registering a Publication
     When they expand Link to publication
     And enter a DOI or a fully qualified DOI URL
     And click Search
@@ -125,7 +125,7 @@ Feature: MVP features for NVA
 
   @439
   Scenario: User begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
-    Given that the user begins registering a Publication
+    Given that the Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945
     And click Search
@@ -135,7 +135,7 @@ Feature: MVP features for NVA
 
   @440
   Scenario: User begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
-    Given that the user begins registering a Publication
+    Given that the Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://loar.kb.dk/handle/1902/1674?show=full
     And click Search
@@ -143,7 +143,7 @@ Feature: MVP features for NVA
 
   @441
   Scenario: User begins registering with a Link with data from DC and DCTERMS meta tags
-    Given that the user begins registering a Publication
+    Given that the Creator begins registering a Publication
     When they expand Link to publication
     And they enter a https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
     And click Search
@@ -151,15 +151,15 @@ Feature: MVP features for NVA
 
   @442
   Scenario: User begins registering with a Link with data from Open Graph tag
-    Given that the user begins registering a Publication
+    Given that the Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788
     And click Search
     Then they see metadata about the Link in the Expansion panel
 
   @443
-  Scenario Outline: User begins registering a Publication in the Wizard
-    Given that the user begins registering a Publication
+  Scenario Outline: Creator begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication
     And they have selected one of the <Methods> for starting the Wizard
     When they click Start
     Then the Wizard is started
@@ -171,7 +171,7 @@ Feature: MVP features for NVA
 
   @452
   Scenario: User begins Wizard registration and navigates to Description tab
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Description tab
     Then they see the tab Description is selected
     And they see mandatory fields for
@@ -195,7 +195,7 @@ Feature: MVP features for NVA
 
   @453
   Scenario: User navigates to the Reference tab
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     Then they see the mandatory field for Type
     And they see the tab Description is clickable
@@ -208,7 +208,7 @@ Feature: MVP features for NVA
 
   @274
   Scenario: User navigates to the Reference tab and selects Publication in Journal
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Publication in Journal
     And they can select a Publication Subtype from the list
@@ -230,7 +230,7 @@ Feature: MVP features for NVA
 
   @392
   Scenario: User navigates to the Reference tab and selects Book
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Book
     And they select a Publication Subtype from the list
@@ -247,7 +247,7 @@ Feature: MVP features for NVA
 
   @393
   Scenario: User navigates to the Reference tab and selects Report
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Report
     And they select a Publication Subtype from the list
@@ -263,7 +263,7 @@ Feature: MVP features for NVA
 
   @394
   Scenario: User navigates to the Reference tab and selects Degree
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Degree
     And they select a Publication Subtype from the list
@@ -275,7 +275,7 @@ Feature: MVP features for NVA
 
   @395
   Scenario: User navigates to the Reference tab and selects Chapter
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Chapter
     Then they see an Information box with text "Before you register the chapter, register the book so you can look it up"
@@ -289,7 +289,7 @@ Feature: MVP features for NVA
 
   @417
   Scenario: User navigates to the Contributor tab
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Contributor tab
     Then they see Add Author is enabled
     And they see the tab Description is clickable
@@ -302,7 +302,7 @@ Feature: MVP features for NVA
 
   @275
   Scenario: User navigates to the Files and Licenses tab
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Files and Licenses tab
     Then they see the Publication Channel Information box
     And they see the File upload widget
@@ -321,7 +321,7 @@ Feature: MVP features for NVA
 
   @277
   Scenario: User navigates to the Submission tab
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     When they navigate to the Submission tab
     Then they see all of the data they have entered including
       | Title                   |
@@ -337,7 +337,7 @@ Feature: MVP features for NVA
 
   @385
   Scenario: User begins registration by uploading a file
-    Given that the user begins registering a Publication
+    Given that the Creator begins registering a Publication
     When they click Upload file
     And they upload a file
     Then they see the file name
@@ -353,7 +353,7 @@ Feature: MVP features for NVA
 
   @386
   Scenario: User begins registration by using suggestions from ORCID
-    Given that the user begins registering a Publication
+    Given that the Creator begins registering a Publication
     When they click Suggestions from ORCID
     Then they see a list of last publications from ORCID API associated with the user's ORCID
     And they see the list contains up to ten entries
@@ -453,7 +453,7 @@ Feature: MVP features for NVA
 
   @230
   Scenario: User adds NPI data for a Publication
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     And they click the Description tab
     When they select a value in the dropdown for NPI subject area
     And they click the Submission tab
@@ -461,7 +461,7 @@ Feature: MVP features for NVA
 
   @231
   Scenario: User views Autosearch dropdown for Project
-    Given that the user begins registering a Publication in the Wizard
+    Given that the Creator begins registering a Publication in the Wizard
     And they click the Description tab
     When they click the Projects search box
     Then they see a Autosearch dropdown with an empty search field
