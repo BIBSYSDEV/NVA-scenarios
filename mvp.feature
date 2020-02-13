@@ -876,7 +876,7 @@ Feature: MVP features for NVA
   @358
   Scenario Outline: User opens an item in the For Approval or DOI request list
     Given that the user is logged in as Curator
-    And has opened the page My Worklist
+    And they are on My Worklist
     And they select a <Tab>
     When they click Open on an item
     Then the item is opened in the Wizard
@@ -891,20 +891,24 @@ Feature: MVP features for NVA
 
   # Menuitems for Administrator
   @359
-  Scenario: The user opens User administration
+  Scenario: The user opens User Administration
     Given that the user is logged in as Administrator
-    When they click the menu item User administration
-    Then the page User administration is opened
-    And the user sees a list of all users connected to their institution
-    And the users are grouped by NVA roles
-    And has the fields
-      | Autentication ID |
-      | Name             |
-      | ORCID            |
-      | Last login       |
-      | Created          |
-    And a button Remove that is enabled for each user
-    And a Button to add a user with a specific role
+    When they click the menu item User Administration
+    Then they see the User Administration page
+    And they see the Sections
+      | Institution Administrators |
+      | Curators                   |
+      | Editors                    |
+      | Creators                   |
+    And they see each Section contains a list of all users with matching Role affiliated with their institution
+    And they see each Section a Button to add a user with the Role associated with the Section
+    And they see that each list has the fields
+      | Authentication ID |
+      | Name              |
+      | ORCID             |
+      | Last login        |
+      | Created           |
+    And they see a button Remove that is enabled for each user
 
   @360
   Scenario: The user opens My Institution
