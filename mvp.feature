@@ -158,7 +158,7 @@ Feature: MVP features for NVA
     Then they see metadata about the Link in the Expansion panel
 
   @443
-  Scenario Outline: User begins registering a Publication
+  Scenario Outline: User begins registering a Publication in the Wizard
     Given that the user begins registering a Publication
     And they have selected one of the <Methods> for starting the Wizard
     When they click Start
@@ -171,7 +171,7 @@ Feature: MVP features for NVA
 
   @452
   Scenario: User begins Wizard registration and navigates to Description tab
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Description tab
     Then they see the tab Description is selected
     And they see mandatory fields for
@@ -195,7 +195,7 @@ Feature: MVP features for NVA
 
   @453
   Scenario: User navigates to the Reference tab
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     Then they see the mandatory field for Type
     And they see the tab Description is clickable
@@ -208,7 +208,7 @@ Feature: MVP features for NVA
 
   @274
   Scenario: User navigates to the Reference tab and selects Publication in Journal
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Publication in Journal
     And they can select a Publication Subtype from the list
@@ -230,7 +230,7 @@ Feature: MVP features for NVA
 
   @392
   Scenario: User navigates to the Reference tab and selects Book
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Book
     And they select a Publication Subtype from the list
@@ -247,7 +247,7 @@ Feature: MVP features for NVA
 
   @393
   Scenario: User navigates to the Reference tab and selects Report
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Report
     And they select a Publication Subtype from the list
@@ -263,7 +263,7 @@ Feature: MVP features for NVA
 
   @394
   Scenario: User navigates to the Reference tab and selects Degree
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Degree
     And they select a Publication Subtype from the list
@@ -275,7 +275,7 @@ Feature: MVP features for NVA
 
   @395
   Scenario: User navigates to the Reference tab and selects Chapter
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Chapter
     Then they see an Information box with text "Before you register the chapter, register the book so you can look it up"
@@ -289,7 +289,7 @@ Feature: MVP features for NVA
 
   @417
   Scenario: User navigates to the Contributor tab
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Contributor tab
     Then they see Add Author is enabled
     And they see the tab Description is clickable
@@ -302,7 +302,7 @@ Feature: MVP features for NVA
 
   @275
   Scenario: User navigates to the Files and Licenses tab
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Files and Licenses tab
     Then they see the Publication Channel Information box
     And they see the File upload widget
@@ -321,7 +321,7 @@ Feature: MVP features for NVA
 
   @277
   Scenario: User navigates to the Submission tab
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     When they navigate to the Submission tab
     Then they see all of the data they have entered including
       | Title                   |
@@ -450,7 +450,7 @@ Feature: MVP features for NVA
 
   @230
   Scenario: User adds NPI data for a Publication
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     And they click the Description tab
     When they select a value in the dropdown for NPI subject area
     And they click the Submission tab
@@ -458,7 +458,7 @@ Feature: MVP features for NVA
 
   @231
   Scenario: User views Autosearch dropdown for Project
-    Given that the user begins registering a Publication
+    Given that the user begins registering a Publication in the Wizard
     And they click the Description tab
     When they click the Projects search box
     Then they see a Autosearch dropdown with an empty search field
