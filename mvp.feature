@@ -899,7 +899,6 @@ Feature: MVP features for NVA
       | Institution Administrators |
       | Curators                   |
       | Editors                    |
-      | Creators                   |
     And they see each Section contains a list of all users with matching Role affiliated with their institution
     And they see each Section a Button to add a user with the Role associated with the Section
     And they see that each list has the fields
@@ -909,6 +908,7 @@ Feature: MVP features for NVA
       | Last login        |
       | Created           |
     And they see a button Remove that is enabled for each user
+    And they see a Section named Creators that contains a checkbox for Assign role Creator automatically
 
   @360
   Scenario: The user opens My Institution
