@@ -921,8 +921,6 @@ Feature: MVP features for NVA
       | Short display name            |
       | CNAME                         |
       | Institution DNS               |
-      | Administration ID             |
-      | Feide Organization ID         |
     And they see a button to Upload Logo
 
   Scenario: The Administrator uploads a new Logo
@@ -994,19 +992,31 @@ Feature: MVP features for NVA
 
   # Actions from page : Institution (Add/Update)
   @366
-  Scenario Outline: Application adminstrator changes / adds an institution
-    Given that the user is logged in as Application adminstrator
-    When they click <Button> in the page Institutions
-    Then the page Institution is opened with the fields
+  Scenario: Application Administrator views an Institution
+    Given that Application Administrator opens Institutions
+    When they click Open on an Institution
+    Then they see the page for the Institution
+    And they see fields:
       | Name in organization registry |
       | Display name                  |
-      | Short displayname             |
+      | Short display name            |
       | CNAME                         |
-      | Intitution DNS                |
+      | Institution DNS               |
       | Administration ID             |
       | Feide Organization ID         |
-    And a button Add that is enabled
-    Examples:
-      | Button |
-      | Add    |
-      | Save   |
+    And a button Save that is enabled
+
+  Scenario: Application Administrator adds an Institution
+    Given that Application Administrator opens Institutions
+    When they click Add Institution
+    And they search and select an Name in organization registry
+    And they upload a Logo
+    And they enter a Display name
+    And they enter a Short display name
+    And they enter a CNAME
+    And they enter an Institution DNS
+    And they enter an Administration ID
+    And they enter a Feide organization ID
+    And they click Save
+    Then they see a Notification that the Institution has been created
+    And they see the values they entered in the fields on the page
