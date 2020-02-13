@@ -838,10 +838,10 @@ Feature: MVP features for NVA
   @421
   Scenario: User opens their Public Profile from My Publications Page
     Given that the user is logged in as Creator
-    And has opened the page My Publications
-    When they click to go to their public profile
-    Then their public profile page is open
-    And the page fields for
+    And they open My Publications page
+    When they click Public Profile
+    Then they see their Public Profile
+    And they see fields:
       | Name                                       |
       | Institutions                               |
       | Public email                               |
