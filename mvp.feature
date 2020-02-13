@@ -914,7 +914,17 @@ Feature: MVP features for NVA
   Scenario: The user opens My Institution
     Given that the user is logged in as Administrator
     When they click the menu item My Institution
-    Then are on the page My Institution
+    Then they see the My Institution page
+    And they see fields:
+      | Name in organization registry |
+      | Display name                  |
+      | Short displayname             |
+      | CNAME                         |
+      | Institution DNS               |
+      | Administration ID             |
+      | Feide Organization ID         |
+    And they see a button to Upload Logo
+
 
   @361
   Scenario: The Administrator edits an Institution
