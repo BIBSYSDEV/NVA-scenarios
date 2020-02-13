@@ -119,8 +119,8 @@ Feature: MVP features for NVA
   Scenario: Creator begins registering with a Link with direct data from Datacite/Crossref
     Given Creator begins registering a Publication
     When they expand Link to publication
-    And enter a DOI or a fully qualified DOI URL
-    And click Search
+    And they enter a DOI or a fully qualified DOI URL
+    And they click Search
     Then they see metadata about the Link in the Expansion panel
 
   @439
@@ -128,7 +128,7 @@ Feature: MVP features for NVA
     Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945
-    And click Search
+    And they click Search
     Then they see metadata about the Link in the Expansion panel
 
   #DLR does not have a meta tag with a DOI
@@ -138,7 +138,7 @@ Feature: MVP features for NVA
     Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://loar.kb.dk/handle/1902/1674?show=full
-    And click Search
+    And they click Search
     Then they see metadata about the Link in the Expansion panel
 
   @441
@@ -146,7 +146,7 @@ Feature: MVP features for NVA
     Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter a https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
-    And click Search
+    And they click Search
     Then they see metadata about the Link in the Expansion panel
 
   @442
@@ -154,7 +154,7 @@ Feature: MVP features for NVA
     Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788
-    And click Search
+    And they click Search
     Then they see metadata about the Link in the Expansion panel
 
   @443
@@ -176,7 +176,7 @@ Feature: MVP features for NVA
     Then they see the tab Description is selected
     And they see mandatory fields for
       | Title |
-    And optional fields for
+    And they see optional fields for
       | Alternative title(s)         |
       | Abstract                     |
       | Alternative abstract(s)      |
@@ -284,7 +284,7 @@ Feature: MVP features for NVA
     And they see a preselected value for Peer review "Not peer reviewed" #also mandatory
     And they see field for Page number from
     And they see field for Page number to
-    And they see Search box "Series title"
+    And they see Search box for "Series title"
     And they see the NVI evaluation is Not NVI Applicable
 
   @417
@@ -465,7 +465,7 @@ Feature: MVP features for NVA
     And they click the Description tab
     When they click the Projects search box
     Then they see a Autosearch dropdown with an empty search field
-    And a pre-filled selectable list of results featuring the ten most recent active projects in NVA associated with their User
+    And they see a pre-filled selectable list of results featuring the ten most recent active projects in NVA associated with their User
 
   @444
   Scenario: Creator selects prepopulated Project from Autosearch dropdown for Project
@@ -620,7 +620,7 @@ Feature: MVP features for NVA
     And they see the filesize
     And they see the checksum for the uploaded file
     And they see a message stating that the file is Adminsitrative and has no License and has restricted viewing rights
-    And a Delete button
+    And they see a Delete button
 
   @278
   Scenario: Creator publishes Publication
@@ -641,7 +641,7 @@ Feature: MVP features for NVA
   @345
   Scenario: User sees a menu when logged in
     Given that the user is logged in
-    And has no NVA role
+    And they have no NVA role
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile |
@@ -650,7 +650,7 @@ Feature: MVP features for NVA
   @346
   Scenario: User sees the menu for Creator
     Given that the user is logged in
-    And has the role of Creator
+    And they have the role of Creator
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile       |
@@ -662,7 +662,7 @@ Feature: MVP features for NVA
   @347
   Scenario: User sees the menu for Curator
     Given that the user is logged in
-    And has the role of Curator
+    And they have the role of Curator
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile  |
@@ -672,7 +672,7 @@ Feature: MVP features for NVA
   @348
   Scenario: User sees the menu for Administrator
     Given that the user is logged in
-    And has the role of Administrator
+    And they have the role of Administrator
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile          |
@@ -683,7 +683,7 @@ Feature: MVP features for NVA
   @349
   Scenario: User sees the menu for Editor
     Given that the user is logged in
-    And has the role of Editor
+    And they have the role of Editor
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile            |
@@ -693,7 +693,7 @@ Feature: MVP features for NVA
   @350
   Scenario: User sees the menu for Application administrator
     Given that the user is logged in
-    And has the role of Application administrator
+    And they have the role of Application administrator
     When they look at any page in NVA
     Then they see a menu containing
       | My Profile   |
