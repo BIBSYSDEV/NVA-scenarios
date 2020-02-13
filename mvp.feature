@@ -980,7 +980,7 @@ Feature: MVP features for NVA
 
   # Menuitems for Application adminstrator
   @365
-  Scenario: The Application Adminstrator opens Institutions
+  Scenario: The Application Administrator opens Institutions
     Given that the user is logged in as Application Administrator
     When they click the menu item Institutions
     Then they see the page Institutions
