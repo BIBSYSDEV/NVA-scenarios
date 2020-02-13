@@ -918,7 +918,7 @@ Feature: MVP features for NVA
     And they see fields:
       | Name in organization registry |
       | Display name                  |
-      | Short displayname             |
+      | Short display name            |
       | CNAME                         |
       | Institution DNS               |
       | Administration ID             |
