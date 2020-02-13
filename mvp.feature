@@ -850,19 +850,27 @@ Feature: MVP features for NVA
 
   # Menuitems for Curator
   @357
-  Scenario: User opens My Worklist
+  Scenario: Curator opens My Worklist
     Given that the user is logged in as Curator
     When they click the menu item My Worklist
-    Then the page My Worklist is opened
-    And the user see the lists
+    Then they see My Worklist page
+    And the user sees the tabs:
       | For Approval |
       | Support      |
       | DOI request  |
-    And the lists have fields
+    And they see the For Approval tab
+
+  Scenario: Curator views My Worklist tabs
+    Given that the user opens My Worklist
+    When they click the tabs:
+      | For Approval |
+      | Support      |
+      | DOI request  |
+    Then they see a list with column headers
       | Title     |
       | Submitter |
       | Date      |
-    And a button Open that is enabled
+    And they see that each row in the list has an Open button
 
   # Actions from Page : My Worklist
   @358
