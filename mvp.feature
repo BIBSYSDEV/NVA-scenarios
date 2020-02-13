@@ -117,7 +117,7 @@ Feature: MVP features for NVA
 
   @228
   Scenario: Creator begins registering with a Link with direct data from Datacite/Crossref
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     When they expand Link to publication
     And enter a DOI or a fully qualified DOI URL
     And click Search
@@ -125,7 +125,7 @@ Feature: MVP features for NVA
 
   @439
   Scenario: Creator begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945
     And click Search
@@ -135,7 +135,7 @@ Feature: MVP features for NVA
 
   @440
   Scenario: Creator begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://loar.kb.dk/handle/1902/1674?show=full
     And click Search
@@ -143,7 +143,7 @@ Feature: MVP features for NVA
 
   @441
   Scenario: Creator begins registering with a Link with data from DC and DCTERMS meta tags
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter a https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
     And click Search
@@ -151,7 +151,7 @@ Feature: MVP features for NVA
 
   @442
   Scenario: Creator begins registering with a Link with data from Open Graph tag
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788
     And click Search
@@ -159,7 +159,7 @@ Feature: MVP features for NVA
 
   @443
   Scenario Outline: Creator begins registering a Publication in the Wizard
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     And they have selected one of the <Methods> for starting the Wizard
     When they click Start
     Then the Wizard is started
@@ -170,8 +170,8 @@ Feature: MVP features for NVA
       | Suggestions from ORCID |
 
   @452
-  Scenario: User begins Wizard registration and navigates to Description tab
-    Given that the Creator begins registering a Publication in the Wizard
+  Scenario: Creator begins Wizard registration and navigates to Description tab
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Description tab
     Then they see the tab Description is selected
     And they see mandatory fields for
@@ -194,8 +194,8 @@ Feature: MVP features for NVA
     And they see Save is enabled
 
   @453
-  Scenario: User navigates to Reference tab
-    Given that the Creator begins registering a Publication in the Wizard
+  Scenario: Creator navigates to Reference tab
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     Then they see the mandatory field for Type
     And they see the tab Description is clickable
@@ -207,8 +207,8 @@ Feature: MVP features for NVA
     And they see Save is enabled
 
   @274
-  Scenario: User navigates to Reference tab and selects Publication in Journal
-    Given that the Creator begins registering a Publication in the Wizard
+  Scenario: Creator navigates to Reference tab and selects Publication in Journal
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Publication in Journal
     And they can select a Publication Subtype from the list
@@ -229,8 +229,8 @@ Feature: MVP features for NVA
     And they see the NVI evaluation is Not NVI Applicable
 
   @392
-  Scenario: User navigates to Reference tab and selects Book
-    Given that the Creator begins registering a Publication in the Wizard
+  Scenario: Creator navigates to Reference tab and selects Book
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Book
     And they select a Publication Subtype from the list
@@ -246,8 +246,8 @@ Feature: MVP features for NVA
     And they see the NVI evaluation is Not NVI Applicable
 
   @393
-  Scenario: User navigates to Reference tab and selects Report
-    Given that the Creator begins registering a Publication in the Wizard
+  Scenario: Creator navigates to Reference tab and selects Report
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Report
     And they select a Publication Subtype from the list
@@ -262,8 +262,8 @@ Feature: MVP features for NVA
     And they see Search box for "Title of the Series"
 
   @394
-  Scenario: User navigates to Reference tab and selects Degree
-    Given that the Creator begins registering a Publication in the Wizard
+  Scenario: Creator navigates to Reference tab and selects Degree
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Degree
     And they select a Publication Subtype from the list
@@ -274,8 +274,8 @@ Feature: MVP features for NVA
     And they see Search box for "Title of the Series"
 
   @395
-  Scenario: User navigates to Reference tab and selects Chapter
-    Given that the Creator begins registering a Publication in the Wizard
+  Scenario: Creator navigates to Reference tab and selects Chapter
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Reference tab
     And they select a Reference Type — Chapter
     Then they see an Information box with text "Before you register the chapter, register the book so you can look it up"
@@ -289,7 +289,7 @@ Feature: MVP features for NVA
 
   @417
   Scenario: User navigates to Contributor tab
-    Given that the Creator begins registering a Publication in the Wizard
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Contributor tab
     Then they see Add Author is enabled
     And they see the tab Description is clickable
@@ -302,7 +302,7 @@ Feature: MVP features for NVA
 
   @275
   Scenario: User navigates to Files and Licenses tab
-    Given that the Creator begins registering a Publication in the Wizard
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Files and Licenses tab
     Then they see the Publication Channel Information box
     And they see the File upload widget
@@ -321,7 +321,7 @@ Feature: MVP features for NVA
 
   @277
   Scenario: User navigates to Submission tab
-    Given that the Creator begins registering a Publication in the Wizard
+    Given Creator begins registering a Publication in the Wizard
     When they navigate to the Submission tab
     Then they see all of the data they have entered including
       | Title                   |
@@ -337,7 +337,7 @@ Feature: MVP features for NVA
 
   @385
   Scenario: Creator begins registration by uploading a file
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     When they click Upload file
     And they upload a file
     Then they see the file name
@@ -347,15 +347,15 @@ Feature: MVP features for NVA
     And they see Start is enabled
 
   #Scenario: User start Wizard registration by uploading a file
-  #  Given that the Creator begins registration by uploading a file
+  #  Given Creator begins registration by uploading a file
   #  When they click Start
   #  Then they see the tab Description
 
   @386
   Scenario: Creator begins registration by using suggestions from ORCID
-    Given that the Creator begins registering a Publication
+    Given Creator begins registering a Publication
     When they click Suggestions from ORCID
-    Then they see a list of last publications from ORCID API associated with the user's ORCID
+    Then they see a list of last publications from ORCID API associated with their ORCID
     And they see the list contains up to ten entries
     And they see the list is ordered by publication date, descending
     And they see each list entry contains metadata for:
@@ -367,20 +367,20 @@ Feature: MVP features for NVA
     And they see Start is enabled
 
   #Scenario: User start Wizard registration by using suggestions from ORCID
-  #  Given that the Creator begins registration by using suggestions from ORCID
+  #  Given Creator begins registration by using suggestions from ORCID
   #  When they click Start
   #  Then they see the tab Description
 
   @388
   Scenario: Creator sees a Publication based on a Link is saved
-    Given that the Creator begins registering with a Link
+    Given Creator begins registering with a Link
     When they click Start
     And they click My Publications
     Then they see the Publication is saved and the title is listed and marked as Draft
 
   @391
   Scenario: Creator sees Publication based on file upload is saved
-    Given that the Creator begins registration by uploading a file
+    Given Creator begins registration by uploading a file
     When they click Start
     And they click My Publications
     Then they see the Publication is saved and the title is listed (filename) and marked as Draft
@@ -389,14 +389,14 @@ Feature: MVP features for NVA
 
 
   @432
-  Scenario: User verifies file upload for a registration based on uploading a file
-    Given that the user opens an item in the My Publication list
+  Scenario: Creator verifies file upload for a registration based on uploading a file
+    Given Creator opens an item in the My Publication list
     When they select the tab Files and Licenses
     Then they see upload information
 
   @454
-  Scenario: User sees upload information
-    Given the user is on the Files and Licenses tab
+  Scenario: Creator sees upload information
+    Given Creator navigates to Files and Licenses tab
     When they view the page
     Then they see the File Detail box contains information about:
       | File name |
@@ -413,7 +413,7 @@ Feature: MVP features for NVA
 
   # Dette er av typen "Publication in Journal"
   Scenario: User verifies initial metadata on the Reference tab for a registration
-    Given that the Creator begins registering with a Link with direct data from Datacite/CrossRef
+    Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     When they click Start
     And they click the Reference Tab
@@ -429,7 +429,7 @@ Feature: MVP features for NVA
       | Peer review                                   |
 
   Scenario: User verifies initial metadata on the Contributors tab for a registration
-    Given that the Creator begins registering with a Link with direct data from Datacite/CrossRef
+    Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     When they click the Contributors tab
     Then they see that the Authors section contains Author Information boxes containing:
@@ -444,7 +444,7 @@ Feature: MVP features for NVA
 
   @NotMVP
   Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
-    Given that the Creator begins registering with a Link with direct data from Datacite/CrossRef
+    Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     When they click the Files and Licenses tab
     Then they see that the Files and Licenses tab is prepopulated with metadata values for
@@ -453,7 +453,7 @@ Feature: MVP features for NVA
 
   @230
   Scenario: User adds NPI data for a Publication
-    Given that the Creator begins registering a Publication in the Wizard
+    Given Creator begins registering a Publication in the Wizard
     And they click the Description tab
     When they select a value in the dropdown for NPI subject area
     And they click the Submission tab
@@ -523,15 +523,15 @@ Feature: MVP features for NVA
   # All of the ORCIDs are in ARP
 
   @418
-  Scenario: User opens the Add Author dialog
-    Given that the user navigates to Contributor tab
+  Scenario: Creator opens the Add Author dialog
+    Given Creator navigates to Contributor tab
     When they click Add Author
     Then the Add Author dialog is opened
     And they see Author search
     And they can cancel the dialog
 
-  Scenario: User sees Author search results
-    Given that the user opens the Add Author dialog
+  Scenario: Creator sees Author search results
+    Given Creator opens the Add Author dialog
     And there are matching results for Name Nameson in ARP
     When they enter Name Nameson in the Author search
     Then they see search results for the Author search
@@ -549,16 +549,16 @@ Feature: MVP features for NVA
     And the Author is shown in the Authors section in the Contributor tab
 
   @DeveloperPretendsToBeProductOwner
-  Scenario: User finds no matching Author in Author Search
-    Given that the user opens the Add Author dialog
+  Scenario: Creator finds no matching Author in Author Search
+    Given Creator opens the Add Author dialog
     And there are no matching results for Name Nameson in ARP
     When they enter Name Nameson in the Author search
     Then they see no matching results
     And they see the Create New Author button
 
   @DeveloperPretendsToBeProductOwner
-  Scenario: User sees New Author in the Author dialog
-    Given that the user finds no matching Author in Author Search
+  Scenario: Creator sees New Author in the Author dialog
+    Given Creator finds no matching Author in Author Search
     When they click Create New Author
     Then they see a field for Author name
     And they see an Autosearch box for Affiliation
@@ -576,7 +576,7 @@ Feature: MVP features for NVA
 
   @
   Scenario: User sees Corresponding Author Email field
-    Given that the Creator begins registering with a Link with direct data from Datacite/CrossRef
+    Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And they are on the Contributors tab
     When they click Corresponding Author checkbox on an Author
     Then they see an input field for Email
@@ -595,13 +595,13 @@ Feature: MVP features for NVA
   # In all other cases, a License-picker is provided
 
   @276
-  Scenario: User uploads files for a Publication
-    Given that the user navigates to Files and Licenses
+  Scenario: Creator uploads files for a Publication
+    Given Creator navigates to Files and Licenses
     When they drag and drop a file into the File drag-and-drop area
     Then they see upload information
 
-  Scenario Outline: User select values for uploaded files
-    Given that the user uploads files for a Publication
+  Scenario Outline: Creator selects values for uploaded files
+    Given Creator uploads files for a Publication
     When they set values for <Field>
     And they navigate to the Submission tab
     And they look at the Files section
@@ -613,9 +613,9 @@ Feature: MVP features for NVA
       | Embargo | 2032-12-21       |
 
   @455
-  Scenario: User selects Administrative contract for uploaded files
-    Given that the user uploads files for the Publication
-    When the user selects Administrative contract
+  Scenario: Creator selects Administrative contract for uploaded files
+    Given Creator uploads files for the Publication
+    When they select Administrative contract
     Then they see the original filename
     And they see the filesize
     And they see the checksum for the uploaded file
@@ -623,8 +623,8 @@ Feature: MVP features for NVA
     And a Delete button
 
   @278
-  Scenario: User publishes Publication
-    Given that the Creator sees Publication Channel Register information for a Journal
+  Scenario: Creator publishes Publication
+    Given Creator sees Publication Channel Register information for a Journal
     And they select values for uploaded files
     And they are on the Submission tab
     When they click Publish
@@ -724,8 +724,8 @@ Feature: MVP features for NVA
     And they see the Autosearch box for Institutions
 
   @411
-  Scenario: User Adds an Institution from My Profile
-    Given the user opens Add Institution from My Profile
+  Scenario: User adds an Institution from My Profile
+    Given User opens Add Institution from My Profile
     When they enter an Institution name
     And they select an Institution
     And they click Save
@@ -734,7 +734,7 @@ Feature: MVP features for NVA
 
   @406
   Scenario: User sees a Subunit from My Profile
-    Given the user opens Add Institution from My Profile
+    Given User opens Add Institution from My Profile
     When they enter an Institution name
     And they select an Institution
     Then they see Subunit dropdown containing all the subunits at their Institution
@@ -780,7 +780,7 @@ Feature: MVP features for NVA
     Then they see a confirmation that the ORCID is removed
 
   # Menuitems for Creator
-  Scenario: User opens New Registration
+  Scenario: Creator opens New Registration
     Given that the user is logged in as Creator
     When they click the menu item New Registration
     Then the New Registration page is opened
@@ -790,7 +790,7 @@ Feature: MVP features for NVA
       | Suggestions from ORCID |
 
   @354
-  Scenario Outline: User opens My Publications
+  Scenario Outline: Creator opens My Publications
     Given that the user is logged in as Creator
     When they click the menu item My Publications
     Then the page My Publications is opened
@@ -807,7 +807,7 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Publications (Edit)
   @355
-  Scenario: User opens an item in My Publication list
+  Scenario: Creator opens an item in My Publication list
     Given that the user is logged in as Creator
     And is on the My Publications page
     When they click Edit on an item
@@ -824,14 +824,14 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Publications (Delete)
   @356
-  Scenario: User deletes an item in My Publications list
+  Scenario: Creator deletes an item in My Publications list
     Given that the user is logged in as Creator
     And is on the My Publications page
     When they click Delete on an item
     And they click Yes in the confirmation dialog
     Then they see the publication is marked as Deleted
 
-  Scenario: User cancels deletion of an item in My Publications list
+  Scenario: Creator cancels deletion of an item in My Publications list
     Given that the user is logged in as Creator
     And is on the My Publications page
     When they click Delete on an item
@@ -839,7 +839,7 @@ Feature: MVP features for NVA
     Then they see the publication in My Publications list
 
   @421
-  Scenario: User opens their Public Profile from My Publications Page
+  Scenario: Creator opens their Public Profile from My Publications Page
     Given that the user is logged in as Creator
     And they open My Publications page
     When they click Public Profile
@@ -877,7 +877,7 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Worklist
   @358
-  Scenario Outline: User opens an item in the For Approval or DOI request list
+  Scenario Outline: Curator opens an item in the For Approval or DOI request list
     Given that the user is logged in as Curator
     And they are on My Worklist
     And they select a <Tab>
@@ -894,7 +894,7 @@ Feature: MVP features for NVA
 
   # Menuitems for Administrator
   @359
-  Scenario: The user opens User Administration
+  Scenario: Administrator opens User Administration
     Given that the user is logged in as Administrator
     When they click the menu item User Administration
     Then they see the User Administration page
@@ -914,7 +914,7 @@ Feature: MVP features for NVA
     And they see a Section named Creators that contains a checkbox for Assign role Creator automatically
 
   @360
-  Scenario: The user opens My Institution
+  Scenario: Administrator opens My Institution
     Given that the user is logged in as Administrator
     When they click the menu item My Institution
     Then they see the My Institution page
@@ -926,16 +926,16 @@ Feature: MVP features for NVA
       | Institution DNS               |
     And they see a button to Upload Logo
 
-  Scenario: The Administrator uploads a new Logo
-    Given the Administrator has opened My Institution
+  Scenario: Administrator uploads a new Logo
+    Given Administrator opens My Institution
     When they click Upload Logo
     And they select an image from their computer
     And they click OK
     Then they see the Logo on My Institution page
 
   @361
-  Scenario: The Administrator edits an Institution
-    Given the Administrator has opened My Institution
+  Scenario: Administrator edits an Institution
+    Given Administrator opens My Institution
     When they edit the fields
       | Name in organization registry |
       | Display name                  |
@@ -949,7 +949,7 @@ Feature: MVP features for NVA
 
   @362
   Scenario: Administrator views the Institutional Portal
-    Given the Administrator edits an Institution
+    Given Administrator edits an Institution
     When they visit the Institutional Portal
     Then they see the web address in their web browser is the CName + .nva.unit.no
     And they see the page title is the same as the Display Name on My Institution
@@ -972,7 +972,7 @@ Feature: MVP features for NVA
 
   # Menuitems for Editor
   @364
-  Scenario: The user opens Editor Administration
+  Scenario: Editor opens Editor Administration
     Given that the user is logged in as Editor
     When they click the menu item Editor Administration
     Then they see the page Editor Administration
@@ -981,7 +981,7 @@ Feature: MVP features for NVA
 
   # Menuitems for Application adminstrator
   @365
-  Scenario: The Application Administrator opens Institutions
+  Scenario: Application Administrator opens Institutions
     Given that the user is logged in as Application Administrator
     When they click the menu item Institutions
     Then they see the page Institutions
@@ -996,7 +996,7 @@ Feature: MVP features for NVA
   # Actions from page : Institution (Add/Update)
   @366
   Scenario: Application Administrator views an Institution
-    Given that Application Administrator opens Institutions
+    Given Application Administrator opens Institutions
     When they click Open on an Institution
     Then they see the page for the Institution
     And they see fields:
@@ -1010,7 +1010,7 @@ Feature: MVP features for NVA
     And a button Save that is enabled
 
   Scenario: Application Administrator adds an Institution
-    Given that Application Administrator opens Institutions
+    Given Application Administrator opens Institutions
     When they click Add Institution
     And they search and select a Name in Organization registry
     And they upload a Logo
