@@ -1009,7 +1009,7 @@ Feature: MVP features for NVA
   Scenario: Application Administrator adds an Institution
     Given that Application Administrator opens Institutions
     When they click Add Institution
-    And they search and select an Name in organization registry
+    And they search and select a Name in Organization registry
     And they upload a Logo
     And they enter a Display name
     And they enter a Short display name
@@ -1020,3 +1020,22 @@ Feature: MVP features for NVA
     And they click Save
     Then they see a Notification that the Institution has been created
     And they see the values they entered in the fields on the page
+
+  Scenario Outline: Application Administrator edits an Institution
+    Given Application Administrator views an Institution
+    When they make a change in <Field>
+    And they add a new Logo
+    And they click Save
+    Then they see a Notification that the changes are saved
+    And they see the <Field> has the new value in the page
+    And they see the new Logo in the page
+
+    Examples:
+      | Field                         |
+      | Name in organization registry |
+      | Display name                  |
+      | Short display name            |
+      | CNAME                         |
+      | Institution DNS               |
+      | Administration ID             |
+      | Feide Organization ID         |
