@@ -925,6 +925,12 @@ Feature: MVP features for NVA
       | Feide Organization ID         |
     And they see a button to Upload Logo
 
+  Scenario: The Administrator uploads a new Logo
+    Given the Administrator has opened My Institution
+    When they click Upload Logo
+    And they select an image from their computer
+    And they click OK
+    Then they see the Logo on My Institution page
 
   @361
   Scenario: The Administrator edits an Institution
@@ -932,13 +938,13 @@ Feature: MVP features for NVA
     When they edit the fields
       | Name in organization registry |
       | Display name                  |
-      | Short displayname             |
+      | Short display name            |
       | CNAME                         |
-      | Intitution DNS                |
-    And select Pubications must be approved by Curator
-    And upload a new logo
-    Then they see a message telling them that the information was saved
-    And they can visit the institutional portal
+      | Institution DNS               |
+    And they check Publications must be approved by Curator checkbox
+    And they upload a new Logo
+    Then they see a notification that the information was saved
+    And they can visit the Institutional Portal
 
   @362
   Scenario: Administrator views the institutional portal
