@@ -162,7 +162,7 @@ Feature: MVP features for NVA
     Given Creator begins registering a Publication
     And they have selected one of the <Methods> for starting the Wizard
     When they click Start
-    Then the Wizard is started
+    Then they see the Wizard
     Examples:
       | Methods                |
       | Link to publication    |
@@ -408,8 +408,8 @@ Feature: MVP features for NVA
       | Published version |
     And they see the File Detail box has a date picker for embargo
     And they see the File Detail box has a drop down for Licenses
-    And the Download button in the File Detail box is enabled
-    And the Delete button in the File Detail box is enabled
+    And they see the Download button in the File Detail box is enabled
+    And they see the Delete button in the File Detail box is enabled
 
   # Dette er av typen "Publication in Journal"
   Scenario: User verifies initial metadata on the Reference tab for a registration
@@ -526,7 +526,7 @@ Feature: MVP features for NVA
   Scenario: Creator opens the Add Author dialog
     Given Creator navigates to Contributor tab
     When they click Add Author
-    Then the Add Author dialog is opened
+    Then they see the Add Author dialog
     And they see Author search
     And they can cancel the dialog
 
@@ -545,8 +545,8 @@ Feature: MVP features for NVA
     Given they see Author search results
     When they click an Author
     And they click Add Author
-    Then the dialog is closed
-    And the Author is shown in the Authors section in the Contributor tab
+    Then they see the dialog is closed
+    And they see the Author is shown in the Authors section in the Contributor tab
 
   @DeveloperPretendsToBeProductOwner
   Scenario: Creator finds no matching Author in Author Search
@@ -705,8 +705,8 @@ Feature: MVP features for NVA
   Scenario: User opens the page My Profile
     Given that the user is logged in
     When they click the menu item My Profile
-    Then the page My Profile is opened
-    And see their Profile page which includes information for
+    Then they see My Profile
+    And they see their Profile page which includes information for
       | Real name          |
       | Feide ID           |
       | Email              |
@@ -720,7 +720,7 @@ Feature: MVP features for NVA
   Scenario: User opens Add Institution from My Profile
     Given user opens the page My Profile
     When they click Add Institution
-    Then the Add Institution dialog is opened
+    Then they see the Add Institution dialog is opened
     And they see the Autosearch box for Institutions
 
   @411
@@ -729,7 +729,7 @@ Feature: MVP features for NVA
     When they enter an Institution name
     And they select an Institution
     And they click Save
-    Then the Add Institution dialog is closed
+    Then they see the Add Institution dialog is closed
     And they see the new Institution in My Profile
 
   @406
@@ -744,7 +744,7 @@ Feature: MVP features for NVA
     Given user sees a Subunit from My Profile
     When they select a Subunit from the Subunit dropdown
     And they click Save
-    Then the Add Institution dialog is closed
+    Then they see the Add Institution dialog is closed
     And they see the new Institution and subunit in My Profile
 
   @409
@@ -757,7 +757,7 @@ Feature: MVP features for NVA
     Given user sees a Subsubunit from My Profile
     When they select a Subsubunit from the Subsubunit dropdown
     And they click Save
-    Then the Add Institution dialog is closed
+    Then they see the Add Institution dialog is closed
     And they see the new Institution and Subunit and Subsubunit in My Profile
 
   Scenario: User sees a Subsubsubunit from My Profile
@@ -770,7 +770,7 @@ Feature: MVP features for NVA
     Given user sees a Subsubsubunit from My Profile
     When they select a Subsubsubunit from the Subsubsubunit dropdown
     And they click Save
-    Then the Add Institution dialog is closed
+    Then they see the Add Institution dialog is closed
     And they see the new Institution and Subunit and Subsubunit and Subsubsubunit in My Profile
 
   @383
@@ -783,7 +783,7 @@ Feature: MVP features for NVA
   Scenario: Creator opens New Registration
     Given that the user is logged in as Creator
     When they click the menu item New Registration
-    Then the New Registration page is opened
+    Then they see the New Registration page
     And they see options
       | Upload file            |
       | Link                   |
@@ -793,12 +793,12 @@ Feature: MVP features for NVA
   Scenario Outline: Creator opens My Publications
     Given that the user is logged in as Creator
     When they click the menu item My Publications
-    Then the page My Publications is opened
-    And a list of all unpublished registrations with the fields
+    Then they see My Publications
+    And they see a list of all unpublished registrations with the fields
       | Title    |
       | <Status> |
       | Created  |
-    And each list item has a button Delete and Edit that is enabled
+    And they see each list item has a button Delete and Edit that is enabled
 
     Examples:
       | Status   |
@@ -811,7 +811,7 @@ Feature: MVP features for NVA
     Given that the user is logged in as Creator
     And is on the My Publications page
     When they click Edit on an item
-    Then the item is opened in the Wizard
+    Then they see the item is opened in the Wizard
     And they see the Description tab
     And they see fields:
       | Title                        |
@@ -882,7 +882,7 @@ Feature: MVP features for NVA
     And they are on My Worklist
     And they select a <Tab>
     When they click Open on an item
-    Then the item is opened in the Wizard
+    Then they see the item is opened in the Wizard
     And they see the Submission tab
     And <Button> is enabled
 
