@@ -971,13 +971,12 @@ Feature: MVP features for NVA
 
   # Menuitems for Editor
   @364
-  Scenario: The user opens Editor administration
+  Scenario: The user opens Editor Administration
     Given that the user is logged in as Editor
-    When they click the menu item Editor administration
-    Then the page Editor administration is opened
-    And has the fields
-      | Email |
-    And a button Save that is enabled
+    When they click the menu item Editor Administration
+    Then they see the page Editor Administration
+    And they see a field for Email
+    And they see a Save Button that is enabled
 
   # Menuitems for Application adminstrator
   @365
