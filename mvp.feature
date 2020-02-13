@@ -496,7 +496,7 @@ Feature: MVP features for NVA
 
   @233
   Scenario: User sees journal title suggestion from a Link
-    Given that the user registers initial metadata for a Publication based on a Link
+    Given that the user begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     And the Journal for the Publication is in the Publication Channel Register
     When they click the Reference Tab
@@ -573,7 +573,7 @@ Feature: MVP features for NVA
 
   @
   Scenario: User views Corresponding Author Email field
-    Given that the user registers initial metadata for a Publication based on a Link
+    Given that the user begins registering with a Link with direct data from Datacite/CrossRef
     And they are on the Contributors tab
     When they click Corresponding Author checkbox on an Author
     Then they see an input field for Email
