@@ -980,17 +980,17 @@ Feature: MVP features for NVA
 
   # Menuitems for Application adminstrator
   @365
-  Scenario: The Application adminstrator opens Institutions
-    Given that the user is logged in as Application adminstrator
+  Scenario: The Application Adminstrator opens Institutions
+    Given that the user is logged in as Application Administrator
     When they click the menu item Institutions
-    Then the page Institutions is opened
-    And the user sees a table of all institutions (customers)
-    And the table contains the fields
+    Then they see the page Institutions
+    And they see a table of all Institutions (customers)
+    And they see the table contains the fields
       | Institution |
       | Created     |
       | Editor      |
-    And a button Open that is enabled for each institution
-    And a button Create Institution that is enabled
+    And they see a button Open that is enabled for each Institution
+    And they see a button Create Institution that is enabled
 
   # Actions from page : Institution (Add/Update)
   @366
