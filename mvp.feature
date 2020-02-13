@@ -413,7 +413,8 @@ Feature: MVP features for NVA
 
   # Dette er av typen "Publication in Journal"
   Scenario: User verifies initial metadata on the Reference tab for a registration
-    Given that the user begins registration with a Link to a Journal Article
+    Given that the user begins registering with a Link with direct data from Datacite/CrossRef
+    And the Publication is a Publication in Journal
     When they click Start
     And they click the Reference Tab
     Then they they see that the Reference tab is populated with metadata values for
@@ -428,7 +429,8 @@ Feature: MVP features for NVA
       | Peer review                                   |
 
   Scenario: User verifies initial metadata on the Contributors tab for a registration
-    Given that the user begins Wizard registration with a Link
+    Given that the user begins registering with a Link with direct data from Datacite/CrossRef
+    And the Publication is a Publication in Journal
     When they click the Contributors tab
     Then they see that the Authors section contains Author Information boxes containing:
       | Author name |
@@ -442,7 +444,8 @@ Feature: MVP features for NVA
 
   @NotMVP
   Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
-    Given that the user begins Wizard registration with a Link
+    Given that the user begins registering with a Link with direct data from Datacite/CrossRef
+    And the Publication is a Publication in Journal
     When they click the Files and Licenses tab
     Then they see that the Files and Licenses tab is prepopulated with metadata values for
       | Possible mapped value for License, Archiving policy and Unit agreement |
