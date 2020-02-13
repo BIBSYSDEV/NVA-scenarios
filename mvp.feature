@@ -804,13 +804,13 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Publications (Edit)
   @355
-  Scenario: User opens an item in the My Publication list
+  Scenario: User opens an item in My Publication list
     Given that the user is logged in as Creator
-    And has opened the page My Publications
+    And is on the My Publications page
     When they click Edit on an item
     Then the item is opened in the Wizard
     And the user sees the Description tab
-    And they see populated fields:
+    And they see fields:
       | Title                        |
       | Alternative title(s)         |
       | Abstract                     |
