@@ -947,11 +947,11 @@ Feature: MVP features for NVA
     And they can visit the Institutional Portal
 
   @362
-  Scenario: Administrator views the institutional portal
+  Scenario: Administrator views the Institutional Portal
     Given the Administrator edits an Institution
-    When they visit the institutional portal from My Institution
+    When they visit the Institutional Portal
     Then they see the web address in their web browser is the CName + .nva.unit.no
-    And the page title is the same as the Display Name that they entered on My Institution
+    And they see the page title is the same as the Display Name on My Institution
 
   # Actions from page : Useradministration
   @363
