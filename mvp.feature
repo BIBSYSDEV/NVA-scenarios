@@ -5,10 +5,12 @@ Feature: MVP features for NVA
 
   @351
   Scenario: A user logs in with Feide for the first time
-    Given that the user is on the Start page
+    Given that the user has valid Feide credentials
+    And they have NOT logged in with Feide before
+    And they are on the Start page
     When they click Log in
     And they are redirected to Feide
-    And they enter their valid Feide credentials
+    And they enter their Feide credentials
     And they approve sharing of data with the NVA application regarding
       | Username            |
       | Email address       |
@@ -19,11 +21,21 @@ Feature: MVP features for NVA
     And they see their name in the Menu
     And they see the Connect Author dialog
 
+  @wip
+  Scenario: User connects Author
+    Given that the user logs in with Feide for the first time
+    When they click OK in the Connect Author dialog
+    Then the Connect Author dialog closes
+    And they see the Connect Orcid dialog
+
   Scenario: A user logs in with Feide not for the first time
-    Given that the user is on the Start page
+    Given that the user has valid Feide credentials
+    And they have logged in with Feide before
+    And they have not connected ORCID
+    And they are on the Start page
     When they click Log in
     And they are redirected to Feide
-    And they enter their valid Feide credentials
+    And they enter their Feide credentials
     Then they are redirected back to the Start page
     And they see their name in the Menu
     And they see the Connect ORCID dialog
