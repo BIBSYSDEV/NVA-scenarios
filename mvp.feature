@@ -875,6 +875,7 @@ Feature: MVP features for NVA
       | DOI request  |
     And they see the For Approval tab
 
+  @531
   Scenario: Curator views My Worklist tabs
     Given that the user opens My Worklist
     When they click the tabs:
