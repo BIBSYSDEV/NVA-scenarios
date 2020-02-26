@@ -71,7 +71,7 @@ Feature: MVP features for NVA
       | Kim Smith | Smith, Kim    | Some Title        |
       | Kim Smith | Smith, Kim    | Some Other Title  |
       | Kim Smith | Smith, Kim F. | Yet Another Title |
-    
+
   Scenario: User has no matching Author identity
     Given that Sandy Jones has a valid Feide ID and password
     And they do not have a Feide ID in their ARP entry
@@ -743,6 +743,13 @@ Feature: MVP features for NVA
     And they click Save
     Then they see the Add Institution dialog is closed
     And they see the new Institution in My Profile
+    And they see a button Remove that is enabled for the new Institution
+
+  @551
+  Scenario: User removes an Institution from My Profile
+    Given User adds an Institution from My Profile
+    When they click Remove
+    Then they see a Notification that the Institution is removed
 
   @406
   Scenario: User sees a Subunit from My Profile
