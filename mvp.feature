@@ -850,6 +850,7 @@ Feature: MVP features for NVA
     And they click Yes in the confirmation dialog
     Then they see the publication is marked as Deleted
 
+  @576
   Scenario: Creator cancels deletion of an item in My Publications list
     Given that the user is logged in as Creator
     And is on the My Publications page
@@ -912,6 +913,21 @@ Feature: MVP features for NVA
       | For Approval | Reject     |
       | DOI request  | Create DOI |
 
+  @511
+  Scenario: User navigates to the Submission tab
+    Given that the user navigates to the Submission tab
+    When they check to ask for a DOI
+    And publishes the publication
+    Then the publication is published
+    And the publication is marked that it contains a DOI request
+
+  @512
+  Scenario: A Curator creates a DOI
+    Given that a Curator opens an item in the For Approval or DOI-request list
+    When they click Create DOI
+    Then the DOI is created
+    And the user sees the DOI link
+
   # Menuitems for Administrator
   @359
   Scenario: Administrator opens User Administration
@@ -946,6 +962,7 @@ Feature: MVP features for NVA
       | Institution DNS               |
     And they see a button to Upload Logo
 
+  @575
   Scenario: Administrator uploads a new Logo
     Given Administrator opens My Institution
     When they click Upload Logo
@@ -1029,6 +1046,7 @@ Feature: MVP features for NVA
       | Feide Organization ID         |
     And a button Save that is enabled
 
+  @366
   Scenario: Application Administrator adds an Institution
     Given Application Administrator opens Institutions
     When they click Add Institution
@@ -1044,6 +1062,7 @@ Feature: MVP features for NVA
     Then they see a Notification that the Institution has been created
     And they see the values they entered in the fields on the page
 
+  @574
   Scenario Outline: Application Administrator edits an Institution
     Given Application Administrator views an Institution
     When they make a change in <Field>
