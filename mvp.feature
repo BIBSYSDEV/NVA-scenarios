@@ -86,7 +86,7 @@ Feature: MVP features for NVA
     Given that Sandy Jones has a valid Feide ID and password
     And there are results for Sandy Jones in ARP
     And they do not identify with one of the results
-    When they click the Create New Author button
+    When they click the Create New Author Button
     Then they see the Create New Authority dialog
     And that their name is selected
 
