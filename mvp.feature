@@ -560,7 +560,7 @@ Feature: MVP features for NVA
     Then they see the dialog is closed
     And they see the Author is shown in the Authors section in the Contributor tab
 
-  @DeveloperPretendsToBeProductOwner
+  @646
   Scenario: Creator finds no matching Author in Author Search
     Given Creator opens the Add Author dialog
     And there are no matching results for Name Nameson in ARP
