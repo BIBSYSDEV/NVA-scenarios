@@ -332,7 +332,7 @@ Feature: MVP features for NVA
   #    And they see Save is enabled
 
   @277
-  Scenario: User navigates to Submission tab
+  Scenario: Creator navigates to Submission tab
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Submission tab
     Then they see all of the data they have entered including
@@ -346,6 +346,17 @@ Feature: MVP features for NVA
     And they see the tab Submission is selected
     And they see Save is enabled
     And they see Publish is enabled
+
+  @653
+  Scenario: Creator sees validation errors
+    Given Creator begins registering a Publication in the Wizard
+    And they have not filled out any input fields in the Wizard
+    When they navigate to the Submission tab
+    Then they see a Validation Section with description of errors
+      | Description: Title is mandatory                        |
+      | References: Subtype, journal, peer review is mandatory |
+      | Contributors: Minimum one contributor required         |
+      | Files: Minimum one file required                       |
 
   @385
   Scenario: Creator begins registration by uploading a file
