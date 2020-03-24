@@ -66,6 +66,7 @@ Feature: MVP features for NVA
       | Smith, Kim             |
     When they log in
     Then they see a list containing <Author name> and <Last publication> for each ARP entry matching their <Name>
+    And a Create New Author Button
     Examples:
       | Name      | Author name   | Last publication  |
       | Kim Smith | Smith, Kim    | Some Title        |
@@ -78,6 +79,15 @@ Feature: MVP features for NVA
     And there are no matching entries in ARP
     When they log in
     Then they see the Create Authority dialog
+    And that their name is selected
+
+  @646
+  Scenario: Creator creates own Author identity
+    Given that Sandy Jones has a valid Feide ID and password
+    And there are results for Sandy Jones in ARP
+    And they do not identify with one of the results
+    When they click the Create New Author Button
+    Then they see the Create New Authority dialog
     And that their name is selected
 
   @219
