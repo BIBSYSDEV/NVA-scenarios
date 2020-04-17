@@ -581,7 +581,7 @@ Feature: MVP features for NVA
     Then they see the dialog is closed
     And they see the Author is shown in the Authors section in the Contributor tab
 
-  @DeveloperPretendsToBeProductOwner
+  @784
   Scenario: Creator finds no matching Author in Author Search
     Given Creator opens the Add Author dialog
     And there are no matching results for Name Nameson in ARP
@@ -589,15 +589,15 @@ Feature: MVP features for NVA
     Then they see no matching results
     And they see the Create New Author button
 
-  @DeveloperPretendsToBeProductOwner
+  @786
   Scenario: Creator sees New Author in the Author dialog
     Given Creator finds no matching Author in Author Search
     When they click Create New Author
     Then they see a field for Author name
     And they see an Autosearch box for Affiliation
 
-  @DeveloperPretendsToBeProductOwner
-  Scenario: User creates a new Author in the Author dialog
+  @788
+  Scenario: Creator creates a new Author in the Author dialog
     Given that they see New Author in the Author dialog
     When they fill in field for Author name
     And they search and select an affiliation
