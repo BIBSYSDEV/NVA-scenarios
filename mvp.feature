@@ -474,7 +474,7 @@ Feature: MVP features for NVA
       | a Delete Author button                                   |
       | a field containing an integer for Sequence in the list   |
       | a symbol to show whether it is a verified profile or not |
-    And they see that each Author information box can be dragged and dropped to change their order in the list
+    And they see the Author information boxes can be dragged and dropped to change their order in the list
 
   @NotMVP
   Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
