@@ -468,11 +468,12 @@ Feature: MVP features for NVA
     Then they see that the Authors section contains Author Information boxes containing:
       | Author name |
       | Affiliation |
-    And they see that each Author information box contains a checkbox for Corresponding Author
-    And they see that each Author information box contains a Search box to Add Affiliation
-    And they see that each Author information box contains a Delete Author button
-    And they see that each Author information box contains a field containing an integer for Sequence in the list
-    And they see that each Author information box contains a symbol to show whether it is a verified profile or not
+    And they see that each Author information box contains
+      | a checkbox for Corresponding Author                      |
+      | a Search box to Add Affiliation                          |
+      | a Delete Author button                                   |
+      | a field containing an integer for Sequence in the list   |
+      | a symbol to show whether it is a verified profile or not |
     And they see that each Author information box can be dragged and dropped to change their order in the list
 
   @NotMVP
