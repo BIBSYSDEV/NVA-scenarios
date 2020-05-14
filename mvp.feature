@@ -830,20 +830,21 @@ Feature: MVP features for NVA
       | Suggestions from ORCID |
 
   @354
-  Scenario Outline: Creator opens My Publications
-    Given that the user is logged in as Creator
+  Scenario: Creator opens My Publications
+    Given the user is logged in as Creator
     When they click the menu item My Publications
-    Then they see My Publications
-    And they see a list of all unpublished registrations with the fields
+    Then the page My Publications is opened
+    And a list of all unpublished registrations with the fields
       | Title    |
       | <Status> |
       | Created  |
-    And they see each list item has a button Delete and Edit that is enabled
-
     Examples:
       | Status   |
       | Draft    |
       | Rejected |
+    And each list item has a button Delete and Edit that is enabled
+    And the navigation bar for unpublished registrations is selected
+    And the navigation bar for published registrations is enabled
 
   # Actions from Page : My Publications (Edit)
   @355
@@ -865,11 +866,12 @@ Feature: MVP features for NVA
   # Actions from Page : My Publications (Delete)
   @356
   Scenario: Creator deletes an item in My Publications list
-    Given that the user is logged in as Creator
-    And is on the My Publications page
+    Given the user is logged in as Creator
+    And has opened the page My Publications
     When they click Delete on an item
-    And they click Yes in the confirmation dialog
-    Then they see the publication is marked as Deleted
+    Then a comfirmation pop-up is opened
+    When the user selects Yes the publication is deleted (in the db)
+    When the user selects No the pop-up is closed
 
   @576
   Scenario: Creator cancels deletion of an item in My Publications list
@@ -1102,3 +1104,39 @@ Feature: MVP features for NVA
       | Institution DNS               |
       | Administration ID             |
       | Feide Organization ID         |
+
+  @902
+  Scenario: User opens a Public Profile from a Public Page
+    Given the user has opened NVA
+    And sees a Public Page
+    When they click a contributor
+    Then the contributors public profile page is opened
+
+  @913
+  Scenario: User sees published publications
+    Given the user is logged in as Creator
+    And has opened My Publications page
+    When they click the navigation bar to see his published registrations
+    Then a list of all published registrations with the fields
+      | Title    |
+      | <Status> |
+      | Created  |
+    Examples:
+      | Status    |
+      | Deleted   |
+      | Published |
+    And each list item has a button Delete and Edit
+    And the edit button is enabled
+    And the Delete button is enabled if the registration is not marked as Deleted
+    And the navigation bar for unpublished registrations is enabled
+    And the navigation bar for published registrations is selected
+
+  @914
+  Scenario: User sees published publications
+    Given the user is logged in as Creator
+    And has opened the page My Publications
+    And selected Published publications
+    When they click Delete on an item
+    Then a comfirmation pop-up is opened
+    When the user selects Yes the publication is marked as Deleted
+    When the user selects No the pop-up is closed
