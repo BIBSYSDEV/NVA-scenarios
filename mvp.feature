@@ -830,27 +830,28 @@ Feature: MVP features for NVA
       | Suggestions from ORCID |
 
   @354
-  Scenario: Creator opens My Publications
+  Scenario Outline: Creator opens My Publications
     Given the user is logged in as Creator
     When they click the menu item My Publications
-    Then the page My Publications is opened
-    And a list of all unpublished registrations with the fields
+    Then they see My Publications
+    And they see a list of all unpublished registrations with the fields
       | Title    |
       | <Status> |
       | Created  |
+    And they see each list item has a button Delete and Edit that is enabled
+    And they see the navigation bar for unpublished registrations is selected
+    And they see the navigation bar for published registrations is enabled
+
     Examples:
       | Status   |
       | Draft    |
       | Rejected |
-    And each list item has a button Delete and Edit that is enabled
-    And the navigation bar for unpublished registrations is selected
-    And the navigation bar for published registrations is enabled
 
   # Actions from Page : My Publications (Edit)
   @355
   Scenario: Creator opens an item in My Publication list
     Given that the user is logged in as Creator
-    And is on the My Publications page
+    And is on the page My Publications
     When they click Edit on an item
     Then they see the item is opened in the Wizard
     And they see the Description tab
@@ -866,12 +867,19 @@ Feature: MVP features for NVA
   # Actions from Page : My Publications (Delete)
   @356
   Scenario: Creator deletes an item in My Publications list
-    Given the user is logged in as Creator
-    And has opened the page My Publications
+    Given Creator opens My Publications
     When they click Delete on an item
-    Then a comfirmation pop-up is opened
-    When the user selects Yes the publication is deleted (in the db)
-    When the user selects No the pop-up is closed
+    And they see a confirmation pop-up is opened
+    And they select Yes
+    Then they see that the publication is deleted
+
+  @967
+  Scenario: Creator does not delete an item in My Publications list
+    Given Creator opens My Publications
+    When they click Delete on an item
+    And they see a confirmation pop-up is opened
+    And they select No
+    Then they see that the pop-up is closed
 
   @576
   Scenario: Creator cancels deletion of an item in My Publications list
@@ -1107,36 +1115,42 @@ Feature: MVP features for NVA
 
   @902
   Scenario: User opens a Public Profile from a Public Page
-    Given the user has opened NVA
-    And sees a Public Page
+    Given the Creator publishes Publication
     When they click a contributor
     Then the contributors public profile page is opened
 
   @913
   Scenario: User sees published publications
-    Given the user is logged in as Creator
-    And has opened My Publications page
-    When they click the navigation bar to see his published registrations
-    Then a list of all published registrations with the fields
+    Given Creator opens the page My Publications
+    When they click Published registrations in the navigation bar
+    Then they see a list of all published registrations with the fields
       | Title    |
       | <Status> |
       | Created  |
+    And they see each list item has buttons Delete and Edit
+    And the they see the Edit button is enabled
+    And the Delete button is enabled for registrations not marked as Deleted
+    And they see the navigation bar for unpublished registrations is enabled
+    And they see the navigation bar for published registrations is selected
+
     Examples:
       | Status    |
       | Deleted   |
       | Published |
-    And each list item has a button Delete and Edit
-    And the edit button is enabled
-    And the Delete button is enabled if the registration is not marked as Deleted
-    And the navigation bar for unpublished registrations is enabled
-    And the navigation bar for published registrations is selected
 
   @914
-  Scenario: User sees published publications
-    Given the user is logged in as Creator
-    And has opened the page My Publications
-    And selected Published publications
+  Scenario: User sees deletes a published publications
+    Given that the user is logged in as Creator
+    And they see the page My Publications
+    And they click Published registrations in the navigation bar
     When they click Delete on an item
-    Then a comfirmation pop-up is opened
+    Then a confirmation pop-up is opened
     When the user selects Yes the publication is marked as Deleted
+
+  Scenario: User sees does not delete a published publications
+    Given that the user is logged in as Creator
+    And they see the page My Publications
+    And they click Published registrations in the navigation bar
+    When they click Delete on an item
+    Then a confirmation pop-up is opened
     When the user selects No the pop-up is closed
