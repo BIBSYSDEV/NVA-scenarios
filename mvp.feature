@@ -831,7 +831,7 @@ Feature: MVP features for NVA
 
   @354
   Scenario Outline: Creator opens My Publications
-    Given that the user is logged in as Creator
+    Given the user is logged in as Creator
     When they click the menu item My Publications
     Then they see My Publications
     And they see a list of all unpublished registrations with the fields
@@ -839,6 +839,8 @@ Feature: MVP features for NVA
       | <Status> |
       | Created  |
     And they see each list item has a button Delete and Edit that is enabled
+    And they see the navigation bar for unpublished registrations is selected
+    And they see the navigation bar for published registrations is enabled
 
     Examples:
       | Status   |
@@ -849,7 +851,7 @@ Feature: MVP features for NVA
   @355
   Scenario: Creator opens an item in My Publication list
     Given that the user is logged in as Creator
-    And is on the My Publications page
+    And is on the page My Publications
     When they click Edit on an item
     Then they see the item is opened in the Wizard
     And they see the Description tab
@@ -865,11 +867,19 @@ Feature: MVP features for NVA
   # Actions from Page : My Publications (Delete)
   @356
   Scenario: Creator deletes an item in My Publications list
-    Given that the user is logged in as Creator
-    And is on the My Publications page
+    Given Creator opens My Publications
     When they click Delete on an item
-    And they click Yes in the confirmation dialog
-    Then they see the publication is marked as Deleted
+    And they see a confirmation pop-up is opened
+    And they select Yes
+    Then they see that the publication is deleted
+
+  @967
+  Scenario: Creator does not delete an item in My Publications list
+    Given Creator opens My Publications
+    When they click Delete on an item
+    And they see a confirmation pop-up is opened
+    And they select No
+    Then they see that the pop-up is closed
 
   @576
   Scenario: Creator cancels deletion of an item in My Publications list
@@ -1102,3 +1112,48 @@ Feature: MVP features for NVA
       | Institution DNS               |
       | Administration ID             |
       | Feide Organization ID         |
+
+  @902
+  Scenario: User opens a Public Profile from a Public Page
+    Given the Creator publishes Publication
+    When they click a Contributor
+    Then they see the Contributor's public profile page
+
+  @913
+  Scenario: User sees published publications
+    Given Creator opens the page My Publications
+    When they click Published registrations in the navigation bar
+    Then they see a list of all published registrations with the fields
+      | Title    |
+      | <Status> |
+      | Created  |
+    And they see each list item has buttons Delete and Edit
+    And the they see the Edit button is enabled
+    And the Delete button is enabled for registrations not marked as Deleted
+    And they see the navigation bar for unpublished registrations is enabled
+    And they see the navigation bar for published registrations is selected
+
+    Examples:
+      | Status    |
+      | Deleted   |
+      | Published |
+
+  @914
+  Scenario: User deletes a published publication
+    Given that the user is logged in as Creator
+    And they see the page My Publications
+    And they click Published registrations in the navigation bar
+    When they click Delete on an item
+    And they see a confirmation pop-up asking to delete the publication
+    And they select Yes
+    Then they see that the publication is marked as deleted
+
+  @967
+  Scenario: User does not delete a published publication
+    Given that the user is logged in as Creator
+    And they see the page My Publications
+    And they click Published registrations in the navigation bar
+    When they click Delete on an item
+    And they se a confirmation pop-up asking to delete the publication
+    And they select No
+    Then they see that the pop-up is closed
