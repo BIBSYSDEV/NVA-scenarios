@@ -1116,8 +1116,8 @@ Feature: MVP features for NVA
   @902
   Scenario: User opens a Public Profile from a Public Page
     Given the Creator publishes Publication
-    When they click a contributor
-    Then the contributors public profile page is opened
+    When they click a Contributor
+    Then they see the Contributor's public profile page
 
   @913
   Scenario: User sees published publications
@@ -1139,18 +1139,21 @@ Feature: MVP features for NVA
       | Published |
 
   @914
-  Scenario: User sees deletes a published publications
+  Scenario: User deletes a published publication
     Given that the user is logged in as Creator
     And they see the page My Publications
     And they click Published registrations in the navigation bar
     When they click Delete on an item
-    Then a confirmation pop-up is opened
-    When the user selects Yes the publication is marked as Deleted
+    And they see a confirmation pop-up asking to delete the publication
+    And they select Yes
+    Then they see that the publication is marked as deleted
 
-  Scenario: User sees does not delete a published publications
+  @967
+  Scenario: User does not delete a published publication
     Given that the user is logged in as Creator
     And they see the page My Publications
     And they click Published registrations in the navigation bar
     When they click Delete on an item
-    Then a confirmation pop-up is opened
-    When the user selects No the pop-up is closed
+    And they se a confirmation pop-up asking to delete the publication
+    And they select No
+    Then they see that the pop-up is closed
