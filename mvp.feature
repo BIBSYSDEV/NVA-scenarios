@@ -1164,4 +1164,4 @@ Feature: MVP features for NVA
     And the publication has a date for delayed publishing in the future
     When they see the File box
     Then they see that the file can't be downloaded
-    And they see the deleayed publishing date
+    And they see the delayed publishing date
