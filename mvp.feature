@@ -643,7 +643,7 @@ Feature: MVP features for NVA
       | Field               | Value            |
       | Version             | Accepted version |
       | License             | CC-BY 4.0        |
-      | Deleayed publishing | 2032-12-21       |
+      | Delayed publishing | 2032-12-21       |
 
   @455
   Scenario: Creator selects Administrative contract for uploaded files
