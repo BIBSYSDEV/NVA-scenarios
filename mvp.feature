@@ -1160,7 +1160,7 @@ Feature: MVP features for NVA
 
   @1071
   Scenario: User sees a published publication with delayed publishing
-    Given that the user navigates to a Public Page
+    Given Creator publishes Publication
     And the publication has a date for delayed publishing in the future
     When they see the file box
     Then they see that the file can't be downloaded
