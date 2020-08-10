@@ -19,3 +19,4 @@
     And clicks Search
     Then the user sees ten hits for the author ID displayed in the search display
     And each hit contains information about the title, author, year, and publication type
+

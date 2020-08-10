@@ -442,7 +442,7 @@ Feature: MVP features for NVA
     And they see the File Detail box has a radio for Version with values:
       | Accepted version  |
       | Published version |
-    And they see the File Detail box has a date picker for embargo
+    And they see the File Detail box has a date picker for delayed publishing
     And they see the File Detail box has a drop down for Licenses
     And they see the Download button in the File Detail box is enabled
     And they see the Delete button in the File Detail box is enabled
@@ -647,10 +647,10 @@ Feature: MVP features for NVA
     And they look at the Files section
     Then they see the <Value> for the <Field>
     Examples:
-      | Field   | Value            |
-      | Version | Accepted version |
-      | License | CC-BY 4.0        |
-      | Embargo | 2032-12-21       |
+      | Field               | Value            |
+      | Version             | Accepted version |
+      | License             | CC-BY 4.0        |
+      | Delayed publishing | 2032-12-21       |
 
   @455
   Scenario: Creator selects Administrative contract for uploaded files
@@ -1358,3 +1358,11 @@ Feature: MVP features for NVA
     And they se a confirmation pop-up asking to delete the publication
     And they select No
     Then they see that the pop-up is closed
+
+  @1071
+  Scenario: User sees a published publication with delayed publishing
+    Given Creator publishes Publication
+    And the publication has a date for delayed publishing in the future
+    When they see the File box
+    Then they see that the file can't be downloaded
+    And they see the delayed publishing date
