@@ -21,13 +21,14 @@ Feature: MVP features for NVA
     And they see their name in the Menu
     And they see the Connect Author dialog
 
-  @wip
+  @1205
   Scenario: User connects Author
     Given that the user logs in with Feide for the first time
     When they click OK in the Connect Author dialog
     Then the Connect Author dialog closes
-    And they see the Connect Orcid dialog
+    And they see a confirmation dialog
 
+  @1206
   Scenario: A user logs in with Feide not for the first time
     Given that the user has valid Feide credentials
     And they have logged in with Feide before
@@ -40,6 +41,7 @@ Feature: MVP features for NVA
     And they see their name in the Menu
     And they see the Connect ORCID dialog
 
+  @28
   Scenario: A user is already authenticated with Feide (single sign on)
     Given that the user is already authenticated with Feide
     When they navigate to the Start page
@@ -73,6 +75,7 @@ Feature: MVP features for NVA
       | Kim Smith | Smith, Kim    | Some Other Title  |
       | Kim Smith | Smith, Kim F. | Yet Another Title |
 
+  @1207
   Scenario: User has no matching Author identity
     Given that Sandy Jones has a valid Feide ID and password
     And they do not have a Feide ID in their ARP entry
@@ -156,8 +159,8 @@ Feature: MVP features for NVA
   #DLR does not have a meta tag with a DOI
 
   @440
-  Scenario: Creator begins registering with a Link with data from Datacite/Crossref from dc:identifier meta tag
-    Given Creator begins registering a Publication
+  Scenario:
+    Given Creator begins registering a PubCreator begins registering with a Link with data from dc:identifier meta taglication
     When they expand Link to publication
     And they enter https://loar.kb.dk/handle/1902/1674?show=full
     And they click Search
@@ -538,6 +541,7 @@ Feature: MVP features for NVA
     When they click the Reference Tab
     Then they see the Autosearch dropdown for Journal contains a journal title
 
+  @1209
   Scenario: Creator sees Publication Channel Register information for a Journal
     Given Creator sees journal title suggestion from a Link
     When they click the Autosearch dropdown for Journal
@@ -563,6 +567,7 @@ Feature: MVP features for NVA
     And they see Author search
     And they can cancel the dialog
 
+  @1211
   Scenario: Creator sees Author search results
     Given Creator opens the Add Author dialog
     And there are matching results for Name Nameson in ARP
@@ -607,13 +612,14 @@ Feature: MVP features for NVA
 
   #Legg til Scenario for delete, edit, move, korresponding
 
-  @
+  @1213
   Scenario: User sees Corresponding Author Email field
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And they are on the Contributors tab
     When they click Corresponding Author checkbox on an Author
     Then they see an input field for Email
 
+  @1214
   Scenario: User registers Corresponding Author
     Given that they see Corresponding Author Email field
     When they enter a valid Email address
@@ -633,6 +639,7 @@ Feature: MVP features for NVA
     When they drag and drop a file into the File drag-and-drop area
     Then they see upload information
 
+  @1215
   Scenario Outline: Creator selects values for uploaded files
     Given Creator uploads files for a Publication
     When they set values for <Field>
@@ -656,16 +663,52 @@ Feature: MVP features for NVA
     And they see a Delete button
 
   @278
-  Scenario: Creator publishes Publication
-    Given Creator sees Publication Channel Register information for a Journal
+  Scenario: Registrator publishes Publication
+    Given Registrator sees Publication Channel Register information for a Journal
     And they select values for uploaded files
     And they are on the Submission tab
     When they click Publish
     Then they are redirected to the Publication public page
     And they see the Publication confirmation message
 
+  @881
+  Scenario: View Public Page for publication
+    Given the user has opened NVA
+    And see the Start Page or Public Profile
+    When they click to view a publication
+    Then the public page for publication is opened
+    And the page fields for
+      | Title                  |
+      | Abstract               |
+      | NPI                    |
+      | Keywords               |
+      | Publication date       |
+      | Primary language       |
+      | Projects               |
+      | Publication type       |
+      | Publication subtype    |
+      | Values per sybtype     |
+      | Clickable Contributors |
+      | Clickable emails       |
+      | Affiliations           |
+      | File download link     |
+      | ORCID                  |
+      | DOI link               |
+      | Licence                |
+      | Licence link           |
+  # each licence must have some documentation a web page
+  # https://creativecommons.org/licenses/by/4.0/deed.no
+  # https://dlr.unit.no/licenses/ntnu-alle-rettigheter-forbeholdt-forfatter
+
+  @1236
+  Scenario: A user navigates to the landing page with a draft DOI
+    Given that a user navigates to the landing page
+    And the resource is published
+    And the resource has a draft DOI
+    Then the landing page is displayed without the draft DOI
+
   # Access to the different menu items
-  @244
+  @344
   Scenario: User sees non-logged-in menu
     Given that the user is not logged in
     When they look at any page in NVA
@@ -793,6 +836,7 @@ Feature: MVP features for NVA
     When they click the Subunit dropdown
     Then they see a Subsubunit dropdown containing all the Subsubunits at their Subunit
 
+  @1218
   Scenario: User selects a Subsubunit from My Profile
     Given user sees a Subsubunit from My Profile
     When they select a Subsubunit from the Subsubunit dropdown
@@ -800,12 +844,14 @@ Feature: MVP features for NVA
     Then they see the Add Institution dialog is closed
     And they see the new Institution and Subunit and Subsubunit in My Profile
 
+  @1219
   Scenario: User sees a Subsubsubunit from My Profile
     Given they see a Subsubunit from My Profile
     And they select a Subsubunit from the Subsubunit dropdown
     When they click the Subsubsubunit dropdown
     Then they see a Subsubsubunit dropdown containing all the Subsubsubunits at their Subsubunit
 
+  @1220
   Scenario: User selects a Subsubsubunit from My Profile
     Given user sees a Subsubsubunit from My Profile
     When they select a Subsubsubunit from the Subsubsubunit dropdown
@@ -902,6 +948,139 @@ Feature: MVP features for NVA
       | ORCID                                      |
       | List of publications with status Published |
 
+  @1238
+  Scenario: Registrator opens My Worklist
+    Given that the user is logged in as Registrator
+    When they click the menu item My Worklist
+    Then they see My Worklist page
+    And they see a list with column headers
+      | Title     |
+      | Type      |
+      | Submitter |
+      | Date      |
+    And they see that each row in the list has a Show, Open and Delete button
+
+  @1246
+  Scenario: Registrator Opens a DOI request
+    Given that the Registrator opens My Worklist
+    When the user click the Open button on a DOI request
+    Then they see the Request Detail page
+    And they see a summary of the resource
+    And they see a all the messages for this resource
+    And they see a Back, Edit, and a Edit Resource button
+
+  @1247
+  Scenario: Registrator Edits a comment on a DOI request
+    Given that the Registrator Opens a DOI request
+    And the request has status Request
+    When the user click the Edit button on a DOI request
+    Then they can edit the comment
+    And they see a Save button
+
+  @1248
+  Scenario: Registrator Saves a comment on a DOI request
+    Given that the Registrator Edits a comment on a DOI request
+    When the user Save the comment
+    Then the comment is saved
+    And they see a confirmation message
+    And they can no longer edit the comment
+
+  @1249
+  Scenario: Registrator adds a new message on a DOI request
+    Given that the Registrator Opens a DOI request
+    And the request is Answered
+    And they see the answere message from the Curator
+    When the user selects the New Message button
+    Then the user can add a new message to the doi request
+    And the request changes status to Request
+
+  @1250
+  Scenario: Registrator close a DOI request
+    Given that the Registrator Opens a DOI request
+    When the user selects the Close button
+    Then they see the Worklist
+
+  @1251
+  Scenario: Registrator open a publication on a DOI request
+    Given that the Registrator Opens a DOI request
+    When the user selects the Edit publication button
+    Then the Wizard is opened on the first page
+
+  @1240
+  Scenario: Registrator deletes a DOI request
+    Given that the Registrator opens My Worklist
+    When the user click the delete button on a DOI request
+    Then the request is deleted from his work list
+    And the request is deleted from the work list of his curator
+    And the resources landing page has an enabeled "Request DOI" button
+
+  @1242
+  Scenario: Registrar navigates to the Public Page for a resource with a DOI
+    Given that the registrar navigates to the Public Page
+    When the registrar is the registrar of this resource
+    And the resource has a DOI
+    Then the request/draft DOI button is disabled
+  # a resource may have more then one DOI,
+  # but NVA is only source for one DOI for each resource
+
+  @1231
+  Scenario: View Public Page for published publication without DOI as Owner
+    Given that the Owner view Public Page for publication
+    And the publication is Published
+    And the publication has no DOI
+    When they look at the Status Bar
+    Then they see buttons for Request a DOI and Edit publication
+
+  @511
+  Scenario: User navigates to the landing page and open requests a DOI dialog
+    Given that the user view Public Page for published publication without DOI as Owner
+    When the user click the "Request a DOI" button
+    Then the Request a DOI dialog is opened
+    And you see fields for Message
+    And a button for Send Request
+
+  @1232
+  Scenario: User navigates to the landing page and requests a DOI
+    Given that the user navigates to the landing page and open request a DOI dialog
+    And optional add a message to the curator
+    Then the user click the send button
+    And the landing page is displayed
+    And the "Request a DOI" button is renamed to "DOI pending" and is disabled
+    And the request is listed in user work list
+    And the request is listed in curator work list
+
+  @1233
+  Scenario: View Public Page for unpublished publication without DOI as Owner
+    Given that the Owner view Public Page for publication
+    And the publication is not Published
+    And the publication has no DOI
+    When they look at the Status Bar
+    Then they see buttons for Draft a DOI and Edit publication
+
+  @1234
+  Scenario: User navigates to the landing page and selects Draft a DOI
+    Given that the Owner View Public Page for unpublished publication without DOI as Owner
+    When the user click the "Draft a DOI" button
+    Then the landing page is displayed
+    And the "Draft a DOI" button is renamed to "DOI pending" and is disabled
+    And the draft DOI is added to the metadata
+    And the landing page contains the draft DOI
+    And the draft DOI is not a link
+  #Draft DOIs are not acknowledged by the resolving mechanisms (Handle-system)
+
+  @1235
+  Scenario: User navigates to the submission tab and publish a resource with a drafted DOI
+    Given that the Owner navigates to Submission tab
+    And the resource is only stored (not published)
+    And the resource has a draft DOI
+    When the Owner click the publish button
+    Then the landing page is displayed
+    And the "Request a DOI" button is still named "DOI pending" and is disabled
+    And the landing page lists the draft DOI
+    And the draft DOI is still not a link
+    And the DOI request is listed in the Owners work list
+    And the DOI request is listed in the Curators work list
+
   # Menuitems for Curator
   @357
   Scenario: Curator opens My Worklist
@@ -922,18 +1101,29 @@ Feature: MVP features for NVA
       | Support      |
       | DOI request  |
     Then they see a list with column headers
+      | Status    |
       | Title     |
+      | Message   |
       | Submitter |
       | Date      |
-    And they see that each row in the list has an Open button
+    And they see that each row in the list has an Expand button
 
   # Actions from Page : My Worklist
-  @358
-  Scenario Outline: Curator opens an item in the For Approval or DOI request list
-    Given that the user is logged in as Curator
-    And they are on My Worklist
+  @1252
+  Scenario Outline: Curator expands an item in the Worklist
+    Given that the user user opens My Worklist
     And they select a <Tab>
-    When they click Open on an item
+    When they click Expand on an item
+    Then they see the item is expanded
+    And they see the the Titel of the resource
+    And the message from the user
+    And a Send answere-, Go to resource-, and a Archive- button
+
+  @358
+  Scenario Outline: Curator opens an item in the Worklist
+    Given that the Curator expands an item in the Worklist
+    And they select a <Tab>
+    When they click Go to resource on an item
     Then they see the item is opened in the Wizard
     And they see the Submission tab
     And <Button> is enabled
@@ -944,20 +1134,31 @@ Feature: MVP features for NVA
       | For Approval | Reject     |
       | DOI request  | Create DOI |
 
-  @511
-  Scenario: User navigates to the Submission tab
-    Given that the user navigates to the Submission tab
-    When they check to ask for a DOI
-    And publishes the publication
-    Then the publication is published
-    And the publication is marked that it contains a DOI request
-
   @512
-  Scenario: A Curator creates a DOI
-    Given that a Curator opens an item in the For Approval or DOI-request list
+  Scenario: A Curator approves a DOI request
+    Given that a Curator opens an item in the Worklist
+    And the item is a DOI request
     When they click Create DOI
-    Then the DOI is created
-    And the user sees the DOI link
+    Then the DOI is created by DataCite
+    And they see the Public Page with the new Doi link
+    And the Request DOI button is disabled
+    And the Request DOI item is marked as Approved in the Worklist
+
+  @1243
+  Scenario: A Curator enter a decline-comment on a DOI request
+    Given that a Curator opens an item in the Worklist
+    And the item is a DOI request
+    When they click Decline DOI
+    Then they may enter a decline-comment
+
+  @1244
+  Scenario: A Curator declines a DOI request
+    Given that a Curator enter a decline-comment on a DOI request
+    When they click save
+    Then the DOI request is marked Declined
+    And the request in users work list is updated
+    And the request is removed from the curators work list
+    And the curator see his work list
 
   # Menuitems for Administrator
   @359
