@@ -313,7 +313,7 @@ Feature: MVP features for NVA
     And they see the NVI evaluation is Not NVI Applicable
 
   @417
-  Scenario: User navigates to Contributor tab
+  Scenario: Creator navigates to Contributor tab
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Contributor tab
     Then they see Add Author is enabled
@@ -326,7 +326,7 @@ Feature: MVP features for NVA
     And they see Save is enabled
 
   @275
-  Scenario: User navigates to Files and Licenses tab
+  Scenario: Creator navigates to Files and Licenses tab
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Files and Licenses tab
     Then they see the Publication Channel Information box
@@ -448,7 +448,7 @@ Feature: MVP features for NVA
     And they see the Delete button in the File Detail box is enabled
 
   # Dette er av typen "Publication in Journal"
-  Scenario: User verifies initial metadata on the Reference tab for a registration
+  Scenario: Creator verifies initial metadata on the Reference tab for a registration
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     When they click Start
@@ -464,7 +464,7 @@ Feature: MVP features for NVA
       | Article number                                |
       | Peer review                                   |
 
-  Scenario: User verifies initial metadata on the Contributors tab for a registration
+  Scenario: Creator verifies initial metadata on the Contributors tab for a registration
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     When they click the Contributors tab
@@ -479,7 +479,7 @@ Feature: MVP features for NVA
     And they see that each Author information box can be dragged and dropped to change their order in the list
 
   @NotMVP
-  Scenario: User verifies initial metadata on the Files and Licenses tab for a registration
+  Scenario: Creator verifies initial metadata on the Files and Licenses tab for a registration
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     When they click the Files and Licenses tab
@@ -488,7 +488,7 @@ Feature: MVP features for NVA
       | Possible file for upload  (Filename, File size)                        |
 
   @230
-  Scenario: User adds NPI data for a Publication
+  Scenario: Creator adds NPI data for a Publication
     Given Creator begins registering a Publication in the Wizard
     And they click the Description tab
     When they select a value in the dropdown for NPI subject area
@@ -534,7 +534,7 @@ Feature: MVP features for NVA
     And they see a Autosearch dropdown for Project above the Project Information box
 
   @233
-  Scenario: User sees journal title suggestion from a Link
+  Scenario: Creator sees journal title suggestion from a Link
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     And the Journal for the Publication is in the Publication Channel Register
@@ -579,7 +579,7 @@ Feature: MVP features for NVA
       | Affiliation(s)                |
 
   @419
-  Scenario: User adds an Author to the Author list
+  Scenario: Creator adds an Author to the Author list
     Given they see Author search results
     When they click an Author
     And they click Add Author
@@ -613,14 +613,14 @@ Feature: MVP features for NVA
   #Legg til Scenario for delete, edit, move, korresponding
 
   @1213
-  Scenario: User sees Corresponding Author Email field
+  Scenario: Creator sees Corresponding Author Email field
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And they are on the Contributors tab
     When they click Corresponding Author checkbox on an Author
     Then they see an input field for Email
 
   @1214
-  Scenario: User registers Corresponding Author
+  Scenario: Creator registers Corresponding Author
     Given that they see Corresponding Author Email field
     When they enter a valid Email address
     And they blur out of the Corresponding Author Email field
@@ -647,9 +647,9 @@ Feature: MVP features for NVA
     And they look at the Files section
     Then they see the <Value> for the <Field>
     Examples:
-      | Field               | Value            |
-      | Version             | Accepted version |
-      | License             | CC-BY 4.0        |
+      | Field              | Value            |
+      | Version            | Accepted version |
+      | License            | CC-BY 4.0        |
       | Delayed publishing | 2032-12-21       |
 
   @455
@@ -1042,8 +1042,10 @@ Feature: MVP features for NVA
     And a button for Send Request
 
   @1232
-  Scenario: User navigates to the Public Page for Publication and requests a DOI
-    Given that the user navigates to the Public Page for Publication and open request a DOI dialog
+  Scenario: Owner navigates to the Public Page for Publication and requests a DOI
+    Given that the Creator navigates to the Public Page for Publication
+    And they are the owner of the publication
+    And open "Request a DOI" dialog
     And optional add a message to the curator
     When the user click the send button
     Then the Public Page for Publication is displayed
@@ -1061,8 +1063,9 @@ Feature: MVP features for NVA
 
   @1234
   Scenario: Owner navigates to the Public Page for Publication and selects Draft a DOI
-    Given that the Owner View Public Page for Publication for unpublished publication without DOI as Owner
-    When the user click the "Draft a DOI" button
+    Given that the Owner View Public Page for Publication for unpublished publication without DOI
+    And they are the owner of the Publication
+    When they click the "Draft a DOI" button
     Then the Public Page for Publication is displayed
     And the "Draft a DOI" button is renamed to "DOI pending" and is disabled
     And the Draft DOI is added to the metadata
