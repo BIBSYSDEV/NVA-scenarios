@@ -159,8 +159,8 @@ Feature: MVP features for NVA
   #DLR does not have a meta tag with a DOI
 
   @440
-  Scenario:
-    Given Creator begins registering a PubCreator begins registering with a Link with data from dc:identifier meta taglication
+  Scenario: Creator begins registering with a Link with data from dc:identifier meta taglication
+    Given Creator begins registering a Publication
     When they expand Link to publication
     And they enter https://loar.kb.dk/handle/1902/1674?show=full
     And they click Search
@@ -663,21 +663,21 @@ Feature: MVP features for NVA
     And they see a Delete button
 
   @278
-  Scenario: Registrator publishes Publication
-    Given Registrator sees Publication Channel Register information for a Journal
+  Scenario: Creator publishes Publication
+    Given Creator sees Publication Channel Register information for a Journal
     And they select values for uploaded files
     And they are on the Submission tab
     When they click Publish
-    Then they are redirected to the Publication public page
+    Then they are redirected to the Public Page for Publication
     And they see the Publication confirmation message
 
   @881
-  Scenario: View Public Page for publication
+  Scenario: View Public Page for Publication
     Given the user has opened NVA
     And see the Start Page or Public Profile
     When they click to view a publication
     Then the public page for publication is opened
-    And the page fields for
+    And they see page fields for
       | Title                  |
       | Abstract               |
       | NPI                    |
@@ -701,11 +701,11 @@ Feature: MVP features for NVA
   # https://dlr.unit.no/licenses/ntnu-alle-rettigheter-forbeholdt-forfatter
 
   @1236
-  Scenario: A user navigates to the landing page with a draft DOI
-    Given that a user navigates to the landing page
-    And the resource is published
-    And the resource has a draft DOI
-    Then the landing page is displayed without the draft DOI
+  Scenario: A user navigates to the Public Page for Publication with a Draft DOI
+    Given that a user navigates to the Public Page for Publication
+    And the Publication is published
+    And the Publication has a Draft DOI
+    Then the Public Page for Publication is displayed without the Draft DOI
 
   # Access to the different menu items
   @344
@@ -942,15 +942,15 @@ Feature: MVP features for NVA
     When they click Public Profile
     Then they see their Public Profile
     And they see fields:
-      | Name                                       |
-      | Institutions                               |
-      | Public email                               |
-      | ORCID                                      |
-      | List of publications with status Published |
+      | Name                                                                              |
+      | Institutions                                                                      |
+      | Public email                                                                      |
+      | ORCID                                                                             |
+      | List of publications where the user is a contributor and with status is Published |
 
   @1238
-  Scenario: Registrator opens My Worklist
-    Given that the user is logged in as Registrator
+  Scenario: Creator opens My Worklist
+    Given that the user is logged in as Creator
     When they click the menu item My Worklist
     Then they see My Worklist page
     And they see a list with column headers
@@ -961,123 +961,125 @@ Feature: MVP features for NVA
     And they see that each row in the list has a Show, Open and Delete button
 
   @1246
-  Scenario: Registrator Opens a DOI request
-    Given that the Registrator opens My Worklist
-    When the user click the Open button on a DOI request
-    Then they see the Request Detail page
-    And they see a summary of the resource
-    And they see a all the messages for this resource
-    And they see a Back, Edit, and a Edit Resource button
+  Scenario: Creator Opens a DOI request entry from My Worklist
+    Given that the Creator opens My Worklist
+    When they click the Open button on a DOI request
+    Then they see the Request Detail box
+    And they see a summary of the Publication
+    And they see a all the messages for this DOI request
+    And they see a Back, Edit, and a Edit Publication button
 
   @1247
-  Scenario: Registrator Edits a comment on a DOI request
-    Given that the Registrator Opens a DOI request
-    And the request has status Request
-    When the user click the Edit button on a DOI request
+  Scenario: Creator Edits a comment on a DOI request
+    Given that the Creator Opens a DOI request entry from My Worklist
+    And the request has status Requested
+    When they click the Edit button on a DOI request
     Then they can edit the comment
     And they see a Save button
 
   @1248
-  Scenario: Registrator Saves a comment on a DOI request
-    Given that the Registrator Edits a comment on a DOI request
-    When the user Save the comment
+  Scenario: Creator Saves a comment on a DOI request
+    Given that the Creator Edits a comment on a DOI request
+    When they Save the comment
     Then the comment is saved
     And they see a confirmation message
     And they can no longer edit the comment
 
   @1249
-  Scenario: Registrator adds a new message on a DOI request
-    Given that the Registrator Opens a DOI request
+  Scenario: Creator adds a new message on a DOI request
+    Given that the Creator Opens a DOI request entry from My Worklist
     And the request is Answered
-    And they see the answere message from the Curator
-    When the user selects the New Message button
-    Then the user can add a new message to the doi request
-    And the request changes status to Request
+    And they see the answer from the Curator
+    When the they click the New Message button
+    Then they can add a new message to the DOI request
+    And the request changes status to Requested
 
   @1250
-  Scenario: Registrator close a DOI request
-    Given that the Registrator Opens a DOI request
-    When the user selects the Close button
+  Scenario: Creator closes a DOI request
+    Given that the Creator Opens a DOI request entry from My Worklist
+    When they click the Close button
     Then they see the Worklist
 
   @1251
-  Scenario: Registrator open a publication on a DOI request
-    Given that the Registrator Opens a DOI request
-    When the user selects the Edit publication button
-    Then the Wizard is opened on the first page
+  Scenario: Creator opens a Publication with a DOI request
+    Given that the Creator Opens a DOI request entry from My Worklist
+    When they click the Edit publication button
+    Then the Wizard is opened on the first tab
 
   @1240
-  Scenario: Registrator deletes a DOI request
-    Given that the Registrator opens My Worklist
-    When the user click the delete button on a DOI request
-    Then the request is deleted from his work list
-    And the request is deleted from the work list of his curator
-    And the resources landing page has an enabeled "Request DOI" button
+  Scenario: Creator deletes a DOI request
+    Given that the Creator opens My Worklist
+    When they click the Delete button on a DOI request
+    Then the request is deleted from their work list
+    And the request is deleted from the work list of their curator
+    And the Public Page for Publication has an enabled "Request DOI" button
 
   @1242
-  Scenario: Registrar navigates to the Public Page for a resource with a DOI
-    Given that the registrar navigates to the Public Page
-    When the registrar is the registrar of this resource
-    And the resource has a DOI
-    Then the request/draft DOI button is disabled
-  # a resource may have more then one DOI,
-  # but NVA is only source for one DOI for each resource
+  Scenario: Owner navigates to the Public Page for Publication for a Publication with an existing DOI
+    Given that the Creator navigates to the Public Page for Publication
+    And they are the Owner of this Publication
+    And the Publication has a DOI
+    When they see the Status Bar
+    Then they see that the Request/Draft DOI button is disabled
+  # a Publication may have more then one DOI,
+  # but NVA is only source for one DOI for each Publication
 
   @1231
-  Scenario: View Public Page for published publication without DOI as Owner
-    Given that the Owner view Public Page for publication
-    And the publication is Published
-    And the publication has no DOI
-    When they look at the Status Bar
-    Then they see buttons for Request a DOI and Edit publication
+  Scenario: Owner navigates to the Public Page for Publication for published publication without DOI
+    Given that the Creator navigates to the Public Page for Publication
+    And they are the Owner of this Publication
+    And the Publication has no DOI
+    When they see the Status Bar
+    Then they see buttons for Request a DOI and Edit Publication
 
   @511
-  Scenario: User navigates to the landing page and open requests a DOI dialog
-    Given that the user view Public Page for published publication without DOI as Owner
-    When the user click the "Request a DOI" button
-    Then the Request a DOI dialog is opened
-    And you see fields for Message
+  Scenario: Owner navigates to the Public Page for Publication of a Publication and opens the "Request a DOI" dialog
+    Given that a Creator navigates to the Public Page for Publication for published publication without DOI
+    And they are the Owner of this Publication
+    When they click the "Request a DOI" button
+    Then the "Request a DOI dialog" is opened
+    And they see fields for Message
     And a button for Send Request
 
   @1232
-  Scenario: User navigates to the landing page and requests a DOI
-    Given that the user navigates to the landing page and open request a DOI dialog
+  Scenario: User navigates to the Public Page for Publication and requests a DOI
+    Given that the user navigates to the Public Page for Publication and open request a DOI dialog
     And optional add a message to the curator
-    Then the user click the send button
-    And the landing page is displayed
+    When the user click the send button
+    Then the Public Page for Publication is displayed
     And the "Request a DOI" button is renamed to "DOI pending" and is disabled
     And the request is listed in user work list
     And the request is listed in curator work list
 
   @1233
-  Scenario: View Public Page for unpublished publication without DOI as Owner
-    Given that the Owner view Public Page for publication
+  Scenario: Owner navigates to the Public Page for Publication for unpublished publication without DOI
+    Given that the Owner view Public Page for Publication for publication
     And the publication is not Published
     And the publication has no DOI
     When they look at the Status Bar
     Then they see buttons for Draft a DOI and Edit publication
 
   @1234
-  Scenario: User navigates to the landing page and selects Draft a DOI
-    Given that the Owner View Public Page for unpublished publication without DOI as Owner
+  Scenario: Owner navigates to the Public Page for Publication and selects Draft a DOI
+    Given that the Owner View Public Page for Publication for unpublished publication without DOI as Owner
     When the user click the "Draft a DOI" button
-    Then the landing page is displayed
+    Then the Public Page for Publication is displayed
     And the "Draft a DOI" button is renamed to "DOI pending" and is disabled
-    And the draft DOI is added to the metadata
-    And the landing page contains the draft DOI
-    And the draft DOI is not a link
+    And the Draft DOI is added to the metadata
+    And the Public Page for Publication contains the Draft DOI
+    And the Draft DOI is not a link
   #Draft DOIs are not acknowledged by the resolving mechanisms (Handle-system)
 
   @1235
-  Scenario: User navigates to the submission tab and publish a resource with a drafted DOI
+  Scenario: Owner navigates to the submission tab and publish a Publication with a drafted DOI
     Given that the Owner navigates to Submission tab
-    And the resource is only stored (not published)
-    And the resource has a draft DOI
+    And the Publication is only stored (not published)
+    And the Publication has a Draft DOI
     When the Owner click the publish button
-    Then the landing page is displayed
+    Then the Public Page for Publication is displayed
     And the "Request a DOI" button is still named "DOI pending" and is disabled
-    And the landing page lists the draft DOI
-    And the draft DOI is still not a link
+    And the Public Page for Publication lists the Draft DOI
+    And the Draft DOI is still not a link
     And the DOI request is listed in the Owners work list
     And the DOI request is listed in the Curators work list
 
@@ -1111,19 +1113,21 @@ Feature: MVP features for NVA
   # Actions from Page : My Worklist
   @1252
   Scenario Outline: Curator expands an item in the Worklist
-    Given that the user user opens My Worklist
-    And they select a <Tab>
+    Given that a Curator views My Worklist tabs
     When they click Expand on an item
     Then they see the item is expanded
-    And they see the the Titel of the resource
-    And the message from the user
-    And a Send answere-, Go to resource-, and a Archive- button
+    And they see the Title of the Publication
+    And they see the Message from the User
+    And they see buttons
+      | Send Answer       |
+      | Go to Publication |
+      | Archive           |
 
   @358
   Scenario Outline: Curator opens an item in the Worklist
     Given that the Curator expands an item in the Worklist
     And they select a <Tab>
-    When they click Go to resource on an item
+    When they click Go to Publication on an item
     Then they see the item is opened in the Wizard
     And they see the Submission tab
     And <Button> is enabled
@@ -1140,7 +1144,7 @@ Feature: MVP features for NVA
     And the item is a DOI request
     When they click Create DOI
     Then the DOI is created by DataCite
-    And they see the Public Page with the new Doi link
+    And they see the Public Page for Publication with the new Doi link
     And the Request DOI button is disabled
     And the Request DOI item is marked as Approved in the Worklist
 
@@ -1153,12 +1157,12 @@ Feature: MVP features for NVA
 
   @1244
   Scenario: A Curator declines a DOI request
-    Given that a Curator enter a decline-comment on a DOI request
-    When they click save
-    Then the DOI request is marked Declined
-    And the request in users work list is updated
-    And the request is removed from the curators work list
-    And the curator see his work list
+    Given that a Curator enters a decline comment on a DOI request
+    When they click Save
+    Then the DOI request is marked as "Declined"
+    And the request in the User's work list is updated to "Declined"
+    And the request is removed from the Curator's work list
+    And they see their work list
 
   # Menuitems for Administrator
   @359
@@ -1315,7 +1319,7 @@ Feature: MVP features for NVA
       | Feide Organization ID         |
 
   @902
-  Scenario: User opens a Public Profile from a Public Page
+  Scenario: User opens a Public Profile from a Public Page for Publication
     Given the Creator publishes Publication
     When they click a Contributor
     Then they see the Contributor's public profile page
