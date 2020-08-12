@@ -1,6 +1,7 @@
 # encoding: utf-8
 # language: en
 
+@NP-31
 Scenario: A user searches for a resource
   Given that a user is on the start page and is not logged in
   And there are three documents with the word Norway in the title
@@ -9,6 +10,7 @@ Scenario: A user searches for a resource
   Then the user sees three hits for Norway displayed in the search display
   And each hit contains information about the title, author, year, and publication type
 
+@NP-32
 Scenario: A user finds a resource
   Given that a user has searched for Norway
   When they click a search result
