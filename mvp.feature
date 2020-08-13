@@ -134,16 +134,16 @@ Feature: MVP features for NVA
     Given that the user is logged in
     And they have Role Creator
     And they are on the Start page
-    When they click Register new publication
-    Then they are redirected to the Register new publication page
+    When they click Register new Publication
+    Then they are redirected to the Register new Publication page
     And they see an Expansion panel for Upload file
-    And they see an Expansion panel for Link to publication
+    And they see an Expansion panel for Link to Publication
     And they see an Expansion panel for Suggestions from ORCID
 
   @228
   Scenario: Creator begins registering with a Link with direct data from Datacite/Crossref
     Given Creator begins registering a Publication
-    When they expand Link to publication
+    When they expand Link to Publication
     And they enter a DOI or a fully qualified DOI URL
     And they click Search
     Then they see metadata about the Link in the Expansion panel
@@ -151,7 +151,7 @@ Feature: MVP features for NVA
   @439
   Scenario: Creator begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
     Given Creator begins registering a Publication
-    When they expand Link to publication
+    When they expand Link to Publication
     And they enter https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945
     And they click Search
     Then they see metadata about the Link in the Expansion panel
@@ -159,9 +159,9 @@ Feature: MVP features for NVA
   #DLR does not have a meta tag with a DOI
 
   @440
-  Scenario: Creator begins registering with a Link with data from dc:identifier meta taglication
+  Scenario: Creator begins registering with a Link with data from dc:identifier meta tag
     Given Creator begins registering a Publication
-    When they expand Link to publication
+    When they expand Link to Publication
     And they enter https://loar.kb.dk/handle/1902/1674?show=full
     And they click Search
     Then they see metadata about the Link in the Expansion panel
@@ -169,7 +169,7 @@ Feature: MVP features for NVA
   @441
   Scenario: Creator begins registering with a Link with data from DC and DCTERMS meta tags
     Given Creator begins registering a Publication
-    When they expand Link to publication
+    When they expand Link to Publication
     And they enter a https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
     And they click Search
     Then they see metadata about the Link in the Expansion panel
@@ -177,7 +177,7 @@ Feature: MVP features for NVA
   @442
   Scenario: Creator begins registering with a Link with data from Open Graph tag
     Given Creator begins registering a Publication
-    When they expand Link to publication
+    When they expand Link to Publication
     And they enter https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788
     And they click Search
     Then they see metadata about the Link in the Expansion panel
@@ -625,7 +625,7 @@ Feature: MVP features for NVA
     When they enter a valid Email address
     And they blur out of the Corresponding Author Email field
     And they click the Summary tab
-    Then they see that the Author is registered as the Corresponding Author for the publication
+    Then they see that the Author is registered as the Corresponding Author for the Publication
 
   # Corresponding Author is not in fact present in the Datacite data, but probably will be soon
 
@@ -672,11 +672,11 @@ Feature: MVP features for NVA
     And they see the Publication confirmation message
 
   @881
-  Scenario: View Public Page for Publication
-    Given the user has opened NVA
-    And see the Start Page or Public Profile
-    When they click to view a publication
-    Then the public page for publication is opened
+  Scenario Outline: Anonymous User View Public Page for Publication
+    Given the Anonymous User has opened NVA
+    And they see the <Page>
+    When they click to view a Publication
+    Then the Public Page for Publication is opened
     And they see page fields for
       | Title                  |
       | Abstract               |
@@ -695,10 +695,12 @@ Feature: MVP features for NVA
       | ORCID                  |
       | DOI link               |
       | Licence                |
-      | Licence link           |
-  # each licence must have some documentation a web page
-  # https://creativecommons.org/licenses/by/4.0/deed.no
-  # https://dlr.unit.no/licenses/ntnu-alle-rettigheter-forbeholdt-forfatter
+      | <Licence link>         |
+
+    Examples:
+      | Page        | Licence link                                                            |
+      | Start Page  | https://creativecommons.org/licenses/by/4.0/deed.no                     |
+      | Public Page | https://dlr.unit.no/licenses/ntnu-alle-rettigheter-forbeholdt-forfatter |
 
   @1236
   Scenario: A user navigates to the Public Page for Publication with a Draft DOI
@@ -917,7 +919,7 @@ Feature: MVP features for NVA
     When they click Delete on an item
     And they see a confirmation pop-up is opened
     And they select Yes
-    Then they see that the publication is deleted
+    Then they see that the Publication is deleted
 
   @967
   Scenario: Creator does not delete an item in My Publications list
@@ -933,7 +935,7 @@ Feature: MVP features for NVA
     And is on the My Publications page
     When they click Delete on an item
     And they click No in the confirmation dialog
-    Then they see the publication in My Publications list
+    Then they see the Publication in My Publications list
 
   @421
   Scenario: Creator opens their Public Profile from My Publications Page
@@ -1010,12 +1012,12 @@ Feature: MVP features for NVA
   Scenario: Creator deletes a DOI request
     Given that the Creator opens My Worklist
     When they click the Delete button on a DOI request
-    Then the request is deleted from their work list
-    And the request is deleted from the work list of their curator
+    Then the request is deleted from their Worklist
+    And the request is deleted from the Worklist of their Curator
     And the Public Page for Publication has an enabled "Request DOI" button
 
   @1242
-  Scenario: Owner navigates to the Public Page for Publication for a Publication with an existing DOI
+  Scenario: Request/Draft Doi buttion is disabled for Publications with existing DOI
     Given that the Creator navigates to the Public Page for Publication
     And they are the Owner of this Publication
     And the Publication has a DOI
@@ -1033,7 +1035,7 @@ Feature: MVP features for NVA
     Then they see buttons for Request a DOI and Edit Publication
 
   @511
-  Scenario: Owner navigates to the Public Page for Publication of a Publication and opens the "Request a DOI" dialog
+  Scenario: Owner opens the "Request a DOI" dialog
     Given that a Creator navigates to the Public Page for Publication for published publication without DOI
     And they are the Owner of this Publication
     When they click the "Request a DOI" button
@@ -1043,15 +1045,15 @@ Feature: MVP features for NVA
 
   @1232
   Scenario: Owner navigates to the Public Page for Publication and requests a DOI
-    Given that the Creator navigates to the Public Page for Publication
-    And they are the owner of the publication
+    Given that the Creator navigates to the Public Page for Publication for published publication without DOI
+    And they are the Owner of the Publication
     And open "Request a DOI" dialog
-    And optional add a message to the curator
-    When the user click the send button
+    And optional add a message to the Curator
+    When the user click the Send Button
     Then the Public Page for Publication is displayed
     And the "Request a DOI" button is renamed to "DOI pending" and is disabled
-    And the request is listed in user work list
-    And the request is listed in curator work list
+    And the request is listed in User Worklist
+    And the request is listed in Curator Worklist
 
   @1233
   Scenario: Owner navigates to the Public Page for Publication for unpublished publication without DOI
@@ -1062,9 +1064,9 @@ Feature: MVP features for NVA
     Then they see buttons for Draft a DOI and Edit publication
 
   @1234
-  Scenario: Owner navigates to the Public Page for Publication and selects Draft a DOI
+  Scenario: Owner drafts a DOI for an unpublished Publication
     Given that the Owner View Public Page for Publication for unpublished publication without DOI
-    And they are the owner of the Publication
+    And they are the Owner of the Publication
     When they click the "Draft a DOI" button
     Then the Public Page for Publication is displayed
     And the "Draft a DOI" button is renamed to "DOI pending" and is disabled
@@ -1076,9 +1078,9 @@ Feature: MVP features for NVA
   @1235
   Scenario: Owner navigates to the submission tab and publish a Publication with a drafted DOI
     Given that the Owner navigates to Submission tab
-    And the Publication is only stored (not published)
+    And the Publication has status Draft
     And the Publication has a Draft DOI
-    When the Owner click the publish button
+    When the Owner clicks the publish button
     Then the Public Page for Publication is displayed
     And the "Request a DOI" button is still named "DOI pending" and is disabled
     And the Public Page for Publication lists the Draft DOI
@@ -1163,9 +1165,9 @@ Feature: MVP features for NVA
     Given that a Curator enters a decline comment on a DOI request
     When they click Save
     Then the DOI request is marked as "Declined"
-    And the request in the User's work list is updated to "Declined"
-    And the request is removed from the Curator's work list
-    And they see their work list
+    And the request in the User's Worklist is updated to "Declined"
+    And the request is removed from the Curator's Worklist
+    And they see their Worklist
 
   # Menuitems for Administrator
   @359
@@ -1347,29 +1349,29 @@ Feature: MVP features for NVA
       | Published |
 
   @914
-  Scenario: User deletes a published publication
+  Scenario: User deletes a published Publication
     Given that the user is logged in as Creator
     And they see the page My Publications
     And they click Published registrations in the navigation bar
     When they click Delete on an item
-    And they see a confirmation pop-up asking to delete the publication
+    And they see a confirmation pop-up asking to delete the Publication
     And they select Yes
-    Then they see that the publication is marked as deleted
+    Then they see that the Publication is marked as deleted
 
   @967
-  Scenario: User does not delete a published publication
+  Scenario: User does not delete a published Publication
     Given that the user is logged in as Creator
     And they see the page My Publications
     And they click Published registrations in the navigation bar
     When they click Delete on an item
-    And they se a confirmation pop-up asking to delete the publication
+    And they se a confirmation pop-up asking to delete the Publication
     And they select No
     Then they see that the pop-up is closed
 
   @1071
-  Scenario: User sees a published publication with delayed publishing
+  Scenario: User sees a published Publication with delayed publishing
     Given Creator publishes Publication
-    And the publication has a date for delayed publishing in the future
+    And the Publication has a date for delayed publishing in the future
     When they see the File box
     Then they see that the file can't be downloaded
     And they see the delayed publishing date
