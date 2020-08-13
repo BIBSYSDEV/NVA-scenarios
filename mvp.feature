@@ -1006,7 +1006,7 @@ Feature: MVP features for NVA
   Scenario: Creator opens a Publication with a DOI request
     Given that the Creator Opens a DOI request entry from My Worklist
     When they click the Edit publication button
-    Then the Wizard is opened on the first tab
+    Then the Publication is opened in the Wizard on the first tab
 
   @1240
   Scenario: Creator deletes a DOI request
