@@ -1129,28 +1129,22 @@ Feature: MVP features for NVA
       | Archive           |
 
   @358
-  Scenario Outline: Curator opens an item in the Worklist
-    Given that the Curator expands an item in the Worklist
-    And they select a <Tab>
-    When they click Go to Publication on an item
+  Scenario: Curator opens a DOI request
+    Given that a Curator opens an item in the Worklist
+    And the item is a DOI request
+    And they read the optional message from the Owner
+    When they click Go to Publication
     Then they see the item is opened in the Wizard
     And they see the Submission tab
-    And <Button> is enabled
-
-    Examples:
-      | Tab          | Button     |
-      | For Approval | Publish    |
-      | For Approval | Reject     |
-      | DOI request  | Create DOI |
+    And the Create DOI button is enabled
+    And the Decline DOI button is enabled
 
   @512
   Scenario: A Curator approves a DOI request
-    Given that a Curator opens an item in the Worklist
-    And the item is a DOI request
+    Given that a Curator opens a DOI request
     When they click Create DOI
     Then the DOI is created by DataCite
     And they see the Public Page for Publication with the new Doi link
-    And the Request DOI button is disabled
     And the Request DOI item is marked as Approved in the Worklist
 
   @1243
