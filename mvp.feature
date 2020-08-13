@@ -1041,7 +1041,7 @@ Feature: MVP features for NVA
     When they click the "Request a DOI" button
     Then the "Request a DOI dialog" is opened
     And they see fields for Message
-    And a button for Send Request
+    And they see a "Send Request" button
 
   @1232
   Scenario: Owner navigates to the Public Page for Publication and requests a DOI
