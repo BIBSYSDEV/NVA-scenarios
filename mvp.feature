@@ -1032,7 +1032,7 @@ Feature: MVP features for NVA
     And they are the Owner of this Publication
     And the Publication has no DOI
     When they see the Status Bar
-    Then they see buttons for Request a DOI and Edit Publication
+    Then they see buttons for "Request a DOI" and "Edit Publication"
 
   @511
   Scenario: Owner opens the "Request a DOI" dialog
