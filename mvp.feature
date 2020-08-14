@@ -1150,7 +1150,7 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Worklist
   @1252
-  Scenario Outline: Curator expands an item in the Worklist
+  Scenario: Curator expands an item in the Worklist
     Given that a Curator views DOI Request tab
     When they click Expand on an item
     Then they see the item is expanded
@@ -1163,14 +1163,14 @@ Feature: MVP features for NVA
 
   @358
   Scenario: Curator opens a DOI request
-    Given that a Curator opens an item in the Worklist
+    Given that a Curator expands an item in the Worklist
     And the item is a DOI request
     And they read the optional message from the Owner
     When they click Go to Publication
     Then they see the item is opened in the Wizard
     And they see the Submission tab
-    And the Create DOI button is enabled
-    And the Decline DOI button is enabled
+    And they see the Create DOI button is enabled
+    And they see the Decline DOI button is enabled
 
   @512
   Scenario: A Curator approves a DOI request
