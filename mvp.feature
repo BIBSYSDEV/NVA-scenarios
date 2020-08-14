@@ -1151,7 +1151,7 @@ Feature: MVP features for NVA
   # Actions from Page : My Worklist
   @1252
   Scenario Outline: Curator expands an item in the Worklist
-    Given that a Curator views My Worklist tabs
+    Given that a Curator views DOI Request tab
     When they click Expand on an item
     Then they see the item is expanded
     And they see the Title of the Publication
