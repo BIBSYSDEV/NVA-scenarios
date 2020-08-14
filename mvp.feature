@@ -1110,13 +1110,37 @@ Feature: MVP features for NVA
     And they see the For Approval tab
 
   @531
-  Scenario: Curator views My Worklist tabs
+  Scenario: Curator views DOI Request tab
     Given that the user opens My Worklist
-    When they click the tabs:
+    When they click the tab:
+      | DOI request |
+    Then they see a list with expandable items with fields:
+      | Status    |
+      | Title     |
+      | Message   |
+      | Submitter |
+      | Date      |
+    And they see that each row in the list has an Expand button
+
+  @1353
+  Scenario: Curator views For Approval tab
+    Given that the user opens My Worklist
+    When they click the tab:
       | For Approval |
-      | Support      |
-      | DOI request  |
-    Then they see a list with column headers
+    Then they see a list with expandable items with fields:
+      | Status    |
+      | Title     |
+      | Message   |
+      | Submitter |
+      | Date      |
+    And they see that each row in the list has an Expand button
+
+  @1354
+  Scenario: Curator views Support tab
+    Given that the user opens My Worklist
+    When they click the tab:
+      | Support |
+    Then they see a list with expandable items with fields:
       | Status    |
       | Title     |
       | Message   |
