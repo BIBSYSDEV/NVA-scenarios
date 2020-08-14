@@ -1213,7 +1213,7 @@ Feature: MVP features for NVA
     And they see a button Remove that is enabled for each user
 
   @360
-  Scenario: Administrator opens My Institution
+  Scenario: Administrator opens My Institution (Part I)
     Given that the user is logged in as Administrator
     When they click the menu item My Institution
     Then they see the My Institution page
@@ -1223,7 +1223,6 @@ Feature: MVP features for NVA
       | Short display name            |
       | CNAME                         |
       | Institution DNS               |
-    And they see a button to Upload Logo
 
   @575
   Scenario: Administrator uploads a new Logo
