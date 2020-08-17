@@ -1255,13 +1255,13 @@ Feature: MVP features for NVA
 
   # Actions from page : Useradministration
   @363
-  Scenario Outline: Administrator open Add Role page (Part I)
-    Given that the user is logged in as Administrator
+  Scenario Outline: Administrator opens the Add Role Page (Part I)
+    Given that the User is logged in as Administrator
     And they are on the User Administration Page
     When they click Add Role under the <Section>
-    Then they see the Add Role page with fields:
+    Then they see the Add Role Page with fields:
       | Authentication ID |
-    And they see search fields for firstname and lastname
+    And they see Search Fields for first name and last name
     And they see a Search button
     Examples:
       | Section       |
@@ -1270,19 +1270,19 @@ Feature: MVP features for NVA
       | Editor        |
 
   @1362
-  Scenario: Administrator searches for user
-    Given that the Administrator open Add Role page (Part I)
-    When they add "Kari" as the firstname
-    And they click the Search button
+  Scenario: Administrator searches for User
+    Given that the Administrator opens the Add Role Page (Part I)
+    When they type "Kari" as the first name
+    And they click the Search Button
     Then they see the search result for "Kari" with fields
       | Authentication ID |
-    And they see a Add Role button for each row
+    And they see an Add Role button for each row
 
   @1363
   Scenario: Administrator assigns a Role to a User
-    Given that the Administrator searches for user
-    When they click Add Role button for a user
-    Then the Add Role page is closed
+    Given that the Administrator searches for User
+    When they click the Add Role button for a User
+    Then the Add Role Page is closed
     And the User Administration Page is opened
     And they see that the User has got the role
 
