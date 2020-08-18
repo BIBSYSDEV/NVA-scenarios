@@ -1,5 +1,5 @@
     @360
-    Scenario: Administrator opens My Institution
+    Scenario: Administrator opens My Institution (Part I)
         Given that the user is logged in as Administrator
         When they click the menu item My Institution
         Then they see the My Institution page
@@ -9,4 +9,3 @@
             | Short display name            |
             | CNAME                         |
             | Institution DNS               |
-        And they see a button to Upload Logo

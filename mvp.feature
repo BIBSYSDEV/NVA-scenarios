@@ -1279,7 +1279,7 @@ Feature: MVP features for NVA
     And they see an Add Role button for each row
 
   @1363
-  Scenario: Administrator assigns a Role to a User
+  Scenario: Administrator assigns a Role to a User (Part I)
     Given that the Administrator searches for User
     When they click the Add Role button for a User
     Then the Add Role Page is closed

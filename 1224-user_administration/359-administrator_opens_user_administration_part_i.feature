@@ -1,5 +1,5 @@
     @359
-    Scenario: Administrator opens User Administration
+    Scenario: Administrator opens User Administration (Part I)
         Given that the user is logged in as Administrator
         When they click the menu item User Administration
         Then they see the User Administration page
