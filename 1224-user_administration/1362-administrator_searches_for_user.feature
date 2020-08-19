@@ -1,6 +1,6 @@
     @1362
     Scenario: Administrator searches for User
-        Given that the Administrator opens the Add Role Page (Part I)
+        Given that the Administrator opens the Add Role Dialog
         When they type "Kari" as the first name
         And they click the Search Button
         Then they see the search result for "Kari" with fields
