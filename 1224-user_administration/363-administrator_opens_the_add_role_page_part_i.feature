@@ -5,7 +5,7 @@
         When they click Add Role under the <Section>
         Then they see the Add Role Page with fields:
             | Authentication ID |
-        And they see Search Fields for first name and last name
+        And they see a Search box for name
         And they see a Search button
         Examples:
             | Section       |
