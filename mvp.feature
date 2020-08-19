@@ -1111,7 +1111,7 @@ Feature: MVP features for NVA
 
   @531
   Scenario: Curator views DOI Request tab (Part I)
-    Given that the user opens My Worklist
+    Given that the Curator opens My Worklist (Part I)
     When they click the tab:
       | DOI request |
     Then they see a list with expandable items with fields:
@@ -1123,7 +1123,7 @@ Feature: MVP features for NVA
 
   @1375
   Scenario: Curator views DOI Request tab (Part II)
-    Given that the user opens My Worklist
+    Given that the Curator opens My Worklist (Part I)
     When they click the tab:
       | DOI request |
     Then they see a list with expandable items with fields:
@@ -1136,7 +1136,7 @@ Feature: MVP features for NVA
 
   @1353
   Scenario: Curator views For Approval tab
-    Given that the user opens My Worklist
+    Given that the Curator opens My Worklist (Part II)
     When they click the tab:
       | For Approval |
     Then they see a list with expandable items with fields:
@@ -1149,7 +1149,7 @@ Feature: MVP features for NVA
 
   @1354
   Scenario: Curator views Support tab
-    Given that the user opens My Worklist
+    Given that the Curator opens My Worklist (Part II)
     When they click the tab:
       | Support |
     Then they see a list with expandable items with fields:

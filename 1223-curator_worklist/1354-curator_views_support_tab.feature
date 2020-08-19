@@ -1,6 +1,6 @@
     @1354
     Scenario: Curator views Support tab
-        Given that the user opens My Worklist
+        Given that the Curator opens My Worklist (Part II)
         When they click the tab:
             | Support |
         Then they see a list with expandable items with fields:

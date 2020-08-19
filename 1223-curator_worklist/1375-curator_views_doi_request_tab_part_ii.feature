@@ -1,6 +1,6 @@
     @1375
     Scenario: Curator views DOI Request tab (Part II)
-        Given that the user opens My Worklist
+        Given that the Curator opens My Worklist (Part I)
         When they click the tab:
             | DOI request |
         Then they see a list with expandable items with fields:
