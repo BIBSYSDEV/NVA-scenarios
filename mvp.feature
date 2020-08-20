@@ -1110,26 +1110,13 @@ Feature: MVP features for NVA
     And they see the For Approval tab
 
   @531
-  Scenario: Curator views DOI Request tab (Part I)
+  Scenario: Curator views DOI Request tab
     Given that the Curator opens My Worklist (Part I)
     When they click the tab:
       | DOI request |
     Then they see a list with expandable items with fields:
       | DOI Request Status |
       | Publication Title  |
-      | Submitter          |
-      | Date               |
-    And they see that each row in the list has an Expand button
-
-  @1375
-  Scenario: Curator views DOI Request tab (Part II)
-    Given that the Curator opens My Worklist (Part I)
-    When they click the tab:
-      | DOI request |
-    Then they see a list with expandable items with fields:
-      | DOI Request Status |
-      | Publication Title  |
-      | Messages           |
       | Submitter          |
       | Date               |
     And they see that each row in the list has an Expand button
@@ -1163,7 +1150,7 @@ Feature: MVP features for NVA
   # Actions from Page : My Worklist
   @1252
   Scenario: Curator expands an item in the Worklist
-    Given that a Curator views DOI Request tab (Part II)
+    Given that a Curator views DOI Request tab
     When they click Expand on an item
     Then they see the item is expanded
     And they see the Title of the Publication

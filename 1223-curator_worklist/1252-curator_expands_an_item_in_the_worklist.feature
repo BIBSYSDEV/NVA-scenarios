@@ -1,6 +1,6 @@
     @1252
-    Scenario: Curator expands an item in the Worklist
-        Given that a Curator views DOI Request tab (Part II)
+    Scenario: Curator views details of an item in the Worklist
+        Given that a Curator views DOI Request tab
         When they click Expand on an item
         Then they see the item is expanded
         And they see the Title of the Publication
