@@ -1166,19 +1166,18 @@ Feature: MVP features for NVA
       | Archive           |
 
   @358
-  Scenario: Curator opens a DOI request
-    Given that a Curator expands an item in the Worklist
+  Scenario: Curator opens a Publication from a DOI request item
+    Given that a Curator views details of an item in the Worklist
     And the item is a DOI request
-    And they read the optional message from the Owner
-    When they click Go to Publication
-    Then they see the item is opened in the Wizard
+    When they click "Go to Publication"
+    Then they see the Publication is opened in the Wizard
     And they see the Submission tab
     And they see the Create DOI button is enabled
     And they see the Decline DOI button is enabled
 
   @512
   Scenario: A Curator approves a DOI request
-    Given that a Curator opens a DOI request
+    Given that a Curator opens a Publication from a DOI request item
     When they click Create DOI
     Then they see the Public Page for Publication with the new DOI link
     And the Request DOI item is marked as Approved in their Worklist
