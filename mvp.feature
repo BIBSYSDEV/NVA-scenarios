@@ -1200,7 +1200,7 @@ Feature: MVP features for NVA
 
   # Menuitems for Administrator
   @359
-  Scenario Outline: Administrator views Sections with Role members
+  Scenario Outline: Administrator views User Administration Sections with Role members (Part I)
     Given that the user is logged in as Administrator
     When they click the menu item User Administration
     Then they see the User Administration page
