@@ -1259,24 +1259,25 @@ Feature: MVP features for NVA
   Scenario Outline: Administrator opens the Add Role Dialog
     Given that the User is logged in as Administrator
     And they are on the User Administration Page
-    When they click Add Role under the <Section>
-    Then they see the Add Role Dialog with the field "Authentication ID"
-    And they see a Search box for name
+    When they click a <Button> under a <Section>
+    Then they see the Add Role Dialog with Authentication ID
+    And they see a Search box for employees
     And they see a Search button
+    And they see an Information box
+    And they see a Close button
     Examples:
-      | Section       |
-      | Administrator |
-      | Curator       |
-      | Editor        |
+      | Section       | Button            |
+      | Administrator | New Administrator |
+      | Curator       | New Curator       |
+      | Editor        | New Editor        |
+
 
   @1362
   Scenario: Administrator searches for User
-    Given that the Administrator opens the Add Role Dialog
-    When they type "Kari" in the Search Box
-    And they click the Search Button
-    Then they see the Search Result for "Kari"
-    And they see the field "Authentication ID"
-    And they see an Add Role button for each row
+    Given that the Administrator opens Add Role Dialog
+    When they execute a search for the employee "Kari"
+    Then they see the Search result for "Kari" with Authentication ID
+    And they see an Add Role button for each row
 
   @1363
   Scenario: Administrator assigns a Role to a User (Part I)
