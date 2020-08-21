@@ -7,4 +7,4 @@
             | For Approval |
             | Support      |
             | DOI request  |
-        And they see the For Approval tab
+        And they see the For Approval page

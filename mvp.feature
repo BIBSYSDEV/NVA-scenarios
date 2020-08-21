@@ -1106,30 +1106,30 @@ Feature: MVP features for NVA
       | For Approval |
       | Support      |
       | DOI request  |
-    And they see the For Approval tab
+    And they see the For Approval page
 
   @531
   Scenario: Curator views DOI request tab
     Given that the Curator opens My Worklist (Part I)
     When they click the tab "DOI request"
-    Then they see a list with expandable items with fields:
+    Then they see a list of Worklist Items with fields:
       | DOI request status |
       | Publication title  |
       | Submitter          |
       | Date               |
-    And they see that each row in the list has an Expand button
+    And the see that each Worklist Item has an Expand button
 
   @1353
   Scenario: Curator views For Approval tab
     Given that the Curator opens My Worklist (Part II)
     When they click the tab "For Approval"
-    Then they see a list with expandable items with fields:
+    Then they see a list of Worklist items with fields:
       | Status    |
       | Title     |
       | Message   |
       | Submitter |
       | Date      |
-    And they see that each row in the list has an Expand button
+    And they see each Worklist Item has an Expand button
 
   @1354
   Scenario: Curator views Support tab
@@ -1145,13 +1145,13 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Worklist
   @1252
-  Scenario: Curator views details of an item in the Worklist
+  Scenario: Curator views details of a Worklist item
     Given that a Curator views DOI request tab
-    When they click Expand on an item
+    When they expand the item
     Then they see the item is expanded
     And they see the Title of the Publication
     And they see the DOI request status
-    And they see a list of Messages to and from the Submitter with fields:
+    And they see a list of Messages with fields:
       | Message   |
       | Submitter |
       | Date      |
@@ -1162,8 +1162,8 @@ Feature: MVP features for NVA
       | Archive           |
 
   @358
-  Scenario: Curator opens a Publication from a DOI request item
-    Given that a Curator views details of an item in the Worklist
+  Scenario: Curator opens a Publication from a DOI Request Worklist Item
+    Given that a Curator views details of a Worklist item
     And the item is a DOI request
     When they click "Go to Publication"
     Then they see the Publication is opened in the Wizard
@@ -1173,9 +1173,10 @@ Feature: MVP features for NVA
 
   @512
   Scenario: A Curator approves a DOI request
-    Given that a Curator opens a Publication from a DOI request item
+    Given that a Curator opens a Publication from a DOI Request Worklist Item
     When they click Create DOI
-    Then they see the Public Page for Publication with the new DOI link
+    Then they see the Public Page for Publication
+    And the Publication has a DOI Link
     And the Request DOI item is marked as Approved in their Worklist
 
   @1243
@@ -1280,10 +1281,15 @@ Feature: MVP features for NVA
   @1363
   Scenario: Administrator assigns a Role to a User (Part I)
     Given that the Administrator searches for User
-    When they click the Add Role button for a User
+    When they click the <Button> for a User
     Then the Add Role Dialog is closed
     And the User Administration Page is opened
-    And they see that the User has got the role
+    And they see that the User has got the <Role> role
+    Examples:
+      | Button            | Role          |
+      | Add Administrator | Administrator |
+      | Add Curator       | Curator       |
+      | Add Editor        | Editor        |
 
   # Menuitems for Editor
   @364
