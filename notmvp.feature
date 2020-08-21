@@ -6,7 +6,7 @@
         And they see the <Section>
         And they see the <Section> contains a list of all users affiliated with their institution and with with role <Role>
         And they see under each Section a Button to assign the <Role> to a another user
-        And they see that each list has the field
+        And they see that each list has the fields:
             | Authentication ID |
             | Name              |
             | ORCID             |

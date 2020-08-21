@@ -1094,8 +1094,7 @@ Feature: MVP features for NVA
     Given that the user is logged in as Curator
     When they click the menu item My Worklist
     Then they see My Worklist page
-    And they see the tabs:
-      | DOI request |
+    And they see the tab "DOI request"
     And they see the DOI request page
 
   @1352
@@ -1110,13 +1109,12 @@ Feature: MVP features for NVA
     And they see the For Approval tab
 
   @531
-  Scenario: Curator views DOI Request tab
+  Scenario: Curator views DOI request tab
     Given that the Curator opens My Worklist (Part I)
-    When they click the tab:
-      | DOI request |
+    When they click the tab "DOI request"
     Then they see a list with expandable items with fields:
-      | DOI Request Status |
-      | Publication Title  |
+      | DOI request status |
+      | Publication title  |
       | Submitter          |
       | Date               |
     And they see that each row in the list has an Expand button
@@ -1124,8 +1122,7 @@ Feature: MVP features for NVA
   @1353
   Scenario: Curator views For Approval tab
     Given that the Curator opens My Worklist (Part II)
-    When they click the tab:
-      | For Approval |
+    When they click the tab "For Approval"
     Then they see a list with expandable items with fields:
       | Status    |
       | Title     |
@@ -1137,8 +1134,7 @@ Feature: MVP features for NVA
   @1354
   Scenario: Curator views Support tab
     Given that the Curator opens My Worklist (Part II)
-    When they click the tab:
-      | Support |
+    When they click the tab "Support"
     Then they see a list with expandable items with fields:
       | Status    |
       | Title     |
@@ -1150,19 +1146,19 @@ Feature: MVP features for NVA
   # Actions from Page : My Worklist
   @1252
   Scenario: Curator views details of an item in the Worklist
-    Given that a Curator views DOI Request tab
+    Given that a Curator views DOI request tab
     When they click Expand on an item
     Then they see the item is expanded
     And they see the Title of the Publication
-    And they see the DOI Request status
+    And they see the DOI request status
     And they see a list of Messages to and from the Submitter with fields:
       | Message   |
       | Submitter |
       | Date      |
     And they see an input field for Answer
     And they see buttons
-      | Send Answer       |
-      | Go to Publication |
+      | Send answer       |
+      | Go to publication |
       | Archive           |
 
   @358
@@ -1207,8 +1203,7 @@ Feature: MVP features for NVA
     And they see the <Section>
     And they see the <Section> contains a list of all users affiliated with their institution and with with role <Role>
     And they see under each Section a Button to assign the <Role> to a another user
-    And they see that each list has the field
-      | Authentication ID |
+    And they see that each list has the field "Authentication ID"
     And they see a button Remove that is enabled for each user
     Examples:
       | Section                    | Role          |
@@ -1264,8 +1259,7 @@ Feature: MVP features for NVA
     Given that the User is logged in as Administrator
     And they are on the User Administration Page
     When they click Add Role under the <Section>
-    Then they see the Add Role Dialog with fields:
-      | Authentication ID |
+    Then they see the Add Role Dialog with the field "Authentication ID"
     And they see a Search box for name
     And they see a Search button
     Examples:
@@ -1277,10 +1271,10 @@ Feature: MVP features for NVA
   @1362
   Scenario: Administrator searches for User
     Given that the Administrator opens the Add Role Dialog
-    When they type "Kari" as the first name
+    When they type "Kari" in the Search Box
     And they click the Search Button
-    Then they see the search result for "Kari" with fields
-      | Authentication ID |
+    Then they see the Search Result for "Kari"
+    And they see the field "Authentication ID"
     And they see an Add Role button for each row
 
   @1363

@@ -3,8 +3,7 @@
         Given that the User is logged in as Administrator
         And they are on the User Administration Page
         When they click Add Role under the <Section>
-        Then they see the Add Role Dialog with fields:
-            | Authentication ID |
+        Then they see the Add Role Dialog with the field "Authentication ID"
         And they see a Search box for name
         And they see a Search button
         Examples:
