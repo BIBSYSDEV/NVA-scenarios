@@ -1090,7 +1090,15 @@ Feature: MVP features for NVA
 
   # Menuitems for Curator
   @357
-  Scenario: Curator opens My Worklist
+  Scenario: Curator opens My Worklist (Part I)
+    Given that the user is logged in as Curator
+    When they click the menu item My Worklist
+    Then they see My Worklist page
+    And they see the tab "DOI request"
+    And they see the DOI request page
+
+  @1352
+  Scenario: Curator opens My Worklist (Part II)
     Given that the user is logged in as Curator
     When they click the menu item My Worklist
     Then they see My Worklist page
@@ -1098,16 +1106,36 @@ Feature: MVP features for NVA
       | For Approval |
       | Support      |
       | DOI request  |
-    And they see the For Approval tab
+    And they see the For Approval page
 
   @531
-  Scenario: Curator views My Worklist tabs
-    Given that the user opens My Worklist
-    When they click the tabs:
-      | For Approval |
-      | Support      |
-      | DOI request  |
-    Then they see a list with column headers
+  Scenario: Curator views DOI request tab
+    Given that the Curator opens My Worklist (Part I)
+    When they click the tab "DOI request"
+    Then they see a list of Worklist Items with fields:
+      | DOI request status |
+      | Publication title  |
+      | Submitter          |
+      | Date               |
+    And the see that each Worklist Item has an Expand button
+
+  @1353
+  Scenario: Curator views For Approval tab
+    Given that the Curator opens My Worklist (Part II)
+    When they click the tab "For Approval"
+    Then they see a list of Worklist items with fields:
+      | Status    |
+      | Title     |
+      | Message   |
+      | Submitter |
+      | Date      |
+    And they see each Worklist Item has an Expand button
+
+  @1354
+  Scenario: Curator views Support tab
+    Given that the Curator opens My Worklist (Part II)
+    When they click the tab "Support"
+    Then they see a list with expandable items with fields:
       | Status    |
       | Title     |
       | Message   |
@@ -1117,41 +1145,39 @@ Feature: MVP features for NVA
 
   # Actions from Page : My Worklist
   @1252
-  Scenario Outline: Curator expands an item in the Worklist
-    Given that a Curator views My Worklist tabs
-    When they click Expand on an item
+  Scenario: Curator views details of a Worklist item
+    Given that a Curator views DOI request tab
+    When they expand the item
     Then they see the item is expanded
     And they see the Title of the Publication
-    And they see the Message from the User
+    And they see the DOI request status
+    And they see a list of Messages with fields:
+      | Message   |
+      | Submitter |
+      | Date      |
+    And they see an input field for Answer
     And they see buttons
-      | Send Answer       |
-      | Go to Publication |
+      | Send answer       |
+      | Go to publication |
       | Archive           |
 
   @358
-  Scenario Outline: Curator opens an item in the Worklist
-    Given that the Curator expands an item in the Worklist
-    And they select a <Tab>
-    When they click Go to Publication on an item
-    Then they see the item is opened in the Wizard
+  Scenario: Curator opens a Publication from a DOI Request Worklist Item
+    Given that a Curator views details of a Worklist item
+    And the item is a DOI request
+    When they click "Go to Publication"
+    Then they see the Publication is opened in the Wizard
     And they see the Submission tab
-    And <Button> is enabled
-
-    Examples:
-      | Tab          | Button     |
-      | For Approval | Publish    |
-      | For Approval | Reject     |
-      | DOI request  | Create DOI |
+    And they see the Create DOI button is enabled
+    And they see the Decline DOI button is enabled
 
   @512
   Scenario: A Curator approves a DOI request
-    Given that a Curator opens an item in the Worklist
-    And the item is a DOI request
+    Given that a Curator opens a Publication from a DOI Request Worklist Item
     When they click Create DOI
-    Then the DOI is created by DataCite
-    And they see the Public Page for Publication with the new Doi link
-    And the Request DOI button is disabled
-    And the Request DOI item is marked as Approved in the Worklist
+    Then they see the Public Page for Publication
+    And the Publication has a DOI Link
+    And the Request DOI item is marked as Approved in their Worklist
 
   @1243
   Scenario: A Curator enter a decline-comment on a DOI request
@@ -1171,27 +1197,24 @@ Feature: MVP features for NVA
 
   # Menuitems for Administrator
   @359
-  Scenario: Administrator opens User Administration
+  Scenario Outline: Administrator views User Administration Sections with Role members (Part I)
     Given that the user is logged in as Administrator
     When they click the menu item User Administration
     Then they see the User Administration page
-    And they see the Sections
-      | Institution Administrators |
-      | Curators                   |
-      | Editors                    |
-    And they see each Section contains a list of all users with matching Role affiliated with their institution
-    And they see each Section a Button to add a user with the Role associated with the Section
-    And they see that each list has the fields
-      | Authentication ID |
-      | Name              |
-      | ORCID             |
-      | Last login        |
-      | Created           |
+    And they see the <Section>
+    And they see the <Section> contains a list of all users affiliated with their institution and with with role <Role>
+    And they see under each Section a Button to assign the <Role> to a another user
+    And they see that each list has the field "Authentication ID"
     And they see a button Remove that is enabled for each user
-    And they see a Section named Creators that contains a checkbox for Assign role Creator automatically
+    Examples:
+      | Section                    | Role          |
+      | Institution Administrators | Administrator |
+      | Curators                   | Curator       |
+      | Editors                    | Editor        |
+      | Creators                   | Creator       |
 
   @360
-  Scenario: Administrator opens My Institution
+  Scenario: Administrator opens My Institution (Part I)
     Given that the user is logged in as Administrator
     When they click the menu item My Institution
     Then they see the My Institution page
@@ -1201,7 +1224,6 @@ Feature: MVP features for NVA
       | Short display name            |
       | CNAME                         |
       | Institution DNS               |
-    And they see a button to Upload Logo
 
   @575
   Scenario: Administrator uploads a new Logo
@@ -1234,19 +1256,41 @@ Feature: MVP features for NVA
 
   # Actions from page : Useradministration
   @363
-  Scenario Outline: Administrator assigns a Role to a User
-    Given that the user is logged in as Administrator
+  Scenario Outline: Administrator opens the Add Role Dialog
+    Given that the User is logged in as Administrator
     And they are on the User Administration Page
-    When they click Add User under the <Section>
-    Then they see a new row in the <Section> with fields:
-      | Authentication ID |
-      | Name              |
-    And they see an Add button
+    When they click a <Button> under a <Section>
+    Then they see the Add Role Dialog with Authentication ID
+    And they see a Search box for employees
+    And they see a Search button
+    And they see an Information box
+    And they see a Close button
     Examples:
-      | Section       |
-      | Administrator |
-      | Curator       |
-      | Editor        |
+      | Section       | Button            |
+      | Administrator | New Administrator |
+      | Curator       | New Curator       |
+      | Editor        | New Editor        |
+
+
+  @1362
+  Scenario: Administrator searches for User
+    Given that the Administrator opens Add Role Dialog
+    When they execute a search for the employee "Kari"
+    Then they see the Search result for "Kari" with Authentication ID
+    And they see an Add Role button for each row
+
+  @1363
+  Scenario: Administrator assigns a Role to a User (Part I)
+    Given that the Administrator searches for User
+    When they click the <Button> for a User
+    Then the Add Role Dialog is closed
+    And the User Administration Page is opened
+    And they see that the User has got the <Role> role
+    Examples:
+      | Button            | Role          |
+      | Add Administrator | Administrator |
+      | Add Curator       | Curator       |
+      | Add Editor        | Editor        |
 
   # Menuitems for Editor
   @364
@@ -1307,11 +1351,9 @@ Feature: MVP features for NVA
   Scenario Outline: Application Administrator edits an Institution
     Given Application Administrator views an Institution
     When they make a change in <Field>
-    And they add a new Logo
     And they click Save
     Then they see a Notification that the changes are saved
     And they see the <Field> has the new value in the page
-    And they see the new Logo in the page
 
     Examples:
       | Field                         |
@@ -1320,7 +1362,6 @@ Feature: MVP features for NVA
       | Short display name            |
       | CNAME                         |
       | Institution DNS               |
-      | Administration ID             |
       | Feide Organization ID         |
 
   @902
