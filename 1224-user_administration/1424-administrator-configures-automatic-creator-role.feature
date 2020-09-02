@@ -9,6 +9,6 @@ Scenario: Administrator configures automatic Creator role
     And they click the Save button
     Then matching <Category> are granted the Creator role upon login
     Examples: 
-        | Option                        | Category                  |
+        | Option                         | Category                  |
         | Vitenskaplig ansatte           | member, employee, faculty |
         | Teknisk-administrativt ansatte | member, employee, staff   |
