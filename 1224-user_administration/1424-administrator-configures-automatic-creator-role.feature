@@ -1,5 +1,5 @@
 @1424
-Scenario: Administrator configures automatic Creator role
+Scenario Outline: Administrator configures automatic Creator role
     Given that the User is logged in as Administrator
     And they are on the User Administration Page
     And they see a list of checkboxes in the Registrator section
