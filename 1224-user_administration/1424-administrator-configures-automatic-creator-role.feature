@@ -7,7 +7,7 @@ Scenario: Administrator configures automatic Creator role
     And they see that none of the checkboxes are selected
     When they select an <Option> 
     And they click the Save button
-    Then matching <Category> are granted the Creator role upon login
+    Then they see a Notification that the new values are persisted
     Examples: 
         | Option                             | Category                  |
         | Scientific employees               | member, employee, faculty |
