@@ -4,12 +4,12 @@
         And they are on the User Administration Page
         And they see a list of checkboxes in the Registrator section with the labels:
             | Scientific employees               |
-            | Techincal administrative employees |
+            | Technical administrative employees |
         When they select the checkbox with label <Option>
         And they click the Save button
         Then they see a Notification that users matching <Option> will get the Creator role
         Examples:
             | Option                             |
             | Scientific employees               |
-            | Techincal administrative employees |
+            | Technical administrative employees |
 # More options may be added in future
