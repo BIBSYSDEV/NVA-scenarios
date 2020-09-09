@@ -1,9 +1,12 @@
     @358
-    Scenario: Curator opens a Publication from a DOI Request Worklist Item
-        Given that a Curator views details of a Worklist item
-        And the item is a DOI request
-        When they click "Go to Publication"
-        Then they see the Publication is opened in the Wizard
+    Scenario: Curator opens a Publication from a DOI Request
+        Given that a Curator views their Worklist
+        And they have selected the DOI Requests tab
+        And they have expanded an item (DOI Request)
+        And they can see the optional message from the Owner
+        When they click Go to Publication
+        Then they see the DOI Request's Publication is opened in the Wizard
         And they see the Submission tab
-        And they see the Create DOI button is enabled
-        And they see the Decline DOI button is enabled
+        And the Create DOI button is enabled
+        And the Decline DOI button is enabled
+        And the Save and Present button is enabled
