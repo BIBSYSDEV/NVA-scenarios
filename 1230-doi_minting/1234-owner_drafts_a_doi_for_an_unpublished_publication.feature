@@ -1,11 +1,11 @@
     @1234
-    Scenario: Owner drafts a DOI for an unpublished Publication
-        Given that the Owner View Public Page for Publication for unpublished publication without DOI
-        And they are the Owner of the Publication
+    Scenario: Owner drafts a DOI for a draft Publication
+        Given that an Owner views the landing page for their Publication
+        And the publication has status Draft
+        And the publication has no DOI
         When they click the "Draft a DOI" button
-        Then the Public Page for Publication is displayed
-        And the "Draft a DOI" button is renamed to "DOI pending" and is disabled
-        And the Draft DOI is added to the metadata
-        And the Public Page for Publication contains the Draft DOI
-        And the Draft DOI is not a link
-#Draft DOIs are not acknowledged by the resolving mechanisms (Handle-system)
+        Then the "Draft a DOI" button is renamed to "DOI pending" and is disabled
+        And the drafted DOI is added to the metadata
+        And the landing page for the Publication contains the Draft DOI
+        And the drafted DOI is not a link
+# Draft DOIs are not acknowledged by the resolving mechanisms (Handle-system)
