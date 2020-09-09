@@ -1,5 +1,5 @@
     @1233
-    Scenario: Owner navigate to the landing page of a drafted publication without DOI
+    Scenario: Owner navigates to the landing page of a drafted publication without DOI
         Given that an Owner views the landing page for their Publication
         And the publication has status Draft
         And the publication has no DOI
