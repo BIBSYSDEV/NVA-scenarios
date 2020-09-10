@@ -1,6 +1,7 @@
     @1234
     Scenario: Owner drafts a DOI for a draft Publication
-        Given that an Owner views the landing page for their Publication
+        Given that an Owner views the Landing Page for their Publication
+
         And the publication has status Draft
         And the publication has no DOI
         When they click the "Draft a DOI" button
