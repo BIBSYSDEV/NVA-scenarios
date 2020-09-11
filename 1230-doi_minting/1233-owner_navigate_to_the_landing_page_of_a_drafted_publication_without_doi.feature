@@ -1,7 +1,7 @@
     @1233
-    Scenario: Owner navigates to the landing page of a drafted publication without DOI
+    Scenario: Owner navigates to the Landing Page of a drafted Publication without DOI
         Given that an Owner views the Landing Page for their Publication
-        And the publication has status Draft
-        And the publication has no DOI
+        And the Publication has status Draft
+        And the Publication has no DOI
         When they look at the Status Bar
-        Then they see buttons for Draft a DOI and Edit publication
+        Then they see buttons for Draft a DOI and Edit Publication
