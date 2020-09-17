@@ -1286,7 +1286,7 @@ Feature: MVP features for NVA
     And they see an Add Role button for each row
 
   @1363
-  Scenario: Administrator assigns a Role to a User (Part I)
+  Scenario Outline: Administrator assigns a Role to a User (Part I)
     Given that the Administrator searches for User
     When they click the <Button> for a User
     Then the Add Role Dialog is closed
@@ -1377,7 +1377,7 @@ Feature: MVP features for NVA
     Then they see the Contributor's public profile page
 
   @913
-  Scenario: User sees published publications
+  Scenario Outline: User sees published publications
     Given Creator opens the page My Publications
     When they click Published registrations in the navigation bar
     Then they see a list of all published registrations with the fields
