@@ -1,3 +1,5 @@
+Feature: Administrator edits an Institution
+
     @361
     Scenario: Administrator edits an Institution
         Given Administrator opens My Institution

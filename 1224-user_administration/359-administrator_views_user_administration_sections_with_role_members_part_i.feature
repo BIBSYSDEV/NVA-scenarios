@@ -1,3 +1,5 @@
+Feature: Administrator views User Administration Sections with Role members (Part I)
+
     @359
     Scenario Outline: Administrator views User Administration Sections with Role members (Part I)
         Given that the user is logged in as Administrator

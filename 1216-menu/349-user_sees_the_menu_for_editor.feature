@@ -1,3 +1,5 @@
+Feature: User sees the menu for Editor
+
     @349
     Scenario: User sees the menu for Editor
         Given that the user is logged in

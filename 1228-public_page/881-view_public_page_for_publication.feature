@@ -1,3 +1,5 @@
+Feature: Anonymous User View Public Page for Publication
+
     @881
     Scenario Outline: Anonymous User View Public Page for Publication
         Given the Anonymous User has opened NVA

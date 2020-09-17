@@ -1,3 +1,5 @@
+Feature: Creator Opens a DOI request entry from My Worklist
+
     @1246
     Scenario: Creator Opens a DOI request entry from My Worklist
         Given that the Creator opens My Worklist

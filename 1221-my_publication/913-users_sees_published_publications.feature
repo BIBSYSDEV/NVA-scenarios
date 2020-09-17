@@ -1,5 +1,7 @@
+Feature: User sees published publications
+
     @913
-    Scenario: User sees published publications
+    Scenario Outline: User sees published publications
         Given Creator opens the page My Publications
         When they click Published registrations in the navigation bar
         Then they see a list of all published registrations with the fields

@@ -1,3 +1,5 @@
+Feature: A Curator declines a DOI request
+
     @1244
     Scenario: A Curator declines a DOI request
         Given that a Curator enters a decline comment on a DOI request

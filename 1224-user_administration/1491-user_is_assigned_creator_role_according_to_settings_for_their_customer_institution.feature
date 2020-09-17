@@ -1,3 +1,5 @@
+Feature: User is assigned the Creator role according to settings for their Customer Institution
+
     @1491
     Scenario Outline: User is assigned the Creator role according to settings for their Customer Institution
         Given that the User is logged in

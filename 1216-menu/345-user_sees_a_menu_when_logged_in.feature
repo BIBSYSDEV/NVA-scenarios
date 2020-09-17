@@ -1,3 +1,5 @@
+Feature: User sees a menu when logged in
+
     @345
     Scenario: User sees a menu when logged in
         Given that the user is logged in

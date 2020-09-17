@@ -1,3 +1,5 @@
+Feature: Creator adds a new message on a DOI request
+
     @1249
     Scenario: Creator adds a new message on a DOI request
         Given that the Creator Opens a DOI request entry from My Worklist

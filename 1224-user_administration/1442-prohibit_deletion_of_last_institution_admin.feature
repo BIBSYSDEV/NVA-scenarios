@@ -1,3 +1,5 @@
+Feature: Prohibit deletion of last Institution Admin
+
     @1442
     Scenario: Prohibit deletion of last Institution Admin
         Given that an App Admin or Institution Admin opens User Administration

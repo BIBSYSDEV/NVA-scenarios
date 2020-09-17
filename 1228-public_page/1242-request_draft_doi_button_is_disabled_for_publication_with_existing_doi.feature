@@ -1,3 +1,5 @@
+Feature: Request/Draft Doi buttion is disabled for Publications with existing DOI
+
     @1242
     Scenario: Request/Draft Doi buttion is disabled for Publications with existing DOI
         Given that the Creator navigates to the Public Page for Publication

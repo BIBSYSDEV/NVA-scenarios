@@ -1,3 +1,5 @@
+Feature: Creator deletes a DOI request
+
     @1240
     Scenario: Creator deletes a DOI request
         Given that the Creator opens My Worklist

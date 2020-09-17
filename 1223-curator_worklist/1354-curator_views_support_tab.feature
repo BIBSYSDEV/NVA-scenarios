@@ -1,3 +1,5 @@
+Feature: Curator views Support tab
+
     @1354
     Scenario: Curator views Support tab
         Given that the Curator opens My Worklist (Part II)

@@ -1,3 +1,5 @@
+Feature: User sees the menu for Creator
+
     @346
     Scenario: User sees the menu for Creator
         Given that the user is logged in

@@ -1,3 +1,5 @@
+Feature: Administrator searches for User
+
     @1362
     Scenario: Administrator searches for User
         Given that the Administrator opens Add Role Dialog

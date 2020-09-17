@@ -1,3 +1,5 @@
+Feature: Curator views DOI request tab
+
     @531
     Scenario: Curator views DOI request tab
         Given that the Curator opens My Worklist (Part I)

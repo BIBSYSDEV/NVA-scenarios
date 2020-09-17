@@ -1,5 +1,7 @@
+Feature: Administrator assigns a Role to a User (Part I)
+
     @1363
-    Scenario: Administrator assigns a Role to a User (Part I)
+    Scenario Outline: Administrator assigns a Role to a User (Part I)
         Given that the Administrator searches for User
         When they click the <Button> for a User
         Then the Add Role Dialog is closed

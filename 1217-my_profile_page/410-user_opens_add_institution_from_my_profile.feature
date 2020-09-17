@@ -1,3 +1,5 @@
+Feature: User opens Add Institution from My Profile
+
     @410
     Scenario: User opens Add Institution from My Profile
         Given user opens the page My Profile

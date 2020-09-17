@@ -1,3 +1,4 @@
+Feature: Creator navigates to the reference tab and selects Book
     @392
     Scenario Outline: Creator navigates to the Reference tab and selects Book
         Given Creator begins registering a Publication in the Wizard

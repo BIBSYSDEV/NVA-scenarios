@@ -1,3 +1,5 @@
+Feature: Administrator views the Institutional Portal
+
     @362
     Scenario: Administrator views the Institutional Portal
         Given Administrator edits an Institution

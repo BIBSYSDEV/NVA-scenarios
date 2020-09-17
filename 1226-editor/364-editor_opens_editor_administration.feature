@@ -1,3 +1,5 @@
+Feature: Editor opens Editor Administration
+
     @364
     Scenario: Editor opens Editor Administration
         Given that the user is logged in as Editor

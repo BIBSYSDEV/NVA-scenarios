@@ -1,3 +1,5 @@
+Feature: Administrator opens My Institution (Part II)
+
     @1355
     Scenario: Administrator opens My Institution (Part II)
         Given that the user is logged in as Administrator

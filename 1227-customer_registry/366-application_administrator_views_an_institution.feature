@@ -1,3 +1,5 @@
+Feature: Application Administrator views an Institution
+
   @366
   Scenario: Application Administrator views an Institution
     Given Application Administrator opens Institutions

@@ -1,3 +1,5 @@
+Feature: Creator navigates to the Reference tab and selects Chapter
+
     @395
     Scenario: Creator navigates to the Reference tab and selects Chapter
         Given Creator begins registering a Publication in the Wizard

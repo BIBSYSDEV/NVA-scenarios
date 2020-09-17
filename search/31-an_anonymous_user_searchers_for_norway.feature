@@ -1,3 +1,5 @@
+Feature: An Anonymous User searches for "Norway"
+
     @31
     Scenario: An Anonymous User searches for "Norway"
         Given that an Anonymous User is on the start page

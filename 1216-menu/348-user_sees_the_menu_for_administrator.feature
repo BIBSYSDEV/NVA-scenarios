@@ -1,3 +1,5 @@
+Feature: User sees the menu for Administrator
+
     @348
     Scenario: User sees the menu for Administrator
         Given that the user is logged in

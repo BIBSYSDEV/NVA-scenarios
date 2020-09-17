@@ -1,3 +1,5 @@
+Feature: Institution Administrator configures automatic Creator role
+
     @1424
     Scenario Outline: Institution Administrator configures automatic Creator role
         Given that the User is logged in as Institution Administrator
