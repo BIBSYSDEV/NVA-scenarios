@@ -1,8 +1,8 @@
-Feature: Files with Administrative Agreement is not visible
+Feature: Files that are Administrative Agreements are hidden
 
     @1530
-    Scenario: Files with Administrative Agreement is not visible
-        Given a User views the Landing Page for a Publication
-        And the Publication contains a File which is an Administrative Agreement
-        When they see the Publication
-        Then they see the File which is an Administrative Agreement is not visible
+    Scenario: Files that are Administrative Agreements are hidden
+        Given any User views the Landing Page for a Publication
+        And the Publication contains a File, which is an Administrative Agreement
+        When they view the Files section
+        Then they do not see the File that is an Administrative Agreement
