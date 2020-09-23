@@ -1,3 +1,5 @@
+Feature: An Anonymous User selects a Hit
+
     @32
     Scenario: An Anonymous User selects a Hit
         Given that an Anonymous User searches for "Norway"

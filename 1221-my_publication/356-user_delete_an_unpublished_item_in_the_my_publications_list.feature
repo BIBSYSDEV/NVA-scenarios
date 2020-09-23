@@ -1,3 +1,5 @@
+Feature: Creator deletes an item in My Publications list
+
     @356
     Scenario: Creator deletes an item in My Publications list
         Given Creator opens My Publications

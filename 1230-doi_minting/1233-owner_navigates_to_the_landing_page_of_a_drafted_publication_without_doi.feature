@@ -1,3 +1,5 @@
+Feature: Owner navigates to the Landing Page of a drafted Publication without DOI
+
     @1233
     Scenario: Owner navigates to the Landing Page of a drafted Publication without DOI
         Given that an Owner views the Landing Page for their Publication

@@ -1,3 +1,5 @@
+Feature: User deletes a published Publication
+
     @914
     Scenario: User deletes a published Publication
         Given that the user is logged in as Creator

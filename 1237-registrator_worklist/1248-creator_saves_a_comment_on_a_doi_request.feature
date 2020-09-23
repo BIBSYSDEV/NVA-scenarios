@@ -1,3 +1,5 @@
+Feature: Creator Saves a comment on a DOI request
+
     @1248
     Scenario: Creator Saves a comment on a DOI request
         Given that the Creator Edits a comment on a DOI request

@@ -1,3 +1,5 @@
+Feature: Creator opens My Worklist
+
     @1238
     Scenario: Creator opens My Worklist
         Given that the user is logged in as Creator

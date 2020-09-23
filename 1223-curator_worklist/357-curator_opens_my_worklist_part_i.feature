@@ -1,3 +1,5 @@
+Feature: Curator opens My Worklist (Part I)
+
     @357
     Scenario: Curator opens My Worklist (Part I)
         Given that the user is logged in as Curator

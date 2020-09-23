@@ -1,3 +1,5 @@
+Feature: A Curator enter a decline-comment on a DOI request
+
     @1243
     Scenario: A Curator enter a decline-comment on a DOI request
         Given that a Curator opens an item in the Worklist

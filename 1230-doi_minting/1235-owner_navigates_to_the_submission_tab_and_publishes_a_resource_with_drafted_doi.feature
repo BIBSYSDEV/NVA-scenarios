@@ -1,3 +1,5 @@
+Feature: Owner navigates to the submission tab and publish a Publication with a drafted DOI
+
     @1235
     Scenario: Owner navigates to the submission tab and publish a Publication with a drafted DOI
         Given that the Owner navigates to Submission tab

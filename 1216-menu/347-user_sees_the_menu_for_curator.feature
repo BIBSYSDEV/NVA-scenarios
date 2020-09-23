@@ -1,3 +1,5 @@
+Feature: User sees the menu for Curator
+
     @347
     Scenario: User sees the menu for Curator
         Given that the user is logged in

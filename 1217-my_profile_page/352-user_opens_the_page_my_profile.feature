@@ -1,3 +1,5 @@
+Feature: User opens the page My Profile
+
     @352
     Scenario: User opens the page My Profile
         Given that the user is logged in

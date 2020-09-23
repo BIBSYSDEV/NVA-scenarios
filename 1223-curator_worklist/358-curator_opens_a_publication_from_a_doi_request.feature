@@ -1,3 +1,5 @@
+Feature: Curator opens a Publication from a DOI Request
+
     @358
     Scenario: Curator opens a Publication from a DOI Request
         Given that a Curator views their Worklist

@@ -1,3 +1,5 @@
+Feature: Administrator uploads a new Logo
+
     @575
     Scenario: Administrator uploads a new Logo
         Given Administrator opens My Institution

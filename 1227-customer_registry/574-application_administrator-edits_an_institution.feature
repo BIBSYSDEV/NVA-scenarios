@@ -1,3 +1,5 @@
+Feature: Application Administrator edits an Institution
+
     @574
     Scenario Outline: Application Administrator edits an Institution
         Given Application Administrator views an Institution

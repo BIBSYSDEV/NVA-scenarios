@@ -1,3 +1,5 @@
+Feature: Creator selects Publication in Journal and Peer Review Details are hidden
+
     @1409
     Scenario Outline: Creator selects Publication in Journal and Peer Review Details are hidden
         Given that a Creator navigates to the Reference tab

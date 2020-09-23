@@ -1,3 +1,5 @@
+Feature: Creator Edits a comment on a DOI request
+
     @1247
     Scenario: Creator Edits a comment on a DOI request
         Given that the Creator Opens a DOI request entry from My Worklist

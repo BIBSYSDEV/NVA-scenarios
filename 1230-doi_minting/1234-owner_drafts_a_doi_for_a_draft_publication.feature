@@ -1,3 +1,5 @@
+Feature: Owner drafts a DOI for a draft Publication
+
     @1234
     Scenario: Owner drafts a DOI for a draft Publication
         Given that an Owner views the Landing Page for their Publication

@@ -1,3 +1,5 @@
+Feature: An Anonymous User searches for an author ID
+
     Scenario: An Anonymous User searches for an author ID
         Given that an Anonymous User is on the start page
         And they know an Author ID

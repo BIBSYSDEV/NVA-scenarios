@@ -1,3 +1,5 @@
+Feature: Creator cancels deletion of an item in My Publications list
+
     @576
     Scenario: Creator cancels deletion of an item in My Publications list
         Given that the user is logged in as Creator

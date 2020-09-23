@@ -1,3 +1,5 @@
+Feature: Owner navigates to the Public Page for Publication and requests a DOI
+
     @1232
     Scenario: Owner navigates to the Public Page for Publication and requests a DOI
         Given that the Creator navigates to the Public Page for Publication for published publication without DOI

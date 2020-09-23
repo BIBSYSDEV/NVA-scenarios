@@ -1,3 +1,5 @@
+Feature: Creator closes a DOI request
+
     @1250
     Scenario: Creator closes a DOI request
         Given that the Creator Opens a DOI request entry from My Worklist

@@ -1,3 +1,5 @@
+Feature: User does not delete a published Publication
+
     @967
     Scenario: User does not delete a published Publication
         Given that the user is logged in as Creator

@@ -1,3 +1,5 @@
+Feature: A Curator approves a DOI request
+
     @512
     Scenario: A Curator approves a DOI request
         Given that a Curator opens a Publication from a DOI Request Worklist Item

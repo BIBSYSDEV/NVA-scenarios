@@ -1,3 +1,5 @@
+Feature: Curator views details of a Worklist item
+
     @1252
     Scenario: Curator views details of a Worklist item
         Given that a Curator views DOI request tab

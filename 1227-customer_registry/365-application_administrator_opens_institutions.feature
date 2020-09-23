@@ -1,3 +1,5 @@
+Feature: Application Administrator opens Institutions
+
     @365
     Scenario: Application Administrator opens Institutions
         Given that the user is logged in as Application Administrator

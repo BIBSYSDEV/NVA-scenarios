@@ -1,3 +1,5 @@
+Feature: Administrator opens the Add Role Dialog
+
     @363
     Scenario Outline: Administrator opens the Add Role Dialog
         Given that the User is logged in as Administrator

@@ -1,3 +1,5 @@
+Feature: Administrator assigns a Role to a User (Part II)
+
     @1314
     Scenario Outline: Administrator assigns a Role to a User (Part II)
         Given that the user is logged in as Administrator
