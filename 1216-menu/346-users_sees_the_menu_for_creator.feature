@@ -8,6 +8,6 @@ Feature: User sees the menu for Creator
         Then they see a menu containing
             | My profile      |
             | Log out         |
-        And they see the buttons:
+        And they see the buttons
             | New publication |
             | My publications |
