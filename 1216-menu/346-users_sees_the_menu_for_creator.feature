@@ -7,6 +7,7 @@ Feature: User sees the menu for Creator
         When they look at any page in NVA
         Then they see a menu containing
             | My profile      |
+            | Log out         |
+        And they see the buttons
             | New publication |
             | My publications |
-            | Log out         |
