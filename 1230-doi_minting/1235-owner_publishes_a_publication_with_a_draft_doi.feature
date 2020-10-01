@@ -8,7 +8,6 @@ Feature: Owner publishes a Publication with a Draft DOI
         When the Owner clicks the Publish button
         Then they see the Publication's Landing Page
         And they see the "Request a DOI" button has text "DOI pending" and that it is disabled
-        And they see the Draft DOI
-        And they see the Draft DOI is not clickable
+        And they see the Draft DOI and that it is not clickable
         And the DOI request is listed in the Owner's Worklist
         And the DOI request is listed in the Curator's Worklist
