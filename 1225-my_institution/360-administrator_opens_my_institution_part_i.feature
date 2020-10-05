@@ -1,13 +1,13 @@
-Feature: Administrator opens My Institution (Part I)
+Feature: Institution Administrator opens My Institution
 
     @360
-    Scenario: Administrator opens My Institution (Part I)
-        Given that the user is logged in as Administrator
+    Scenario: Administrator opens My Institution
+        Given that the user is logged in as Institution Administrator
         When they click the menu item My Institution
         Then they see the My Institution page
         And they see fields:
             | Name in organization registry |
             | Display name                  |
             | Short display name            |
-            | CNAME                         |
-            | Institution DNS               |
+            | Archive name                  |
+        And they can click Save to persist values in fields
