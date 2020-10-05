@@ -1,7 +1,7 @@
 Feature: Institution Administrator opens My Institution
 
     @360
-    Scenario: Administrator opens My Institution
+    Scenario: Institution Administrator opens My Institution
         Given that the user is logged in as Institution Administrator
         When they click the menu item My Institution
         Then they see the My Institution page
