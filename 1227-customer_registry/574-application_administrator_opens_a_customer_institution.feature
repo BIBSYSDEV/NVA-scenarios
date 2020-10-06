@@ -8,6 +8,7 @@ Feature: Application Administrator opens a Customer Institution
             | Name in organization registry |
             | Display name                  |
             | Short display name            |
+            | Archive name                  |
             | Feide Organization ID         |
         And they see the Save button
         And they see the list of current Institution Administrators
