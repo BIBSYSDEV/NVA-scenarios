@@ -9,5 +9,5 @@ Feature: Application Administrator opens a Customer Institution
             | Display name                  |
             | Short display name            |
             | Feide Organization ID         |
-        And they can click Save to persist values in fields
+        And they see the Save button
         And they can add and remove Institution Administrator(s)
