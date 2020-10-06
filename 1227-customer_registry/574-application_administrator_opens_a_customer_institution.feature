@@ -10,4 +10,6 @@ Feature: Application Administrator opens a Customer Institution
             | Short display name            |
             | Feide Organization ID         |
         And they see the Save button
-        And they can add and remove Institution Administrator(s)
+        And they see the list of current Institution Administrators
+        And every Institution Administrator has a Remove button
+        And they see button to add a new Institution Administrator
