@@ -10,4 +10,4 @@ Feature: Institution Administrator opens My Institution
             | Display name                  |
             | Short display name            |
             | Archive name                  |
-        And they can click Save to persist values in fields
+        And they see the Save button
