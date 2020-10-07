@@ -1,7 +1,7 @@
 Feature: Application Administrator opens a Customer Institution
 
     @574
-    Scenario Outline: Application Administrator opens a Customer Institution
+    Scenario: Application Administrator opens a Customer Institution
         Given that the user is logged in as Application Administrator
         When they open a Customer Institution
         Then they see fields:
