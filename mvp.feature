@@ -231,28 +231,6 @@ Feature: MVP features for NVA
     And they see Next is enabled
     And they see Save is enabled
 
-  @274
-  Scenario: Creator navigates to Reference tab and selects Publication in Journal
-    Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Reference tab
-    And they select a Reference Type — Publication in Journal
-    And they can select a Publication Subtype from the list
-      | Article              |
-      | Short communication  |
-      | Leader               |
-      | Letter to the editor |
-      | Review               |
-    Then they see the Search box for "Journal title" #this needs to be tested for mandatory-ness
-    And they see fields for
-      | DOI            |
-      | Volume         |
-      | Issue          |
-      | Pages from     |
-      | Pages to       |
-      | Article number |
-    And they see a preselected value for Peer review "Not peer reviewed" #also mandatory
-    And they see the NVI evaluation is Not NVI Applicable
-
   @392
   Scenario Outline: Creator navigates to the Reference tab and selects Book
     Given Creator begins registering a Publication in the Wizard
