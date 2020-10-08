@@ -3,8 +3,8 @@ Feature: Creator opens My Publications
   @354
   Scenario Outline: Creator opens My Publications
     Given the user is logged in as Creator
-    When they click the button My Publications
-    Then they see My Publications
+    When they click the button My Registrations
+    Then they see My Registrations
     And they see a list of all unpublished registrations with the fields
       | Title   |
       | Status  |
