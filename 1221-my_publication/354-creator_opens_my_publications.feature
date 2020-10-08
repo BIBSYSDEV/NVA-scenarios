@@ -1,7 +1,6 @@
 Feature: Creator opens My Publications
 
   @354
-  Scenario Outline: Creator opens My Publications
   Scenario: Creator opens My Publications
     Given the user is logged in as Creator
     When they click the button My Registrations
