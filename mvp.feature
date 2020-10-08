@@ -956,15 +956,6 @@ Feature: MVP features for NVA
       | ORCID                                                                             |
       | List of publications where the user is a contributor and with status is Published |
 
-  @1246
-  Scenario: Creator Opens a DOI request entry from My Worklist
-    Given that the Creator opens My Worklist
-    When they click the Open button on a DOI request
-    Then they see the Request Detail box
-    And they see a summary of the Publication
-    And they see a all the messages for this DOI request
-    And they see a Back, Edit, and a Edit Publication button
-
   @1247
   Scenario: Creator Edits a comment on a DOI request
     Given that the Creator Opens a DOI request entry from My Worklist
