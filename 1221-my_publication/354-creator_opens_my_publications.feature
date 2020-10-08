@@ -2,6 +2,7 @@ Feature: Creator opens My Publications
 
   @354
   Scenario Outline: Creator opens My Publications
+  Scenario: Creator opens My Publications
     Given the user is logged in as Creator
     When they click the button My Registrations
     Then they see My Registrations
@@ -13,9 +14,6 @@ Feature: Creator opens My Publications
     And they see the navigation bar for unpublished registrations is selected
     And they see the navigation bar for published registrations is enabled
     And they see items with Status <Status>
-
-    Examples:
-      | Status   |
       | Draft    |
       | Rejected |
 
