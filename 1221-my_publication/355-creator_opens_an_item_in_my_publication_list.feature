@@ -9,9 +9,7 @@ Feature: Creator opens an item in My Publication list
         And they see the Description tab
         And they see fields:
             | Title                        |
-            | Alternative title(s)         |
             | Abstract                     |
-            | Alternative abstract(s)      |
             | Description                  |
             | Date published               |
             | Primary language for content |
