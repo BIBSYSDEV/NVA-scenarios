@@ -956,18 +956,6 @@ Feature: MVP features for NVA
       | ORCID                                                                             |
       | List of publications where the user is a contributor and with status is Published |
 
-  @1238
-  Scenario: Creator opens My Worklist
-    Given that the user is logged in as Creator
-    When they click the menu item My Worklist
-    Then they see My Worklist page
-    And they see a list with column headers
-      | Title     |
-      | Type      |
-      | Submitter |
-      | Date      |
-    And they see that each row in the list has a Show, Open and Delete button
-
   @1246
   Scenario: Creator Opens a DOI request entry from My Worklist
     Given that the Creator opens My Worklist

@@ -6,6 +6,6 @@ Feature: User sees the menu for Editor
         And they have the role of Editor
         When they look at any page in NVA
         Then they see a menu containing
-            | My Profile            |
+            | My profile            |
             | Editor administration |
-            | Log Out               |
+            | Log out               |
