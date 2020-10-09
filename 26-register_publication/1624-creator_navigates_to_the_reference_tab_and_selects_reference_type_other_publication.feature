@@ -1,4 +1,4 @@
-Feature: Creator navigates to the Reference tab and selects Reference type "Other publication"
+Feature: Creator navigates to the Reference tab and selects Reference type Other publication
 
     @1624
     Scenario: Creator navigates to the Reference tab and selects Reference type "Other publication"
