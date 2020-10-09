@@ -8,9 +8,4 @@ Feature: Creator selects Reference type Other publication and selects subtype Ma
         And they select the subtype "Map"
         Then they see fields
             | Search box for Publisher |
-            | DOI                      |
-            | Volume                   |
-            | Issue                    |
-            | Pages from               |
-            | Pages to                 |
             | Original version         |
