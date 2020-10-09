@@ -2,9 +2,10 @@ Feature: Creator navigates to the Reference tab and selects Reference subtype "J
 
     @1625
     Scenario: Creator navigates to the Reference tab and selects Reference subtype "Journal article"
-        Given that a Creator navigates to the Reference tab
-        And they have selected "Contribution to journal" as Reference type
-        When they select "Journal article" as Reference Subtype
+        Given Creator begins registering a Publication in the Wizard
+        When they navigate to the Reference tab
+        And they select the Reference type "Contribution to journal"
+        And they select the Reference subtype "Journal article"
         Then they see mandatory fields:
             | Search-box for Journal |
             | Peer reviewed          |
