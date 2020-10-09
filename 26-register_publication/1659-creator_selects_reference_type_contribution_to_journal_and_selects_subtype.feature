@@ -1,7 +1,7 @@
-Feature: Creator selects Reference type "Contribution to journal" and selects subtype
+Feature: Creator selects Reference type Contribution to journal and selects subtype
 
     @1659
-    Scenario: Creator selects Reference type "Contribution to journal" and selects subtype
+    Scenario: Creator sees fields related to Reference subtypes for "Contribution to journal"
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
@@ -10,12 +10,11 @@ Feature: Creator selects Reference type "Contribution to journal" and selects su
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
-        Then they see mandatory fields:
+        Then they see fields:
             | Search box for Journal |
-        And they see optional fields:
-            | DOI            |
-            | Volume         |
-            | Issue          |
-            | Pages from     |
-            | Pages to       |
-            | Article number |
+            | DOI                    |
+            | Volume                 |
+            | Issue                  |
+            | Pages from             |
+            | Pages to               |
+            | Article number         |
