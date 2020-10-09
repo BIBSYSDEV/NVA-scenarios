@@ -8,10 +8,10 @@ Feature: Creator navigates to the Reference tab and selects Reference subtype "C
         Then they see mandatory fields:
             | Link to Journal article |
         And they see optional fields:
+            | DOI            |
             | Volume         |
             | Issue          |
             | Pages from     |
             | Pages to       |
             | Article number |
-        And they see a disabled field with DOI if the Publication has a DOI
         And they see a disabled field for Journal based on selected Journal article
