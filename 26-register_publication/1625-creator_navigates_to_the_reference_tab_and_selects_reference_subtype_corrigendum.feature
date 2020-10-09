@@ -4,7 +4,7 @@ Feature: Creator navigates to the Reference tab and selects Reference subtype "C
     Scenario: Creator navigates to the Reference tab and selects Reference subtype "Corrigendum"
         Given that a Creator navigates to the Reference tab
         And they have selected "Contribution to journal" as Reference type
-        When they select "Corrigendum" as Publication Subtype
+        When they select "Corrigendum" as Reference Subtype
         Then they see mandatory fields:
             | Link to Journal article |
         And they see optional fields:
@@ -13,4 +13,5 @@ Feature: Creator navigates to the Reference tab and selects Reference subtype "C
             | Pages from     |
             | Pages to       |
             | Article number |
+        And they see a disabled field with DOI if the Publication has a DOI
         And they see a disabled field for Journal based on selected Journal article
