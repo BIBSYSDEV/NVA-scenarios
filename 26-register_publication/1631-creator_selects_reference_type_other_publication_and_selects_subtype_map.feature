@@ -1,5 +1,4 @@
 Feature: Creator selects Reference type "Other publication" and selects subtype "Map"
-
     @1631
     Scenario: Creator selects Reference type "Other publication" and selects subtype "Map"
         Given Creator begins registering a Publication in the Wizard
