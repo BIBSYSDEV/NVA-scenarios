@@ -1,4 +1,4 @@
-Feature: Creator navigates to the Reference tab and selects Reference subtype "Journal article"
+Feature: Creator selects Reference type Contribution to journal and selects subtype Journal article
 
     @1625
     Scenario: Creator navigates to the Reference tab and selects Reference subtype "Journal article"
