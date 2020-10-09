@@ -27,7 +27,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Pages to       |
             | Article number |
         When they click the Save button
-        Then they can see "Required field" error messages for fields:
+        Then they can see "Required field" error message for fields:
             | Search box for "Journal article" |
         And they can see "Invalid format" error message for fields:
             | Volume         |
