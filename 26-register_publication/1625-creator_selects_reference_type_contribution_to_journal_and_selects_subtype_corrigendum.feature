@@ -20,6 +20,18 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select the Reference subtype "Corrigendum"
+        And they enter "asd" to fields:
+            | Volume         |
+            | Issue          |
+            | Pages from     |
+            | Pages to       |
+            | Article number |
         When they click the Save button
-        Then they can see error messages for mandatory fields:
+        Then they can see "Required field" error messages for fields:
             | Search box for "Journal article" |
+        And they can see "Invalid format" error message for fields:
+            | Volume         |
+            | Issue          |
+            | Pages from     |
+            | Pages to       |
+            | Article number |
