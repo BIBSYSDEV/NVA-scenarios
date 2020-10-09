@@ -2,11 +2,12 @@ Feature: Creator navigates to the Reference tab and selects Reference subtype "C
 
     @1625
     Scenario: Creator navigates to the Reference tab and selects Reference subtype "Corrigendum"
-        Given that a Creator navigates to the Reference tab
-        And they have selected "Contribution to journal" as Reference type
-        When they select "Corrigendum" as Reference Subtype
+        Given Creator begins registering a Publication in the Wizard
+        When they navigate to the Reference tab
+        And they select the Reference type "Contribution to journal"
+        And they select the Reference subtype "Corrigendum"
         Then they see mandatory fields:
-            | Link to Journal article |
+            | Search box for "Journal article" |
         And they see optional fields:
             | DOI            |
             | Volume         |
