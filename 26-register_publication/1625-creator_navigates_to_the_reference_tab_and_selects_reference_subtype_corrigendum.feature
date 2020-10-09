@@ -1,6 +1,6 @@
 Feature: Creator selects Reference type Contribution to journal and selects subtype Corrigendum
 
-    Scenario: Creator can see fields related to Reference subtype "Corrigendum"
+    Scenario: Creator sees fields related to Reference subtype "Corrigendum"
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
@@ -20,6 +20,6 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select the Reference subtype "Corrigendum"
-        When they save Publication without entering any data for "Corrigendum"
+        When they click the Save button
         Then they can see error messages for mandatory fields:
             | Search box for "Journal article" |
