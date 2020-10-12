@@ -1,6 +1,6 @@
 Feature: Creator selects Reference type Contribution to journal and selects subtype Corrigendum
 
-    Scenario: Creator sees fields related to Reference subtype "Corrigendum"
+    Scenario: Creator sees fields for Reference subtype "Corrigendum"
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
@@ -15,12 +15,12 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Article number                   |
         And they see a disabled field for Journal based on selected Journal article
 
-    Scenario: Creator see that fields for "Corrigendum" subtype are validated
+    Scenario: Creator sees that fields for Reference subtype "Corrigendum" are validated
         Given Creator begins registering a Publication in the Wizard
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select the Reference subtype "Corrigendum"
-        And they enter "asd" to fields:
+        And they enter "asd" in fields:
             | Volume         |
             | Issue          |
             | Pages from     |
