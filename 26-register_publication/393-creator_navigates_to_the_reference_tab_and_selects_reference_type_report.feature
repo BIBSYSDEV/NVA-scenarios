@@ -8,4 +8,4 @@ Feature: Creator navigates to the Reference tab and selects Reference type Repor
             | Research report      |
             | Policy report        |
             | Working paper        |
-            | Other type of Report |
+            | Other type of report |
