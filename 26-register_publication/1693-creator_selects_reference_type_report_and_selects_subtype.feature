@@ -8,7 +8,7 @@ Feature: Creator selects Reference type Report and selects subtype
             | Research report      |
             | Policy report        |
             | Working paper        |
-            | Other type of Report |
+            | Other type of report |
         Then they see fields:
             | Search box for Publisher |
             | ISBN                     |
@@ -23,13 +23,13 @@ Feature: Creator selects Reference type Report and selects subtype
             | Research report      |
             | Policy report        |
             | Working paper        |
-            | Other type of Report |
+            | Other type of report |
         And they enter "asd" in fields:
             | ISBN                  |
             | Total number of pages |
         When they click the Save button
         Then they can see "Required field" error messages for fields:
-            | Search-box for Publisher |
+            | Search box for Publisher |
         And they can see "Invalid format" error message for fields:
             | ISBN                  |
             | Total number of pages |
