@@ -1,5 +1,5 @@
 Feature: User navigates back to previous page
-    @1661
+
     Scenario: User navigates back to previous page
         Given the user has navigated to any other page than home
         And they see a "Back" button
