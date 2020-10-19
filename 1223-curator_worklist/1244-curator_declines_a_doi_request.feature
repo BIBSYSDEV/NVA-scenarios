@@ -10,5 +10,5 @@ Feature: Curator declines a DOI request
         When they click Decline DOI
         And they see the Decline DOI Dialog
         And they click Save
-        Then the DOI request is marked as "Declined" in the Owners's Worklist
-        And they see the DOI request is removed from their Worklist
+        Then they see the DOI request is removed from their Worklist
+        And the DOI request is marked as "Declined" in the Owners' Worklist
