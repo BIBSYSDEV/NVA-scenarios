@@ -3,7 +3,7 @@
   Scenario: Creator begins Wizard registration and navigates to Description tab
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Description tab
-    Then they see the tab Description is selected
+    Then they see the Description tab is selected
     And they see mandatory fields for
       | Title |
     And they see optional fields for
