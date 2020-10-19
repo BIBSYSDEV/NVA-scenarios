@@ -1,4 +1,4 @@
-Feature:
+Feature: Creator begins registration by uploading a file
 
   @385
   Scenario: Creator begins registration by uploading a file
