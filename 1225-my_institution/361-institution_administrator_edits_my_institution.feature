@@ -10,7 +10,5 @@ Feature: Institution Administrator edits My Institution
             | Short display name            |
             | Archive name                  |
             | Feide Organization ID         |
-        And they check Registrations must be approved by Curator checkbox
-        And they upload a new Logo
         And they click Save
         Then they see a Notification that the changes were saved
