@@ -4,9 +4,8 @@
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Description tab
     Then they see the Description tab is selected
-    And they see mandatory fields for
+    And they see fields:
       | Title |
-    And they see optional fields for
       | Abstract                     |
       | Description                  |
       | Date published               |
@@ -20,3 +19,10 @@
     And they see the tab Summary is clickable
     And they see Next is enabled
     And they see Save is enabled
+
+  Scenario: Creator sees that fields are validated  Description tab
+    Given Creator begins registering a Registration in the Wizard
+    When they navigate to the Description tab
+    And they click the Save button
+    Then they can see "Required field" error messages for fields:
+        | Title |
