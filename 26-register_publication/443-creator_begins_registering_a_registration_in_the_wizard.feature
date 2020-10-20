@@ -7,5 +7,5 @@ Feature: Creator begins registering a Registration in the Wizard
     Then they see the Wizard
     Examples:
       | Method                 |
-      | Link to registration    |
+      | Link to registration   |
       | Upload file            |
