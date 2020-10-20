@@ -6,6 +6,6 @@ Feature: Creator begins registering a Registration in the Wizard
     When they click Start
     Then they see the Wizard
     Examples:
-      | Methods                |
-      | Link to publication    |
+      | Method                 |
+      | Link to registration    |
       | Upload file            |
