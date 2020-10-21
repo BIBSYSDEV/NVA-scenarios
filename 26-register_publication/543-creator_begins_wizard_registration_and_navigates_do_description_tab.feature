@@ -20,7 +20,7 @@
     And they see Next is enabled
     And they see Save is enabled
 
-  Scenario: Creator sees that fields are validated  Description tab
+  Scenario: Creator sees that fields are validated on Description tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Description tab
     And they click the Save button
