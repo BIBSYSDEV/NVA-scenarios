@@ -5,8 +5,8 @@ Feature: Creator navigates to Summary tab
     Given Creator begins registering a Registration in the Wizard
     And there are validation errors
     When they navigate to the Summary tab
-    Then they see information box for Validation errors
-    And they see information box for
+    Then they see Error box for Validation errors
+    And they see Information box for
       | Description       |
       | Reference         |
       | Contributors      |
@@ -21,9 +21,9 @@ Feature: Creator navigates to Summary tab
 
   Scenario: Creator navigates to Summary tab without validation errors
     Given Creator begins registering a Registration in the Wizard
-    And there are validation errors
+    And there are no validation errors
     When they navigate to the Summary tab
-    Then they see information box for
+    Then they see Information box for
       | Description       |
       | Reference         |
       | Contributors      |
