@@ -2,7 +2,7 @@ Feature: Creator navigates to Contributors tab
 
   @417
   Scenario: Creator navigates to Contributors tab
-    Given Creator begins registering a Publication in the Wizard
+    Given Creator begins registering a Registration in the Wizard
     When they navigate to the Contributors tab
     Then they see Add Author is enabled
     And they see the tab Description is clickable
