@@ -2,7 +2,7 @@ Feature: Creator navigates to Reference tab
 
   @453
   Scenario: Creator navigates to Reference tab
-    Given Creator begins registering a Publication in the Wizard
+    Given Creator begins registering a Registration in the Wizard
     When they navigate to the Reference tab
     Then they see the field for Type
     And they see the tab Description is clickable
