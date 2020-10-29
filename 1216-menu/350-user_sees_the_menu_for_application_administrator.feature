@@ -6,6 +6,6 @@ Feature: User sees the menu for Application administrator
         And they have the role of Application administrator
         When they look at any page in NVA
         Then they see a menu containing
-            | My Profile   |
+            | My profile   |
             | Institutions |
-            | Log Out      |
+            | Log out      |
