@@ -1,4 +1,4 @@
-Feature: Creator navigates to the description tab and handles Projects
+Feature: Creator navigates to the Description tab and handles Projects
 
   @445
   Scenario: Creator searches for Project
