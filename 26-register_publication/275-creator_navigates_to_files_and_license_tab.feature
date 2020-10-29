@@ -4,8 +4,7 @@ Feature: Creator navigates to Files and License tab
   Scenario: Creator navigates to Files and License tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Files and License tab
-    Then they see the Publication Channel Information box
-    And they see the File upload widget
+    Then  they see the File upload widget
     And they see the tab Description is clickable
     And they see the tab Reference is clickable
     And they see the tab Contributors is clickable
