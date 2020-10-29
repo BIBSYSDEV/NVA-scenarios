@@ -499,18 +499,6 @@ Feature: MVP features for NVA
     And they see that Project Information box Delete button is enabled
     And they see a Autosearch dropdown for Project above the Project Information box
 
-  @446
-  Scenario: Creator selects Project from Autosearch dropdown for Project
-    Given Creator searches for a Project in the Autosearch dropdown for Project
-    When they click a project in the Autosearch dropdown for Project
-    Then they see the project details in a new Project Information box
-    And they see the Project Information box contains information about:
-      | Project title |
-      | Grant ID      |
-      | Financed by   |
-    And they see that Project Information box Delete button is enabled
-    And they see a Autosearch dropdown for Project above the Project Information box
-
   @233
   Scenario: Creator sees journal title suggestion from a Link
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
