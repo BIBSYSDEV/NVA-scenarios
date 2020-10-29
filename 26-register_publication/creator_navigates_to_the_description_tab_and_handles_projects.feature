@@ -1,5 +1,6 @@
 Feature: Creator navigates to the description tab and handles Projects
 
+  @445
   Scenario: Creator searches for Project
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Description tab
@@ -8,12 +9,14 @@ Feature: Creator navigates to the description tab and handles Projects
     Then they see list of Projects matching the search term
     And they see associated institutions for each Project
 
+  @446
   Scenario: Creator adds a Project
     Given Creator has searched for a project
     And they can see search results
     When they click on a Project from the search results
     Then the clicked Project are added to to list of selected Projects
 
+  @1774
   Scenario: Creator removes a Project
     Given Creator has added a Project
     When they click button for removing Project
