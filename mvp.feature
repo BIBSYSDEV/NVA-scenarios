@@ -499,12 +499,6 @@ Feature: MVP features for NVA
     And they see that Project Information box Delete button is enabled
     And they see a Autosearch dropdown for Project above the Project Information box
 
-  @445
-  Scenario: Creator searches for a Project in the Autosearch dropdown for Project
-    Given Creator sees Autosearch dropdown for Project
-    When they enter a project name in the search box
-    Then they see a list of clickable results
-
   @446
   Scenario: Creator selects Project from Autosearch dropdown for Project
     Given Creator searches for a Project in the Autosearch dropdown for Project
