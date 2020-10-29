@@ -13,8 +13,8 @@ Feature: Creator navigates to the description tab and handles Projects
   Scenario: Creator adds a Project
     Given Creator has searched for a project
     And they can see search results
-    When they click on a Project from the search results
-    Then the clicked Project are added to to list of selected Projects
+    When they select a Project by clicking on a search result
+    Then the selected Project are added to to list of selected Projects
 
   @1774
   Scenario: Creator removes a Project
