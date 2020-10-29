@@ -1,7 +1,7 @@
 Feature: Creator navigates to the description tab and handles Projects
 
   Scenario: Creator searches for Project
-    Given Creator begins registering a Publication in the Wizard
+    Given Creator begins registering a Registration in the Wizard
     When they navigate to the Description tab
     And they see input field for Projects
     And they enter search term in Projects field
