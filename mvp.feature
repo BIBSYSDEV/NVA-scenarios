@@ -1024,42 +1024,6 @@ Feature: MVP features for NVA
     And the DOI request is listed in the Owners work list
     And the DOI request is listed in the Curators work list
 
-  # Menuitems for Curator
-  @531
-  Scenario: Curator views DOI request tab
-    Given that the Curator opens My Worklist (Part I)
-    When they click the tab "DOI request"
-    Then they see a list of Worklist Items with fields:
-      | DOI request status |
-      | Publication title  |
-      | Submitter          |
-      | Date               |
-    And the see that each Worklist Item has an Expand button
-
-  @1353
-  Scenario: Curator views For Approval tab
-    Given that the Curator opens My Worklist (Part II)
-    When they click the tab "For Approval"
-    Then they see a list of Worklist items with fields:
-      | Status    |
-      | Title     |
-      | Message   |
-      | Submitter |
-      | Date      |
-    And they see each Worklist Item has an Expand button
-
-  @1354
-  Scenario: Curator views Support tab
-    Given that the Curator opens My Worklist (Part II)
-    When they click the tab "Support"
-    Then they see a list with expandable items with fields:
-      | Status    |
-      | Title     |
-      | Message   |
-      | Submitter |
-      | Date      |
-    And they see that each row in the list has an Expand button
-
   # Actions from Page : My Worklist
   @1252
   Scenario: Curator views details of a Worklist item
