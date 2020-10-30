@@ -15,12 +15,12 @@ Feature: Curator opens My Worklist
     Scenario: Curator views For Approval tab
         Given that the Curator opens My Worklist
         When they click the tab "For Approval"
-        Then they see a list of Worklist items with fields:
+        Then they see a list of Worklist Items with fields:
             | Request status     |
             | Registration title |
             | Submitter name     |
             | Date               |
-        And they see each Worklist Item has an Expand button
+        And they see that each Worklist Item has an Expand button
 
     @1354
     Scenario: Curator views Support tab
@@ -39,7 +39,7 @@ Feature: Curator opens My Worklist
         When they click the tab "DOI request"
         Then they see a list of Worklist Items with fields:
             | Request status    |
-            | Publication title |
+            | Registration title |
             | Submitter name    |
             | Date              |
         And the see that each Worklist Item has an Expand button
