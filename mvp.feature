@@ -1025,25 +1025,6 @@ Feature: MVP features for NVA
     And the DOI request is listed in the Curators work list
 
   # Menuitems for Curator
-  @357
-  Scenario: Curator opens My Worklist (Part I)
-    Given that the user is logged in as Curator
-    When they click the menu item My Worklist
-    Then they see My Worklist page
-    And they see the tab "DOI request"
-    And they see the DOI request page
-
-  @1352
-  Scenario: Curator opens My Worklist (Part II)
-    Given that the user is logged in as Curator
-    When they click the menu item My Worklist
-    Then they see My Worklist page
-    And they see the tabs:
-      | For Approval |
-      | Support      |
-      | DOI request  |
-    And they see the For Approval page
-
   @531
   Scenario: Curator views DOI request tab
     Given that the Curator opens My Worklist (Part I)

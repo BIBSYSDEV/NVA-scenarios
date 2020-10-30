@@ -1,7 +1,7 @@
-Feature: Curator opens My Worklist (Part II)
+Feature: Curator opens My Worklist
 
-    @1352
-    Scenario: Curator opens My Worklist (Part II)
+    @357
+    Scenario: Curator opens My Worklist
         Given that the user is logged in as Curator
         When they click the menu item My Worklist
         Then they see My Worklist page
