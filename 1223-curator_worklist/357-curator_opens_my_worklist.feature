@@ -38,8 +38,8 @@ Feature: Curator opens My Worklist
         Given that the Curator opens My Worklist
         When they click the tab "DOI request"
         Then they see a list of Worklist Items with fields:
-            | Request status    |
+            | Request status     |
             | Registration title |
-            | Submitter name    |
-            | Date              |
+            | Submitter name     |
+            | Date               |
         And the see that each Worklist Item has an Expand button
