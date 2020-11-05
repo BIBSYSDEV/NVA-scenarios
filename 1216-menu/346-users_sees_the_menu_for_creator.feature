@@ -9,5 +9,6 @@ Feature: User sees the menu for Creator
             | My profile |
             | Log out    |
         And they see the buttons
-            | New registration |
-            | My registrations |
+            | New Registration |
+            | My Registrations |
+            | My Messages      |
