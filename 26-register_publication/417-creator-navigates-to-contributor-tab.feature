@@ -12,3 +12,10 @@ Feature: Creator navigates to Contributors tab
     And they see the tab Summary is clickable
     And they see Next is enabled
     And they see Save is enabled
+
+  @1837
+  Scenario: Creator adds themselves to list of Authors
+    Given Creator begins registering a Registration in the Wizard
+    When they navigate to the Contributors tab
+    And they click "Add me as author"
+    Then their Author identity are appended to list of Authors
