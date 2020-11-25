@@ -16,6 +16,7 @@ Feature: Creator navigates to Summary tab
     And they see the tab Contributors is clickable
     And they see the tab Files and License is clickable
     And they see the tab Summary is selected
+    And they see Previous is enabled
     And they see Save and present is enabled
     And they see Publish is disabled
 
@@ -33,5 +34,6 @@ Feature: Creator navigates to Summary tab
     And they see the tab Contributors is clickable
     And they see the tab Files and License is clickable
     And they see the tab Summary is selected
+    And they see Previous is enabled
     And they see Save and present is enabled
     And they see Publish is enabled
