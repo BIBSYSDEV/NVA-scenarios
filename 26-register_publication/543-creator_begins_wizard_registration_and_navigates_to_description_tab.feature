@@ -1,11 +1,11 @@
-  Feature: Creator begins Wizard registration and navigates to Description tab
+Feature: Creator begins Wizard registration and navigates to Description tab
 
   Scenario: Creator begins Wizard registration and navigates to Description tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Description tab
     Then they see the Description tab is selected
     And they see fields:
-      | Title |
+      | Title                        |
       | Abstract                     |
       | Description                  |
       | Date published               |
@@ -24,5 +24,6 @@
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Description tab
     And they click the Save button
-    Then they can see "Required field" error messages for fields:
-        | Title |
+    Then they can see "Mandatory" error messages for fields:
+      | Title          |
+      | Date published |
