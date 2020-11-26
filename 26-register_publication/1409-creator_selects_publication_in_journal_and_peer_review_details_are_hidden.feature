@@ -9,6 +9,6 @@ Feature: Creator selects Publication in Journal and Peer Review Details are hidd
         Examples:
             | Subtype              |
             | Short communication  |
-            | Leader               |
+            | Editorial            |
             | Letter to the editor |
-            | Review               |
+            | Book review          |
