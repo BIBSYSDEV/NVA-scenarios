@@ -67,7 +67,7 @@ Feature: MVP features for NVA
       | Smith, Kim F.          |
       | Smith, Kim             |
     When they log in
-    Then they see a list containing <Author name> and <Last publication> for each ARP entry matching their <Name>
+    Then they see a list containing "<Author name>" and "<Last publication>" for each ARP entry matching their <Name>
     And a Create New Author Button
     Examples:
       | Name      | Author name   | Last publication  |
