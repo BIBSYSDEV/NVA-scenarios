@@ -4,7 +4,7 @@ Feature: Creator navigates to the reference tab and selects Book
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select Publication Type Book
-        And they select Publication Subtype <Subtype> from the list
+        And they select Publication Subtype "<Subtype>" from the list
             | Monograph |
             | Anthology |
             | Chapter   |

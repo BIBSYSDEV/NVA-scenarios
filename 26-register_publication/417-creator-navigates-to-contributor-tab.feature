@@ -10,5 +10,6 @@ Feature: Creator navigates to Contributors tab
     And they see the tab Contributors is selected
     And they see the tab Files and License is clickable
     And they see the tab Summary is clickable
+    And they see Previous is enabled
     And they see Next is enabled
     And they see Save is enabled
