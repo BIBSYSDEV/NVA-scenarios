@@ -1,7 +1,7 @@
 Feature: Creator navigates to the reference tab and selects Reference type Book
 
     @392
-    Scenario Outline: Creator navigates to the Reference tab and selects Reference subtype "Anthology"
+    Scenario: Creator navigates to the Reference tab and selects Reference subtype "Anthology"
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select Reference type Book
@@ -15,7 +15,7 @@ Feature: Creator navigates to the reference tab and selects Reference type Book
         And they see a preselected value for Peer review "Not peer reviewed"
 
     @1963
-    Scenario Outline: Creator navigates to the Reference tab and selects Reference subtype "Monograph"
+    Scenario: Creator navigates to the Reference tab and selects Reference subtype "Monograph"
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select Reference type Book
