@@ -1,13 +1,11 @@
 Feature: Creator selects Reference type Contribution to journal and selects subtype
 
     @1656
-    Scenario: Creator sees fields for Norwegian Science Index (NVI) compatible Reference subtype
+    Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) compatible Reference subtype
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
-        And they select one of Reference subtypes:
-            | Journal article     |
-            | Short communication |
+        And they select Reference subtype "<Subtype>"
         And they see fields:
             | Search-box for Journal |
             | DOI                    |
@@ -18,14 +16,16 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Article number         |
             | Peer reviewed          |
         And they see the Norwegian Science Index (NVI) evaluation status
+        Examples:
+            | Subtype             |
+            | Journal article     |
+            | Short communication |
 
-    Scenario: Creator sees that fields for Norwegian Science Index (NVI) compatible Reference subtype are validated
+    Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) compatible Reference subtype are validated
         Given Creator begins registering a Publication in the Wizard
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
-        And they select one of Reference subtypes:
-            | Journal article     |
-            | Short communication |
+        And they select Reference subtype "<Subtype>"
         And they enter an invalid value in fields:
             | Volume         |
             | Issue          |
@@ -41,6 +41,10 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Pages from     |
             | Pages to       |
             | Article number |
+        Examples:
+            | Subtype             |
+            | Journal article     |
+            | Short communication |
 
     @1625
     Scenario: Creator sees fields for Reference subtype "Corrigendum"
@@ -80,14 +84,11 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Article number |
 
     @1659
-    Scenario: Creator sees fields for Norwegian Science Index (NVI) incompatible Reference subtype
+    Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Reference subtype
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
-        And they select one of Reference subtypes:
-            | Letter to the Editor |
-            | Book review          |
-            | Editorial            |
+        And they select Reference subtype "<Subtype>"
         Then they see fields:
             | Search box for Journal |
             | DOI                    |
@@ -96,15 +97,17 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Pages from             |
             | Pages to               |
             | Article number         |
-
-    Scenario: Creator sees that fields for Norwegian Science Index (NVI) incompatible Reference subtype are validated
-        Given Creator begins registering a Publication in the Wizard
-        And they navigate to the Reference tab
-        And they select the Reference type "Contribution to journal"
-        And they select one of Reference subtypes:
+        Examples:
+            | Subtype              |
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
+
+    Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Reference subtype are validated
+        Given Creator begins registering a Publication in the Wizard
+        And they navigate to the Reference tab
+        And they select the Reference type "Contribution to journal"
+        And they select Reference subtype "<Subtype>"
         And they enter an invalid value in fields:
             | Volume         |
             | Issue          |
@@ -120,3 +123,8 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Pages from     |
             | Pages to       |
             | Article number |
+        Examples:
+            | Subtype              |
+            | Letter to the Editor |
+            | Book review          |
+            | Editorial            |
