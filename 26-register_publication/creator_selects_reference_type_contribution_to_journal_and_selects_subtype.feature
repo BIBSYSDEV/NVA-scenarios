@@ -26,7 +26,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
         And they select one of Reference subtypes:
             | Journal article     |
             | Short communication |
-        And they enter "asd" in fields:
+        And they enter an invalid value in fields:
             | Volume         |
             | Issue          |
             | Pages from     |
@@ -63,7 +63,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select the Reference subtype "Corrigendum"
-        And they enter "asd" in fields:
+        And they enter an invalid value in fields:
             | Volume         |
             | Issue          |
             | Pages from     |
@@ -105,7 +105,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
-        And they enter "asd" in fields:
+        And they enter an invalid value in fields:
             | Volume         |
             | Issue          |
             | Pages from     |
