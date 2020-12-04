@@ -9,5 +9,6 @@ Feature: Creator opens their Public Profile from My Publications Page
         And they see fields:
             | Name                                                                              |
             | Institutions                                                                      |
+            | Public email                                                                      |
             | ORCID                                                                             |
             | List of publications where the user is a contributor and with status is Published |
