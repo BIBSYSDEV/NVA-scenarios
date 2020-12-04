@@ -27,7 +27,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
-        And they enter "asd" in fields:
+        And they enter an invalid value in fields:
             | Volume         |
             | Issue          |
             | Pages from     |
