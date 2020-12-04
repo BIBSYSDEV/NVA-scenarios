@@ -7,7 +7,6 @@ Feature: Administrator opens the Add Role Dialog
         When they click a "<Button>" under a "<Section>"
         Then they see the Add Role Dialog with Authentication ID
         And they see a Search box for employees
-        And they see a Search button
         And they see an Information box
         And they see a Close button
         Examples:
