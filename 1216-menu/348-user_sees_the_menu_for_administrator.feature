@@ -6,7 +6,7 @@ Feature: User sees the menu for Institution-admin
         And they have the role of Institution-admin
         When they look at any page in NVA
         Then they see a menu containing
-            | My profile     |
-            | Users          |
-            | My institution |
-            | Log out        |
+            | My user profile |
+            | Users           |
+            | My institution  |
+            | Log out         |
