@@ -7,7 +7,7 @@ Feature: User opens the page My Profile
         Then they see My Profile
         And they see their Profile page which includes information for
             | Real name          |
-            | ID                 |
+            | Feide ID           |
             | Email              |
             | ORCID              |
             | Roles              |
