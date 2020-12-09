@@ -3,7 +3,7 @@ Feature: Administrator views User Administration Sections with Role members (Par
     @359
     Scenario Outline: Administrator views User Administration Sections with Role members (Part I)
         Given that the user is logged in as Administrator
-        When they click the menu item User Administration
+        When they click the menu item Users
         Then they see the User Administration page
         And they see the "<Section>"
         And they see the "<Section>" contains a list of all users affiliated with their institution and with with role "<Role>"
