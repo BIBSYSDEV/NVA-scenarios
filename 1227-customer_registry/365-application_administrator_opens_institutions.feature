@@ -7,8 +7,7 @@ Feature: Application Administrator opens Institutions
         Then they see the page Institutions
         And they see a table of all Institutions (customers)
         And they see the table contains the fields
-            | Institution |
-            | Created     |
-            | Editor      |
+            | Name |
+            | Date |
         And they see a button Open that is enabled for each Institution
         And they see a button Create Institution that is enabled
