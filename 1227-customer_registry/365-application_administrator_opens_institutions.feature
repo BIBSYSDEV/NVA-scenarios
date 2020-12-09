@@ -9,5 +9,5 @@ Feature: Application Administrator opens Institutions
         And they see the table contains the fields
             | Name |
             | Date |
-        And they see a button Open that is enabled for each Institution
-        And they see a button Create Institution that is enabled
+        And they see a button Edit that is enabled for each Institution
+        And they see a button Add institution that is enabled
