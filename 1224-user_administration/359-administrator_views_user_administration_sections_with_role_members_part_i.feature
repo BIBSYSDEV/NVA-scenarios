@@ -10,9 +10,9 @@ Feature: Administrator views User Administration Sections with Role members (Par
         And they see under each Section a Button to assign the "<Role>" to a another user
         And they see that each list has the field "Authentication ID"
         And they see a button Remove that is enabled for each user
+        And they see a section Registrator with a policy for who are able to publish
         Examples:
             | Section                    | Role          |
             | Institution Administrators | Administrator |
             | Curators                   | Curator       |
             | Editors                    | Editor        |
-            | Creators                   | Creator       |
