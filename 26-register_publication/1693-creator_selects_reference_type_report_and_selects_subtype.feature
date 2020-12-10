@@ -26,10 +26,10 @@ Feature: Creator selects Reference type Report and selects subtype
         And they enter an invalid value in fields:
             | ISBN                  |
             | Total number of pages |
+        Then they can see the "Invalid ISBN" error message
         When they click the Save button
         Then they can see "Mandatory" error messages for fields:
             | Search box for Publisher |
-        And they can see the "Invalid ISBN" error message
         And they can see "Invalid format" error message for fields:
             | Total number of pages |
         Examples:
