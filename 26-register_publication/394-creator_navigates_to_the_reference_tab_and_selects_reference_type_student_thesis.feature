@@ -5,7 +5,7 @@ Feature: Creator navigates to the Reference tab and selects Reference type Stude
         When they navigate to the Reference tab
         And they select the Reference type "Student thesis"
         Then they see a list of subtypes:
-            | Bachelor thesis    |
-            | Master thesis      |
-            | Doctoral thesis    |
-            | Other student work |
+            | Bachelor thesis      |
+            | Master thesis        |
+            | Doctoral thesis      |
+            | Other student thesis |

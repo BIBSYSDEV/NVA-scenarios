@@ -3,7 +3,7 @@ Feature: Anonymous User View Public Page for Publication
     @881
     Scenario Outline: Anonymous User View Public Page for Publication
         Given the Anonymous User has opened NVA
-        And they see the <Page>
+        And they see the "<Page>"
         When they click to view a Publication
         Then the Public Page for Publication is opened
         And they see page fields for
@@ -24,7 +24,7 @@ Feature: Anonymous User View Public Page for Publication
             | ORCID                  |
             | DOI link               |
             | Licence                |
-            | <Licence link>         |
+            | "<Licence link>"       |
 
         Examples:
             | Page        | Licence link                                                            |

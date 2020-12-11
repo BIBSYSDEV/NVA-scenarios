@@ -6,6 +6,6 @@ Feature: User sees the menu for Curator
         And they have the role of Curator
         When they look at any page in NVA
         Then they see a menu containing
-            | My profile  |
-            | My worklist |
-            | Log out     |
+            | My user profile |
+            | My worklist     |
+            | Log out         |
