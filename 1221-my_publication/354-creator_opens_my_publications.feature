@@ -1,7 +1,7 @@
-Feature: Creator opens My Publications
+Feature: Creator opens My Registrations
 
   @354
-  Scenario: Creator opens My Publications
+  Scenario: Creator opens My Registrations
     Given the user is logged in as Creator
     When they click the button My registrations
     Then they see My registrations

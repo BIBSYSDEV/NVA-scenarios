@@ -19,5 +19,5 @@ Feature: Creator navigates to the Description tab and handles Projects
   @1774
   Scenario: Creator removes a Project
     Given Creator has added a Project
-    When they click Remove Project
+    When they click the Remove Project icon
     Then they see the Project is removed from the list of selected Projects
