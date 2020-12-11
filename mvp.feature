@@ -28,19 +28,6 @@ Feature: MVP features for NVA
     Then the Connect Author dialog closes
     And they see a confirmation dialog
 
-  @1206
-  Scenario: A user logs in with Feide not for the first time
-    Given that the user has valid Feide credentials
-    And they have logged in with Feide before
-    And they have not connected ORCID
-    And they are on the Start page
-    When they click Log in
-    And they are redirected to Feide
-    And they enter their Feide credentials
-    Then they are redirected back to the Start page
-    And they see their name in the Menu
-    And they see the Connect ORCID dialog
-
   @28
   Scenario: A user is already authenticated with Feide (single sign on)
     Given that the user is already authenticated with Feide
@@ -57,23 +44,6 @@ Feature: MVP features for NVA
     When they click on the Menu
     And they click Log out
     Then they are logged out of the NVA application
-
-  @217
-  Scenario Outline: User with no Feide ID in ARP sees matching Author identities
-    Given that Kim Smith has a valid Feide ID and password
-    And they do not have a Feide ID in their ARP entry
-    And there are entries in ARP
-      | Smith, Kim (died 2019) |
-      | Smith, Kim F.          |
-      | Smith, Kim             |
-    When they log in
-    Then they see a list containing "<Author name>" and "<Last publication>" for each ARP entry matching their <Name>
-    And a Create New Author Button
-    Examples:
-      | Name      | Author name   | Last publication  |
-      | Kim Smith | Smith, Kim    | Some Title        |
-      | Kim Smith | Smith, Kim    | Some Other Title  |
-      | Kim Smith | Smith, Kim F. | Yet Another Title |
 
   @1207
   Scenario: User has no matching Author identity
@@ -92,42 +62,6 @@ Feature: MVP features for NVA
     When they click the Create New Author Button
     Then they see the Create New Authority dialog
     And that their name is selected
-
-  @219
-  Scenario: User updates an Author identity
-    Given that a user with no Feide ID in ARP sees matching Author identities
-    When they select an Author identity
-    And they click Connect Author identity
-    Then their Feide ID is added to their Author identity
-    And their Feide organization number is mapped to an Organizational ID (Cristin ID)
-    And their Organizational ID (Cristin ID) is added to their Author identity
-    And they see a notification that confirms the connection
-    And they are redirected to the ORCID dialog
-  # This last step hides cases where an ORCID already exists in ARP
-  # There should also be a possibility to ask for support if there is a problem in the data, i.e. there are multiple registered Author identities for a single Author
-
-  @384
-  Scenario: User creates an Author identity
-    Given that a user has no matching Author identity
-    When they click Create Author identity
-    Then their identity is added to ARP
-    And their Feide ID is added to their Author identity
-    And their Feide organization number is mapped to an Organizational ID (Cristin ID)
-    And their Organizational ID (Cristin ID) is added to their Author identity
-    And they are redirected to the ORCID dialog
-
-  @222
-  Scenario: User attempts to add an ORCID to their Author identity
-    Given that the user:
-      | User updates an Author identity |
-      | User creates an Author identity |
-    When they click Add ORCID
-    And they are redirected to ORCID for login
-    And they log into ORCID
-    And they accept that NVA uses their data
-    Then they are redirected back to NVA
-    And their ORCID is added to their Author identity
-    And they see their ORCID on their Profile page
 
   @226
   Scenario: Creator begins registering a Publication
