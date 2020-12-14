@@ -9,7 +9,6 @@ Feature: Creator navigates to Reference tab
     And they see the tab Reference is selected
     And they see the tab Contributors is clickable
     And they see the tab Files and License is clickable
-    And they see the tab Summary is clickable
     And they see Previous is enabled
     And they see Next is enabled
     And they see Save is enabled
@@ -18,5 +17,5 @@ Feature: Creator navigates to Reference tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Reference tab
     And they click the Save button
-    Then they can see "Required field" error messages for fields:
+    Then they can see "Mandatory" error messages for fields:
         | Type |
