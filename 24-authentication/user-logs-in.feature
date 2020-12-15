@@ -18,8 +18,7 @@ Feature: User logs in
   Scenario: User creates a new Author identity
     Given that the user logs in with their Feide ID
     And they do not have their Feide ID in any ARP entry
-    When they click Create Author identity button
-    Then they see proposed name for a new Author identity
+    Then they see proposed name for a new Author identity based on data from their Feide account
     When they click Create Author identity button
     Then this new Author identity is added to ARP
     And their Feide ID is added to their Author identity
