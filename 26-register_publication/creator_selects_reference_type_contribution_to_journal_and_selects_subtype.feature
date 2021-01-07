@@ -102,7 +102,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
-            | Chronicle            |
+            | Feature article      |
             | Interview            |
 
     Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Reference subtype are validated
@@ -130,5 +130,5 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
-            | Chronicle            |
+            | Feature article      |
             | Interview            |
