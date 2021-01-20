@@ -230,19 +230,6 @@ Feature: MVP features for NVA
     And they see a Search box for "Series title"
     And they see the NVI evaluation is Not NVI Applicable
 
-  @417
-  Scenario: Creator navigates to Contributor tab
-    Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Contributor tab
-    Then they see Add Author is enabled
-    And they see the tab Description is clickable
-    And they see the tab Reference is clickable
-    And they see the tab Contributor is selected
-    And they see the tab Files and Licenses is clickable
-    And they see the tab Submission is clickable
-    And they see Next is enabled
-    And they see Save is enabled
-
   @275
   Scenario: Creator navigates to Files and Licenses tab
     Given Creator begins registering a Publication in the Wizard
