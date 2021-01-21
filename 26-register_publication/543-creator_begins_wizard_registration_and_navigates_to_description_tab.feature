@@ -9,7 +9,6 @@ Feature: Creator begins Wizard registration and navigates to Description tab
       | Abstract                     |
       | Description                  |
       | Date published               |
-      | NPI disciplines              |
       | Keywords                     |
       | Primary language for content |
       | Project association          |
