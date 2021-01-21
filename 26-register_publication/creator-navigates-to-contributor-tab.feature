@@ -18,4 +18,4 @@ Feature: Creator navigates to Contributors tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Contributors tab
     And they click "Add me as author"
-    Then their Author identity are appended to list of Authors
+    Then their Author identity is appended to list of Authors
