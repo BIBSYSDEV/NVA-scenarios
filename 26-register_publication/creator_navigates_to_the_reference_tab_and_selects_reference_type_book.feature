@@ -11,6 +11,7 @@ Feature: Creator navigates to the reference tab and selects Reference type Book
         And they see fields for
             | ISBN                  |
             | Total number of pages |
+            | NPI discipline        |
         And they see a Search box for "Title of the Series"
         And they see a preselected value for Peer review "Not peer reviewed"
 
@@ -25,6 +26,7 @@ Feature: Creator navigates to the reference tab and selects Reference type Book
         And they see fields for
             | ISBN                  |
             | Total number of pages |
+            | NPI discipline        |
         And they see a Search box for "Title of the Series"
         And they see a preselected value for Peer review "Not peer reviewed"
         And they see the Norwegian Science Index (NVI) evaluation status
