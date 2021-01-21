@@ -18,7 +18,6 @@ Feature: Institution Administrator edits My Institution
         And they click the menu item My Institution
         And they see the My Institution page
         When they edit fields:
-            | Name in organization registry |
             | Display name                  |
             | Short display name            |
             | Archive name                  |
