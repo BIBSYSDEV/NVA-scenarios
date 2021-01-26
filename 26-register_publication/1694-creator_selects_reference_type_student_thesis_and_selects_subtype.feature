@@ -16,12 +16,12 @@ Feature: Creator selects Reference type Student thesis and selects subtype
         And they select the Reference type "Student thesis"
         And they select "<Subtype>":
         When they click the Save button
-        Then they can see "Required field" error messages for fields:
+        Then they can see "Mandatory" error messages for fields:
             | Search box for Publisher |
 
         Examples:
-            | Subtype            |
-            | Bachelor thesis    |
-            | Master thesis      |
-            | Doctoral thesis    |
-            | Other student work |
+            | Subtype              |
+            | Bachelor thesis      |
+            | Master thesis        |
+            | Doctoral thesis      |
+            | Other student thesis |
