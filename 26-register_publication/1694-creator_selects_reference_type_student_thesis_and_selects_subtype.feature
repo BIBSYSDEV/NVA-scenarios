@@ -9,6 +9,12 @@ Feature: Creator selects Reference type Student thesis and selects subtype
             | Search box for Publisher |
             | DOI                      |
             | Search box for Series    |
+        Examples:
+            | Subtype              |
+            | Bachelor thesis      |
+            | Master thesis        |
+            | Doctoral thesis      |
+            | Other student thesis |
 
     Scenario Outline: Creator sees that fields are validated for Reference subtypes for "Student thesis"
         Given Creator begins registering a Publication in the Wizard
