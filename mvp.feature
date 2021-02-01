@@ -1082,9 +1082,9 @@ Feature: MVP features for NVA
     And they see a Close button
     Examples:
       | Section       | Button            |
-      | Administrator | New Administrator |
-      | Curator       | New Curator       |
-      | Editor        | New Editor        |
+      | Administrator | Add Administrator |
+      | Curator       | Add Curator       |
+      | Editor        | Add Editor        |
 
 
   @1362
