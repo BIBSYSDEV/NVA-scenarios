@@ -18,8 +18,8 @@ Feature: Administrator views User Administration Sections with Role members (Par
         And they see a checkbox for "Assign role Creator automatically"
         Examples:
             | Section                    | Role          |
-            | Institution Administrators | Administrator |
+            | Administrators             | Administrator |
             | Curators                   | Curator       |
             | Editors                    | Editor        |
-            | Creators                   | Creator       |
+            | Registrator                | Registrator   |
 

@@ -15,6 +15,6 @@ Feature: Administrator views User Administration Sections with Role members (Par
         And they see a section Registrator with a policy for who are able to publish
         Examples:
             | Role                       | Button            |
-            | Administrator              | New Administrator |
-            | Curator                    | New Curator       |
-            | Editor                     | New Editor        |
+            | Administrator              | Add Administrator |
+            | Curator                    | Add Curator       |
+            | Editor                     | Add Editor        |
