@@ -9,7 +9,7 @@ Feature: Administrator searches for User
         Then they see the Search result for "Kari" with Authentication ID
         And they see an Add button for each row
         Examples:
-            | Add Role button   |
+            | Add Role   |
             | Add Administrator |
             | Add Curator       |
             | Add Editor        |
