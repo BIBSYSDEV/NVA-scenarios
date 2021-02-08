@@ -127,6 +127,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Article number |
         Examples:
             | Subtype              |
+            | Feature article      |
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
