@@ -8,6 +8,7 @@ Feature: Creator navigates to the Reference tab and selects Reference type "Cont
         Then they see a list of subtypes:
             | Journal article      |
             | Short communication  |
+            | Feature article      |
             | Letter to the Editor |
             | Book review          |
             | Editorial            |
