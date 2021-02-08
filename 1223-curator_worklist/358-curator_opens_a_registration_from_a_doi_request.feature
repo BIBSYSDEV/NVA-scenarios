@@ -9,4 +9,3 @@ Feature: Curator opens a Registration from a DOI Request
         Then they see the Landing Page for the DOI Request's Registration
         And the Create DOI button is enabled
         And the Decline DOI button is enabled
-        And the Save and Present button is enabled
