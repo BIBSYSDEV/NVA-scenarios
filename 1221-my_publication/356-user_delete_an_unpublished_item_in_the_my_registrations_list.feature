@@ -1,4 +1,4 @@
-Feature: Creator deletes an item in My Publications list
+Feature: Creator deletes an item in My Registrations list
 
     @356
     Scenario: Creator deletes an item in My Registrations list
