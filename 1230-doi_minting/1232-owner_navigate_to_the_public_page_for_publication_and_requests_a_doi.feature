@@ -10,5 +10,4 @@ Feature: Owner navigates to the Public Page for Publication and requests a DOI
         Then the Landing page is displayed
         And the "Request a DOI" button is no longer visible
         And the request is listed in My Messages
-        
         And the request is listed in Curator Worklist
