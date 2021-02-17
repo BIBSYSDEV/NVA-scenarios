@@ -29,7 +29,9 @@ Feature: Creator navigates to Contributors tab
     And they see the "Add Author" Button
     And they click "Add Author"
     And they search for Author in the Author Search Dialog
-    Then their Author identity is added to the list of Authors
+    And they select an Author identity
+    And they click "Add"
+    Then the selected Author identity is added to the list of Authors
 
   Scenario: Creator adds an Author to the list of Authors for Reference Type Book, Monograph
     Given Creator begins registering a Registration in the Wizard
@@ -40,7 +42,9 @@ Feature: Creator navigates to Contributors tab
     And they see the "Add Author" Button
     And they click "Add Author"
     And they search for Author in the Author Search Dialog
-    Then their Author identity is added to the list of Authors
+    And they select an Author identity
+    And they click "Add"
+    Then the selected Author identity is added to the list of Authors
 
   Scenario: Creator adds an Author to the list of Authors for Reference Type Chapter
     Given Creator begins registering a Registration in the Wizard
@@ -51,7 +55,9 @@ Feature: Creator navigates to Contributors tab
     And they see the "Add Author" Button
     And they click "Add Author"
     And they search for Author in the Author Search Dialog
-    Then their Author identity is added to the list of Authors
+    And they select an Author identity
+    And they click "Add"
+    Then the selected Author identity is added to the list of Authors
 
   Scenario: Creator adds an Editor to the list of Editors for Reference Type Book, Anthology
     Given Creator begins registering a Registration in the Wizard
@@ -62,7 +68,9 @@ Feature: Creator navigates to Contributors tab
     And they see the "Add Editor" Button
     And they click "Add Editor"
     And they search for Editor in the Author Search Dialog
-    Then their Author identity is added to the list of Editors
+    And they select an Author identity
+    And they click "Add"
+    Then the selected Author identity is added to the list of Editors
 
   Scenario: Creator adds a Supervisor to the list of Supervisors for Reference Type Student Thesis
     Given Creator begins registering a Registration in the Wizard
@@ -74,4 +82,6 @@ Feature: Creator navigates to Contributors tab
     And they see the "Add Supervisor" Button
     And they click "Add Supervisor"
     And they search for Supervisor in the Author Search Dialog
-    Then their Author identity is added to the list of Supervisors
+    And they select an Author identity
+    And they click "Add"
+    Then the selected Author identity is added to the list of Supervisors
