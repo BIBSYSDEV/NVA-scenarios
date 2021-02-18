@@ -12,7 +12,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
         And the Registration contains Files
         When they view the Files section
         Then they can see Files that are not Administrative Agreements are listed
-        And for each file they can see:
+        And for each File they can see:
             | Name    |
             | Size    |
             | Version |
@@ -34,18 +34,18 @@ Feature: User navigates to Landing Page for Registration and can see Files
             | Image            |
             | Microsoft Office |
 
-    Scenario: Automatically preview first file
+    Scenario: Automatically preview first File
         Given Anonymous User views Landing Page for Registration
         And the Registration contains Files
-        When the first file is not Embargoed
-        And the file's size is less than 10 MB
-        Then the file's Preview panel is expanded by default
-        And the file is automatically downloaded
-        And the downloaded file is displayed
+        When the first File is not Embargoed
+        And the File's size is less than 10 MB
+        Then the File's Preview panel is expanded by default
+        And the File is automatically downloaded
+        And the downloaded File is displayed
 
-    Scenario: Lock Embargoed files
+    Scenario: Lock Embargoed Files
         Given Anonymous User views Landing Page for Registration
         And the Registration contains a File that is Embargoed
-        Then the Embargoed file do not have an expandable Preview panel
-        And the file cannot be downloaded
-        And the user can see the date for when the file will no longer be Embargoed
+        Then the Embargoed File do not have an expandable Preview panel
+        And the File cannot be downloaded
+        And the user can see the date for when the File will no longer be Embargoed
