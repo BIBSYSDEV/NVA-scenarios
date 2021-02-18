@@ -7,6 +7,18 @@ Feature: User navigates to Landing Page for Registration and can see files
         When they view the Files section
         Then they do not see the File that is an Administrative Agreement
 
+    Scenario: Files that are part of Registration are listed
+        Given a User views the Landing Page for a Registration
+        And the Registration contains Files
+        When they view the Files section
+        Then they can see files that are not Administrative Agreement are listed
+        And for each file they can see:
+            | name    |
+            | size    |
+            | version |
+            | license |
+        And they can download files that are not embargoed
+
     @2158
     Scenario: Files can be previewed
         Given a User views the Landing Page for a Registration
