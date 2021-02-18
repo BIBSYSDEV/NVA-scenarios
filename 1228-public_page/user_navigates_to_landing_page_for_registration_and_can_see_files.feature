@@ -37,15 +37,15 @@ Feature: User navigates to Landing Page for Registration and can see files
     Scenario: Automatically preview first file
         Given a User views the Landing Page for a Registration
         And the Registration contains Files
-        When the first file is not embargoed
+        When the first file is not Embargoed
         And the file's size is less than 10 MB
         Then the file's Preview panel is expanded by default
         And the file is automatically downloaded
         And the downloaded file is displayed
 
-    Scenario: Lock embargoed files
+    Scenario: Lock Embargoed files
         Given a User views the Landing Page for a Registration
-        And the Registration contains a File that is embargoed
-        Then the embargoed file do not have an expandable Preview panel
+        And the Registration contains a File that is Embargoed
+        Then the Embargoed file do not have an expandable Preview panel
         And the file cannot be downloaded
-        And the user can see the date for when the file will no longer be embargoed
+        And the user can see the date for when the file will no longer be Embargoed
