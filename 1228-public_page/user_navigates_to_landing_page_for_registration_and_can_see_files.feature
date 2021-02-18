@@ -11,23 +11,23 @@ Feature: User navigates to Landing Page for Registration and can see files
         Given a User views the Landing Page for a Registration
         And the Registration contains Files
         When they view the Files section
-        Then they can see files that are not Administrative Agreement are listed
+        Then they can see files that are not Administrative Agreements are listed
         And for each file they can see:
-            | name    |
-            | size    |
-            | version |
-            | license |
-        And they can download files that are not embargoed
+            | Name    |
+            | Size    |
+            | Version |
+            | License |
+        And they can download Files that are not Embargoed
 
     @2158
-    Scenario: Files can be previewed
+    Scenario Outline: Files can be previewed
         Given a User views the Landing Page for a Registration
-        And the Registration contains Files that are not embargoed
-        And every file has an expandable Preview panel
+        And the Registration contains Files that are not Embargoed
+        And every File has an expandable Preview panel
         When the user expands the Preview panel
-        Then the selected file is downloaded
-        And the downloaded file is of type "<FileType>"
-        And the downloaded file is displayed
+        Then the selected File is downloaded
+        And they see the downloaded File is of type "<FileType>"
+        And they see the preview of the downloaded File
         Examples:
             | FileType         |
             | PDF              |
