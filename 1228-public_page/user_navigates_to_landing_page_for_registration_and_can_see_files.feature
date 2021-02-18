@@ -1,4 +1,4 @@
-Feature: User navigates to Landing Page for Registration and can see files
+Feature: User navigates to Landing Page for Registration and can see Files
 
     @1530
     Scenario: Files that are Administrative Agreements are hidden
@@ -11,7 +11,7 @@ Feature: User navigates to Landing Page for Registration and can see files
         Given Anonymous User views Landing Page for Registration
         And the Registration contains Files
         When they view the Files section
-        Then they can see files that are not Administrative Agreements are listed
+        Then they can see Files that are not Administrative Agreements are listed
         And for each file they can see:
             | Name    |
             | Size    |
