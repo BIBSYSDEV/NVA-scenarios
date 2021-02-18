@@ -17,7 +17,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
             | Size    |
             | Version |
             | License |
-        And they can download Files that are not Embargoed
+        And they can see a download button for Files that are not Embargoed
 
     @2158
     Scenario Outline: Files can be previewed
@@ -46,6 +46,6 @@ Feature: User navigates to Landing Page for Registration and can see Files
     Scenario: Lock Embargoed Files
         Given Anonymous User views Landing Page for Registration
         And the Registration contains a File that is Embargoed
-        Then the Embargoed File do not have an expandable Preview panel
-        And the File cannot be downloaded
-        And the user can see the date for when the File will no longer be Embargoed
+        Then the Embargoed File does not have an expandable Preview panel
+        And the Embargoed File does not have a download button
+        And the user can see the date when the File will no longer be Embargoed
