@@ -4,8 +4,8 @@ Feature: Anonymous User views Landing Page for Registration
     Scenario Outline: Anonymous User views Landing Page for Registration
         Given the Anonymous User has opened NVA
         And they see the "<Page>"
-        When they click to view a Publication
-        Then the Public Page for Publication is opened
+        When they click to view a Registration
+        Then the Landing Page for Registration is opened
         And they see page fields for
             | Title                  |
             | Abstract               |
@@ -16,17 +16,12 @@ Feature: Anonymous User views Landing Page for Registration
             | Projects               |
             | Publication type       |
             | Publication subtype    |
-            | Values per sybtype     |
-            | Clickable Contributors |
-            | Clickable emails       |
-            | Affiliations           |
-            | File download link     |
-            | ORCID                  |
+            | Fields corresponding to subtype     |
+            | Contributors |
+            | Files     |
             | DOI link               |
-            | Licence                |
-            | "<Licence link>"       |
-
+            | License                |
         Examples:
-            | Page        | Licence link                                                            |
-            | Start Page  | https://creativecommons.org/licenses/by/4.0/deed.no                     |
-            | Public Page | https://dlr.unit.no/licenses/ntnu-alle-rettigheter-forbeholdt-forfatter |
+            | Page        | 
+            | Start Page  | 
+            | Public Page | 
