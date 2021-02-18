@@ -48,7 +48,7 @@ Feature: Creator begins registering a Registration
   Scenario: Creator begins registering with a Link with data from DC and DCTERMS meta tags
     Given Creator begins registering a Registration
     And they click Expansion panel for Link to resource
-    And they enter a https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
+    And they enter https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
     And they click Search
     Then they see metadata about the Link in the Expansion panel
 
@@ -64,6 +64,6 @@ Feature: Creator begins registering a Registration
   Scenario: Creator begins registering with a Link with data from Highwire tag
     Given Creator begins registering a Registration
     And they click Expansion panel for Link to resource
-    When they enter a https://link.springer.com/article/10.1007/s13201-020-01350-9
+    When they enter https://link.springer.com/article/10.1007/s13201-020-01350-9
     And click Search
     Then they see metadata about the Link in the Expansion panel
