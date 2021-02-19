@@ -63,59 +63,6 @@ Feature: MVP features for NVA
     Then they see the Create New Authority dialog
     And that their name is selected
 
-  @226
-  Scenario: Creator begins registering a Publication
-    Given that the user is logged in
-    And they have Role Creator
-    And they are on the Start page
-    When they click Register new Publication
-    Then they are redirected to the Register new Publication page
-    And they see an Expansion panel for Upload file
-    And they see an Expansion panel for Link to Publication
-    And they see an Expansion panel for Suggestions from ORCID
-
-  @228
-  Scenario: Creator begins registering with a Link with direct data from Datacite/Crossref
-    Given Creator begins registering a Publication
-    When they expand Link to Publication
-    And they enter a DOI or a fully qualified DOI URL
-    And they click Search
-    Then they see metadata about the Link in the Expansion panel
-
-  @439
-  Scenario: Creator begins registering with a Link with data from Datacite/Crossref from citation_doi meta tag (DOI)
-    Given Creator begins registering a Publication
-    When they expand Link to Publication
-    And they enter https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945
-    And they click Search
-    Then they see metadata about the Link in the Expansion panel
-
-  #DLR does not have a meta tag with a DOI
-
-  @440
-  Scenario: Creator begins registering with a Link with data from dc:identifier meta tag
-    Given Creator begins registering a Publication
-    When they expand Link to Publication
-    And they enter https://loar.kb.dk/handle/1902/1674?show=full
-    And they click Search
-    Then they see metadata about the Link in the Expansion panel
-
-  @441
-  Scenario: Creator begins registering with a Link with data from DC and DCTERMS meta tags
-    Given Creator begins registering a Publication
-    When they expand Link to Publication
-    And they enter a https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973
-    And they click Search
-    Then they see metadata about the Link in the Expansion panel
-
-  @442
-  Scenario: Creator begins registering with a Link with data from Open Graph tag
-    Given Creator begins registering a Publication
-    When they expand Link to Publication
-    And they enter https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788
-    And they click Search
-    Then they see metadata about the Link in the Expansion panel
-
   @443
   Scenario Outline: Creator begins registering a Publication in the Wizard
     Given Creator begins registering a Publication
