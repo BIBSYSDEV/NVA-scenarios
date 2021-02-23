@@ -1,4 +1,4 @@
-Feature: Owner navigates to the Public Page for Publication and requests a DOI
+Feature: Owner navigates to the Landing Page for published Registration and requests a DOI
 
     @1232
     Scenario: Owner navigates to the Landing page and requests a DOI

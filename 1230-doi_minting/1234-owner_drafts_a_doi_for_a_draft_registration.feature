@@ -1,4 +1,4 @@
-Feature: Owner drafts a DOI for a draft Publication
+Feature: Owner drafts a DOI for a draft Registration
 
     @1234
     Scenario: Owner drafts a DOI for a draft Registration
