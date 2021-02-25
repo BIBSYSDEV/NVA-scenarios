@@ -2,7 +2,7 @@ Feature: Creator navigates to the reference tab and selects Reference type Book
 
     @392
     Scenario: Creator navigates to the Reference tab and selects Reference subtype "Anthology"
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Reference tab
         And they select Reference type Book
         And they select Reference subtype "Anthology" from the list
@@ -17,7 +17,7 @@ Feature: Creator navigates to the reference tab and selects Reference type Book
 
     @1963
     Scenario: Creator navigates to the Reference tab and selects Reference subtype "Monograph"
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Reference tab
         And they select Reference type Book
         And they select Reference subtype "Monograph" from the list

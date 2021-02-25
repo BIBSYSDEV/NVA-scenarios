@@ -1,7 +1,7 @@
 Feature: Creator selects Reference type Report and selects subtype
 
     Scenario Outline: Creator sees fields for Reference subtypes for "Report"
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Report"
         And they select the subtype "<Subtype>":
@@ -19,7 +19,7 @@ Feature: Creator selects Reference type Report and selects subtype
 
 
     Scenario Outline: Creator sees that fields are validated for Reference subtypes for "Report"
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         And they navigate to the Reference tab
         And they select the Reference type "Report"
         And they select the subtype "<Subtype>":
