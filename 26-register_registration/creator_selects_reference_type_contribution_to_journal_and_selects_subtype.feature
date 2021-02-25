@@ -2,7 +2,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
 
     @1656
     Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) compatible Reference subtype
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select Reference subtype "<Subtype>"
@@ -22,7 +22,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Short communication |
 
     Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) compatible Reference subtype are validated
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select Reference subtype "<Subtype>"
@@ -48,7 +48,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
 
     @1625
     Scenario: Creator sees fields for Reference subtype "Corrigendum"
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select the Reference subtype "Corrigendum"
@@ -63,7 +63,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
         And they see a disabled field for Journal based on selected Journal article
 
     Scenario: Creator sees that fields for Reference subtype "Corrigendum" are validated
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select the Reference subtype "Corrigendum"
@@ -85,7 +85,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
 
     @1659
     Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Reference subtype
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select Reference subtype "<Subtype>"
@@ -106,7 +106,7 @@ Feature: Creator selects Reference type Contribution to journal and selects subt
             | Interview            |
 
     Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Reference subtype are validated
-        Given Creator begins registering a Publication in the Wizard
+        Given Creator begins registering a Registration in the Wizard
         And they navigate to the Reference tab
         And they select the Reference type "Contribution to journal"
         And they select Reference subtype "<Subtype>"
