@@ -30,3 +30,18 @@ Feature: Creator navigates to the reference tab and selects Reference type Book
         And they see a Search box for "Title of the Series"
         And they see a preselected value for Peer review "Not peer reviewed"
         And they see the Norwegian Science Index (NVI) evaluation status
+
+    @2229
+    Scenario: Creator sees that fields for Book are validated on Reference tab
+        Given Creator begins registering a Registration in the Wizard
+        When they navigate to the Reference tab
+        And they select Reference type "Book"
+        And they select Reference subtype "<BookType>" from the list
+        And they click the Save button
+        Then they can see "Mandatory" error messages for fields:
+            | Publisher      |
+            | NPI discipline |
+        Examples:
+            | BookType  |
+            | Anthology |
+            | Monograph |
