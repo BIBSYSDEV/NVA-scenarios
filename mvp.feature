@@ -259,23 +259,6 @@ Feature: MVP features for NVA
   #  When they click Start
   #  Then they see the tab Description
 
-  @388
-  Scenario: Creator sees a Publication based on a Link is saved
-    Given Creator begins registering with a Link
-    When they click Start
-    And they click My Publications
-    Then they see the Publication is saved and the title is listed and marked as Draft
-
-  @391
-  Scenario: Creator sees Publication based on file upload is saved
-    Given Creator begins registration by uploading a file
-    When they click Start
-    And they click My Publications
-    Then they see the Publication is saved and the title is listed (filename) and marked as Draft
-    And they see that Edit is enabled
-    And they see that Delete is enabled
-
-
   @432
   Scenario: Creator verifies file upload for a registration based on uploading a file
     Given Creator opens an item in the My Publication list
