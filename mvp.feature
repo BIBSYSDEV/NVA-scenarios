@@ -393,14 +393,6 @@ Feature: MVP features for NVA
   # There is a match between all ORCIDs from the DOI data document and (a subset of) the Cristin Project DB Project data document ORCIDs
   # All of the ORCIDs are in ARP
 
-  @418
-  Scenario: Creator opens the Add Author dialog
-    Given Creator navigates to Contributor tab
-    When they click Add Author
-    Then they see the Add Author dialog
-    And they see Author search
-    And they can cancel the dialog
-
   @1211
   Scenario: Creator sees Author search results
     Given Creator opens the Add Author dialog
@@ -411,14 +403,6 @@ Feature: MVP features for NVA
       | Author name                   |
       | the Author's last publication |
       | Affiliation(s)                |
-
-  @419
-  Scenario: Creator adds an Author to the Author list
-    Given they see Author search results
-    When they click an Author
-    And they click Add Author
-    Then they see the dialog is closed
-    And they see the Author is shown in the Authors section in the Contributor tab
 
   @784
   Scenario: Creator finds no matching Author in Author Search
