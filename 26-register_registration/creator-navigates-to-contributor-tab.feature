@@ -28,6 +28,7 @@ Feature: Creator navigates to Contributors tab
     Given Creator begins registering a Registration in the Wizard
     And they see the "Add Author" Button
     And they click "Add Author"
+    And they see the "Create new author" Button
     When they click "Create new author"
     Then they see fields:
       | First name |
