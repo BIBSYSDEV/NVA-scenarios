@@ -6,5 +6,4 @@ Feature: Creator registers Corresponding Author
         And they navigate to the Contributors tab
         And they see an Author
         When they check the Corresponding checkbox
-        Then they see the Corresponding Author Email field
-        And they enter the Author's email
+        Then they see the Corresponding Author checkbox is checked
