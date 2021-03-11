@@ -1,10 +1,10 @@
 Feature: Creator navigates to Resource Type tab
 
   @274
-  Scenario: Creator navigates to the Resource Type tab and selects Reference type "Contribution to journal"
+  Scenario: Creator navigates to the Resource Type tab and selects Resource type "Contribution to journal"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Contribution to journal"
+    And they select the Resource type "Contribution to journal"
     Then they see a list of subtypes:
       | Journal article      |
       | Short communication  |
@@ -35,10 +35,10 @@ Feature: Creator navigates to Resource Type tab
       | Type |
 
   @393
-  Scenario: Creator navigates to the Resource Type tab and selects Reference type "Report"
+  Scenario: Creator navigates to the Resource Type tab and selects Resource type "Report"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Report"
+    And they select the Resource type "Report"
     Then they see a list of subtypes:
       | Research report      |
       | Policy report        |
@@ -46,11 +46,11 @@ Feature: Creator navigates to Resource Type tab
       | Other type of report |
 
   @392
-  Scenario: Creator navigates to the Resource Type tab and selects Reference subtype "Anthology"
+  Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Anthology"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select Reference type Book
-    And they select Reference subtype "Anthology" from the list
+    And they select Resource type Book
+    And they select Resource subtype "Anthology" from the list
     Then they see a Search box for "Publisher name"
     And they see a checkbox for "Is this a textbook?"
     And they see fields for
@@ -61,10 +61,10 @@ Feature: Creator navigates to Resource Type tab
     And they see a preselected value for Peer review "Not peer reviewed"
 
   @394
-  Scenario: Creator navigates to the Resource Type tab and selects Reference type "Student thesis"
+  Scenario: Creator navigates to the Resource Type tab and selects Resource type "Student thesis"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Student thesis"
+    And they select the Resource type "Student thesis"
     Then they see a list of subtypes:
       | Bachelor thesis      |
       | Master thesis        |
@@ -72,10 +72,10 @@ Feature: Creator navigates to Resource Type tab
       | Other student thesis |
 
   @395
-  Scenario: Creator sees fields for Reference subtype "Chapter in book"
+  Scenario: Creator sees fields for Resource subtype "Chapter in book"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference Type "Part of book/report"
+    And they select the Resource Type "Part of book/report"
     And they select the Registration Subtype "Chapter in book"
     Then they see an information box describing that a Container book must be published first
     And they see fields:
@@ -99,10 +99,10 @@ Feature: Creator navigates to Resource Type tab
       | Book review          |
 
   @1624
-  Scenario: Creator navigates to the Resource Type tab and selects Reference type "Other publication"
+  Scenario: Creator navigates to the Resource Type tab and selects Resource type "Other publication"
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Other publication"
+    And they select the Resource type "Other publication"
     Then they see a list of subtypes:
       | Feature article   |
       | Map               |
@@ -110,11 +110,11 @@ Feature: Creator navigates to Resource Type tab
       | Other publication |
 
   @1625
-  Scenario: Creator sees fields for Reference subtype "Corrigendum"
+  Scenario: Creator sees fields for Resource subtype "Corrigendum"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Contribution to journal"
-    And they select the Reference subtype "Corrigendum"
+    And they select the Resource type "Contribution to journal"
+    And they select the Resource subtype "Corrigendum"
     Then they see fields:
       | Search box for "Journal article" |
       | DOI                              |
@@ -125,11 +125,11 @@ Feature: Creator navigates to Resource Type tab
       | Article number                   |
     And they see a disabled field for Journal based on selected Journal article
 
-  Scenario: Creator sees that fields for Reference subtype "Corrigendum" are validated
+  Scenario: Creator sees that fields for Resource subtype "Corrigendum" are validated
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resource Type tab
-    And they select the Reference type "Contribution to journal"
-    And they select the Reference subtype "Corrigendum"
+    And they select the Resource type "Contribution to journal"
+    And they select the Resource subtype "Corrigendum"
     And they enter an invalid value in fields:
       | Volume         |
       | Issue          |
@@ -147,20 +147,20 @@ Feature: Creator navigates to Resource Type tab
       | Article number |
 
   @1631
-  Scenario: Creator selects Reference type "Other publication" and selects subtype "Map"
+  Scenario: Creator selects Resource type "Other publication" and selects subtype "Map"
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Other publication"
+    And they select the Resource type "Other publication"
     And they select the subtype "Map"
     Then they see fields
       | Search box for Publisher |
       | Original version         |
 
   @1632
-  Scenario: Creator selects Reference type "Other publication" and selects subtype "Musical notation"
+  Scenario: Creator selects Resource type "Other publication" and selects subtype "Musical notation"
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Other publication"
+    And they select the Resource type "Other publication"
     And they select the subtype "Musical notation"
     Then they see fields
       | Search box for Publisher |
@@ -170,10 +170,10 @@ Feature: Creator navigates to Resource Type tab
       | ISMN                     |
 
   @1633
-  Scenario: Creator selects Reference type "Other publication" and selects subtype "Other publication"
+  Scenario: Creator selects Resource type "Other publication" and selects subtype "Other publication"
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Other publication"
+    And they select the Resource type "Other publication"
     And they select the subtype "Other publication"
     Then they see fields
       | Original version            |
@@ -184,11 +184,11 @@ Feature: Creator navigates to Resource Type tab
       | Total number of pages       |
 
   @1656
-  Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) compatible Reference subtype
+  Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) compatible Resource subtype
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Contribution to journal"
-    And they select Reference subtype "<Subtype>"
+    And they select the Resource type "Contribution to journal"
+    And they select Resource subtype "<Subtype>"
     And they see fields:
       | Search-box for Journal |
       | DOI                    |
@@ -204,11 +204,11 @@ Feature: Creator navigates to Resource Type tab
       | Journal article     |
       | Short communication |
 
-  Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) compatible Reference subtype are validated
+  Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) compatible Resource subtype are validated
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resource Type tab
-    And they select the Reference type "Contribution to journal"
-    And they select Reference subtype "<Subtype>"
+    And they select the Resource type "Contribution to journal"
+    And they select Resource subtype "<Subtype>"
     And they enter an invalid value in fields:
       | Volume         |
       | Issue          |
@@ -230,11 +230,11 @@ Feature: Creator navigates to Resource Type tab
       | Short communication |
 
   @1659
-  Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Reference subtype
+  Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Resource subtype
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Contribution to journal"
-    And they select Reference subtype "<Subtype>"
+    And they select the Resource type "Contribution to journal"
+    And they select Resource subtype "<Subtype>"
     Then they see fields:
       | Search box for Journal |
       | DOI                    |
@@ -250,11 +250,11 @@ Feature: Creator navigates to Resource Type tab
       | Editorial            |
       | Feature article      |
 
-  Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Reference subtype are validated
+  Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resource Type tab
-    And they select the Reference type "Contribution to journal"
-    And they select Reference subtype "<Subtype>"
+    And they select the Resource type "Contribution to journal"
+    And they select Resource subtype "<Subtype>"
     And they enter an invalid value in fields:
       | Volume         |
       | Issue          |
@@ -279,10 +279,10 @@ Feature: Creator navigates to Resource Type tab
       | Feature article      |
 
   @1669
-  Scenario: Creator selects Reference type "Other publication" and selects subtype "Feature article"
+  Scenario: Creator selects Resource type "Other publication" and selects subtype "Feature article"
     Given Creator begins registering a Publication in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Other publication"
+    And they select the Resource type "Other publication"
     And they select the subtype "Feature article"
     Then they see fields
       | Original version            |
@@ -293,10 +293,10 @@ Feature: Creator navigates to Resource Type tab
       | Pages to                    |
 
   @1693
-  Scenario Outline: Creator sees fields for Reference subtypes for "Report"
+  Scenario Outline: Creator sees fields for Resource subtypes for "Report"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Report"
+    And they select the Resource type "Report"
     And they select the subtype "<Subtype>":
     Then they see fields:
       | Search box for Publisher |
@@ -310,10 +310,10 @@ Feature: Creator navigates to Resource Type tab
       | Working paper        |
       | Other type of report |
 
-  Scenario Outline: Creator sees that fields are validated for Reference subtypes for "Report"
+  Scenario Outline: Creator sees that fields are validated for Resource subtypes for "Report"
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resource Type tab
-    And they select the Reference type "Report"
+    And they select the Resource type "Report"
     And they select the subtype "<Subtype>":
     And they enter an invalid value in fields:
       | ISBN                  |
@@ -332,10 +332,10 @@ Feature: Creator navigates to Resource Type tab
       | Other type of report |
 
   @1694
-  Scenario Outline: Creator sees fields for Reference subtypes for "Student thesis"
+  Scenario Outline: Creator sees fields for Resource subtypes for "Student thesis"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference type "Student thesis"
+    And they select the Resource type "Student thesis"
     And they select "<Subtype>":
     Then they see fields:
       | Search box for Publisher |
@@ -348,10 +348,10 @@ Feature: Creator navigates to Resource Type tab
       | Doctoral thesis      |
       | Other student thesis |
 
-  Scenario Outline: Creator sees that fields are validated for Reference subtypes for "Student thesis"
+  Scenario Outline: Creator sees that fields are validated for Resource subtypes for "Student thesis"
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resource Type tab
-    And they select the Reference type "Student thesis"
+    And they select the Resource type "Student thesis"
     And they select "<Subtype>":
     When they click the Save button
     Then they can see "Mandatory" error messages for fields:
@@ -364,11 +364,11 @@ Feature: Creator navigates to Resource Type tab
       | Other student thesis |
 
   @1963
-  Scenario: Creator navigates to the Resource Type tab and selects Reference subtype "Monograph"
+  Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select Reference type Book
-    And they select Reference subtype "Monograph" from the list
+    And they select Resource type Book
+    And they select Resource subtype "Monograph" from the list
     Then they see a Search box for "Publisher name"
     And they see a checkbox for "Is this a textbook?"
     And they see fields for
@@ -380,10 +380,10 @@ Feature: Creator navigates to Resource Type tab
     And they see the Norwegian Science Index (NVI) evaluation status
 
   @2021
-  Scenario: Creator sees fields for Reference subtype "Chapter in report"
+  Scenario: Creator sees fields for Resource subtype "Chapter in report"
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select the Reference Type "Part of book/report"
+    And they select the Resource Type "Part of book/report"
     And they select the Registration Subtype "Chapter in report"
     Then they see an information box describing that a Container report must be published first
     And they see fields:
@@ -396,8 +396,8 @@ Feature: Creator navigates to Resource Type tab
   Scenario: Creator sees that fields for Book are validated on Resource Type tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Resource Type tab
-    And they select Reference type "Book"
-    And they select Reference subtype "<BookType>" from the list
+    And they select Resource type "Book"
+    And they select Resource subtype "<BookType>" from the list
     And they click the Save button
     Then they can see "Mandatory" error messages for fields:
       | Publisher      |
