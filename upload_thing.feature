@@ -19,8 +19,8 @@ Feature: A registrar adds a file and metadata
     And they are on the landing page for logged in users
     When they click "Link to publication"
     And they enter a valid link to a resource of kind
-        | DOI    |
-        | Handle |
+      | DOI    |
+      | Handle |
     And they click search
     Then they see that the display updates
     And they see that the breadcrumb information is Home > Workspace > New publication
@@ -34,18 +34,18 @@ Feature: A registrar adds a file and metadata
     Then they see that the "Description" Tab is in focus
     And they see that the breadcrumb information is Home > Workspace > New publication
     And they verify information for
-        | Title                    |
-        | Alternative Title        |
-        | Summary                  |
-        | Alternative Summary      |
-        | Description              |
-        | NPI Type                 |
-        | Keywords                 |
-        | Publication Date or Year |
-        | Language                 |
-        | Project                  |
-        | Grant ID                 |
-        | Funding Body             |
+      | Title                    |
+      | Alternative Title        |
+      | Summary                  |
+      | Alternative Summary      |
+      | Description              |
+      | NPI Type                 |
+      | Keywords                 |
+      | Publication Date or Year |
+      | Language                 |
+      | Project                  |
+      | Grant ID                 |
+      | Funding Body             |
     And they see that the "Next" button is enabled
 
   Scenario: A user verifies information for Title
@@ -90,8 +90,8 @@ Feature: A registrar adds a file and metadata
     When they view information in the NPI Type field
     Then they see information for NPI Type
     And the value is one of
-        | Something      |
-        | Something else |
+      | Something      |
+      | Something else |
 
   Scenario: A user verifies information for Keywords
     Given that the user is logged in and has the role registrar
@@ -104,8 +104,8 @@ Feature: A registrar adds a file and metadata
     And they are on the description page for a looked-up link
     When they view information in the Publication Date or Year field
     Then they see a value for Publication Date or Year that corresponds to
-        | yyyy       |
-        | yyyy-MM-dd |
+      | yyyy       |
+      | yyyy-MM-dd |
 
   Scenario: A user verifies information for Language
     Given that the user is logged in and has the role registrar
@@ -124,29 +124,29 @@ Feature: A registrar adds a file and metadata
   Scenario: A user verifies the information for Reference for a Journal article
     Given that the user is logged in and has the role registrar
     When they are on the Reference page for a looked-up link
-    Then they see that the Reference tab is selected
+    Then they see that the Resource Type tab is selected
     And they see that the breadcrumb information is Home > Workspace > New publication
     And they see that Journal article is selected for resource type
     And that the correct information is present for
-        | Link           |
-        | Journal title  |
-        | Journal ISSN   |
-        | Journal e-ISSN |
-        | Norwegian Journal Ranking data |
-        | Journal Publisher              |
-        | Journal Volume                 |
-        | Journal Issue                  |
-        | Page from                      |
-        | Page to                        |
-        | Article number                 |
-        | Peer-review data               |
+      | Link                           |
+      | Journal title                  |
+      | Journal ISSN                   |
+      | Journal e-ISSN                 |
+      | Norwegian Journal Ranking data |
+      | Journal Publisher              |
+      | Journal Volume                 |
+      | Journal Issue                  |
+      | Page from                      |
+      | Page to                        |
+      | Article number                 |
+      | Peer-review data               |
     And that the Next button is enabled
 
   Scenario: A user verifies information for link
     Given that the user is logged in and has the role registrar
     And they are on the Reference page for a looked-up a
-        | DOI    |
-        | Handle |
+      | DOI    |
+      | Handle |
     When they view the information for the link
     Then they see that the link is properly formatted
     And that the link refers to the item they looked up
@@ -298,10 +298,10 @@ Feature: A registrar adds a file and metadata
     And they are on the Files and Licenses page for a looked-up link
     When they view information for Uploaded file
     Then they see information for
-        | File name |
-        | Upload date |
-        | Version     |
-        | Embargo     |
+      | File name   |
+      | Upload date |
+      | Version     |
+      | Embargo     |
     And they see a preview of the file
 
   Scenario: A user verifies the information for Registration Summary for a Journal article
@@ -310,16 +310,16 @@ Feature: A registrar adds a file and metadata
     Then they see that the Summary tab is selected
     And they see that the breadcrumb information is Home > Workspace > New publication
     And see information about
-        | Type |
-        | Title |
-        | Contributors |
-        | Summary      |
-        | NPI academic discipline |
-        | Year of publicatiion    |
-        | Language                |
-        | Project                 |
-        | Reference               |
-        | Files and licenses      |
+      | Type                    |
+      | Title                   |
+      | Contributors            |
+      | Summary                 |
+      | NPI academic discipline |
+      | Year of publicatiion    |
+      | Language                |
+      | Project                 |
+      | Reference               |
+      | Files and licenses      |
     And they see that the Publish in NVA button is enabled
 
   Scenario: A user publishes a looked up Journal article in NVA
@@ -328,8 +328,8 @@ Feature: A registrar adds a file and metadata
     When they click the Publish in NVA button
     Then they see a Splash page
     And they can select options for
-      | Syncing with ORCID |
-      | DOI creation       | # Really, on a looked-up DOI?
+      | Syncing with ORCID  |
+      | DOI creation        |
       | Link to publication |
 
 
@@ -340,9 +340,9 @@ Feature: A registrar adds a file and metadata
     And add the file for upload
     And click Upload
     And fill in metadata for the thing regarding
-      | creator(s)           |
-      | title                |
-      | date of publication  |
+      | creator(s)          |
+      | title               |
+      | date of publication |
     And they select CC-BY license
     And clicks on the checkbox for resource publication
     And click Publish

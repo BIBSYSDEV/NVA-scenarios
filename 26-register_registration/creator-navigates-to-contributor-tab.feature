@@ -6,7 +6,7 @@ Feature: Creator navigates to Contributors tab
     When they navigate to the Contributors tab
     Then they see "Add Author" Button is enabled
     And they see the tab Description is clickable
-    And they see the tab Reference is clickable
+    And they see the tab Resource Type is clickable
     And they see the tab Contributors is selected
     And they see the tab Files and License is clickable
     And they see Previous is enabled

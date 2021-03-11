@@ -3,7 +3,7 @@ Feature: Creator selects Reference type Other publication and selects subtype Fe
     @1669
     Scenario: Creator selects Reference type "Other publication" and selects subtype "Feature article"
         Given Creator begins registering a Publication in the Wizard
-        When they navigate to the Reference tab
+        When they navigate to the Resource Type tab
         And they select the Reference type "Other publication"
         And they select the subtype "Feature article"
         Then they see fields

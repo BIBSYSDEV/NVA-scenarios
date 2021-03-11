@@ -1,9 +1,9 @@
-Feature: Creator navigates to the Reference tab and selects Reference type "Contribution to journal"
+Feature: Creator navigates to the Resource Type tab and selects Reference type "Contribution to journal"
 
     @274
-    Scenario: Creator navigates to the Reference tab and selects Reference type "Contribution to journal"
+    Scenario: Creator navigates to the Resource Type tab and selects Reference type "Contribution to journal"
         Given Creator begins registering a Registration in the Wizard
-        When they navigate to the Reference tab
+        When they navigate to the Resource Type tab
         And they select the Reference type "Contribution to journal"
         Then they see a list of subtypes:
             | Journal article      |

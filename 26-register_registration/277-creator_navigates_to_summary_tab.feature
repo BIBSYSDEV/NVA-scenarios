@@ -12,7 +12,7 @@ Feature: Creator navigates to Summary tab
       | Contributors      |
       | Files and License |
     And they see the tab Description is clickable
-    And they see the tab Reference is clickable
+    And they see the tab Resource Type is clickable
     And they see the tab Contributors is clickable
     And they see the tab Files and License is clickable
     And they see the tab Summary is selected
@@ -30,7 +30,7 @@ Feature: Creator navigates to Summary tab
       | Contributors      |
       | Files and License |
     And they see the tab Description is clickable
-    And they see the tab Reference is clickable
+    And they see the tab Resource Type is clickable
     And they see the tab Contributors is clickable
     And they see the tab Files and License is clickable
     And they see the tab Summary is selected
