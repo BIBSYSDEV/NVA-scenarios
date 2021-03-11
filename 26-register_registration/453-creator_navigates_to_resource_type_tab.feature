@@ -6,7 +6,7 @@ Feature: Creator navigates to Resource Type tab
     When they navigate to the Resource Type tab
     Then they see the field for Type
     And they see the tab Description is clickable
-    And they see the tab Reference is selected
+    And they see the tab Resource Type is selected
     And they see the tab Contributors is clickable
     And they see the tab Files and License is clickable
     And they see Previous is enabled

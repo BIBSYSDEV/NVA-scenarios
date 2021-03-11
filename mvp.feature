@@ -92,7 +92,7 @@ Feature: MVP features for NVA
       | Keywords                     |
       | Primary language for content |
       | Project association          |
-    And they see the tab Reference is clickable
+    And they see the tab Resource Type is clickable
     And they see the tab Contributor is clickable
     And they see the tab Files and Licenses is clickable
     And they see the tab Submission is clickable
@@ -105,7 +105,7 @@ Feature: MVP features for NVA
     When they navigate to the Resource Type tab
     Then they see the mandatory field for Type
     And they see the tab Description is clickable
-    And they see the tab Reference is selected
+    And they see the tab Resource Type is selected
     And they see the tab Contributor is clickable
     And they see the tab Files and Licenses is clickable
     And they see the tab Submission is clickable
@@ -189,7 +189,7 @@ Feature: MVP features for NVA
   #    And they see that the journal allows publication of the article with the license CCBY 4.0 based in information from the Publication Channel Register
   #    And they can upload files for the Publication
   #    And they see the tab Description is clickable
-  #    And they see the tab Reference is clickable
+  #    And they see the tab Resource Type is clickable
   #    And they see the tab Contributor is clickable
   #    And they see the tab Files and Licenses is selected
   #    And they see the tab Submission is clickable
@@ -205,7 +205,7 @@ Feature: MVP features for NVA
       | Resource (file or link) |
       | License                 |
     And they see the tab Description is clickable
-    And they see the tab Reference is clickable
+    And they see the tab Resource Type is clickable
     And they see the tab Contributor is clickable
     And they see the tab Files and Licenses is clickable
     And they see the tab Submission is selected
