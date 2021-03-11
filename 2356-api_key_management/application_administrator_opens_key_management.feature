@@ -22,9 +22,9 @@ Feature: Application Administrator opens Key Management
     Scenario: Application Administrator views an API Key Configuration for an Institution
         Given Application Administrator opens Key Management
         When they click the "Open" Button for an Institution
-        Then they see the the page for API Key Configuration for that Institution
+        Then they see the the page API Key Configuration for that Institution
         And they see sections:
-            | Name in Organization registry |
+            | Name in Organization Registry |
             | Access Rights                 |
             | Key                           |
-            | Contact persons               |
+            | Contact Persons               |
