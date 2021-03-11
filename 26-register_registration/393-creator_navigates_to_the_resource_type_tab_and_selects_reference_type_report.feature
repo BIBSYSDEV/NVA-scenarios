@@ -2,7 +2,7 @@ Feature: Creator navigates to the Resource Type tab and selects Reference type R
 
     Scenario: Creator navigates to the Resource Type tab and selects Reference type "Report"
         Given Creator begins registering a Registration in the Wizard
-        When they navigate to the Reference tab
+        When they navigate to the Resource Type tab
         And they select the Reference type "Report"
         Then they see a list of subtypes:
             | Research report      |
