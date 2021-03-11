@@ -13,3 +13,6 @@ Feature: Application Administrator adds an API key
         When they click the "Save" Button
         Then they see a Notification that the API key is saved
         And they see that the "Read" checkbox for Access Rights is checked
+        And they see that the section Key has a "Show Key" Button
+        And they see that the section Key has a "Rotate Key" Button
+        And they see that the section Key has an "Inactive Key" Checkbox
