@@ -23,6 +23,7 @@ Feature: Creator navigates to Contributors tab
     And they click "Add me as Author"
     Then their Author identity is added to the list of Authors
 
+  @419
   Scenario: Creator adds an Author to the list of Authors
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Contributors tab
@@ -87,3 +88,16 @@ Feature: Creator navigates to Contributors tab
     And they select an Author identity
     And they click "Add"
     Then the selected Author identity is added to the list of Supervisors
+
+  @788
+  Scenario: Creator creates a new Author in the Author dialog
+    Given Creator begins registering a Registration in the Wizard
+    And they navigate to the Contributors tab
+    And they see the "Add Author" Button
+    And they click "Add Author"
+    And they see the "Create new author" Button
+    When they click "Create new author"
+    Then they see fields:
+      | First name |
+      | Last name  |
+    And they can create new author

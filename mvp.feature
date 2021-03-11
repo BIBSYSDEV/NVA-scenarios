@@ -395,14 +395,6 @@ Feature: MVP features for NVA
       | the Author's last publication |
       | Affiliation(s)                |
 
-  @419
-  Scenario: Creator adds an Author to the Author list
-    Given they see Author search results
-    When they click an Author
-    And they click Add Author
-    Then they see the dialog is closed
-    And they see the Author is shown in the Authors section in the Contributor tab
-
   @784
   Scenario: Creator finds no matching Author in Author Search
     Given Creator opens the Add Author dialog
@@ -417,15 +409,6 @@ Feature: MVP features for NVA
     When they click Create New Author
     Then they see a field for Author name
     And they see an Autosearch box for Affiliation
-
-  @788
-  Scenario: Creator creates a new Author in the Author dialog
-    Given that they see New Author in the Author dialog
-    When they fill in field for Author name
-    And they search and select an affiliation
-    And they click Add
-    Then they see that the Add Author dialog is closed
-    And they see the new Author in the Author section of the Contributors tab
 
   #Legg til Scenario for delete, edit, move, korresponding
 
