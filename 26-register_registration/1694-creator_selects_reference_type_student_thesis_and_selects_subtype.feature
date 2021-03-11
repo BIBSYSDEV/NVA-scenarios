@@ -2,7 +2,7 @@ Feature: Creator selects Reference type Student thesis and selects subtype
 
     Scenario Outline: Creator sees fields for Reference subtypes for "Student thesis"
         Given Creator begins registering a Registration in the Wizard
-        When they navigate to the Reference tab
+        When they navigate to the Resource Type tab
         And they select the Reference type "Student thesis"
         And they select "<Subtype>":
         Then they see fields:
@@ -18,7 +18,7 @@ Feature: Creator selects Reference type Student thesis and selects subtype
 
     Scenario Outline: Creator sees that fields are validated for Reference subtypes for "Student thesis"
         Given Creator begins registering a Registration in the Wizard
-        And they navigate to the Reference tab
+        And they navigate to the Resource Type tab
         And they select the Reference type "Student thesis"
         And they select "<Subtype>":
         When they click the Save button

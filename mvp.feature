@@ -100,9 +100,9 @@ Feature: MVP features for NVA
     And they see Save is enabled
 
   @453
-  Scenario: Creator navigates to Reference tab
+  Scenario: Creator navigates to Resource Type tab
     Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Reference tab
+    When they navigate to the Resource Type tab
     Then they see the mandatory field for Type
     And they see the tab Description is clickable
     And they see the tab Reference is selected
@@ -113,9 +113,9 @@ Feature: MVP features for NVA
     And they see Save is enabled
 
   @392
-  Scenario Outline: Creator navigates to the Reference tab and selects Book
+  Scenario Outline: Creator navigates to the Resource Type tab and selects Book
     Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Reference tab
+    When they navigate to the Resource Type tab
     And they select Publication Type Book
     And they select Publication Subtype <Subtype> from the list
       | Monograph |
@@ -135,9 +135,9 @@ Feature: MVP features for NVA
       | Anthology |
 
   @393
-  Scenario: Creator navigates to Reference tab and selects Report
+  Scenario: Creator navigates to Resource Type tab and selects Report
     Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Reference tab
+    When they navigate to the Resource Type tab
     And they select a Reference Type — Report
     And they select a Publication Subtype from the list
       | Report          |
@@ -151,9 +151,9 @@ Feature: MVP features for NVA
     And they see Search box for "Title of the Series"
 
   @394
-  Scenario: Creator navigates to Reference tab and selects Degree
+  Scenario: Creator navigates to Resource Type tab and selects Degree
     Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Reference tab
+    When they navigate to the Resource Type tab
     And they select a Reference Type — Degree
     And they select a Publication Subtype from the list
       | Bachelor  |
@@ -163,9 +163,9 @@ Feature: MVP features for NVA
     And they see Search box for "Title of the Series"
 
   @395
-  Scenario: Creator navigates to the Reference tab and selects Chapter
+  Scenario: Creator navigates to the Resource Type tab and selects Chapter
     Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Reference tab
+    When they navigate to the Resource Type tab
     And they select the Reference Type Book
     And they select the Publication Subtype Chapter
     Then they see an Information box with text "Before you register the chapter, you need to register the book"
@@ -283,12 +283,12 @@ Feature: MVP features for NVA
     And they see the Delete button in the File Detail box is enabled
 
   # Dette er av typen "Publication in Journal"
-  Scenario: Creator verifies initial metadata on the Reference tab for a registration
+  Scenario: Creator verifies initial metadata on the Resource Type tab for a registration
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     When they click Start
-    And they click the Reference Tab
-    Then they they see that the Reference tab is populated with metadata values for
+    And they click the Resource Type tab
+    Then they they see that the Resource Type tab is populated with metadata values for
       | Publication type                              |
       | Link (the link that was provided by the user) |
       | The unmapped text for Journal                 |
@@ -355,7 +355,7 @@ Feature: MVP features for NVA
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
     And the Publication is a Publication in Journal
     And the Journal for the Publication is in the Publication Channel Register
-    When they click the Reference Tab
+    When they click the Resource Type tab
     Then they see the Autosearch dropdown for Journal contains a journal title
 
   @1209
@@ -1151,7 +1151,7 @@ Feature: MVP features for NVA
 
   @1409
   Scenario Outline: Creator selects Publication in Journal and Peer Review Details are hidden
-    Given that a Creator navigates to the Reference tab
+    Given that a Creator navigates to the Resource Type tab
     And they select type Publication in Journal
     When they select <Subtype>
     Then they see that the Peer Review Details are hidden

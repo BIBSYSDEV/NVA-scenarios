@@ -1,9 +1,9 @@
-Feature: Creator navigates to Reference tab
+Feature: Creator navigates to Resource Type tab
 
   @453
-  Scenario: Creator navigates to Reference tab
+  Scenario: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard
-    When they navigate to the Reference tab
+    When they navigate to the Resource Type tab
     Then they see the field for Type
     And they see the tab Description is clickable
     And they see the tab Reference is selected
@@ -13,9 +13,9 @@ Feature: Creator navigates to Reference tab
     And they see Next is enabled
     And they see Save is enabled
 
-  Scenario: Creator sees that fields are validated on Reference tab
+  Scenario: Creator sees that fields are validated on Resource Type tab
     Given Creator begins registering a Registration in the Wizard
-    When they navigate to the Reference tab
+    When they navigate to the Resource Type tab
     And they click the Save button
     Then they can see "Mandatory" error messages for fields:
-        | Type |
+      | Type |

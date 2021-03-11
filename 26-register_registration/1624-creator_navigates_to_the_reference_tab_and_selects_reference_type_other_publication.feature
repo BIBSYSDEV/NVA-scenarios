@@ -1,7 +1,7 @@
-Feature: Creator navigates to the Reference tab and selects Reference type Other publication
+Feature: Creator navigates to the Resource Type tab and selects Reference type Other publication
 
     @1624
-    Scenario: Creator navigates to the Reference tab and selects Reference type "Other publication"
+    Scenario: Creator navigates to the Resource Type tab and selects Reference type "Other publication"
         Given Creator begins registering a Publication in the Wizard
         When they navigate to the Reference tab
         And they select the Reference type "Other publication"
