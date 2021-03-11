@@ -17,3 +17,14 @@ Feature: Application Administrator opens Key Management
             | Action |
             | Open   |
             | Delete |
+
+    @2333
+    Scenario: Application Administrator views an API Key Configuration for an Institution
+        Given Application Administrator opens Key Management
+        When they click the "Open" Button for an Institution
+        Then they see the the page for API Key Configuration for that Institution
+        And they see sections:
+            | Name in Organization registry |
+            | Access Rights                 |
+            | Key                           |
+            | Contact persons               |
