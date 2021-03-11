@@ -95,9 +95,9 @@ Feature: Creator navigates to Contributors tab
     And they navigate to the Contributors tab
     And they see the "Add Author" Button
     And they click "Add Author"
-    And they see the "Create new author" Button
-    When they click "Create new author"
+    And they see the "Create new Author" Button
+    When they click "Create new Author"
     Then they see fields:
       | First name |
       | Last name  |
-    And they can create new author
+    And they see the "Create new Author" Button
