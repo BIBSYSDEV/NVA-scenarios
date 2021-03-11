@@ -28,3 +28,4 @@ Feature: Application Administrator opens Key Management
             | Access Rights                 |
             | Key                           |
             | Contact Persons               |
+        And they see the "Save" Button is enabled
