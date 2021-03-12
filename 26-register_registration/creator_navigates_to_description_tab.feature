@@ -11,6 +11,7 @@ Feature: Creator navigates to Description tab
       | Description                  |
       | Date published               |
       | Keywords                     |
+      | Vocabularies                 |
       | Primary language for content |
       | Project association          |
     And they see the tab Resource Type is clickable
@@ -48,3 +49,14 @@ Feature: Creator navigates to Description tab
     Given Creator has added a Project
     When they click the Remove Project icon
     Then they see the Project is removed from the list of selected Projects
+
+  @xxx
+  Scenario: Creator selects Vocabularies
+    Given Creator begins registering a Registration in the Wizard
+    And they navigate to the Description tab
+    And their institution has a Vocabulary set as "Default"
+    And their institution has another Vocabulary set as "Active"
+    Then they can add values to the "Default" Vocabularies
+    When they click "Add controlled Vocabulary"
+    And they select a Vocabulary
+    Then they can add values to the selected Vocabulary
