@@ -63,18 +63,6 @@ Feature: MVP features for NVA
     Then they see the Create New Authority dialog
     And that their name is selected
 
-  @443
-  Scenario Outline: Creator begins registering a Publication in the Wizard
-    Given Creator begins registering a Publication
-    And they have selected one of the <Methods> for starting the Wizard
-    When they click Start
-    Then they see the Wizard
-    Examples:
-      | Methods                |
-      | Link to publication    |
-      | Upload file            |
-      | Suggestions from ORCID |
-
   @452
   Scenario: Creator begins Wizard registration and navigates to Description tab
     Given Creator begins registering a Publication in the Wizard
