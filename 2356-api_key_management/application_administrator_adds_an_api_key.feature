@@ -24,3 +24,9 @@ Feature: Application Administrator adds an API key
         And they see the "Copy Key" Button
         And they see the "Rotate Key" Button
 
+    @2336
+    Scenario: Application Administrator rotates an API key for an Institution
+        Given Application Administrator views an API key for an Institution
+        When they click "Rotate Key"
+        Then they see that the Key has a new value
+        And they see a Notification that the Key was rotated
