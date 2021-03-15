@@ -199,17 +199,6 @@ Feature: MVP features for NVA
       | Contributors: Minimum one contributor required         |
       | Files: Minimum one file required                       |
 
-  @385
-  Scenario: Creator begins registration by uploading a file
-    Given Creator begins registering a Publication
-    When they click Upload file
-    And they upload a file
-    Then they see the file name
-    And they see the file size
-    And they see the file checksum
-    And they see Delete file is enabled
-    And they see Start is enabled
-
   #Scenario: User start Wizard registration by uploading a file
   #  Given Creator begins registration by uploading a file
   #  When they click Start
