@@ -75,30 +75,6 @@ Feature: MVP features for NVA
       | Upload file            |
       | Suggestions from ORCID |
 
-  @452
-  Scenario: Creator begins Wizard registration and navigates to Description tab
-    Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Description tab
-    Then they see the tab Description is selected
-    And they see mandatory fields for
-      | Title |
-    And they see optional fields for
-      | Alternative title(s)         |
-      | Abstract                     |
-      | Alternative abstract(s)      |
-      | Description                  |
-      | Date published               |
-      | NPI disciplines              |
-      | Keywords                     |
-      | Primary language for content |
-      | Project association          |
-    And they see the tab Resource Type is clickable
-    And they see the tab Contributor is clickable
-    And they see the tab Files and Licenses is clickable
-    And they see the tab Submission is clickable
-    And they see Next is enabled
-    And they see Save is enabled
-
   @453
   Scenario: Creator navigates to Resource Type tab
     Given Creator begins registering a Publication in the Wizard
