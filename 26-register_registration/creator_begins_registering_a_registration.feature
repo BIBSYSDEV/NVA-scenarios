@@ -78,3 +78,11 @@ Feature: Creator begins registering a Registration
     When they enter https://link.springer.com/article/10.1007/s13201-020-01350-9
     And click Search
     Then they see metadata about the Link in the Expansion panel
+
+  @2370
+  Scenario: Creator begins registering with a Link with data from LD+/JSON tag
+    Given Creator begins registering a Registration
+    And they click Expansion panel for Link to resource
+    When they enter https://e24.no/boers-og-finans/i/AdyrPM/syv-av-tangens-11-referanser-deltok-paa-luksusseminaret
+    And click Search
+    Then they see metadata about the Link in the Expansion panel
