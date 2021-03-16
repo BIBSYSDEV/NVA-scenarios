@@ -20,3 +20,19 @@ Feature: Administrator opens API Keys
             | Key             |
             | Contact Persons |
         And they see the "Save" Button is enabled
+
+    @2339
+    Scenario: Administrator views an API Key
+        Given Administrator expands an API Key item
+        And they see the section Key with the "Show Key" Button
+        When they click the "Show Key" Button
+        Then they see the Key
+        And they see the "Copy Key" Button
+        And they see the "Rotate Key" Button
+
+    @2340
+    Scenario: Administrator rotates an API Key
+        Given Administrator views an API Key
+        When they click the "Rotate Key" Button
+        Then they see that the Key has a new value
+        And they see a Notification that the Key was rotated
