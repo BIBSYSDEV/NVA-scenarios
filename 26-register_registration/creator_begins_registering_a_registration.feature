@@ -80,7 +80,7 @@ Feature: Creator begins registering a Registration
     Then they see metadata about the Link in the Expansion panel
 
   @2370
-  Scenario: Creator begins registering with a Link with data from LD+/JSON tag
+  Scenario: Creator begins registering with a Link with data from schema.org
     Given Creator begins registering a Registration
     And they expand the Expansion panel for Link to resource
     When they enter "https://e24.no/boers-og-finans/i/AdyrPM/syv-av-tangens-11-referanser-deltok-paa-luksusseminaret"
