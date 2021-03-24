@@ -100,4 +100,4 @@ Feature: Creator navigates to Contributors tab
     Then they see fields:
       | First name |
       | Last name  |
-    And they see the "Create new Author" Button in the Create new author Dialog
+    And they see the "Create new Author" Button in the Create new Author Dialog
