@@ -58,7 +58,6 @@ Feature: Creator navigates to Resource Type tab
       | Total number of pages |
       | NPI discipline        |
     And they see a Search box for "Title of the Series"
-    And they see a preselected value for Peer review "Not peer reviewed"
 
   @394
   Scenario: Creator navigates to the Resource Type tab and selects Resource type "Student thesis"
