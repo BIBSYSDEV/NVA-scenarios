@@ -50,7 +50,8 @@ Feature: Creator navigates to Contributors tab
   Scenario: Creator adds an Author to the list of Authors for Resource Type Chapter
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resources tab
-    And they select the Resource Type "Part of book/report"
+    And they select the Resource Type 
+      | Part of book/report |
     And they select the Registration Subtype "Chapter in anthology"
     When they navigate to the Contributors tab
     And they see the "Add Author" Button
