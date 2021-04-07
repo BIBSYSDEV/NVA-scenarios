@@ -13,3 +13,11 @@ Feature: Creator opens an item in My Registratons list
             | Description                  |
             | Date published               |
             | Primary language for content |
+
+    Scenario: Creator sees validation errors for Registration
+        Given that the user is logged in as Creator
+        And they are on the page My Registrations
+        When they click Edit on a Registration
+        And the Registration has validation errors
+        Then they see a list of all validation errors
+        And they see that tabs with validation errors are marked with an error icon
