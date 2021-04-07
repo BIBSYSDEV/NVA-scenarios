@@ -8,7 +8,7 @@ Feature: Owner navigates to the Landing Page for their Registration
         When they see the Status Bar
         Then they see buttons for "Request a DOI" and "Edit Registration"
 
-    Scenario: Owner navigates to the Landing Page for their Published Registration with Validation Errors
+    Scenario: Owner navigates to the Landing Page for their Registration with Validation Errors
         Given that the Creator navigates to the Landing Page for a Registration
         And they are the Owner of the Registration
         And the Registration has Validation Errors
