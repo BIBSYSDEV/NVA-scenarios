@@ -16,7 +16,7 @@ Feature: Editor opens Editor Administration
         And they see settings for Vocabularies
         Then they can set "<Vocabulary>" to be one of:
             | Disabled |
-            | Active   |
+            | Allowed  |
             | Default  |
         And they see a Save Button
         Examples:
