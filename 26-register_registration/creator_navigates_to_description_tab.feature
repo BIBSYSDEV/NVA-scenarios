@@ -50,7 +50,7 @@ Feature: Creator navigates to Description tab
     When they click the Remove Project icon
     Then they see the Project is removed from the list of selected Projects
 
-  @xxx
+  @2446
   Scenario: Creator adds a Vocabulary
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Description tab

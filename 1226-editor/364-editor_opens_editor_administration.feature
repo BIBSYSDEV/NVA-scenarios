@@ -8,7 +8,7 @@ Feature: Editor opens Editor Administration
         And they see a field for Email
         And they see a Save Button that is enabled
 
-    @xxx
+    @2445
     Scenario Outline: Editor sees fields for Vocabulary settings
         Given that the user is logged in as Editor
         And they click the menu item Editor
