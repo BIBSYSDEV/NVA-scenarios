@@ -1,6 +1,6 @@
 Feature: Creator navigates to Description tab
 
-  @543
+  @452
   Scenario: Creator begins Wizard registration and navigates to Description tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Description tab

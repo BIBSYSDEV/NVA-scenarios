@@ -63,42 +63,6 @@ Feature: MVP features for NVA
     Then they see the Create New Authority dialog
     And that their name is selected
 
-  @443
-  Scenario Outline: Creator begins registering a Publication in the Wizard
-    Given Creator begins registering a Publication
-    And they have selected one of the <Methods> for starting the Wizard
-    When they click Start
-    Then they see the Wizard
-    Examples:
-      | Methods                |
-      | Link to publication    |
-      | Upload file            |
-      | Suggestions from ORCID |
-
-  @452
-  Scenario: Creator begins Wizard registration and navigates to Description tab
-    Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Description tab
-    Then they see the tab Description is selected
-    And they see mandatory fields for
-      | Title |
-    And they see optional fields for
-      | Alternative title(s)         |
-      | Abstract                     |
-      | Alternative abstract(s)      |
-      | Description                  |
-      | Date published               |
-      | NPI disciplines              |
-      | Keywords                     |
-      | Primary language for content |
-      | Project association          |
-    And they see the tab Resource Type is clickable
-    And they see the tab Contributor is clickable
-    And they see the tab Files and Licenses is clickable
-    And they see the tab Submission is clickable
-    And they see Next is enabled
-    And they see Save is enabled
-
   @453
   Scenario: Creator navigates to Resource Type tab
     Given Creator begins registering a Publication in the Wizard
@@ -111,28 +75,6 @@ Feature: MVP features for NVA
     And they see the tab Submission is clickable
     And they see Next is enabled
     And they see Save is enabled
-
-  @392
-  Scenario Outline: Creator navigates to the Resource Type tab and selects Book
-    Given Creator begins registering a Publication in the Wizard
-    When they navigate to the Resource Type tab
-    And they select Publication Type Book
-    And they select Publication Subtype <Subtype> from the list
-      | Monograph |
-      | Anthology |
-      | Chapter   |
-    Then they see a Search box for "Publisher name"
-    And they see a checkbox for "Is this a textbook?"
-    And they see fields for
-      | ISBN                  |
-      | Total number of pages |
-    And they see a Search box for "Title of the Series"
-    And they see a preselected value for Peer review "Not peer reviewed"
-    And they see the NVI evaluation is Not NVI Applicable
-    Examples:
-      | Subtype   |
-      | Monograph |
-      | Anthology |
 
   @393
   Scenario: Creator navigates to Resource Type tab and selects Report
@@ -222,17 +164,6 @@ Feature: MVP features for NVA
       | References: Subtype, journal, peer review is mandatory |
       | Contributors: Minimum one contributor required         |
       | Files: Minimum one file required                       |
-
-  @385
-  Scenario: Creator begins registration by uploading a file
-    Given Creator begins registering a Publication
-    When they click Upload file
-    And they upload a file
-    Then they see the file name
-    And they see the file size
-    And they see the file checksum
-    And they see Delete file is enabled
-    And they see Start is enabled
 
   #Scenario: User start Wizard registration by uploading a file
   #  Given Creator begins registration by uploading a file
