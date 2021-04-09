@@ -55,7 +55,6 @@ Feature: Creator navigates to Description tab
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Description tab
     And their institution has a Vocabulary set as "Allowed"
-    And this Vocabulary is not set as "Default"
     When they click "Add controlled Vocabulary"
     Then they can add the "Allowed" Vocabulary
     And they can add values for the added Vocabulary
