@@ -13,7 +13,7 @@ Feature: Editor opens Editor Administration
         Given that the user is logged in as Editor
         And they click the menu item Editor
         And they see the Editor page
-        And they see settings for Vocabularies
+        And they see Vocabulary settings
         Then they can set "<Vocabulary>" to be one of:
             | Disabled |
             | Allowed  |
