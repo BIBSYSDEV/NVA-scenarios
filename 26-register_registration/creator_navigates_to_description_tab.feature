@@ -51,10 +51,17 @@ Feature: Creator navigates to Description tab
     Then they see the Project is removed from the list of selected Projects
 
   @2446
-  Scenario: Creator adds a Vocabulary
+  Scenario: Creator adds an Allowed Vocabulary
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Description tab
     And their institution has a Vocabulary set as "Allowed"
     When they click "Add controlled Vocabulary"
     Then they can add the "Allowed" Vocabulary
     And they can add values for the added Vocabulary
+
+  @2448
+  Scenario: Creator adds value to a Default Vocabulary
+    Given Creator begins registering a Registration in the Wizard
+    And they navigate to the Description tab
+    When their institution has a Vocabulary set as "Default"
+    Then they can see a input field for the Vocabulary
