@@ -102,39 +102,44 @@ Feature: Creator navigates to Contributors tab
       | Last name  |
     And they see the "Create new Author" Button in the Create new Author Dialog
 
-  # WIP:
-  Scenario: Creator decide to add a Contributor to a Registration
+  @xxx
+  Scenario: Creator opens the add Contributor Dialog
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Contributors tab
     And they see the "Add Contributor" button
     And they click "Add Contributor"
-    Then they see a "Add Contributor" page
-    And they see a dropdown to select type of Contributor
-    And they see a search box
+    Then they see the "Add Contributor" Dialog
+    And they see a dropdown with Contributor types:
+      # Note: Contributor types that are required for the actual Registration
+      #       type can be omitted since they are covered by other Scenarios
+      | Contact person |
+      | Editor         |
+      | Related person |
+      | Researcher     |
+      | Rights holder  |
+      | Supervisor     |
+      | Other          |
+    And they see a "Close" Button
+    And they see a "Create new Contributor" Button
+    And they see a "Add me as Contributor" Button
+    And they see a disabled "Add" Button
 
-  Scenario: Creator search for a Contributor
-    Given Creator decide to add a Contributor to a Registration
-    When they select a Contributor type in the dropdown
-    And they type in a search term in the search box
-    Then they see a list matching the search term
+  @xxx
+  Scenario: Creator searches for a Contributor
+    Given Creator opens the add Contributor Dialog
+    When they select a Contributor type
+    Then they see a search field
+    When they enter a search term
+    Then they see a list of Contributors matching the search term
     And they see a text with number of hits and the search term
-    And thay see a result table with headings
-    And they see a radio button
-    And they see the name of the author
-    And they see an example of a publication by the author
-    And they see the authors primary institution
-    And they see a "Close" button
-    And they see a "Create new author" button
-    And they see a "Add me as author" button
-    And they see a "Add" button
+    And they see a previous publication by the Contributors'
+    And they see the Contributors' primary institution
 
-  Scenario: Creator adds a Contributor to a Registration
-    Given Creator search for a Contributor
-    When they have selected an author from the search result
-    And they have clicked the "Add" button
+  @xxx
+  Scenario: Creator adds a Contributor to the list of Contributors
+    Given Creator searches for a Contributor
+    When they click on a Contributor from the search result
+    Then they see the "Add" Button is enabled
+    When they click the "Add" Button
     Then they see the Contributor tab
-    And the selected author is displayed with selected contributor type
-    And they see the "Add contributor" button
-
-# Det som mangler her er å få med kva typer contributorer som er valgbare, alt etter kva type ressurs som blir registrert
-# Dette står i tabellen og teksten som ligger under skissene i figma.
+    And the selected Contributor is added to the list of Contributors
