@@ -132,8 +132,8 @@ Feature: Creator navigates to Contributors tab
     When they enter a search term
     Then they see a list of Contributors matching the search term
     And they see a text with number of hits and the search term
-    And they see a previous publication by the Contributors'
-    And they see the Contributors' primary institution
+    And they see previous Publications by the Contributors
+    And they see the primary Institution for the Contributors
 
   @xxx
   Scenario: Creator adds a Contributor to the list of Contributors
@@ -141,5 +141,5 @@ Feature: Creator navigates to Contributors tab
     When they click on a Contributor from the search result
     Then they see the "Add" Button is enabled
     When they click the "Add" Button
-    Then they see the Contributor tab
+    Then the Dialog is closed
     And the selected Contributor is added to the list of Contributors
