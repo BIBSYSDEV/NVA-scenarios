@@ -101,3 +101,40 @@ Feature: Creator navigates to Contributors tab
       | First name |
       | Last name  |
     And they see the "Create new Author" Button in the Create new Author Dialog
+
+  # WIP:
+  Scenario: Creator decide to add a Contributor to a Registration
+    Given Creator begins registering a Registration in the Wizard
+    When they navigate to the Contributors tab
+    And they see the "Add Contributor" button
+    And they click "Add Contributor"
+    Then they see a "Add Contributor" page
+    And they see a dropdown to select type of Contributor
+    And they see a search box
+
+  Scenario: Creator search for a Contributor
+    Given Creator decide to add a Contributor to a Registration
+    When they select a Contributor type in the dropdown
+    And they type in a search term in the search box
+    Then they see a list matching the search term
+    And they see a text with number of hits and the search term
+    And thay see a result table with headings
+    And they see a radio button
+    And they see the name of the author
+    And they see an example of a publication by the author
+    And they see the authors primary institution
+    And they see a "Close" button
+    And they see a "Create new author" button
+    And they see a "Add me as author" button
+    And they see a "Add" button
+
+  Scenario: Creator adds a Contributor to a Registration
+    Given Creator search for a Contributor
+    When they have selected an author from the search result
+    And they have clicked the "Add" button
+    Then they see the Contributor tab
+    And the selected author is displayed with selected contributor type
+    And they see the "Add contributor" button
+
+# Det som mangler her er å få med kva typer contributorer som er valgbare, alt etter kva type ressurs som blir registrert
+# Dette står i tabellen og teksten som ligger under skissene i figma.
