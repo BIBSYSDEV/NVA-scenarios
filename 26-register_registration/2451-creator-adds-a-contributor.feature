@@ -21,7 +21,7 @@ Feature: Creator adds a Contributor
 
     Scenario: Creator selects a Contributor Type
         Given Creator opens the Add Contributor Dialog
-        When they select a Contributor type
+        When they select a Contributor Type
         Then they see a search field
 
     Scenario: Creator searches for a Contributor
@@ -37,8 +37,8 @@ Feature: Creator adds a Contributor
         When they click on a Contributor from the search result
         Then they see the "Add" Button is enabled
 
-    Scenario: Creator adds a Contributor to the list of Contributors
+    Scenario: Creator adds a Contributor to the List of Contributors
         Given Creator selects a Contributor from search
         When they click the "Add" Button
         Then the Dialog is closed
-        And the selected Contributor is added to the list of Contributors
+        And the selected Contributor is added to the List of Contributors
