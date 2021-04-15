@@ -1,23 +1,35 @@
 Feature: Creator adds a Contributor
 
-    Scenario: Creator opens the Add Contributor Dialog
+    Scenario Outline: Creator opens the Add Contributor Dialog
         Given Creator navigates to Contributors tab
+        And the Registration is a "<RegistrationType>"
         When they click "Add Contributor"
         Then they see the "Add Contributor" Dialog
-        And they see a dropdown with Contributor Types:
-            # Note: Contributor types that are required for the actual Registration
-            #       type can be omitted since they are covered by other Scenarios
-            | Contact person |
-            | Editor         |
-            | Related person |
-            | Researcher     |
-            | Rights holder  |
-            | Supervisor     |
-            | Other          |
+        And they see a dropdown with Contributor Types "<ContributorTypes>"
         And they see a "Close" Button
         And they see a "Create new Contributor" Button
         And they see a "Add me as Contributor" Button
         And they see a disabled "Add" Button
+        Examples:
+            | RegistrationType          | ContributorTypes                                                                     |
+            | JournalArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | JournalShortCommunication | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | FeatureArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | JournalLetter             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | JournalReview             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | JournalLeader             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | JournalCorrigendum        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | BookMonograph             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | BookAnthology             | Contact person, Related person, Researcher, Rights holder, Supervisor, Other         |
+            | ReportResearch            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | ReportPolicy              | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | ReportWorkingPaper        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | ReportBasic               | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | DegreeBachelor            | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | DegreeMaster              | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | DegreePhd                 | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | OtherStudentWork          | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | ChapterArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
 
     Scenario: Creator selects a Contributor Type
         Given Creator opens the Add Contributor Dialog
