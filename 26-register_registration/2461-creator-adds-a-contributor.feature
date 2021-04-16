@@ -2,7 +2,8 @@ Feature: Creator adds a Contributor
 
     Scenario Outline: Creator opens the Add Contributor Dialog
         Given Creator navigates to Contributors tab
-        And the Registration is a "<RegistrationType>"
+        And the Registration has Registration Type "<RegistrationType>"
+        And the Registration has Registration Subtype "<RegistrationType>"
         When they click "Add Contributor"
         Then they see the "Add Contributor" Dialog
         And they see a dropdown with Contributor Types "<ContributorTypes>"
@@ -11,25 +12,25 @@ Feature: Creator adds a Contributor
         And they see a "Add me as Contributor" Button
         And they see a disabled "Add" Button
         Examples:
-            | RegistrationType          | ContributorTypes                                                                     |
-            | BookAnthology             | Contact person, Related person, Researcher, Rights holder, Supervisor, Other         |
-            | BookMonograph             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | ChapterArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | DegreeBachelor            | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
-            | DegreeMaster              | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
-            | DegreePhd                 | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
-            | FeatureArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | JournalArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | JournalCorrigendum        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | JournalLeader             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | JournalLetter             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | JournalReview             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | JournalShortCommunication | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | OtherStudentWork          | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
-            | ReportBasic               | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | ReportPolicy              | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | ReportResearch            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | ReportWorkingPaper        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | RegistrationType | RegistrationSubtype       | ContributorTypes                                                                     |
+            | Book             | BookAnthology             | Contact person, Related person, Researcher, Rights holder, Supervisor, Other         |
+            | Book             | BookMonograph             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Chapter          | ChapterArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Degree           | DegreeBachelor            | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | Degree           | DegreeMaster              | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | Degree           | DegreePhd                 | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | Degree           | OtherStudentWork          | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | Journal          | FeatureArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Journal          | JournalArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Journal          | JournalCorrigendum        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Journal          | JournalLeader             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Journal          | JournalLetter             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Journal          | JournalReview             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Journal          | JournalShortCommunication | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Report           | ReportBasic               | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Report           | ReportPolicy              | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Report           | ReportResearch            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Report           | ReportWorkingPaper        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
 
     Scenario: Creator selects a Contributor Type
         Given Creator opens the Add Contributor Dialog
