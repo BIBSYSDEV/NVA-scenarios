@@ -10,9 +10,7 @@ Feature: Editor opens Editor Administration
 
     @2445
     Scenario Outline: Editor sees fields for Vocabulary settings
-        Given that the user is logged in as Editor
-        And they click the menu item Editor
-        And they see the Editor page
+        Given Editor opens Editor Administration
         And they see Vocabulary settings
         Then they can set "<Vocabulary>" to be one of:
             | Disabled |
