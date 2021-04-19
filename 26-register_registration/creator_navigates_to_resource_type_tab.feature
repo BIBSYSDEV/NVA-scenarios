@@ -47,7 +47,7 @@ Feature: Creator navigates to Resource Type tab
 
   @392
   Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Anthology"
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     When they navigate to the Resource Type tab
     And they select the Resource type "Book"
     And they select Resource subtype "Anthology" from the list
