@@ -91,7 +91,7 @@ Feature: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
-    When they select the subtype "<Subtype>":
+    When they select the Subtype "<Subtype>":
     Then they see that the Peer Review Details are hidden
     Examples:
       | Subtype              |
