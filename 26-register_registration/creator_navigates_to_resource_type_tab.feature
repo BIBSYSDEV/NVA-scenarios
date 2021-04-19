@@ -2,7 +2,7 @@ Feature: Creator navigates to Resource Type tab
 
   @274
   Scenario: Creator navigates to the Resource Type tab and selects Resource type "Contribution to journal"
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     When they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
     Then they see a list of subtypes:
