@@ -28,7 +28,7 @@ Feature: Creator navigates to Resource Type tab
     And they see Save is enabled
 
   Scenario: Creator sees that fields are validated on Resource Type tab
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     When they navigate to the Resource Type tab
     And they click the Save button
     Then they can see "Mandatory" error messages for fields:
