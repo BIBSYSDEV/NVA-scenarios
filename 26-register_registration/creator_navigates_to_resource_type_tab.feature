@@ -72,7 +72,7 @@ Feature: Creator navigates to Resource Type tab
 
   @395
   Scenario: Creator sees fields for Resource subtype "Chapter in book"
-    Given Creator begins registering a Registration in the Wizard with a link
+    Given Creator begins registering a Registration in the Wizard with a Link
     When they navigate to the Resource Type tab
     And they select the Resource Type 
       | Part of book/report |
