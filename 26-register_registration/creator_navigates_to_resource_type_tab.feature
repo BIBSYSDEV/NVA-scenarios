@@ -334,7 +334,7 @@ Feature: Creator navigates to Resource Type tab
 
   @1694
   Scenario Outline: Creator sees fields for Resource subtypes for "Student thesis"
-    Given Creator begins registering a Registration in the Wizard with a link
+    Given Creator begins registering a Registration in the Wizard with a Link
     When they navigate to the Resource Type tab
     And they select the Resource type "Student thesis"
     And they select the subtype "<Subtype>":
