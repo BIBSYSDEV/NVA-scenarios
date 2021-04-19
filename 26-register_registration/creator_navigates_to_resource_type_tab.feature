@@ -88,7 +88,7 @@ Feature: Creator navigates to Resource Type tab
 
   @1409
   Scenario Outline: Creator selects Contribution to Journal and Peer Review Details are hidden
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
     When they select the subtype "<Subtype>":
