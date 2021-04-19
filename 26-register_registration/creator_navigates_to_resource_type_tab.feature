@@ -252,7 +252,7 @@ Feature: Creator navigates to Resource Type tab
       | Feature article      |
 
   Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
     And they select Resource subtype "<Subtype>"
