@@ -101,7 +101,7 @@ Feature: Creator navigates to Resource Type tab
 
   @1624
   Scenario: Creator navigates to the Resource Type tab and selects Resource type "Other publication"
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     When they navigate to the Resource Type tab
     And they select the Resource type "Other publication"
     Then they see a list of subtypes:
