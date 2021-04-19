@@ -127,7 +127,7 @@ Feature: Creator navigates to Resource Type tab
     And they see a disabled field for Journal based on selected Journal article
 
   Scenario: Creator sees that fields for Resource subtype "Corrigendum" are validated
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
     And they select the Resource subtype "Corrigendum"
