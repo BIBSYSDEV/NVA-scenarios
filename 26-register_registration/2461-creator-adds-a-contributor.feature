@@ -3,7 +3,7 @@ Feature: Creator adds a Contributor
     Scenario Outline: Creator opens the Add Contributor Dialog
         Given Creator navigates to Contributors tab
         And the Registration has Registration Type "<RegistrationType>"
-        And the Registration has Registration Subtype "<RegistrationType>"
+        And the Registration has Registration Subtype "<RegistrationSubtype>"
         When they click "Add Contributor"
         Then they see the "Add Contributor" Dialog
         And they see a dropdown with Contributor Types "<ContributorTypes>"
