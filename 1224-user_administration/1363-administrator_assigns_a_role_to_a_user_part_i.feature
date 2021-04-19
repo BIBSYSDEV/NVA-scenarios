@@ -4,6 +4,7 @@ Feature: Administrator assigns a Role to a User (Part I)
     Scenario Outline: Administrator assigns a Role to a User (Part I)
         Given that the Administrator searches for User
         When they click the "<Button>" for a User
+        And they click the "Close" button
         Then the Add Role Dialog is closed
         And the User Administration Page is opened
         And they see that the User has got the "<Role>" role
