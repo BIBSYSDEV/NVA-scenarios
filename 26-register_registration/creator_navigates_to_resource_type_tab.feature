@@ -350,7 +350,7 @@ Feature: Creator navigates to Resource Type tab
       | Other student thesis |
 
   Scenario Outline: Creator sees that fields are validated for Resource subtypes for "Student thesis"
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Student thesis"
     And they select the subtype "<Subtype>":
