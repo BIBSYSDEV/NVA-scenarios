@@ -353,7 +353,7 @@ Feature: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Student thesis"
-    And they select the subtype "<Subtype>":
+    And they select the Subtype "<Subtype>":
     When they click the Save button
     Then they can see "Mandatory" error messages for fields:
       | Search box for Publisher |
