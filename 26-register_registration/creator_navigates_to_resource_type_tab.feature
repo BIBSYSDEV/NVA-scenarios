@@ -337,7 +337,7 @@ Feature: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a Link
     When they navigate to the Resource Type tab
     And they select the Resource type "Student thesis"
-    And they select the subtype "<Subtype>":
+    And they select the Subtype "<Subtype>":
     Then they see fields:
       | Search box for Publisher |
       | DOI                      |
