@@ -396,7 +396,7 @@ Feature: Creator navigates to Resource Type tab
 
   @2229
   Scenario Outline: Creator sees that fields for Book are validated on Resource Type tab
-    Given Creator begins registering a Registration in the Wizard with a file
+    Given Creator begins registering a Registration in the Wizard with a File
     When they navigate to the Resource Type tab
     And they select the Resource type "Book"
     And they select Resource subtype "<BookType>" from the list
