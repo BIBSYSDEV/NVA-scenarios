@@ -298,7 +298,7 @@ Feature: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a File
     When they navigate to the Resource Type tab
     And they select the Resource type "Report"
-    And they select the subtype "<Subtype>":
+    And they select the Subtype "<Subtype>":
     Then they see fields:
       | Search box for Publisher |
       | ISBN                     |
@@ -315,7 +315,7 @@ Feature: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Report"
-    And they select the subtype "<Subtype>":
+    And they select the Subtype "<Subtype>":
     And they enter an invalid value in fields:
       | ISBN                  |
       | Total number of pages |
