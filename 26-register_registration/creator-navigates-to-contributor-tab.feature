@@ -4,7 +4,7 @@ Feature: Creator navigates to Contributors tab
   Scenario: Creator navigates to Contributors tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Contributors tab
-    Then they see "Add Author" Button is enabled
+    Then they see "Add Contributor" Button is enabled
     And they see the tab Description is clickable
     And they see the tab Resource Type is clickable
     And they see the tab Contributors is selected
