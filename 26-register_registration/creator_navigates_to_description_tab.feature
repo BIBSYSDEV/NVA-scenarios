@@ -53,10 +53,10 @@ Feature: Creator navigates to Description tab
     And their Institution has a Vocabulary set as "Allowed"
     When they click "Add Vocabulary"
     Then they can add the "Allowed" Vocabulary
-    And they can add values for the added Vocabulary
+    And they can add values for the Allowed Vocabulary
 
   @2448
   Scenario: Creator adds value to a Default Vocabulary
     Given Creator begins Wizard registration and navigates to Description tab
     When their Institution has a Vocabulary set as "Default"
-    Then they can see an input field for the Vocabulary
+    Then they can see an input field for the Default Vocabulary
