@@ -103,23 +103,23 @@ Feature: Creator navigates to Contributors tab
       | Last name  |
     And they see the "Create new Author" Button in the Create new Author Dialog
 
-  Scenario: Creator sees Button to verify Contributor
+  Scenario: Creator sees Button to Verify Contributor
     Given Creator navigates to Contributors tab
-    When the Registration has an unverified Contributor
-    Then they see a Button to verify the Contributor
+    When the Registration has an Unverified Contributor
+    Then they see a Button to Verify the Contributor
 
-  Scenario: Creator opens Dialog to verify Contributor
-    Given Creator sees Button to verify Contributor
-    When they click the Button to verify Contributor
-    Then they see the verify Contributor Dialog
+  Scenario: Creator opens Dialog to Verify Contributor
+    Given Creator sees Button to Verify Contributor
+    When they click the Button to Verify Contributor
+    Then they see the Verify Contributor Dialog
     And they see a search field prefilled with the selected Contributor's name
     And they see a list of Persons matching the search
 
   @2467
   Scenario: Creator verifies Contributor
-    Given Creator opens Dialog to verify Contributor
+    Given Creator opens Dialog to Verify Contributor
     When they select a Person from the Search Results
-    And they click the Button to verify Contributor
-    Then the Dialog are closed
+    And they click the Button to Verify Contributor
+    Then the Dialog is closed
     And they see the Contributor is now verified
-    And all current affiliations are listed for the Contributor
+    And all current Affiliations are listed for the Contributor
