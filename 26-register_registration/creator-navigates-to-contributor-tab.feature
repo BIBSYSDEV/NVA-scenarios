@@ -50,7 +50,7 @@ Feature: Creator navigates to Contributors tab
   Scenario: Creator adds an Author to the list of Authors for Resource Type Chapter
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resources tab
-    And they select the Resource Type 
+    And they select the Resource Type
       | Part of book/report |
     And they select the Registration Subtype "Chapter in anthology"
     When they navigate to the Contributors tab
@@ -102,3 +102,24 @@ Feature: Creator navigates to Contributors tab
       | First name |
       | Last name  |
     And they see the "Create new Author" Button in the Create new Author Dialog
+
+  Scenario: Creator sees Button to Verify Contributor
+    Given Creator navigates to Contributors tab
+    When the Registration has an Unverified Contributor
+    Then they see a Button to Verify the Contributor
+
+  Scenario: Creator opens Dialog to Verify Contributor
+    Given Creator sees Button to Verify Contributor
+    When they click the Button to Verify Contributor
+    Then they see the Verify Contributor Dialog
+    And they see a search field prefilled with the selected Contributor's name
+    And they see a list of Persons matching the search
+
+  @2467
+  Scenario: Creator verifies Contributor
+    Given Creator opens Dialog to Verify Contributor
+    When they select a Person from the Search Results
+    And they click the Button to Verify Contributor
+    Then the Dialog is closed
+    And they see the Contributor is now verified
+    And all current Affiliations are listed for the Contributor
