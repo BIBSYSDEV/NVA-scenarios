@@ -70,18 +70,21 @@ Feature: Creator navigates to Description tab
     Given Creator begins Wizard registration and navigates to Description tab
     When they click Button for creating a new Project
     Then they see a Dialog with input fields:
-      | Project title            |
+      | Project Title            |
       | Coordinating Institution |
-      | Project manager          |
-      | Start date               |
+      | Project Manager          |
+      | Start Date               |
       | Internal reference       |
     And they see a Cancel Button
     And they see a Save Button
 
-  @xxx
+  @2556
   Scenario: Creator creates a new Project
     Given Creator opens Dialog for creating a new Project
-    When they enter a Project title
+    When they enter a Project Title
+    And they select a Coordinating Institution
+    And ​they select a Project Manager
+    And they set a Start Date
     And they click Save
     Then the Dialog is closed
     And they see a confirmation message that the Project was created
