@@ -88,4 +88,4 @@ Feature: Creator navigates to Description tab
     And they click Save
     Then the Dialog is closed
     And they see a confirmation message that the Project was created
-    And the Project can be found via Search
+    And they see the Project is listed under Project Associations
