@@ -1,6 +1,6 @@
 Feature: Project Landing Page
 
-    @xxx
+    @2630
     Scenario: User opens Landing Page for Project
         Given Anonymous User views Landing Page for Registration
         And the Registration has a Project
