@@ -5,6 +5,7 @@ Feature: Creator navigates to Files and License tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Files and License tab
     Then they see the File upload widget
+    And they see an Input Field for Linked Resources
     And they see the tab Description is clickable
     And they see the tab Resource Type is clickable
     And they see the tab Contributors is clickable
@@ -12,3 +13,40 @@ Feature: Creator navigates to Files and License tab
     And they see Previous is enabled
     And they see Next is enabled
     And they see Save is enabled
+
+  Scenario Outline: Creator looks up a valid Link as a Linked Resource
+    Given Creator navigates to Files and License tab
+    When they enter "<Link>" in the Linked Resource field
+    And they click "Verify"
+    Then they see that the Title is "<Title>"
+    And they see that the Description is "<Description>"
+    And they see that the Image is "<Image>"
+    And they see an "Add" Button
+    Examples:
+      | Link                                      | Title                  | Description                                                                                         | Image                                                                                                                      |
+      | https://github.com/BIBSYSDEV/NVA-Frontend | BIBSYSDEV/NVA-Frontend | Web app for NVA. Contribute to BIBSYSDEV/NVA-Frontend development by creating an account on GitHub. | https://opengraph.githubassets.com/9b8b6574086bddaac12ee7cbdde3aeea1bed7d3bbf93b5efe34ea14cb438fc5d/BIBSYSDEV/NVA-Frontend |
+
+  @xxx
+  Scenario: Creator adds a valid Link as a Linked Resource
+    Given Creator looks up a valid Link as a Linked Resource
+    When they click "Add"
+    Then the Link is listed under Linked Resources
+    And they see a Button to remove the Link
+
+  Scenario Outline: Creator looks up an invalid link as Linked Resource
+    Given Creator navigates to Files and License tab
+    When they enter "<Link>" in the Linked Resource field
+    And they click "Verify"
+    Then they see that the Link was not found
+    And they see an "Add anyway" Button
+    Examples:
+      | Link                        |
+      | https://github.com/xxx/yyyy |
+
+  @xxx
+  Scenario: Creator adds an invalid link as a Linked Resource
+    Given Creator looks up an invalid link as Linked Resource
+    When they click "Add anyway"
+    Then the link is listed under Linked Resources
+    And they see that the Link yields a validation error as it was not found
+    And they see a Button to remove the Link
