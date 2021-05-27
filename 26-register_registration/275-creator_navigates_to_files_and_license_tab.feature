@@ -21,10 +21,13 @@ Feature: Creator navigates to Files and License tab
     Then they see that the Title is "<Title>"
     And they see that the Description is "<Description>"
     And they see that the Image is "<Image>"
+    And they see that the URL is "<URL>"
+    And they see that the Site Name is "<SiteName>"
     And they see an "Add" Button
     Examples:
-      | Link                                      | Title                  | Description                                                                                         | Image                                                                                                                      |
-      | https://github.com/BIBSYSDEV/NVA-Frontend | BIBSYSDEV/NVA-Frontend | Web app for NVA. Contribute to BIBSYSDEV/NVA-Frontend development by creating an account on GitHub. | https://opengraph.githubassets.com/9b8b6574086bddaac12ee7cbdde3aeea1bed7d3bbf93b5efe34ea14cb438fc5d/BIBSYSDEV/NVA-Frontend |
+      | Link                                      | Title                                                  | Description                                                                                                                                                                     | Image                                                                                                                      | URL                                       | SiteName |
+      | https://github.com/BIBSYSDEV/NVA-Frontend | BIBSYSDEV/NVA-Frontend                                 | Web app for NVA. Contribute to BIBSYSDEV/NVA-Frontend development by creating an account on GitHub.                                                                             | https://opengraph.githubassets.com/9b8b6574086bddaac12ee7cbdde3aeea1bed7d3bbf93b5efe34ea14cb438fc5d/BIBSYSDEV/NVA-Frontend | https://github.com/BIBSYSDEV/NVA-Frontend | GitHub   |
+      | https://www.nrk.no/                       | NRK.no – nyheter, tv og radio fra Norge og hele verden | NRK.no er Norges største tilbud på nett: nyheter fra Norge og verden, lokalnyheter, radio- og tv-program, podcast, vær, helse-, kultur-, underholdning-, humor- og debattstoff. | https://gfx.nrk.no/MypkihdsBkCYb-cXvwW8BgLqqp7OO7Fkyj8B_mXoY4Ew                                                            | https://www.nrk.no/                       | NRK      |
 
   @xxx
   Scenario: Creator adds a valid Link as a Linked Resource
@@ -40,8 +43,8 @@ Feature: Creator navigates to Files and License tab
     Then they see that the Link was not found
     And they see an "Add anyway" Button
     Examples:
-      | Link                        |
-      | https://github.com/xxx/yyyy |
+      | Link                       |
+      | https://github.com/xxx/yyy |
 
   @xxx
   Scenario: Creator adds an invalid link as a Linked Resource
