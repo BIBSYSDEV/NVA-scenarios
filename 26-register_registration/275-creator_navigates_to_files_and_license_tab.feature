@@ -36,7 +36,7 @@ Feature: Creator navigates to Files and License tab
     Then the Link is listed under Linked Resources
     And they see a Button to remove the Link
 
-  Scenario Outline: Creator looks up an invalid link as Linked Resource
+  Scenario Outline: Creator looks up an invalid Link as Linked Resource
     Given Creator navigates to Files and License tab
     When they enter "<Link>" in the Linked Resource field
     And they click "Verify"
@@ -47,9 +47,9 @@ Feature: Creator navigates to Files and License tab
       | https://github.com/xxx/yyy |
 
   @xxx
-  Scenario: Creator adds an invalid link as a Linked Resource
-    Given Creator looks up an invalid link as Linked Resource
+  Scenario: Creator adds an invalid Link as a Linked Resource
+    Given Creator looks up an invalid Link as Linked Resource
     When they click "Add anyway"
-    Then the link is listed under Linked Resources
+    Then the Link is listed under Linked Resources
     And they see that the Link yields a validation error as it was not found
     And they see a Button to remove the Link
