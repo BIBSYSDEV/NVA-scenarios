@@ -17,11 +17,13 @@ Feature: Project Landing Page
             | Participants       |
             | Results            |
 
+    @2631
     Scenario: User opens Scientific summary for a Project
         Given User opens Landing Page for Project
         When they expand "Scientific summary"
         Then they see the Scientific summary
 
+    @2632
     Scenario: User opens Participants for a Project
         Given User opens Landing Page for Project
         When they expand "Participants"
@@ -30,6 +32,7 @@ Feature: Project Landing Page
             | Role        |
             | Affiliation |
 
+    @2633
     Scenario: User opens Results for a Project
         Given User opens Landing Page for Project
         When they expand "Results"
