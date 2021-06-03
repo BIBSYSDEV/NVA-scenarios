@@ -185,11 +185,11 @@ Feature: Creator navigates to Resource Type tab
       | Total number of pages       |
 
   @1656
-  Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) compatible Resource subtype
+  Scenario: Creator sees fields for Journal article
     Given Creator begins registering a Registration in the Wizard with a Link
     When they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
-    And they select Resource subtype "<Subtype>"
+    And they select Resource subtype Journal article
     And they see fields:
       | Search-box for Journal |
       | DOI                    |
@@ -198,17 +198,20 @@ Feature: Creator navigates to Resource Type tab
       | Pages from             |
       | Pages to               |
       | Article number         |
-      | Peer reviewed          |
+    And they see a dropdown for Content Type with options:
+      | Research article        |
+      | Review article          |
+      | Case report             |
+      | Study protocol          |
+      | Professional article    |
+      | Popular science article |
     And they see the Norwegian Science Index (NVI) evaluation status
-    Examples:
-      | Subtype         |
-      | Journal article |
 
-  Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) compatible Resource subtype are validated
+  Scenario Outline: Creator sees that fields for Journal article are validated
     Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
-    And they select Resource subtype "<Subtype>"
+    And they select Resource subtype Journal article
     And they enter an invalid value in fields:
       | Volume         |
       | Issue          |
@@ -224,9 +227,15 @@ Feature: Creator navigates to Resource Type tab
       | Pages from     |
       | Pages to       |
       | Article number |
-    Examples:
-      | Subtype         |
-      | Journal article |
+
+  @xxx
+  Scenario: Creator sees extra fields for Journal article
+    Given Creator sees fields for Journal article
+    When they set Content Type to one of:
+      | Research article |
+      | Review article   |
+    Then they see radio buttons for Peer reviewed
+    And they see radio buttons for Present new original research
 
   @1659
   Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Resource subtype
@@ -248,6 +257,7 @@ Feature: Creator navigates to Resource Type tab
       | Book review     |
       | Editorial       |
       | Feature article |
+      | Booklet         |
 
   Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
     Given Creator begins registering a Registration in the Wizard with a File
@@ -276,6 +286,7 @@ Feature: Creator navigates to Resource Type tab
       | Book review     |
       | Editorial       |
       | Feature article |
+      | Booklet         |
 
   @1669
   Scenario: Creator selects Resource type "Other publication" and selects subtype "Feature article"
