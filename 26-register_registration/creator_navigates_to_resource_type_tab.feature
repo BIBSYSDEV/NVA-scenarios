@@ -232,7 +232,7 @@ Feature: Creator navigates to Resource Type tab
       | Article number |
 
   @xxx
-  Scenario: Creator sees extra fields for Journal article
+  Scenario: Creator sees extra fields for Norwegian Science Index (NVI) compatible Journal article
     Given Creator sees fields for Journal article
     When they set Content Type to one of:
       | Research article |
@@ -289,8 +289,8 @@ Feature: Creator navigates to Resource Type tab
       | Feature article |
       | Comment         |
       | Book review     |
-      | Editorial       |
-      | Feature article |
+      | Leader          |
+      | Corrigendum     |
       | Booklet         |
 
   @1669
