@@ -6,13 +6,13 @@ Feature: Creator navigates to Resource Type tab
     When they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
     Then they see a list of subtypes:
-      | Journal article      |
-      | Short communication  |
-      | Feature article      |
-      | Letter to the Editor |
-      | Book review          |
-      | Editorial            |
-      | Corrigendum          |
+      | Journal article |
+      | Feature article |
+      | Comment         |
+      | Book review     |
+      | Editorial       |
+      | Corrigendum     |
+      | Booklet         |
 
   @453
   Scenario: Creator navigates to Resource Type tab
@@ -74,7 +74,7 @@ Feature: Creator navigates to Resource Type tab
   Scenario: Creator sees fields for Resource subtype "Chapter in book"
     Given Creator begins registering a Registration in the Wizard with a Link
     When they navigate to the Resource Type tab
-    And they select the Resource Type 
+    And they select the Resource Type
       | Part of book/report |
     And they select the Registration Subtype "Chapter in book"
     Then they see an information box describing that a Container book must be published first
@@ -91,13 +91,13 @@ Feature: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
-    When they select the Subtype "<Subtype>":
+    When they select the Subtype "<Subtype>"
     Then they see that the Peer Review Details are hidden
     Examples:
-      | Subtype              |
-      | Editorial            |
-      | Letter to the Editor |
-      | Book review          |
+      | Subtype     |
+      | Editorial   |
+      | Comment     |
+      | Book review |
 
   @1624
   Scenario: Creator navigates to the Resource Type tab and selects Resource type "Other publication"
@@ -201,9 +201,8 @@ Feature: Creator navigates to Resource Type tab
       | Peer reviewed          |
     And they see the Norwegian Science Index (NVI) evaluation status
     Examples:
-      | Subtype             |
-      | Journal article     |
-      | Short communication |
+      | Subtype         |
+      | Journal article |
 
   Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) compatible Resource subtype are validated
     Given Creator begins registering a Registration in the Wizard with a File
@@ -226,9 +225,8 @@ Feature: Creator navigates to Resource Type tab
       | Pages to       |
       | Article number |
     Examples:
-      | Subtype             |
-      | Journal article     |
-      | Short communication |
+      | Subtype         |
+      | Journal article |
 
   @1659
   Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Resource subtype
@@ -245,11 +243,11 @@ Feature: Creator navigates to Resource Type tab
       | Pages to               |
       | Article number         |
     Examples:
-      | Subtype              |
-      | Letter to the Editor |
-      | Book review          |
-      | Editorial            |
-      | Feature article      |
+      | Subtype         |
+      | Comment         |
+      | Book review     |
+      | Editorial       |
+      | Feature article |
 
   Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
     Given Creator begins registering a Registration in the Wizard with a File
@@ -272,12 +270,12 @@ Feature: Creator navigates to Resource Type tab
       | Pages to       |
       | Article number |
     Examples:
-      | Subtype              |
-      | Feature article      |
-      | Letter to the Editor |
-      | Book review          |
-      | Editorial            |
-      | Feature article      |
+      | Subtype         |
+      | Feature article |
+      | Comment         |
+      | Book review     |
+      | Editorial       |
+      | Feature article |
 
   @1669
   Scenario: Creator selects Resource type "Other publication" and selects subtype "Feature article"
@@ -384,7 +382,7 @@ Feature: Creator navigates to Resource Type tab
   Scenario: Creator sees fields for Resource subtype "Chapter in report"
     Given Creator begins registering a Registration in the Wizard with a Link
     When they navigate to the Resource Type tab
-    And they select the Resource Type 
+    And they select the Resource Type
       | Part of book/report |
     And they select the Registration Subtype "Chapter in report"
     Then they see an information box describing that a Container report must be published first
