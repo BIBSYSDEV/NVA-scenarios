@@ -10,7 +10,7 @@ Feature: Creator navigates to Resource Type tab
       | Feature article |
       | Comment         |
       | Book review     |
-      | Editorial       |
+      | Leader          |
       | Corrigendum     |
       | Booklet         |
 
@@ -94,10 +94,13 @@ Feature: Creator navigates to Resource Type tab
     When they select the Subtype "<Subtype>"
     Then they see that the Peer Review Details are hidden
     Examples:
-      | Subtype     |
-      | Editorial   |
-      | Comment     |
-      | Book review |
+      | Subtype         |
+      | Feature article |
+      | Comment         |
+      | Book review     |
+      | Leader          |
+      | Corrigendum     |
+      | Booklet         |
 
   @1624
   Scenario: Creator navigates to the Resource Type tab and selects Resource type "Other publication"
@@ -207,7 +210,7 @@ Feature: Creator navigates to Resource Type tab
       | Popular science article |
     And they see the Norwegian Science Index (NVI) evaluation status
 
-  Scenario Outline: Creator sees that fields for Journal article are validated
+  Scenario: Creator sees that fields for Journal article are validated
     Given Creator begins registering a Registration in the Wizard with a File
     And they navigate to the Resource Type tab
     And they select the Resource type "Contribution to journal"
@@ -253,11 +256,13 @@ Feature: Creator navigates to Resource Type tab
       | Article number         |
     Examples:
       | Subtype         |
+      | Feature article |
       | Comment         |
       | Book review     |
-      | Editorial       |
-      | Feature article |
+      | Leader          |
+      | Corrigendum     |
       | Booklet         |
+
 
   Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
     Given Creator begins registering a Registration in the Wizard with a File
