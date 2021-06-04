@@ -17,7 +17,7 @@ Feature: Project Landing Page
             | Participants       |
             | Results            |
 
-    @xxx
+    @2697
     Scenario: User sees Clinical Trial Phase for Drug studies
         Given User opens Landing Page for Project
         And the Project is a Drug study
