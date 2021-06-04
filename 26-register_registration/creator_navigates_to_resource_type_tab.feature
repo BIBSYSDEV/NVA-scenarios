@@ -231,14 +231,14 @@ Feature: Creator navigates to Resource Type tab
       | Pages to       |
       | Article number |
 
-  @xxx
+  @2685
   Scenario: Creator sees extra fields for Norwegian Science Index (NVI) compatible Journal article
     Given Creator sees fields for Journal article
     When they set Content Type to one of:
       | Research article |
       | Review article   |
     Then they see radio buttons for Peer reviewed
-    And they see radio buttons for Present new original research
+    And they see radio buttons for Presents new original research
 
   @1659
   Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Resource subtype
