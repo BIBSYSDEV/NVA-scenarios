@@ -20,7 +20,7 @@ Feature: Project Landing Page
     @2697
     Scenario: User sees Clinical Trial Phase for Drug studies
         Given User opens Landing Page for Project
-        And the Project is a Drug study
+        When the Project is a Drug study
         Then they can see the Project's Clinical Trial Phase
 
     @2631
