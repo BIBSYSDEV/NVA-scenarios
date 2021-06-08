@@ -36,7 +36,8 @@ Feature: Creator navigates to Files and License tab
     Given Creator navigates to Files and License tab
     When they enter "<Link>" in the Linked Resource field
     And they click the Add Link Button
-    Then they see that the Link could not be added
+    Then they see an error message that the Link could not be added
+
     Examples:
       | Link                       |
       | https://github.com/xxx/yyy |
