@@ -10,12 +10,18 @@ Feature: Project Landing Page
             | Owner     |
             | Manager   |
             | Period    |
-            | Category  |
             | Financing |
+            | Approvals |
         And they see collapsed panels:
             | Scientific summary |
             | Participants       |
             | Results            |
+
+    @2697
+    Scenario: User sees Clinical Trial Phase for Drug studies
+        Given User opens Landing Page for Project
+        When the Project is a Drug study
+        Then they can see the Project's Clinical Trial Phase
 
     @2631
     Scenario: User opens Scientific summary for a Project
