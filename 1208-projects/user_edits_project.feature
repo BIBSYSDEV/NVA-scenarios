@@ -1,5 +1,6 @@
 Feature: User edits Project
 
+    @xxx
     Scenario: User opens My Projects
         Given that a User is logged in
         When they navigate to the Projects Page
@@ -8,7 +9,6 @@ Feature: User edits Project
             | Project manager |
         And each Project has an Edit Button
 
-    @xxx
     Scenario: User opens the Project Wizard
         Given User opens My Projects
         When they click the Edit Button for a Project
@@ -48,7 +48,6 @@ Feature: User edits Project
         And they see a Save Button
         And they see a Next Button
 
-    @xxx
     Scenario: User opens Dialog for adding Project Manager
         Given User opens Participants tab for Project
         When they click the Add Project Manager Button
@@ -64,7 +63,6 @@ Feature: User edits Project
         And they click the Add Button
         Then they see the User listed as a Project Manager
 
-    @xxx
     Scenario: User opens Dialog for adding Project Participant
         Given User opens Participants tab for Project
         When they click the Add Project Participant Button
