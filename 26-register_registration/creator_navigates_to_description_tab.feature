@@ -17,6 +17,7 @@ Feature: Creator navigates to Description tab
     And they see the tab Resource Type is clickable
     And they see the tab Contributors is clickable
     And they see the tab Files and License is clickable
+    And they see a Button for creating a new Project is enabled
     And they see Next is enabled
     And they see Save is enabled
 
@@ -64,3 +65,27 @@ Feature: Creator navigates to Description tab
     Given Creator begins Wizard registration and navigates to Description tab
     When their Institution has a Vocabulary set as "Default"
     Then they can see an input field for the Default Vocabulary
+
+  Scenario: Creator opens Dialog for creating a new Project
+    Given Creator begins Wizard registration and navigates to Description tab
+    When they click Button for creating a new Project
+    Then they see a Dialog with input fields:
+      | Project Title            |
+      | Coordinating Institution |
+      | Project Manager          |
+      | Start Date               |
+      | Internal reference       |
+    And they see a Cancel Button
+    And they see a Save Button
+
+  @2556
+  Scenario: Creator creates a new Project
+    Given Creator opens Dialog for creating a new Project
+    When they enter a Project Title
+    And they select a Coordinating Institution
+    And ​they select a Project Manager
+    And they set a Start Date
+    And they click Save
+    Then the Dialog is closed
+    And they see a confirmation message that the Project was created
+    And they see the Project is listed under Project Associations
