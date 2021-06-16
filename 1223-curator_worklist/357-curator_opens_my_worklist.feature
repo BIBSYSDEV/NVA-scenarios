@@ -5,13 +5,10 @@ Feature: Curator opens My Worklist
         Given that the user is logged in as Curator
         When they click the menu item My Worklist
         Then they see My Worklist page
-        And they see there designated institution scope
-        And they see a search field
         And they see the tabs:
-            | For Approval     |
-            | Support          |
-            | DOI request      |
-            | Change ownership |
+            | For Approval |
+            | Support      |
+            | DOI request  |
         And they see the For Approval page
 
     @1353
@@ -40,17 +37,6 @@ Feature: Curator opens My Worklist
     Scenario: Curator views DOI Request tab
         Given that the Curator opens My Worklist
         When they click the tab "DOI request"
-        Then they see a list of Worklist Items with fields:
-            | Request status     |
-            | Registration title |
-            | Submitter name     |
-            | Date               |
-        And the see that each Worklist Item has an Expand button
-
-    @2756
-    Scenario: Curator views Change Ownweship tab
-        Given that the Curator opens My Worklist
-        When they click the tab "Change ownership"
         Then they see a list of Worklist Items with fields:
             | Request status     |
             | Registration title |
