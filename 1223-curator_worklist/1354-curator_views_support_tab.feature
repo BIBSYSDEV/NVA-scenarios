@@ -11,3 +11,4 @@ Feature: Curator views Support tab
             | Submitter |
             | Date      |
         And they see each Worklist Item has an Expand button
+        
