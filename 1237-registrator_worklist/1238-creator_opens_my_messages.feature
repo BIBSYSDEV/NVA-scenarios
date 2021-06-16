@@ -14,3 +14,5 @@ Feature: Creator opens My Messages
             | RequestType      | RequestStatus                 |
             | DoiRequests      | Approved, Rejected, Requested |
             | Support Requests | Pending, Resolved             |
+            
+            Voksenopplæring
