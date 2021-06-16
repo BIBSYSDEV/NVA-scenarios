@@ -1,14 +1,5 @@
 Feature: User edits Project
 
-    @xxx
-    Scenario: User opens My Projects
-        Given that a User is logged in
-        When they navigate to the Projects Page
-        Then they see a list of Projects where the User is either of:
-            | Creator         |
-            | Project manager |
-        And each Project has an Edit Button
-
     Scenario: User opens the Project Wizard
         Given User opens My Projects
         When they click the Edit Button for a Project
