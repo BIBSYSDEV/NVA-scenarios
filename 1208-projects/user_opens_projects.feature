@@ -21,7 +21,6 @@ Feature: User opens Projects
             | Project Manager       | disabled         | disabled           |
             | Local Project Manager | enabled          | enabled            |
 
-    @xxx
     Scenario: User clicks the Create New Project Button
         Given User opens My Projects
         When they click Create New Project Button
