@@ -48,7 +48,7 @@ Feature: Curator opens My Worklist
         And the see that each Worklist Item has an Expand button
 
     @2756
-    Scenario: Curator views Change Ownweship tab
+    Scenario: Curator views Change Ownership tab
         Given that the Curator opens My Worklist
         When they click the tab "Change ownership"
         Then they see a list of Worklist Items with fields:
