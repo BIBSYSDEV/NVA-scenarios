@@ -31,7 +31,7 @@ Feature: Creator selects Resource type Degree
         Then they can see "Mandatory" error messages for fields:
             | Search box for Publisher |
 
-    @xxx
+    @2776
     Scenario: Creator sees series fields for Resource subtypes "Doctoral thesis"
         Given Creator navigates to the Resource Type tab and selects Resource type "Student thesis"
         When they select the Subtype "Doctoral thesis"
