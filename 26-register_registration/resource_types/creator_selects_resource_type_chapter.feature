@@ -42,7 +42,7 @@ Feature: Creator selects Resource type Chapter
             | Text book chapter       |
             | Encyclopedia chapter    |
 
-    @xxx
+    @2785
     Scenario: Creator selects Resource subtype "Chapter in Anthology" and Content type "Scientific chapter"
         Given Creator sees fields for Resource subtype "Chapter in Anthology"
         When they select Content type "Scientific chapter"
