@@ -10,7 +10,7 @@ Feature: Creator selects Resource type Chapter
             | Summary of conference presentation |
 
     @2021
-    Scenario Outline: Creator sees fields for Resource subtype "Chapter in report"
+    Scenario Outline: Creator sees fields for Chapter subtypes
         Given Creator navigates to the Resource Type tab and selects Resource type "Chapter"
         When they select the Resource Subtype "<ChapterType>"
         Then they see an information box describing that a Container report must be published first
