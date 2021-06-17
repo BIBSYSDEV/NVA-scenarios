@@ -5,7 +5,7 @@ Feature: Curator opens My Worklist
         Given that the user is logged in as Curator
         When they click the menu item My Worklist
         Then they see My Worklist page
-        And they see there designated institution scope
+        And they see their designated institution scope
         And they see a search field
         And they see the tabs:
             | For Approval    |
