@@ -1,6 +1,6 @@
 Feature: Curator declines a DOI request
 
-    @1244
+    @1244 deprecated
     Scenario: Curator declines a DOI request
         Given that a user is logged in as Curator
         And they open My Worklist page

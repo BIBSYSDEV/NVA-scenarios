@@ -1,6 +1,6 @@
 Feature: A Curator approves a DOI request
 
-    @512
+    @512 deprecated
     Scenario: A Curator approves a DOI request
         Given that a Curator opens a Publication from a DOI Request Worklist Item
         When they click Create DOI

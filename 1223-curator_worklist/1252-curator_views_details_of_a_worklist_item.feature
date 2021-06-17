@@ -1,6 +1,6 @@
 Feature: Curator views details of a Worklist item
 
-    @1252
+    @1252 deprecated
     Scenario: Curator views details of a Worklist item
         Given that a Curator views DOI request tab
         When they expand the item

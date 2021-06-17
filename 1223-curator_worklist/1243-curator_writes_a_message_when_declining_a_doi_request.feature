@@ -1,6 +1,6 @@
 Feature: Curator writes a message when declining a DOI request
 
-    @1243
+    @1243 deprecated
     Scenario: Curator writes a message when declining a DOI request
         Given that a user is logged in as Curator
         And they open My Worklist page
