@@ -13,7 +13,7 @@ Feature: Creator selects Resource type Report
     @1693
     Scenario Outline: Creator sees fields for Resource subtypes for "Report"
         Given Creator navigates to the Resource Type tab and selects Resource type "Report"
-        When they select the Subtype "<Subtype>":
+        When they select the Subtype "<Subtype>"
         Then they see fields:
             | Search box for Publisher |
             | ISBN                     |
