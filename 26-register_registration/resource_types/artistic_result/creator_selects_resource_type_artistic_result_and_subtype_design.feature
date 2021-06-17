@@ -1,18 +1,4 @@
-Feature: Creator navigates to Resource Type tab and selects Artistic Result
-
-    @2732
-    Scenario: Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
-        Given Creator begins registering a Registration in the Wizard with a File
-        When they navigate to the Resource Type tab
-        And they select the Resource type "Artistic Result"
-        Then they see a list of subtypes:
-            | Artistic result - Architecture   |
-            | Artistic result - Design         |
-            | Artistic result - Film           |
-            | Artistic result - Music          |
-            | Artistic result - Performing art |
-            | Artistic result - Writing art    |
-            | Artistic result - Visual art     |
+Feature: Creator selects Resource type Artistic Result and subtype Design
 
     @2733
     Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Design"
@@ -51,9 +37,3 @@ Feature: Creator navigates to Resource Type tab and selects Artistic Result
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Design"
         When they click the Add Exhibition Place Button
         Then a new row are added to list of Exhibition Places
-
-    @2739
-    Scenario: Creator selects Other type of work for Resource Type "Artistic result"
-        Given Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
-        When they select Other as Type Work
-        Then they see a new field where they can enter actual Type
