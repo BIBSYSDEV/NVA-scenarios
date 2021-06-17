@@ -13,7 +13,7 @@ Feature: Creator selects Resource type Degree
     @1694
     Scenario Outline: Creator sees fields for Resource subtypes for "Student thesis"
         Given Creator navigates to the Resource Type tab and selects Resource type "Student thesis"
-        When they select the Subtype "<Subtype>":
+        When they select the Subtype "<Subtype>"
         Then they see fields:
             | Search box for Publisher |
             | DOI                      |
