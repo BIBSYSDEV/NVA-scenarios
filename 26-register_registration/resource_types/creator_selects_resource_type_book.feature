@@ -47,7 +47,7 @@ Feature: Creator selects Resource type Book
             | Series title   |
             | Series number  |
         And they see a field Content Type with options:
-            | Scientific book      |
+            | Scientific Anthology |
             | Subject book         |
             | Popular science book |
             | Text book            |
