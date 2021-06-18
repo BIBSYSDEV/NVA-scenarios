@@ -33,7 +33,6 @@ Feature: Creator selects Resource type Chapter
         And they see fields:
             | DOI                                  |
             | Search box for published Anthologies |
-            | NPI discipline                       |
             | Pages from                           |
             | Pages to                             |
         And they see Content type field with options:
@@ -47,7 +46,8 @@ Feature: Creator selects Resource type Chapter
     Scenario: Creator selects Resource subtype "Chapter in Anthology" and Content type "Scientific chapter"
         Given Creator sees fields for Resource subtype "Chapter in Anthology"
         When they select Content type "Scientific chapter"
-        Then they see radio buttons for fields:
+        Then they see fields:
+            | NPI discipline        |
             | Peer reviewed         |
             | Presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status
