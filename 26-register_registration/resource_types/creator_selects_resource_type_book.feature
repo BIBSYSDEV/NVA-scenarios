@@ -43,8 +43,9 @@ Feature: Creator selects Resource type Book
         Given Creator navigates to the Resource Type tab and selects Resource type "Book"
         When they select Resource subtype "Monograph"
         And they see fields:
-            | Series title  |
-            | Series number |
+            | NPI discipline |
+            | Series title   |
+            | Series number  |
         And they see a field Content Type with options:
             | Scientific Monograph |
             | Subject book         |
@@ -57,7 +58,6 @@ Feature: Creator selects Resource type Book
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
         When they select Content type "Scientific Monograph"
         Then they see fields:
-            | NPI discipline        |
             | Peer reviewed         |
             | Presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status
