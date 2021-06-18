@@ -10,7 +10,6 @@ Feature: Curator search in meassages from My Worklist
             | Support         |
             | DOI request     |
             | Change ownersip |
-        And they see the previous selected tab
         Examples:
             | MessageStatus | CheckboxStatus |
             | New            | Checked        |
