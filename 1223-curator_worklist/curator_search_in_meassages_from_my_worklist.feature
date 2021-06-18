@@ -12,7 +12,7 @@ Feature: Curator search in meassages from My Worklist
             | Change ownersip |
         And they see the previous selected tab
         Examples:
-            | Message Status | CheckboxStatus |
+            | MessageStatus | CheckboxStatus |
             | New            | Checked        |
             | Active         | Checked        |
             | Done           | Unchecked      |
