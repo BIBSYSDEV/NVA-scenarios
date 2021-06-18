@@ -56,7 +56,7 @@ Feature: Creator selects Resource type Book
     Scenario: Creator selects Resource subtype "Monograph" and Content type Scientific Monograph
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
         When they select Content type "Scientific Monograph"
-        Then they see radio buttons for fields:
+        Then they see fields:
             | NPI discipline        |
             | Peer reviewed         |
             | Presents new research |
