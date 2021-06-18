@@ -63,7 +63,7 @@ Feature: Curator opens My Worklist
         Given that a Curator opens My Worklist 
         When they expand a Message
         Then they see the Message is expanded
-        And they see the Title of the Publication
+        And they see the Title of the Registration
         And they see the Submitter name
         And the Message origin date
         And they see any previous dialog in the Message with fields:
@@ -72,11 +72,11 @@ Feature: Curator opens My Worklist
             | Message        |
         And they see an input field for Answer
         And they see buttons
-            | Send answer       |
-            | Go to publication |
-        And they see the Request status preselected in a dropdown containing other <Request status>
+            | Send answer        |
+            | Go to Registration |
+        And they see the Request status preselected in a dropdown containing options "<RequesStatus>"
         Examples:
-            | Request status |
+            | RequestStatus |
             | New            |
             | Active         |
             | Done           |
