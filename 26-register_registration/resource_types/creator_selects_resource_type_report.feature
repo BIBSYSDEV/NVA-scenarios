@@ -2,9 +2,8 @@ Feature: Creator selects Resource type Report
 
     @393
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Report"
-        Given Creator begins registering a Registration in the Wizard with a File
-        When they navigate to the Resource Type tab
-        And they select the Resource type "Report"
+        Given Creator navigates to Resource Type tab
+        When they select the Resource type "Report"
         Then they see a list of subtypes:
             | Research report      |
             | Policy report        |
@@ -13,15 +12,14 @@ Feature: Creator selects Resource type Report
 
     @1693
     Scenario Outline: Creator sees fields for Resource subtypes for "Report"
-        Given Creator begins registering a Registration in the Wizard with a File
-        When they navigate to the Resource Type tab
-        And they select the Resource type "Report"
-        And they select the Subtype "<Subtype>":
+        Given Creator navigates to the Resource Type tab and selects Resource type "Report"
+        When they select the Subtype "<Subtype>"
         Then they see fields:
             | Search box for Publisher |
             | ISBN                     |
             | Total number of pages    |
             | Search box for Series    |
+            | Series number            |
         Examples:
             | Subtype              |
             | Research report      |
@@ -30,11 +28,8 @@ Feature: Creator selects Resource type Report
             | Other type of report |
 
     Scenario Outline: Creator sees that fields are validated for Resource subtypes for "Report"
-        Given Creator begins registering a Registration in the Wizard with a File
-        And they navigate to the Resource Type tab
-        And they select the Resource type "Report"
-        And they select the Subtype "<Subtype>":
-        And they enter an invalid value in fields:
+        Given Creator sees fields for Resource subtypes for "Report"
+        When they enter an invalid value in fields:
             | ISBN                  |
             | Total number of pages |
         Then they can see the "Invalid ISBN" error message
