@@ -47,16 +47,16 @@ Feature: Creator selects Resource type Book
             | Series title   |
             | Series number  |
         And they see a field Content Type with options:
-            | Scientific Anthology |
+            | Scientific Monograph |
             | Subject book         |
             | Popular science book |
             | Text book            |
             | Encyclopedia         |
 
     @2782
-    Scenario: Creator selects Resource subtype "Monograph" and Content type Scientific Anthology
+    Scenario: Creator selects Resource subtype "Monograph" and Content type Scientific Monograph
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
-        When they select Content type "Scientific Anthology"
+        When they select Content type "Scientific Monograph"
         Then they see radio buttons for fields:
             | Peer reviewed         |
             | Presents new research |
