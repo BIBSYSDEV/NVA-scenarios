@@ -83,8 +83,3 @@ Feature: Curator opens My Worklist
             | Denied         |
             | Archived       |
             | Deleted        |
-
-    @?
-    Scenario: Curator change Request status on a Message
-    Given Curator views details of a Worklist item
-    Then pending
