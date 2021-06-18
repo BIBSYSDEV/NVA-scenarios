@@ -60,17 +60,31 @@ Feature: Curator opens My Worklist
 
     @1252
     Scenario: Curator views details of a Worklist item
-        Given that a Curator views DOI request tab
-        When they expand the item
-        Then they see the item is expanded
+        Given that a Curator opens My Worklist 
+        When they expand a Message
+        Then they see the Message is expanded
         And they see the Title of the Publication
-        And they see the DOI request status
-        And they see a list of Messages with fields:
-            | Message   |
-            | Submitter |
-            | Date      |
+        And they see the Submitter name
+        And the Message origin date
+        And they see any previous dialog in the Message with fields:
+            | Submitter name |
+            | Date           |
+            | Message        |
         And they see an input field for Answer
         And they see buttons
             | Send answer       |
             | Go to publication |
-            | Archive           |
+        And they see the Request status preselected in a dropdown containing other <Request status>
+        Examples:
+            | Request status |
+            | New            |
+            | Active         |
+            | Done           |
+            | Denied         |
+            | Archived       |
+            | Deleted        |
+
+    @?
+    Scenario: Curator change Request status on a Message
+    Given Curator views details of a Worklist item
+    Then pending
