@@ -14,8 +14,8 @@ Feature: Curator opens a Registration from a DOI Request
     Scenario: A Curator approves a DOI request
         Given Curator opens a Registration from a DOI Request
         When they click Create DOI
-        Then they see the Public Page for Publication
-        And the Publication has a DOI Link
+        Then they see the Public Page for Registration
+        And the Registration has a DOI Link
         And the Request DOI item is marked as Approved in their Worklist
 
     @1244
