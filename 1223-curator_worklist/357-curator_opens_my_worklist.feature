@@ -57,3 +57,49 @@ Feature: Curator opens My Worklist
             | Submitter name     |
             | Date               |
         And the see that each Worklist Item has an Expand button
+
+    @1252
+    Scenario: Curator views details of a Worklist item
+        Given that a Curator opens My Worklist 
+        When they expand a Message
+        Then they see the Message is expanded
+        And they see the Title of the Registration
+        And they see the Submitter name
+        And the Message origin date
+        And they see any previous dialog in the Message with fields:
+            | Submitter name |
+            | Date           |
+            | Message        |
+        And they see an input field for Answer
+        And they see buttons
+            | Send answer        |
+            | Go to Registration |
+        And they see the Request status preselected in a dropdown containing options "<RequesStatus>"
+        Examples:
+            | RequestStatus |
+            | New            |
+            | Active         |
+            | Done           |
+            | Denied         |
+            | Archived       |
+            | Deleted        |
+
+    @2795
+    Scenario: Curator search in meassages from My Worklist
+        Given Curator opens My Worklist
+        When they execute a search in the search field
+        Then they see <MessageStatus> listed as <CheckboxStatus> Checkboxes
+        And they see the tabs with numbers of search results corresponding to the Checked <Message Status> and Institution scope:
+            | For Approval    |
+            | Support         |
+            | DOI request     |
+            | Change ownersip |
+        And they see the previous selected tab
+        Examples:
+            | Message Status | CheckboxStatus |
+            | New            | Checked        |
+            | Active         | Checked        |
+            | Done           | Unchecked      |
+            | Denied         | Unchecked      |
+            | Archived       | Unchecked      |
+            | Deleted        | Unchecked      |
