@@ -72,11 +72,11 @@ Feature: Curator opens My Worklist
             | Message        |
         And they see an input field for Answer
         And they see buttons
-            | Send answer       |
-            | Go to publication |
-        And they see the Request status preselected in a dropdown containing other <Request status>
+            | Send answer        |
+            | Go to Registration |
+        And they see the Request status preselected in a dropdown containing options "<RequesStatus>"
         Examples:
-            | Request status |
+            | RequestStatus |
             | New            |
             | Active         |
             | Done           |
