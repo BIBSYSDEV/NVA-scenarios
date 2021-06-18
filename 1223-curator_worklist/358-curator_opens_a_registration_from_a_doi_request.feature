@@ -12,7 +12,7 @@ Feature: Curator opens a Registration from a DOI Request
 
     @512
     Scenario: A Curator approves a DOI request
-        Given that a Curator opens a Publication from a DOI Request Worklist Item
+        Given Curator opens a Registration from a DOI Request
         When they click Create DOI
         Then they see the Public Page for Publication
         And the Publication has a DOI Link
