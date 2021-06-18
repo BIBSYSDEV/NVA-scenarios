@@ -54,9 +54,9 @@ Feature: Creator selects Resource type Book
             | Encyclopedia         |
 
     @2782
-    Scenario: Creator selects Resource subtype "Monograph" and Content type Scientific book
+    Scenario: Creator selects Resource subtype "Monograph" and Content type Scientific Anthology
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
-        When they select Content type "Scientific book"
+        When they select Content type "Scientific Anthology"
         Then they see radio buttons for fields:
             | Peer reviewed         |
             | Presents new research |
