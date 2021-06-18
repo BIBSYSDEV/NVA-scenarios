@@ -33,6 +33,7 @@ Feature: Creator selects Resource type Chapter
         And they see fields:
             | DOI                                  |
             | Search box for published Anthologies |
+            | NPI discipline                       |
             | Pages from                           |
             | Pages to                             |
         And they see Content type field with options:
