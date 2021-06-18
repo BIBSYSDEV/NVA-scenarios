@@ -53,7 +53,7 @@ Feature: Creator selects Resource type Book
             | Text book            |
             | Encyclopedia         |
 
-    @xxx
+    @2782
     Scenario: Creator selects Resource subtype "Monograph" and Content type Scientific book
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
         When they select Content type "Scientific book"
