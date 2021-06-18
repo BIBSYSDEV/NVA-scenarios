@@ -35,5 +35,6 @@ Feature: Creator selects Resource type Artistic Result and subtype Design
     @2736
     Scenario: Creator Deletes an Exhibition Place
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Design"
-        When they click the Add Exhibition Place Button
-        Then a new row are added to list of Exhibition Places
+        And they see an item in the list of Exhibition Places
+        When they click the Delete Exhibition Place Button
+        Then the row is removed from list of Exhibition Places
