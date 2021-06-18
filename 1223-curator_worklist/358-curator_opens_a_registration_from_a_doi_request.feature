@@ -40,4 +40,6 @@ Feature: Curator opens a Registration from a DOI Request
         And they see the Landing Page for the DOI Request's Registration 
         When they click Decline DOI
         Then they see the Decline DOI Dialog
-        And they can write a message about why the DOI is declined
+        And they write a message about why the DOI is declined
+        And they click Save
+        And the Owner see the message in the Owners' Worklist
