@@ -2,7 +2,7 @@ Feature: Curator search in meassages from My Worklist
 
     @2795
     Scenario: Curator search in meassages from My Worklist
-        Given that the Curator opens My Worklist
+        Given Curator opens My Worklist
         When they execute a search in the search field
         Then they see My Worklist page
         And they see their designated Institution scope
