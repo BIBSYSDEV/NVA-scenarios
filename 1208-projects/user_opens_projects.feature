@@ -18,8 +18,8 @@ Feature: User opens Projects
         Examples:
             | Role                  | EditButtonStatus | DeleteButtonStatus |
             | Participant           | disabled         | disabled           |
-            | Project Manager       | disabled         | disabled           |
-            | Local Project Manager | enabled          | enabled            |
+            | Local Project Manager | disabled         | disabled           |
+            | Project Manager       | enabled          | enabled            |
 
     Scenario: User clicks the Create New Project Button
         Given User opens My Projects
