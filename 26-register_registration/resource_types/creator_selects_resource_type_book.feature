@@ -47,16 +47,16 @@ Feature: Creator selects Resource type Book
             | Series title   |
             | Series number  |
         And they see a field Content Type with options:
-            | Scientific Monograph |
-            | Subject book         |
-            | Popular science book |
-            | Text book            |
-            | Encyclopedia         |
+            | Academic Monograph        |
+            | Non-fiction Monograph     |
+            | Popular Science Monograph |
+            | Textbook                  |
+            | Encyclopedia              |
 
     @2782
-    Scenario: Creator selects Resource subtype "Monograph" and Content type Scientific Monograph
+    Scenario: Creator selects Resource subtype "Monograph" and Content type Academic Monograph
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
-        When they select Content type "Scientific Monograph"
+        When they select Content type "Academic Monograph"
         Then they see fields:
             | Peer reviewed         |
             | Presents new research |
