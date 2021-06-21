@@ -9,9 +9,8 @@ Feature: Administrator opens user administration
         And each Section "<Role>" lists all users affiliated with their institution with role "<Role>"
         And they see a Button "<Button>" to assign the Role "<Role>" to another user
         And they see that the list has the fields "Username" and "Name" for each user
-        And they see a third "Scope" field for the Curator section
-        And they see a preselected dropdown containing all institution levels for all Curators
-        And they see a button Remove that is enabled for each user
+        And they see a third field for the Curator section, named "Scope" containing a preselected dropdown containing all institution levels
+        And they see a button "Remove" that is enabled for each user
         And they see the number of items viewed per page
         And they can change the number of items viewed per page
         And they see the number of items viewed of the total amount of items
@@ -30,14 +29,14 @@ Feature: Administrator opens user administration
         When they click "<Button>" under "<Section>"
         Then they see the Add Role Dialog 
         And they see an Information box
-        And they see a Search box for employees
+        And they see a input field to Search for employees
         And they see a list of employees with an "Add" button
         And they see the number of items viewed per page
         And they can change the number of items viewed per page
         And they see the number of items viewed of the total amount of items
         And they see that previous page of items is disabled
         And they can select next page of items
-        And they see a Close button
+        And they see a "Close" button
         Examples:
             | Section       | Button            |
             | Administrator | Add Administrator |
@@ -47,29 +46,35 @@ Feature: Administrator opens user administration
         @1362
         Scenario: Administrator searches for User
         Given Administrator opens the Add Role Dialog
-        When they enter text into the search field
+        When they enter text into the Search field
         Then they see a list of employees matching the search with an "Add" button
         And they see the number of items viewed per page
         And they can change the number of items viewed per page
         And they see the number of items viewed of the total amount of items
         And they see that previous page of items is disabled
         And they can select next page of items
-        And they see a Close button
+        And they see a "Close" button
 
 	@?
-    Scenario: Administrator grants an employee a role
+    Scenario Outline: Administrator grants an employee a role
         Given Administrator opens the Add Role Dialog
-        When the Administrator click "Add" button 
-        Then the employee is granted the rolethey see the Add Role Dialog 
+        When the Administrator click the "Add" button under "<Section>"
+        Then the relevant employee is granted the role "<Role>"
+        And they see the Add Role Dialog 
         And they see an Information box
-        And they see a Search box for employees
+        And they see a input field to Search for employees
         And they see a list of employees with an "Add" button
         And they see the number of items viewed per page
         And they can change the number of items viewed per page
         And they see the number of items viewed of the total amount of items
         And they see that previous page of items is disabled
         And they can select next page of items
-        And they see a Close button
+        And they see a "Close" button
+        Examples:
+            | Section       | Role          |
+            | Administrator | Administrator |
+            | Curator       | Curator       |
+            | Editor        | Editor        |
 
 	@?
     Scenario: Administrator closes the Add Role Dialog 
