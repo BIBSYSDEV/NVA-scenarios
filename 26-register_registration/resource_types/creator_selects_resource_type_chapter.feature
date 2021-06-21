@@ -37,16 +37,16 @@ Feature: Creator selects Resource type Chapter
             | Pages from                           |
             | Pages to                             |
         And they see Content type field with options:
-            | Scientific chapter      |
-            | Subject chapter         |
-            | Popular science chapter |
-            | Text book chapter       |
+            | Academic Chapter        |
+            | Non-fiction Chapter     |
+            | Popular Science Chapter |
+            | Textbook Chapter        |
             | Encyclopedia chapter    |
 
     @2785
-    Scenario: Creator selects Resource subtype "Chapter in Anthology" and Content type "Scientific chapter"
+    Scenario: Creator selects Resource subtype "Chapter in Anthology" and Content type "Academic chapter"
         Given Creator sees fields for Resource subtype "Chapter in Anthology"
-        When they select Content type "Scientific chapter"
+        When they select Content type "Academic chapter"
         Then they see fields:
             | Peer reviewed         |
             | Presents new research |
