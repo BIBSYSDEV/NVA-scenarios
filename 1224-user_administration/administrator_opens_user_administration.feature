@@ -63,25 +63,11 @@ Feature: Administrator opens user administration
         Then they see a list of employees matching the search with an "Add" button
 
 	@?
-    Scenario Outline: Administrator grants an employee a role
+    Scenario: Administrator grants an Employee a role
         Given Administrator opens the Add Role Dialog
-        When the Administrator click the "Add" button under "<Section>"
-        Then the relevant employee is granted the role "<Role>"
-        And they see the Add Role Dialog 
-        And they see an Information box
-        And they see a input field to Search for employees
-        And they see a list of employees with an "Add" button
-        And they see the number of items viewed per page
-        And they can change the number of items viewed per page
-        And they see the number of items viewed of the total amount of items
-        And they see that previous page of items is disabled
-        And they can select next page of items
-        And they see a "Close" button
-        Examples:
-            | Section       | Role          |
-            | Administrator | Administrator |
-            | Curator       | Curator       |
-            | Editor        | Editor        |
+        When they click "Add" Button for an Employee
+        Then they see a confirmation message
+        And they see that the clicked "Add" button is disabled
 
 	@?
     Scenario: Administrator closes the Add Role Dialog 
