@@ -23,7 +23,7 @@ Feature: Administrator opens user administration
             | Curator                    | Add Curator       |
             | Editor                     | Add Editor        |
 
-	@363
+    @363
     Scenario Outline: Administrator opens the Add Role Dialog
         Given Administrator opens User Administration
         When they click "<Button>" under "<Section>"
