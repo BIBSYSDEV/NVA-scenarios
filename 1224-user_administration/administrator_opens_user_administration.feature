@@ -21,7 +21,6 @@ Feature: Administrator opens user administration
             | Curator                    | Add Curator       |
             | Editor                     | Add Editor        |
 
-    @?
     Scenario: Administrator inspect a Curators scope
         Given Administrator opens User Administration
         When they see on the Curator section of the User Administration
