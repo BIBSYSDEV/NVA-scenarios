@@ -9,7 +9,6 @@ Feature: Administrator opens user administration
         And each Section "<Role>" lists all users affiliated with their institution with role "<Role>"
         And they see a Button "<Button>" to assign the Role "<Role>" to another user
         And they see that the list has the fields "Username" and "Name" for each user
-        And they see a third field for the Curator section, named "Scope" containing a preselected dropdown containing all institution levels
         And they see a button "Remove" that is enabled for each user
         And they see the number of items viewed per page
         And they can change the number of items viewed per page
@@ -22,6 +21,20 @@ Feature: Administrator opens user administration
             | Administrator              | Add Administrator |
             | Curator                    | Add Curator       |
             | Editor                     | Add Editor        |
+
+   @?
+    Scenario: Administrator inspect a Curators scope
+        Given Administrator opens User Administration
+        When they see on the Curator section of the User Administration
+        Then they see a third field named "Scope" 
+        And it contain a dropdown containing all levels of the institution
+        And default value is top level 
+
+   @?
+    Scenario: Administrator select a Curators scope
+        Given Administrator opens User Administration
+        When they select an institution level on a Curator
+        Then the selected level is stored as the Curators scope of responsibility
 
 	@363
     Scenario Outline: Administrator opens the Add Role Dialog
