@@ -16,10 +16,10 @@ Feature: Administrator opens user administration
         And they can select next page of items
         And they see a section Registrator with a policy for who are able to publish
         Examples:
-            | Role                       | Button            |
-            | Administrator              | Add Administrator |
-            | Curator                    | Add Curator       |
-            | Editor                     | Add Editor        |
+            | Section        | Role          | Button            |
+            | Administrators | Administrator | Add Administrator |
+            | Curators       | Curator       | Add Curator       |
+            | Editors        | Editor        | Add Editor        |
 
     Scenario: Administrator inspect a Curators scope
         Given Administrator opens User Administration
