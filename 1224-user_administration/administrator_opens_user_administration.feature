@@ -61,12 +61,6 @@ Feature: Administrator opens user administration
         Given Administrator opens the Add Role Dialog
         When they enter text into the Search field
         Then they see a list of employees matching the search with an "Add" button
-        And they see the number of items viewed per page
-        And they can change the number of items viewed per page
-        And they see the number of items viewed of the total amount of items
-        And they see that previous page of items is disabled
-        And they can select next page of items
-        And they see a "Close" button
 
 	@?
     Scenario Outline: Administrator grants an employee a role
