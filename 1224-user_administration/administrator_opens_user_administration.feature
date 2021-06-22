@@ -72,5 +72,5 @@ Feature: Administrator opens user administration
 	@?
     Scenario: Administrator closes the Add Role Dialog 
         Given Administrator opens the Add Role Dialog
-        When the Administrator click "Close" button 
+        When they click the "Close" button 
         Then the Add Role Dialog is closed
