@@ -1,6 +1,6 @@
 Feature: Administrator opens user administration
 
-   @359
+    @359
     Scenario Outline: Administrator opens User Administration
         Given that the user is logged in as Administrator
         When they click the menu item Users
