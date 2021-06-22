@@ -31,8 +31,10 @@ Feature: Administrator opens user administration
    @?
     Scenario: Administrator select a Curators scope
         Given Administrator opens User Administration
-        When they select an institution level on a Curator
-        Then the selected level is stored as the Curators scope of responsibility
+        When they click on the Scope dropdown for a Curator
+        And they select an Institution (or subunit)
+        Then the dropdown is closed
+        And they see a confirmation message that the Scope was updated
 
     @363
     Scenario Outline: Administrator opens the Add Role Dialog
