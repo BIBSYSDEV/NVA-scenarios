@@ -29,7 +29,7 @@ Feature: Administrator opens user administration
         When they click "<Button>" under "<Section>"
         Then they see the Add Role Dialog 
         And they see an Information box
-        And they see a input field to Search for employees
+        And they see an input field to Search for employees
         And they see a list of employees with an "Add" button
         And they see the number of items viewed per page
         And they can change the number of items viewed per page
