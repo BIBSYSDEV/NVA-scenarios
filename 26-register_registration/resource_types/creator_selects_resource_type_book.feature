@@ -1,46 +1,63 @@
 Feature: Creator selects Resource type Book
 
+    Scenario: Creator navigates to the Resource Type tab and selects Resource type "Book"
+        Given Creator navigates to Resource Type tab
+        When they select the Resource type "Book"
+        Then they see a list of subtypes:
+            | Anthology           |
+            | Monograph           |
+            | Abstract collection |
+            | Exhibition catalog  |
+
     @392
-    Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Anthology"
-        Given Creator begins registering a Registration in the Wizard with a File
-        When they navigate to the Resource Type tab
-        And they select the Resource type "Book"
-        And they select Resource subtype "Anthology" from the list
-        Then they see a Search box for "Publisher name"
-        And they see a checkbox for "Is this a textbook?"
+    Scenario Outline: Creator navigates to the Resource Type tab and selects Resource subtype
+        Given Creator navigates to the Resource Type tab and selects Resource type "Book"
+        When they select Resource subtype "<BookType>"
         And they see fields:
+            | Publisher             |
             | ISBN                  |
             | Total number of pages |
-            | NPI discipline        |
-        And they see a Search box for "Title of the Series"
+        Examples:
+            | BookType            |
+            | Anthology           |
+            | Monograph           |
+            | Abstract collection |
+            | Exhibition catalog  |
 
     @2229
     Scenario Outline: Creator sees that fields for Book are validated on Resource Type tab
-        Given Creator begins registering a Registration in the Wizard with a File
-        When they navigate to the Resource Type tab
-        And they select the Resource type "Book"
-        And they select Resource subtype "<BookType>" from the list
+        Given Creator navigates to the Resource Type tab and selects Resource type "Book"
+        When they select Resource subtype "<BookType>"
         And they click the Save button
         Then they can see "Mandatory" error messages for fields:
-            | Publisher      |
-            | NPI discipline |
+            | Publisher |
         Examples:
-            | BookType  |
-            | Anthology |
-            | Monograph |
+            | BookType            |
+            | Anthology           |
+            | Monograph           |
+            | Abstract collection |
+            | Exhibition catalog  |
 
     @1963
     Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
-        Given Creator begins registering a Registration in the Wizard with a File
-        When they navigate to the Resource Type tab
-        And they select the Resource type "Book"
-        And they select Resource subtype "Monograph" from the list
-        Then they see a Search box for "Publisher name"
-        And they see a checkbox for "Is this a textbook?"
+        Given Creator navigates to the Resource Type tab and selects Resource type "Book"
+        When they select Resource subtype "Monograph"
         And they see fields:
-            | ISBN                  |
-            | Total number of pages |
-            | NPI discipline        |
-        And they see a Search box for "Title of the Series"
-        And they see a preselected value for Peer review "Not peer reviewed"
+            | NPI discipline |
+            | Series title   |
+            | Series number  |
+        And they see a field Content Type with options:
+            | Academic Monograph        |
+            | Non-fiction Monograph     |
+            | Popular Science Monograph |
+            | Textbook                  |
+            | Encyclopedia              |
+
+    @2782
+    Scenario: Creator selects Resource subtype "Monograph" and Content type Academic Monograph
+        Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
+        When they select Content type "Academic Monograph"
+        Then they see fields:
+            | Peer reviewed         |
+            | Presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status
