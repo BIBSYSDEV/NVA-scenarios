@@ -5,9 +5,8 @@ Feature: Administrator opens user administration
         Given that the user is logged in as Administrator
         When they click the menu item Users
         Then they see the User Administration page
-        And they see the Section "<Role>"
-        And each Section "<Role>" lists all users affiliated with their institution with role "<Role>"
-        And they see a Button "<Button>" to assign the Role "<Role>" to another user
+        And they see that Section "<Section>" lists all users affiliated with their institution with role "<Role>"
+        And they see a Button "<Button>"
         And they see that the list has the fields "Username" and "Name" for each user
         And they see a button "Remove" that is enabled for each user
         And they see the number of items viewed per page
