@@ -21,15 +21,15 @@ Feature: Administrator opens user administration
             | Curator                    | Add Curator       |
             | Editor                     | Add Editor        |
 
-   @?
+    @?
     Scenario: Administrator inspect a Curators scope
         Given Administrator opens User Administration
         When they see on the Curator section of the User Administration
         Then they see that each Curator has a "Scope" field
         And the "Scope" field is a dropdown containing all levels of their Institution
 
-   @?
-    Scenario: Administrator select a Curators scope
+    @2841
+    Scenario: Administrator define a Curators scope
         Given Administrator opens User Administration
         When they click on the Scope dropdown for a Curator
         And they select an Institution (or subunit)
