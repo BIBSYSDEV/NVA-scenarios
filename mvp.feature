@@ -1094,47 +1094,6 @@ Feature: MVP features for NVA
       | Editors                    | Editor        |
       | Creators                   | Creator       |
 
-  @360
-  Scenario: Administrator opens My Institution (Part I)
-    Given that the user is logged in as Administrator
-    When they click the menu item My Institution
-    Then they see the My Institution page
-    And they see fields:
-      | Name in organization registry |
-      | Display name                  |
-      | Short display name            |
-      | CNAME                         |
-      | Institution DNS               |
-
-  @575
-  Scenario: Administrator uploads a new Logo
-    Given Administrator opens My Institution
-    When they click Upload Logo
-    And they select an image from their computer
-    And they click OK
-    Then they see the Logo on My Institution page
-
-  @361
-  Scenario: Administrator edits an Institution
-    Given Administrator opens My Institution
-    When they edit the fields
-      | Name in organization registry |
-      | Display name                  |
-      | Short display name            |
-      | CNAME                         |
-      | Institution DNS               |
-    And they check Publications must be approved by Curator checkbox
-    And they upload a new Logo
-    Then they see a notification that the information was saved
-    And they can visit the Institutional Portal
-
-  @362
-  Scenario: Administrator views the Institutional Portal
-    Given Administrator edits an Institution
-    When they visit the Institutional Portal
-    Then they see the web address in their web browser is the CName + .nva.unit.no
-    And they see the page title is the same as the Display Name on My Institution
-
   # Actions from page : Useradministration
   @363
   Scenario Outline: Administrator opens the Add Role Dialog
