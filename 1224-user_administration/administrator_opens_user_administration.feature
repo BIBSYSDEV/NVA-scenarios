@@ -25,9 +25,8 @@ Feature: Administrator opens user administration
     Scenario: Administrator inspect a Curators scope
         Given Administrator opens User Administration
         When they see on the Curator section of the User Administration
-        Then they see a third field named "Scope" 
-        And it contain a dropdown containing all levels of the institution
-        And default value is top level 
+        Then they see that each Curator has a "Scope" field
+        And the "Scope" field is a dropdown containing all levels of their Institution
 
    @?
     Scenario: Administrator select a Curators scope
