@@ -43,8 +43,8 @@ Feature: Administrator opens user administration
             | Curator       | Add Curator       |
             | Editor        | Add Editor        |
 
-        @1362
-        Scenario: Administrator searches for User
+    @1362
+    Scenario: Administrator searches for User
         Given Administrator opens the Add Role Dialog
         When they enter text into the Search field
         Then they see a list of employees matching the search with an "Add" button
