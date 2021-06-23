@@ -61,14 +61,13 @@ Feature: Administrator opens user administration
         When they enter text into the Search field
         Then they see a list of employees matching the search with an "Add" button
 
-	@?
+	@2844
     Scenario: Administrator grants an Employee a role
         Given Administrator opens the Add Role Dialog
         When they click "Add" Button for an Employee
         Then they see a confirmation message
         And they see that the clicked "Add" button is disabled
 
-	@?
     Scenario: Administrator closes the Add Role Dialog 
         Given Administrator opens the Add Role Dialog
         When they click the "Close" button 
