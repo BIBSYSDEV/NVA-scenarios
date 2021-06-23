@@ -61,7 +61,7 @@ Feature: Administrator opens user administration
         When they enter text into the Search field
         Then they see a list of employees matching the search with an "Add" button
 
-	@1363
+    @1363
     Scenario: Administrator grants an Employee a role
         Given Administrator opens the Add Role Dialog
         When they click "Add" Button for an Employee
