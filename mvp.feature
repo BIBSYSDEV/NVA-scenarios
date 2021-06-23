@@ -900,44 +900,6 @@ Feature: MVP features for NVA
     Then they see the web address in their web browser is the CName + .nva.unit.no
     And they see the page title is the same as the Display Name on My Institution
 
-  # Actions from page : Useradministration
-  @363
-  Scenario Outline: Administrator opens the Add Role Dialog
-    Given that the User is logged in as Administrator
-    And they are on the User Administration Page
-    When they click a <Button> under a <Section>
-    Then they see the Add Role Dialog with Authentication ID
-    And they see a Search box for employees
-    And they see a Search button
-    And they see an Information box
-    And they see a Close button
-    Examples:
-      | Section       | Button            |
-      | Administrator | Add Administrator |
-      | Curator       | Add Curator       |
-      | Editor        | Add Editor        |
-
-
-  @1362
-  Scenario: Administrator searches for User
-    Given that the Administrator opens Add Role Dialog
-    When they execute a search for the employee "Kari"
-    Then they see the Search result for "Kari" with Authentication ID
-    And they see an Add Role button for each row
-
-  @1363
-  Scenario Outline: Administrator assigns a Role to a User (Part I)
-    Given that the Administrator searches for User
-    When they click the <Button> for a User
-    Then the Add Role Dialog is closed
-    And the User Administration Page is opened
-    And they see that the User has got the <Role> role
-    Examples:
-      | Button            | Role          |
-      | Add Administrator | Administrator |
-      | Add Curator       | Curator       |
-      | Add Editor        | Editor        |
-
   # Menuitems for Editor
   @364
   Scenario: Editor opens Editor Administration
