@@ -68,7 +68,6 @@ Feature: Administrator opens user administration
         Then they see a confirmation message
         And they see that the clicked "Add" button is disabled
 
-	@?
     Scenario: Administrator closes the Add Role Dialog 
         Given Administrator opens the Add Role Dialog
         When they click the "Close" button 
