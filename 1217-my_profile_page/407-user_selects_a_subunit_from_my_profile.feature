@@ -1,5 +1,6 @@
 Feature: User selects a Subunit from My Profile
 
+    @test
     @407
     Scenario: User selects a Subunit from My Profile
         Given user sees a Subunit from My Profile

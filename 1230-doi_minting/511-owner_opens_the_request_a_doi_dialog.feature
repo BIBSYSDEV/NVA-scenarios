@@ -1,5 +1,6 @@
 Feature: Owner opens the "Request a DOI" dialog
 
+    @test
     @511
     Scenario: Owner opens the "Request a DOI" dialog
         Given that a Creator navigates to the Landing page for published Registration without DOI

@@ -1,5 +1,6 @@
 Feature: Creator navigates to Files and License tab
 
+  @test
   @275
   Scenario: Creator navigates to Files and License tab
     Given Creator begins registering a Registration in the Wizard

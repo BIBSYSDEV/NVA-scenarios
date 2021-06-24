@@ -1,5 +1,6 @@
 Feature: Creator registers Corresponding Author
 
+    @test
     @1214
     Scenario: Creator registers Corresponding Author
         Given Creator begins registering a Registration in the Wizard

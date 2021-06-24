@@ -1,5 +1,6 @@
 Feature: Owner navigates to the Landing Page for their Registration
 
+    @test
     @1231
     Scenario: Owner navigates to the Landing Page for their Published Registration without DOI
         Given that the Creator navigates to the Landing Page for a Registration
@@ -8,6 +9,7 @@ Feature: Owner navigates to the Landing Page for their Registration
         When they see the Status Bar
         Then they see buttons for "Request a DOI" and "Edit Registration"
 
+    @test
     Scenario: Owner navigates to the Landing Page for their Registration with Validation Errors
         Given that the Creator navigates to the Landing Page for a Registration
         And they are the Owner of the Registration

@@ -1,5 +1,6 @@
 Feature: User sees a Subsubunit from My Profile
 
+    @test
     @409
     Scenario: User sees a Subsubunit from My Profile
         Given they see a Subunit from My Profile

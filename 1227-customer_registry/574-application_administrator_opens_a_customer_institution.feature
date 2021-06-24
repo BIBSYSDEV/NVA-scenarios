@@ -1,5 +1,6 @@
 Feature: Application Administrator opens a Customer Institution
 
+    @test
     @574
     Scenario: Application Administrator opens a Customer Institution
         Given that the user is logged in as Application Administrator
