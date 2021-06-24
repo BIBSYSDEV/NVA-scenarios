@@ -29,7 +29,7 @@ Feature: User edits Project
         Given User opens the Project Wizard
         When they click the Participants tab
         Then they see lists of:
-            | Project Managers     |
+            | Project Manager      |
             | Project Participants |
         And they see Buttons:
             | Add Project Manager     |
@@ -76,6 +76,15 @@ Feature: User edits Project
         When they click the Financing tab
         Then they see fields for:
             | Financing Code |
+        And they see a Previous Button
+        And they see a Support Button
+        And they see a Save Button
+
+    @xxx
+    Scenario: User adds a Financing source for Project
+        Given User opens Financing tab for Project
+        When they select a Financing source from the search field
+        Then thay see that the Financing Code is added to the project
         And they see a Previous Button
         And they see a Support Button
         And they see a Save Button

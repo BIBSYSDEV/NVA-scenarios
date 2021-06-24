@@ -43,3 +43,18 @@ Feature: Project Landing Page
         Given User opens Landing Page for Project
         When they expand "Results"
         Then they see a list of Results
+
+    #WIP
+    Scenario: User clicks the Delete Button for a Project
+        Given User opens My Projects
+        When they click the Delete Button for a Project where they are Manager
+        Then they see a Confirm Dialog
+
+    #WIP
+    @xxx
+    Scenario: User deletes a Project
+        Given User clicks the Delete Button for a Project
+        When they Confirm the action
+        Then the Confirm Dialog is closed
+        And The actual Project is removed from the Projects list
+
