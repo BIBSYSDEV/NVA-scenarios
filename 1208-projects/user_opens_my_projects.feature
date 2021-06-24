@@ -1,4 +1,4 @@
-Feature: User opens Projects
+Feature: User opens My Projects
 
     @xxx
     Scenario: User opens My Projects
@@ -16,7 +16,6 @@ Feature: User opens Projects
             | Title           |
             | Institution     |
             | Project Manager |
-            | View Button     |
         And the list can be sorted by Title, Institution and Project Manager
         And they see a Next, Previous and needed increments to support pagination of the items in the list
 
@@ -36,10 +35,10 @@ Feature: User opens Projects
             | Title           |
             | Institution     |
             | Project Manager |
-            | View Button     |
         And the list can be sorted by Title, Institution and Project Manager
         And they see a Next, Previous and needed increments to support pagination of the items in the list
 
+    @xxx
     Scenario: User clicks on the collapsed list of Concluded Projects
         Given User opens My Projects
         When the user licks on the collapsed list of Concluded Projects
@@ -47,12 +46,21 @@ Feature: User opens Projects
         And the list of Active Projects are collapsed
         And they see a Next, Previous and needed increments to support pagination of the items in the list
 
+    @xxx
     Scenario: User clicks the Create New Project Button
         Given User opens My Projects
         When they click Create New Project Button
         Then User opens the Project Wizard
 
-    Scenario: User clicks the View Button for a Project
+    @xxx
+    Scenario: User moves the cursor over a project
+        Given User opens My Projects
+        When the user moves the cursor over a project
+        Then they see a View button
+
+    @xxx
+    Scenario: User opens a Project
         Given User opens My Projects
         When they click the View Button for a Project
+        And when they click the project tile for a Project
         Then User opens Landing Page for Project
