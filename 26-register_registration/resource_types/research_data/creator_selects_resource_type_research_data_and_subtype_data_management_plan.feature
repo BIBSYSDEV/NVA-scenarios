@@ -1,6 +1,6 @@
 Feature: Creator selects Resource type Research Data and Subtype Data Management Plan
 
-    Scenario: Creator sees fields for Data Management Plan
+    Scenario: Creator sees fields for Data Management Plan subtype
         Given Creator navigates to the Resource Type tab and selects Resource type "Research Data"
         When they select the Resource Subtype "Data Management Plan"
         And they see fields:
