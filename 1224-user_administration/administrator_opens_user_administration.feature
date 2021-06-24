@@ -1,5 +1,6 @@
 Feature: Administrator opens user administration
 
+    @test
     @359
     Scenario Outline: Administrator opens User Administration
         Given that the user is logged in as Administrator
@@ -35,6 +36,7 @@ Feature: Administrator opens user administration
         Then the dropdown is closed
         And they see a confirmation message that the Scope was updated
 
+    @test
     @363
     Scenario Outline: Administrator opens the Add Role Dialog
         Given Administrator opens User Administration
@@ -55,6 +57,7 @@ Feature: Administrator opens user administration
             | Curator       | Add Curator       |
             | Editor        | Add Editor        |
 
+    @test
     @1362
     Scenario: Administrator searches for User
         Given Administrator opens the Add Role Dialog

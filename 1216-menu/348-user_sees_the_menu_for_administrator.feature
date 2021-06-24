@@ -1,5 +1,6 @@
 Feature: User sees the menu for Institution-admin
 
+    @test
     @348
     Scenario: User sees the menu for Institution-admin
         Given that the user is logged in

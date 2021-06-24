@@ -1,5 +1,6 @@
 Feature: Curator opens a Registration from a DOI Request
 
+    @test
     @358
     Scenario: Curator opens a Registration from a DOI Request
         Given that a Curator views their Worklist

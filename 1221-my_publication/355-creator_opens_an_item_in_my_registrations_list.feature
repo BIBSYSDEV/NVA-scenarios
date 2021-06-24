@@ -1,5 +1,6 @@
 Feature: Creator opens an item in My Registratons list
 
+    @test
     @355
     Scenario: Creator opens an item in My Registrations list
         Given that the user is logged in as Creator

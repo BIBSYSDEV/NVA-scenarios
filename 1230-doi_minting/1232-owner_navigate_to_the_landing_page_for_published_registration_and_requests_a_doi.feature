@@ -1,5 +1,6 @@
 Feature: Owner navigates to the Landing Page for published Registration and requests a DOI
 
+    @test
     @1232
     Scenario: Owner navigates to the Landing page and requests a DOI
         Given that the Creator navigates to the Landing page for published Registration without DOI

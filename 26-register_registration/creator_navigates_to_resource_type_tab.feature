@@ -1,5 +1,6 @@
 Feature: Creator navigates to Resource Type tab
 
+  @test
   @453
   Scenario: Creator navigates to Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a File
@@ -13,6 +14,7 @@ Feature: Creator navigates to Resource Type tab
     And they see Next is enabled
     And they see Save is enabled
 
+  @test
   Scenario: Creator sees that fields are validated on Resource Type tab
     Given Creator begins registering a Registration in the Wizard with a File
     When they navigate to the Resource Type tab

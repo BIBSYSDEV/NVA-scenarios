@@ -1,5 +1,6 @@
 Feature: Creator opens My Registrations
 
+  @test
   @354
   Scenario: Creator opens My Registrations
     Given the user is logged in as Creator
