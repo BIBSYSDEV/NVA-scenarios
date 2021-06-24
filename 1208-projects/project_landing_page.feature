@@ -16,6 +16,17 @@ Feature: Project Landing Page
             | Scientific summary |
             | Participants       |
             | Results            |
+        And they see number of content of Participants and Results
+
+    @xxx
+    Scenario: User with access rights opens Landing Page for Project
+    Given User opens Landing Page for Project
+    And User is listed as Participant with the Role of Project Manager on project
+    Then they can see a Edit button
+    And they can see a Delete button
+
+    @xxx
+    Scenario: 
 
     @2697
     Scenario: User sees Clinical Trial Phase for Drug studies
@@ -37,6 +48,8 @@ Feature: Project Landing Page
             | Name        |
             | Role        |
             | Affiliation |
+        And they see Start Date on Project Managers if there is more then one Participants with this role
+        And they see Start Date on Project Manager if this differs from the Project´s Start Date
 
     @2633
     Scenario: User opens Results for a Project
@@ -44,17 +57,17 @@ Feature: Project Landing Page
         When they expand "Results"
         Then they see a list of Results
 
-    #WIP
+    @xxx
     Scenario: User clicks the Delete Button for a Project
-        Given User opens My Projects
-        When they click the Delete Button for a Project where they are Manager
+        Given User with access rights opens Landing Page for Project
+        When they click the Delete Button
         Then they see a Confirm Dialog
 
-    #WIP
     @xxx
     Scenario: User deletes a Project
         Given User clicks the Delete Button for a Project
         When they Confirm the action
         Then the Confirm Dialog is closed
-        And The actual Project is removed from the Projects list
+        And the Project is marked deleted
+        And The Project is removed from the Projects list
 

@@ -1,19 +1,35 @@
 Feature: User edits Project
 
+    @xxx
     Scenario: User opens the Project Wizard
-        Given User opens My Projects
-        When they click the Edit Button for a Project
-        Then they see the Project Wizard
-        And they see tabs:
+        Given User clicks the Create New Project Button
+        When they see a empty Project Wizard 
+        Then they see tabs:
             | Description  |
             | Participants |
             | Financing    |
+        And they see the Description tab
+        And they see fields:
+            | Title                    |
+            | Summary                  |
+            | Coordinating Institution |
+            | Start Date               |
+            | End Date                 |
+            | Internal Project Code    |
+        And they see a Support Button
+        And they see a Save Button
+        And they see a Next Button
 
     @xxx
-    Scenario: User opens Description tab for Project
-        Given User opens the Project Wizard
-        When they click the Description tab
-        Then they see fields:
+    Scenario: User opens a Project in the Project Wizard
+        Given User Edits a Project in Project Wizard
+        When they see the Project in the Project Wizard 
+        Then they see tabs:
+            | Description  |
+            | Participants |
+            | Financing    |
+        And they see the Description tab
+        And they see fields:
             | Title                    |
             | Summary                  |
             | Coordinating Institution |
