@@ -5,3 +5,4 @@ Feature: Creator selects Resource type Research Data
         When they select the Resource type "Research Data"
         Then they see a list of subtypes:
             | Data Management Plan |
+            | Dataset              |
