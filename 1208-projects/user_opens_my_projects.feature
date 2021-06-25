@@ -16,6 +16,7 @@ Feature: User opens My Projects
             | Title           |
             | Institution     |
             | Project Manager |
+        And each Project has an Edit button if the User is listed as as Project Manager
         And the list can be sorted by:
             | Title           |
             | Institution     |
@@ -54,13 +55,6 @@ Feature: User opens My Projects
         Given User opens My Projects
         When they click (the Title or) the Tile containing a Project
         Then they see the Landing Page for the Project
-
-    @xxx
-    Scenario: User with access rights moves the cursor over a project
-        Given User opens My Projects
-        And either the User is listed as Participant with the Role Project Manager or the User has the role as Curator at Coordinating Institution
-        When the user moves the cursor over a project
-        Then they see a Edit button
 
     @xxx
     Scenario: User Edits a Project in Project Wizard
