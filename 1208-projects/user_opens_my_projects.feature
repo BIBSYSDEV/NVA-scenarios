@@ -72,4 +72,4 @@ Feature: User opens My Projects
     Scenario: User clicks the Create New Project Button
         Given User opens My Projects
         When they click Create New Project Button
-        Then User opens the Project Wizard
+        Then User sees the Project Wizard

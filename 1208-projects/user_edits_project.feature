@@ -1,25 +1,10 @@
 Feature: User edits Project
 
     @xxx
-    Scenario: User opens the Project Wizard
-        # Denne er problematisk, alle brukere kan opprette eit prosjekt
-        Given User with access rights for Projects
-        When they clicks the Create New Project Button
-        Then they see the Project Wizard
-
-    @xxx
-    Scenario: User opens a Project in the Project Wizard
-        # Denne er problematisk, det stemmer i dette tilfellet, men det låser oss til å ikkje tillate brukere å opne eit prosjekt - med mindre dei gjer det fra landing page.
-        Given User is on the landing page for a Project
-        When they click the Edit button
-        Then they see the Project Wizard
-        And it contains data about current Project
-
     Scenario: User sees the Project Wizard
         Given User with access rights for Project
         When they open the Project Wizard
-        Then they see the Project in the Project Wizard
-        And they see tabs:
+        Then they see tabs:
             | Description  |
             | Participants |
             | Financing    |
@@ -34,6 +19,13 @@ Feature: User edits Project
         And they see a Support Button
         And they see a Save Button
         And they see a Next Button
+
+    @xxx
+    Scenario: User opens a Project in the Project Wizard
+        Given User with access rights for Project
+        When they click the Edit button
+        Then they see the Project Wizard
+        And it contains data about the Project
 
     @xxx
     Scenario: User opens Participants tab for Project
