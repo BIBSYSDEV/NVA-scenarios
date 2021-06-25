@@ -25,9 +25,6 @@ Feature: Project Landing Page
     Then they can see a Edit button
     And they can see a Delete button
 
-    @xxx
-    Scenario: 
-
     @2697
     Scenario: User sees Clinical Trial Phase for Drug studies
         Given User opens Landing Page for Project
