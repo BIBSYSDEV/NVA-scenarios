@@ -44,7 +44,7 @@ Feature: User opens My Projects
     @xxx
     Scenario: User clicks on the collapsed list of Concluded Projects
         Given User opens My Projects
-        When the user licks on the collapsed list of Concluded Projects
+        When the user clicks on the collapsed list of Concluded Projects
         Then they see all Concluded Projects
         And the list of Active Projects are collapsed
         And they see a Next, Previous and needed increments to support pagination of the items in the list
