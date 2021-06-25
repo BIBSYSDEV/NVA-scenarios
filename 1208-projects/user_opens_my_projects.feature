@@ -16,7 +16,10 @@ Feature: User opens My Projects
             | Title           |
             | Institution     |
             | Project Manager |
-        And the list can be sorted by Title, Institution and Project Manager
+        And the list can be sorted by:
+            | Title           |
+            | Institution     |
+            | Project Manager |
         And they see a Next, Previous and needed increments to support pagination of the items in the list
 
     @xxx
@@ -70,4 +73,3 @@ Feature: User opens My Projects
         Given User opens My Projects
         When they click Create New Project Button
         Then User opens the Project Wizard
-
