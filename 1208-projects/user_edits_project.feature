@@ -2,9 +2,10 @@ Feature: User edits Project
 
     @xxx
     Scenario: User opens the Project Wizard
-        Given User clicks the Create New Project Button
-        When they see a empty Project Wizard 
-        Then they see tabs:
+        Given User with access rights for Projects
+        When they clicks the Create New Project Button
+        Then they see an empty Project Wizard
+        And they see tabs:
             | Description  |
             | Participants |
             | Financing    |
