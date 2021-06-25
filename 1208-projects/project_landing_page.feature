@@ -19,11 +19,11 @@ Feature: Project Landing Page
         And they see number of elements of Participants and Results
 
     @xxx
-    Scenario: User with access rights opens Landing Page for Project
-    Given User opens Landing Page for Project
-    And User is listed as Participant with the Role of Project Manager on project
-    Then they can see a Edit button
-    And they can see a Delete button
+    Scenario: Project Manager opens Landing Page for Project
+        Given User opens Landing Page for Project
+        When the User is Project Manager for the Project
+        Then they can see an Edit button
+        And they can see a Delete button
 
     @2697
     Scenario: User sees Clinical Trial Phase for Drug studies
