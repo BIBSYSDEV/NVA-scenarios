@@ -16,7 +16,7 @@ Feature: Project Landing Page
             | Scientific summary |
             | Participants       |
             | Results            |
-        And they see number of content of Participants and Results
+        And they see number of elements of Participants and Results
 
     @xxx
     Scenario: User with access rights opens Landing Page for Project
@@ -70,4 +70,3 @@ Feature: Project Landing Page
         Then the Confirm Dialog is closed
         And the Project is marked deleted
         And The Project is removed from the Projects list
-
