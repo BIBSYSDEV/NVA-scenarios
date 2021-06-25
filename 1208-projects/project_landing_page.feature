@@ -45,8 +45,7 @@ Feature: Project Landing Page
             | Name        |
             | Role        |
             | Affiliation |
-        And they see Start Date on Project Managers if there is more then one Participants with this role
-        And they see Start Date on Project Manager if this differs from the Project´s Start Date
+            | Start Date |
 
     @2633
     Scenario: User opens Results for a Project
