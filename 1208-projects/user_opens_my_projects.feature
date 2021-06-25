@@ -24,23 +24,13 @@ Feature: User opens My Projects
         And they see pagination buttons for the list
 
     @xxx
-    Scenario: User execute a search 
+    Scenario: User search for Projects
         Given User opens My Projects
-        When the user execute a Search
-        Then the Search term is displayed as a Filter
-        And the user may delete the Filter
-        And the user may delete all active Filters
-        And the list of Active and Concluded Projects is replaced by a result list of Projects matching the search text
-        And the lists contains Projects where the User has the role as:
-            | Project Manager       |
-            | Local Project Manager |
-            | Participant           |
-        And each Project has:
+        When they enter a search term in the search field
+        Then they see Projects matching the search term in the Project's:
             | Title           |
             | Institution     |
-            | Project Manager |
-        And the list can be sorted by Title, Institution and Project Manager
-        And they see a Next, Previous and needed increments to support pagination of the items in the list
+            | Participent.    |
 
     @xxx
     Scenario: User clicks on the collapsed list of Concluded Projects
