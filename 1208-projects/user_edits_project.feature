@@ -22,9 +22,10 @@ Feature: User edits Project
 
     @xxx
     Scenario: User opens a Project in the Project Wizard
-        Given User Edits a Project in Project Wizard
-        When they see the Project in the Project Wizard 
-        Then they see tabs:
+        Given User is on the landing page for a Project
+        When they click the Edit button
+        Then they see the Project in the Project Wizard
+        And they see tabs:
             | Description  |
             | Participants |
             | Financing    |
