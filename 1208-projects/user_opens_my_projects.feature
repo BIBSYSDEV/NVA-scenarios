@@ -20,7 +20,7 @@ Feature: User opens My Projects
             | Title           |
             | Institution     |
             | Project Manager |
-        And they see a Next, Previous and needed increments to support pagination of the items in the list
+        And they see pagination buttons for the list
 
     @xxx
     Scenario: User execute a search 
