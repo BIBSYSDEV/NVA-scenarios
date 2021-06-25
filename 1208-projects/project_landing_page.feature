@@ -54,8 +54,8 @@ Feature: Project Landing Page
         Then they see a list of Results
 
     @xxx
-    Scenario: User clicks the Delete Button for a Project
-        Given User with access rights opens Landing Page for Project
+    Scenario: Project Manager clicks the Delete Button for a Project
+        Given Project Manager opens Landing Page for Project
         When they click the Delete Button
         Then they see a Confirm Dialog
 
