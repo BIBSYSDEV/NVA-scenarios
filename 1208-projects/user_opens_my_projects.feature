@@ -30,7 +30,7 @@ Feature: User opens My Projects
         Then they see Projects matching the search term in the Project's:
             | Title           |
             | Institution     |
-            | Participent.    |
+            | Participant     |
 
     @xxx
     Scenario: User clicks on the collapsed list of Concluded Projects
@@ -41,7 +41,7 @@ Feature: User opens My Projects
         And they see a Next, Previous and needed increments to support pagination of the items in the list
 
     @xxx
-    Scenario: User opens a Project´s Landing Page
+    Scenario: User opens a Project's Landing Page
         Given User opens My Projects
         When they click (the Title or) the Tile containing a Project
         Then they see the Landing Page for the Project
