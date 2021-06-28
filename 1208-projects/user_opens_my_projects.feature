@@ -30,7 +30,7 @@ Feature: User opens My Projects
         Then they see Projects matching the search term in the Project's:
             | Title           |
             | Institution     |
-            | Participent.    |
+            | Participant     |
 
     @xxx
     Scenario: User clicks on the collapsed list of Concluded Projects
