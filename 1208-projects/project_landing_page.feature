@@ -2,6 +2,7 @@ Feature: Project Landing Page
 
     @2630
     Scenario: User opens Landing Page for Project
+        # Given er for streng, må kunne opne landing page for project fra Mine Prosjekter
         Given Anonymous User views Landing Page for Registration
         And the Registration has a Project
         When they click the Link to a Project
@@ -19,11 +20,39 @@ Feature: Project Landing Page
         And they see number of elements of Participants and Results
 
     @xxx
-    Scenario: Project Manager opens Landing Page for Project
+    Scenario Outline: Privileged user opens Landing Page for Project
         Given User opens Landing Page for Project
-        When the User is Project Manager for the Project
+        When the User has the "<Role>" role for the Project
         Then they can see an Edit button
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Manager       |
+            | Local Project Manager |
+
+    @xxx
+    Scenario Outline: Privileged user opens Landing Page for Project
+        Given User opens Landing Page for Project
+        When the User has the "<Role>" role for the Project
         And they can see a Delete button
+        Examples:
+            | Role            |
+            | Project Manager |
+            | Curator         |
+
+    @xxx
+    Scenario: Privileged user clicks the Delete Button for a Project
+        Given Privileged user opens Landing Page for Project
+        When they click the Delete Button 
+        Then they see a Confirm Dialog
+
+    @xxx
+    Scenario: Privileged user deletes a Project
+        Given Privileged user clicks the Delete Button for a Project
+        When they Confirm the action
+        Then the Confirm Dialog is closed
+        And the Project is marked deleted
+        And The Project is removed from the Projects list
 
     @2697
     Scenario: User sees Clinical Trial Phase for Drug studies
@@ -53,16 +82,3 @@ Feature: Project Landing Page
         When they expand "Results"
         Then they see a list of Results
 
-    @xxx
-    Scenario: Project Manager clicks the Delete Button for a Project
-        Given Project Manager opens Landing Page for Project
-        When they click the Delete Button
-        Then they see a Confirm Dialog
-
-    @xxx
-    Scenario: User deletes a Project
-        Given User clicks the Delete Button for a Project
-        When they Confirm the action
-        Then the Confirm Dialog is closed
-        And the Project is marked deleted
-        And The Project is removed from the Projects list
