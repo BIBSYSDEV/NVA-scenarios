@@ -1,0 +1,35 @@
+Project is a vital part of the core data model, it fullfilles two roles:
+i) it define a scope that connects other core entites together 
+ - Person
+ - Institution
+ - Result
+ii) it defines this scope by
+ - describing it (Description)
+ - give roles to Persons (Participants)
+ - show the mony trail (Financing)
+ - documents Approvals (and applications)
+
+Projects scenarios are diveded between following files:
+
+project_landing_page contains scenarios related to
+- describing presentation of project information
+- give access to action buttons to User that is granted access
+- links to other core resources as Person, Institutions, Results etc.
+
+use_edit_projects contains scenarios related to
+- creation of new projects
+- management of existing projects
+	- participents
+	- roles
+	- funds
+
+user_opens_my_projects contains scenarios that
+- mirror the my results page, both located in users top menu
+- lists all relevant projects for active user
+- links to landing page for projects
+- links to projects wizard to manage and create new projects
+
+healt_related_projects contains scenarios related to
+- a project that have a REK approval
+- breaks the logic of the datamodel (NB! This demand future work!)
+- locks down some fields for editing

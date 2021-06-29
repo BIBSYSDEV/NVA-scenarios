@@ -22,10 +22,11 @@ Feature: User edits Project
         And they see a Next Button
 
     @xxx
-    # Her skal ein del kos inn...
-    # denne må rolle styres, ulike roller har tilgang til å endre på ulike felter
     Scenario Outline: User opens a Project in the Project Wizard
-        Given User has the "<Role>" role in the projects scope
+        Given User has the "<Role>" role in the project's scope
+        And the project lacks an Approval of type "REK"
+        # A "REK" Approved project is a Health Project. 
+        # See health_related_projects.feature for details.
         When they click the Edit button
         Then User sees the Project Wizard
         And it contains data about the Project
@@ -37,11 +38,12 @@ Feature: User edits Project
             | Local Project Manager |
 
     @xxx
-    Scenario: User opens Participants tab for Project
+    Scenario Outline: User opens Participants tab for Project
         Given User sees the Project Wizard
+        And User has the "<Role>" role in the project's scope
         When they click the Participants tab
         Then they see lists of:
-            | Project Manager      |
+            | Project Managers      |
             | Project Participants |
         And they see Buttons:
             | Add Project Manager     |
@@ -50,13 +52,25 @@ Feature: User edits Project
         And they see a Support Button
         And they see a Save Button
         And they see a Next Button
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
 
-    Scenario: User opens Dialog for adding Project Manager
+    Scenario Outline: User opens Dialog for adding Project Manager
         Given User opens Participants tab for Project
+        And User has the "<Role>" role in the project's scope
         When they click the Add Project Manager Button
         Then they see fields:
             | Start Date  |
             | User search |
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
 
     @xxx
     Scenario: User adds a Project Manager
@@ -66,13 +80,21 @@ Feature: User edits Project
         And they click the Add Button
         Then they see the User listed as a Project Manager
 
-    Scenario: User opens Dialog for adding Project Participant
+
+    Scenario Outline: User opens Dialog for adding Project Participant
         Given User opens Participants tab for Project
+        And User has the "<Role>" role in the project's scope
         When they click the Add Project Participant Button
         Then they can select role to be either of:
             | Project Partcipant    |
             | Local Project Manager |
         And they can see User search field
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
 
     @xxx
     Scenario: User adds a Project Participant
@@ -83,14 +105,20 @@ Feature: User edits Project
         Then they see the User listed as a Project Participant
 
     @xxx
-    Scenario: User opens Financing tab for Project
+    Scenario Outline: User opens Financing tab for Project
         Given User sees the Project Wizard
+        And User has the "<Role>" role in the project's scope
         When they click the Financing tab
         Then they see fields for:
             | Financing Code |
         And they see a Previous Button
         And they see a Support Button
         And they see a Publish Button
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
 
     @xxx
     Scenario: User adds a Financing source for Project
@@ -102,6 +130,7 @@ Feature: User edits Project
         And they see a Publish Button
 
     @xxx
+    # Vi må unngå at ein bruker trykker Save på eit publisert prosjekt og trur at han har publisert endringer på prosjetet. Skal vi endre/fjerne Save knapp, når prosjektet er publisert - eller endre logikken til eit publisert prosjekt?
     Scenario: User Save a Project
     Given User sees the Project Wizard
     When the User clicks on the Save Button
