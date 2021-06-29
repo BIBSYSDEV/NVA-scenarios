@@ -22,6 +22,16 @@ Feature: User opens My Projects
             | Institution     |
             | Project Manager |
         And they see pagination buttons for the list
+    
+    Scenario: User opens a Project's Landing Page
+        Given User opens My Projects
+        When they click the Title 
+        Then they see the Landing Page for the Project
+
+    Scenario: User Edits a Project in Project Wizard
+        Given User with access rights moves the cursor over a project
+        When they click the Edit Button for a Project
+        Then User opens a Project in the Project Wizard
 
     @xxx
     Scenario: User search for Projects
@@ -31,29 +41,3 @@ Feature: User opens My Projects
             | Title           |
             | Institution     |
             | Participant     |
-
-    @xxx
-    Scenario: User clicks on the collapsed list of Concluded Projects
-        Given User opens My Projects
-        When the user clicks on the collapsed list of Concluded Projects
-        Then they see all Concluded Projects
-        And the list of Active Projects are collapsed
-        And they see a Next, Previous and needed increments to support pagination of the items in the list
-
-    @xxx
-    Scenario: User opens a Project's Landing Page
-        Given User opens My Projects
-        When they click (the Title or) the Tile containing a Project
-        Then they see the Landing Page for the Project
-
-    @xxx
-    Scenario: User Edits a Project in Project Wizard
-        Given User with access rights moves the cursor over a project
-        When they click the Edit Button for a Project
-        Then User opens a Project in the Project Wizard
-
-    @xxx
-    Scenario: User clicks the Create New Project Button
-        Given User opens My Projects
-        When they click Create New Project Button
-        Then User sees the Project Wizard
