@@ -2,7 +2,6 @@ Feature: Project Landing Page
 
     @2630
     Scenario: User opens Landing Page for Project
-        # Given er for streng, må kunne opne landing page for project fra Mine Prosjekter
         Given Anonymous User views Landing Page for Registration
         And the Registration has a Project
         When they click the Link to a Project
