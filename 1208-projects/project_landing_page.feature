@@ -41,7 +41,7 @@ Feature: Project Landing Page
 
     @xxx
     Scenario: Privileged user clicks the Delete Button for a Project
-        Given Privileged user opens Landing Page for Project
+        Given Privileged user sees Delete button for Project
         When they click the Delete Button 
         Then they see a Confirm Dialog
 
