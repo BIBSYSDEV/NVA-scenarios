@@ -20,7 +20,7 @@ Feature: Project Landing Page
         And they see number of elements of Participants and Results
 
     @xxx
-    Scenario Outline: Privileged user opens Landing Page for Project
+    Scenario Outline: Privileged user sees Edit button for Project
         Given User opens Landing Page for Project
         When the User has the "<Role>" role for the Project
         Then they can see an Edit button
@@ -81,4 +81,3 @@ Feature: Project Landing Page
         Given User opens Landing Page for Project
         When they expand "Results"
         Then they see a list of Results
-
