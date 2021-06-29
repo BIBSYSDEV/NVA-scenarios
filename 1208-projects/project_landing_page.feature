@@ -31,7 +31,7 @@ Feature: Project Landing Page
             | Local Project Manager |
 
     @xxx
-    Scenario Outline: Privileged user opens Landing Page for Project
+    Scenario Outline: Privileged user sees Delete button for Project
         Given User opens Landing Page for Project
         When the User has the "<Role>" role for the Project
         And they can see a Delete button
