@@ -1,7 +1,7 @@
 Feature: User My Projects
 
     @2874
-    Scenario: User opens My Projects
+    Scenario Outline: User opens My Projects
         Given that a User is logged in
         When they navigate to the My Projects Page
         Then they see a Create New Project Button
@@ -9,6 +9,7 @@ Feature: User My Projects
         And they see a list of Active Projects
         And they see a collapsed list of Concluded Projects
         And the lists contains Projects where the User has the role as:
+            | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
             | Participants          |
@@ -16,22 +17,32 @@ Feature: User My Projects
             | Title           |
             | Institution     |
             | Project Manager |
-        And each Project has an Edit button if the User is Project Manager
+        And each Project has an Edit button if the User has "<Role>" 
         And the list can be sorted by:
             | Title           |
             | Institution     |
             | Project Manager |
         And they see pagination buttons for the Concluded Projects list
+        Examples:
+            | Role                  |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
     
     Scenario: User opens a Project's Landing Page
         Given User opens My Projects
         When they click a Project's Title 
         Then they see the Landing Page for the Project
 
-    Scenario: User Edits a Project in Project Wizard
-        Given User with access rights moves the cursor over a project
-        When they click the Edit Button for a Project
-        Then User opens a Project in the Project Wizard
+    Scenario Outline: User Edits a Project in Project Wizard
+        Given User has "<Role>" on the Project
+        When they click the Edit Button 
+        Then they see the Project in the Project Wizard
+        Examples:
+            | Role                  |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
 
     @2875
     Scenario: User search in My Projects
