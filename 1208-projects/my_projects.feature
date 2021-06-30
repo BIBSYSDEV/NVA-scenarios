@@ -25,7 +25,7 @@ Feature: User My Projects
     
     Scenario: User opens a Project's Landing Page
         Given User opens My Projects
-        When they click the Title 
+        When they click a Project's Title 
         Then they see the Landing Page for the Project
 
     Scenario: User Edits a Project in Project Wizard
