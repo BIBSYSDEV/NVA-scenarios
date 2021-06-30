@@ -34,8 +34,9 @@ Feature: User My Projects
         When they click a Project's Title 
         Then they see the Landing Page for the Project
 
-    Scenario Outline: User Edits a Project in Project Wizard
-        Given User has "<Role>" on the Project
+    Scenario Outline: User Edits a Project in the Project Wizard
+        Given User opens My Projects
+        And User has "<Role>" on the Project
         When they click the Edit Button 
         Then they see the Project in the Project Wizard
         Examples:
