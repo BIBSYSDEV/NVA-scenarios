@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Report
 
+    @test
     @393
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Report"
         Given Creator navigates to Resource Type tab
@@ -10,6 +11,7 @@ Feature: Creator selects Resource type Report
             | Working paper        |
             | Other type of report |
 
+    @test
     @1693
     Scenario Outline: Creator sees fields for Resource subtypes for "Report"
         Given Creator navigates to the Resource Type tab and selects Resource type "Report"
@@ -27,8 +29,10 @@ Feature: Creator selects Resource type Report
             | Working paper        |
             | Other type of report |
 
+    @test
     Scenario Outline: Creator sees that fields are validated for Resource subtypes for "Report"
         Given Creator sees fields for Resource subtypes for "Report"
+        And they have selected the Subtype "<Subtype>"
         When they enter an invalid value in fields:
             | ISBN                  |
             | Total number of pages |

@@ -74,6 +74,7 @@ Feature: Creator selects Resource type Contribution to journal
             | Corrigendum     |
             | Booklet         |
 
+    @test
     @1625
     Scenario: Creator sees fields for Resource subtype "Corrigendum"
         Given Creator begins registering a Registration in the Wizard with a Link
