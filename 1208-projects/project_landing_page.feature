@@ -20,7 +20,7 @@ Feature: Project Landing Page
     @2886
     Scenario Outline: Privileged user sees Edit button for Project
         Given User opens Landing Page for Project
-        When User has the "<Role>" role in the project's scope
+        When the User has the "<Role>" role for the project
         Then they can see an Edit button
         Examples:
             | Role                  |
