@@ -58,7 +58,7 @@ Feature: Project Landing Page
         When they expand "Scientific summary"
         Then they see the Scientific summary
 
-    @2632
+    @2632a
     Scenario: User opens Participants for a Project
         Given User opens Landing Page for Project
         When they expand "Participants"
@@ -66,8 +66,13 @@ Feature: Project Landing Page
             | Name        |
             | Role        |
             | Affiliation |
+
+    @2632b
+    Scenario: User sees Project Manager for a Project
+        Given User opens Participants for a Project
+        When they see a Project Manager
+        Then they see fields:
             | Start Date  |
-        # Only Participants with role as Project Manager has a start date
 
     @2633
     Scenario: User opens Results for a Project
