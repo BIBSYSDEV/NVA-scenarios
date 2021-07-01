@@ -27,11 +27,6 @@ Scenario: Administrator inspect a Curators scope
     When they see on the Curator section of the User Administration
     Then they see that each Curator has a "Scope" field
     And the "Scope" field is a dropdown containing all levels of their Institution
-    Examples:
-        | Section        | Role          | Button            |
-        | Administrators | Administrator | Add Administrator |
-        | Curators       | Curator       | Add Curator       |
-        | Editors        | Editor        | Add Editor        |
 
 @2841
 Scenario: Administrator define a Curators scope
