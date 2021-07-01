@@ -67,6 +67,7 @@ Feature: Project Landing Page
             | Role        |
             | Affiliation |
             | Start Date  |
+        # Only Participants with role as Project Manager has a start date
 
     @2633
     Scenario: User opens Results for a Project
