@@ -126,7 +126,8 @@ Feature: User edits Project
     @xxx
     Scenario: User adds a Financing source for Project
         Given User opens Financing tab for Project
-        When they select a Financing source from the search field
+        When they enter a search text in the search field
+        And they select a Financing source from the search results
         Then they see that the Financing Code is added to the project
         And they see a Previous Button
         And they see a Support Button
