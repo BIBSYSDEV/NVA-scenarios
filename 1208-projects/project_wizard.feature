@@ -101,7 +101,8 @@ Feature: User edits Project
     @xxx
     Scenario: User adds a Project Participant
         Given User opens Dialog for adding Project Participant
-        When they select a role
+        When they enter a name in the User search field
+        And they select a role
         And they select a User from the search
         And they click the Add Button
         Then they see the User listed as a Project Participant
