@@ -59,19 +59,39 @@ Feature: Administrator opens user administration
 
     @test
     @1362
-    Scenario: Administrator searches for User
+    Scenario Outline: Administrator searches for User
         Given Administrator opens the Add Role Dialog
+        And they click "<Button>" under "<Section>"
         When they enter text into the Search field
         Then they see a list of employees matching the search with an "Add" button
+        Examples:
+            | Section       | Button            |
+            | Administrator | Add Administrator |
+            | Curator       | Add Curator       |
+            | Editor        | Add Editor        |
 
+    @test
     @1363
-    Scenario: Administrator grants an Employee a role
+    Scenario Outline: Administrator grants an Employee a role
         Given Administrator opens the Add Role Dialog
+        And they click "<Button>" under "<Section>"
         When they click "Add" Button for an Employee
         Then they see a confirmation message
         And they see that the clicked "Add" button is disabled
+        Examples:
+            | Section       | Button            |
+            | Administrator | Add Administrator |
+            | Curator       | Add Curator       |
+            | Editor        | Add Editor        |
 
-    Scenario: Administrator closes the Add Role Dialog 
+    @test
+    Scenario Outline: Administrator closes the Add Role Dialog 
         Given Administrator opens the Add Role Dialog
+        And they click "<Button>" under "<Section>"
         When they click the "Close" button 
         Then the Add Role Dialog is closed
+        Examples:
+            | Section       | Button            |
+            | Administrator | Add Administrator |
+            | Curator       | Add Curator       |
+            | Editor        | Add Editor        |
