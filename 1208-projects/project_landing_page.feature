@@ -32,7 +32,7 @@ Feature: Project Landing Page
     Scenario Outline: Privileged user sees Delete button for Project
         Given User opens Landing Page for Project
         When the User has the "<Role>" role for the project
-        And they can see a Delete button
+        Then they can see a Delete button
         Examples:
             | Role            |
             | Project Manager |
