@@ -77,6 +77,7 @@ Feature: User edits Project
     Scenario: User adds a Project Manager
         Given User opens Dialog for adding Project Manager
         When they select a Start Date
+        And they enter a name in the User search field
         And they select a User from the search
         And they click the Add Button
         Then they see the User listed as a Project Manager
@@ -146,4 +147,3 @@ Feature: User edits Project
     When the User clicks on the Publish Button
     Then the project status is now Published 
     And it has a public accessible Landing Page
-
