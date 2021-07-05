@@ -63,7 +63,25 @@ Feature: User edits Project
             | Curator               |
             | Project Owner         |
             | Project Manager       |
-            | Local Project Manager |
+        Examples:
+            | Status    | Persist |
+            | Published | Publish |
+            | Draft     | Save    |
+
+    @xxx
+    Scenario: Local Project Manager opens Participants tab for Project
+        Given User sees the Project Wizard
+        And User has the Local Project Manager role in the project
+        When they click the Participants tab
+        Then they see lists of:
+            | Project Managers     |
+            | Project Participants |
+        And they see Buttons:
+            | Add Project Participant |
+        And they see a Previous Button
+        And they see a Support Button
+        And they see a Button "<Persist>" desided by Project's "<Status>"
+        And they see a Next Button
         Examples:
             | Status    | Persist |
             | Published | Publish |
