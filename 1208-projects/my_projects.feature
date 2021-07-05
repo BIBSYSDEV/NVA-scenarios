@@ -35,8 +35,12 @@ Feature: User My Projects
         Then they see the Landing Page for the Project
 
     Scenario Outline: User Edits a Project in the Project Wizard
+        # See also Curator opens a Project in the Project Wizard
         Given User opens My Projects
         And User has "<Role>" on the Project
+        And the project lacks an Approval of type "REK"
+        # A "REK" Approved project is a Health Project. 
+        # See health_related_projects.feature for details.
         When they click the Edit Button 
         Then they see the Project in the Project Wizard
         Examples:

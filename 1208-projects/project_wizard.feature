@@ -1,13 +1,13 @@
 Feature: User edits Project
 # First three lines cover Why, Who, and What, following scenarios covers the How
-In order to document vital parts of a project 
+In order to document a project 
 As a logged in User or as a Curator
-I want to edit all details and be able do define a new project 
+I want to edit existing and create new projects
 
     @xxx
     Scenario: User sees the Project Wizard
         Given User is logged in
-        When they open the Project Wizard
+        When they click Create New Project Button
         Then the User is the Project Owner
         And they see tabs:
             | Description  |
@@ -26,20 +26,18 @@ I want to edit all details and be able do define a new project
         And they see a Next Button
 
     @xxx
-    Scenario Outline: User opens a Project in the Project Wizard
-        Given User has the "<Role>" role in the project's scope
+    Scenario: Curator opens a Project in the Project Wizard
+        # Same end result as "User Edits a Project in the Project Wizard"
+        # but this one enables a Curator to edit projects that he's not an
+        # participant of
+        Given User opens Landing Page for Project
+        And User is Curator on Project's Project Owner's Institution
         And the project lacks an Approval of type "REK"
         # A "REK" Approved project is a Health Project. 
         # See health_related_projects.feature for details.
         When they click the Edit button
         Then User sees the Project Wizard
         And it contains data about the Project
-        Examples:
-            | Role                  |
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
 
     @xxx
     Scenario Outline: User opens Participants tab for Project
