@@ -1,4 +1,8 @@
 Feature: User edits Project
+# First three lines cover Why, Who, and What, following scenarios covers the How
+In order to document vital parts of a project 
+As a logged in User or as a Curator
+I want to edit all details and be able do define a new project 
 
     @xxx
     Scenario: User sees the Project Wizard
