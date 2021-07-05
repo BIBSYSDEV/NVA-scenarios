@@ -5,7 +5,7 @@ As a logged in User or as a Curator
 I want to edit existing and create new projects
 
     @xxx
-    Scenario: User sees the Project Wizard
+    Scenario Outline: User sees the Project Wizard
         Given User is logged in
         When they click Create New Project Button
         Then the User is the Project Owner
@@ -22,14 +22,18 @@ I want to edit existing and create new projects
             | End Date                 |
             | Internal Project Code    |
         And they see a Support Button
-        And they see a Save Button
+        And they see a Button "<Persist>" desided by Project's "<Status>"
         And they see a Next Button
+        Examples:
+            | Status    | Persist |
+            | Published | Publish |
+            | Draft     | Save    |
 
     @xxx
     Scenario: Curator opens a Project in the Project Wizard
         # Same end result as "User Edits a Project in the Project Wizard"
-        # but this one enables a Curator to edit projects that he's not an
-        # participant of
+        # but this one enables a Curator to edit projects where he's not an
+        # participant
         Given User opens Landing Page for Project
         And User is Curator on Project's Project Owner's Institution
         And the project lacks an Approval of type "REK"
@@ -42,7 +46,7 @@ I want to edit existing and create new projects
     @xxx
     Scenario Outline: User opens Participants tab for Project
         Given User sees the Project Wizard
-        And User has the "<Role>" role in the project's scope
+        And User has the "<Role>" role in the project
         When they click the Participants tab
         Then they see lists of:
             | Project Managers     |
@@ -52,7 +56,7 @@ I want to edit existing and create new projects
             | Add Project Participant |
         And they see a Previous Button
         And they see a Support Button
-        And they see a Save Button
+        And they see a Button "<Persist>" desided by Project's "<Status>"
         And they see a Next Button
         Examples:
             | Role                  |
@@ -60,11 +64,15 @@ I want to edit existing and create new projects
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
+        Examples:
+            | Status    | Persist |
+            | Published | Publish |
+            | Draft     | Save    |
 
     @xxxa
     Scenario Outline: User opens Dialog for adding Project Manager
         Given User opens Participants tab for Project
-        And User has the "<Role>" role in the project's scope
+        And User has the "<Role>" role in the project
         When they click the Add Project Manager Button
         Then they see fields:
             | Start Date  |
@@ -87,7 +95,7 @@ I want to edit existing and create new projects
 
     Scenario Outline: User opens Dialog for adding Project Participant
         Given User opens Participants tab for Project
-        And User has the "<Role>" role in the project's scope
+        And User has the "<Role>" role in the project
         When they click the Add Project Participant Button
         Then they can select role to be either of:
             | Project Partcipant    |
@@ -112,7 +120,7 @@ I want to edit existing and create new projects
     @xxx
     Scenario Outline: User opens Financing tab for Project
         Given User sees the Project Wizard
-        And User has the "<Role>" role in the project's scope
+        And User has the "<Role>" role in the project
         When they click the Financing tab
         Then they see fields for:
             | Financing Code |
@@ -136,18 +144,29 @@ I want to edit existing and create new projects
         And they see a Publish Button
 
     @xxx
-    # Vi må unngå at ein bruker trykker Save på eit publisert prosjekt og trur at han har publisert endringer på prosjektet. Skal vi endre/fjerne Save knapp, når prosjektet er publisert - eller endre logikken til eit publisert prosjekt?
     Scenario: User Save a Project
     Given User sees the Project Wizard
+    And User has the "<Role>" role in the project
     When the User clicks on the Save Button
     Then the project is saved with a Draft status
-    And the User is the Project Owner
-    And only the Project Owner can access it's Landing Page 
+    And only the "<Role>" role in the project can access it's Landing Page 
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
 
     @xxx
     Scenario: User Publish a Project
-    Given User opens Financing tab for Project
-    And the User is the Project Owner
+    Given User sees the Project Wizard
+    And User has the "<Role>" role in the project
     When the User clicks on the Publish Button
     Then the project status is now Published 
     And it has a public accessible Landing Page
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
