@@ -25,6 +25,7 @@ Feature: Project Landing Page
         Examples:
             | Role                  |
             | Curator               |
+            | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
 
@@ -35,8 +36,9 @@ Feature: Project Landing Page
         Then they can see a Delete button
         Examples:
             | Role            |
-            | Project Manager |
             | Curator         |
+            | Project Owner   |
+            | Project Manager |
 
     @2885b
     Scenario: Privileged user clicks the Delete Button for a Project
