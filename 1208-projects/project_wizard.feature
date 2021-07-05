@@ -5,8 +5,9 @@ As a logged in User or as a Curator
 I want to edit existing and create new projects
 
     @xxx
+
     Scenario Outline: User sees the Project Wizard
-        Given User is logged in
+        Given User opens My Projects
         When they click Create New Project Button
         Then the User is the Project Owner
         And they see tabs:
