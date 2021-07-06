@@ -15,7 +15,7 @@ Feature: Creator selects Resource type Research Data and Subtype Data Management
         And they see a checkbox for each Financing of the associated Projects
         And they see a search field for related Registrations
 
-    @xxx
+    @2899
     Scenario: Creator searches for related Registrations
         Given Creator sees fields for Data Management Plan subtype with associated Project
         When they enter a string in the search field
