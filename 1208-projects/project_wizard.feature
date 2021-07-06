@@ -80,7 +80,7 @@ Feature: User edits Project
             | Add Project Participant |
         And they see a Previous Button
         And they see a Support Button
-        And they see a Button "<Persist>" desided by Project's "<Status>"
+        And they see a Button "<Persist>" decided by Project's "<Status>"
         And they see a Next Button
         Examples:
             | Status    | Persist |
