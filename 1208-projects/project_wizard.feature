@@ -21,18 +21,14 @@ Feature: User edits Project
             | End Date                 |
             | Internal Project Code    |
         And they see a Support Button
-        And they see a Button "<Button>" decided by Project's "<Status>"
+        # Save button is removed as Project API demands a PM
         And they see a Next Button
-        Examples:
-            | Status    | Button  |
-            | Published | Publish |
-            | Draft     | Save    |
 
     @xxx
     Scenario: Curator opens a Project in the Project Wizard
         # Same end result as "User Edits a Project in the Project Wizard"
         # but this one enables a Curator to edit projects where he's not an
-        # participant
+        # participant (as an ordinary User)
         Given User opens Landing Page for Project
         And User is Curator on Project's Project Owner's Institution
         And the project lacks an Approval of type "REK"
@@ -50,9 +46,7 @@ Feature: User edits Project
         Then they see lists of:
             | Project Managers     |
             | Project Participants |
-        And they see Buttons:
-            | Add Project Manager     |
-            | Add Project Participant |
+        And they see Button Add Project Participant
         And they see a Previous Button
         And they see a Support Button
         And they see a Button "<Button>" decided by Project's "<Status>"
@@ -62,29 +56,23 @@ Feature: User edits Project
             | Curator               |
             | Project Owner         |
             | Project Manager       |
+            | Local Project Manager |
         Examples:
-            | Status    | Button |
-            | Published | Publish |
-            | Draft     | Save    |
+            | Status    | Button                   |
+            | Published | Update published project |
+            | Draft     | Save draft               |
 
     @xxx
-    Scenario: Local Project Manager opens Participants tab for Project
-        Given User sees the Project Wizard
-        And User has the Local Project Manager role in the project
+    Scenario: Privileged user opens Participants tab for Project
+        Given User opens Participants tab for Project
+        And User has the "<Role>" role in the project
         When they click the Participants tab
-        Then they see lists of:
-            | Project Managers     |
-            | Project Participants |
-        And they see Buttons:
-            | Add Project Participant |
-        And they see a Previous Button
-        And they see a Support Button
-        And they see a Button "<Button>" decided by Project's "<Status>"
-        And they see a Next Button
+        Then they see Button Add Project Manager
         Examples:
-            | Status    | Button |
-            | Published | Publish |
-            | Draft     | Save    |
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
 
     @xxxa
     Scenario Outline: User opens Dialog for adding Project Manager
@@ -143,7 +131,7 @@ Feature: User edits Project
             | Financing Code |
         And they see a Previous Button
         And they see a Support Button
-        And they see a Publish Button
+        And they see a Save and Present Button
         Examples:
             | Role            |
             | Curator         |
@@ -158,13 +146,13 @@ Feature: User edits Project
         Then they see that the Financing Code is added to the project
         And they see a Previous Button
         And they see a Support Button
-        And they see a Publish Button
+        And they see a Save and Present Button
 
     @xxx
-    Scenario: User Save a Project
+    Scenario: User Save a Project draft
     Given User sees the Project Wizard
     And User has the "<Role>" role in the project
-    When the User clicks on the Save Button
+    When the User clicks on the Save draft Button
     Then the project is saved with a Draft status
     And only the "<Role>" role in the project can access it's Landing Page 
         Examples:
@@ -176,14 +164,13 @@ Feature: User edits Project
 
     @xxx
     Scenario: User Publish a Project
-    Given User sees the Project Wizard
+    Given User opens Landing Page for Project
     And User has the "<Role>" role in the project
     When the User clicks on the Publish Button
     Then the project status is now Published 
     And it has a public accessible Landing Page
         Examples:
-            | Role                  |
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
+            | Role            |
+            | Curator         |
+            | Project Owner   |
+            | Project Manager |
