@@ -22,10 +22,10 @@ Feature: User edits Project
             | End Date                 |
             | Internal Project Code    |
         And they see a Support Button
-        And they see a Button "<Persist>" desided by Project's "<Status>"
+        And they see a Button "<Button>" decided by Project's "<Status>"
         And they see a Next Button
         Examples:
-            | Status    | Persist |
+            | Status    | Button  |
             | Published | Publish |
             | Draft     | Save    |
 
