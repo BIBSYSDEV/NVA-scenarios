@@ -52,15 +52,15 @@ Feature: User edits Project
         And they see a Button "<Button>" decided by Project's "<Status>"
         And they see a Next Button
         Examples:
-            | Role                  |
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
-        Examples:
-            | Status    | Button                   |
-            | Published | Update published project |
-            | Draft     | Save draft               |
+            | Role                  | Status    | Button                   |
+            | Curator               | Published | Update published project |
+            | Curator               | Draft     | Save draft               |
+            | Project Owner         | Published | Update published project |
+            | Project Owner         | Draft     | Save draft               |
+            | Project Manager       | Published | Update published project |
+            | Project Manager       | Draft     | Save draft               |
+            | Local Project Manager | Published | Update published project |
+            | Local Project Manager | Draft     | Save draft               |
 
     @xxx
     Scenario: Privileged user opens Participants tab for Project
