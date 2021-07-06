@@ -120,7 +120,7 @@ Feature: User edits Project
         When they click the Financing tab
         Then they see fields for:
             | Financing Code |
-        And the field is "<FieldsStatus>"
+        And the fields are "<FieldStatus>"
         And they see a Previous Button
         And they see a Support Button
         And they see a Save and Present Button
