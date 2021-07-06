@@ -23,7 +23,7 @@ Feature: Anonymous User searches for Registrations
         Then Anonymous User views Landing Page for Registration
 
     @31
-    Scenario: Anonymous User performs a basic free text search
+    Scenario: Anonymous User performs a basic free text search for Registration Search
         Given Anonymous User opens search page
         When they enter a text in the search field
         And they press Enter
@@ -34,7 +34,7 @@ Feature: Anonymous User searches for Registrations
         And they see total number of search hits
 
     @xxx
-    Scenario: Anonymous User filters on Institution
+    Scenario: Anonymous User filters on Institution for Registration Search
         Given Anonymous User opens search page
         When they click on an Institution in the advanced search section
         Then they see the Checkbox for the Institution is checked
@@ -42,7 +42,7 @@ Feature: Anonymous User searches for Registrations
         And they see total number of search hits
 
     @xxx
-    Scenario: Anonymous User filters on Registration Type
+    Scenario: Anonymous User filters on Registration Type for Registration Search
         Given Anonymous User opens search page
         When they click on an Registration Type in the advanced search section
         Then they see the Checkbox for the Registration Type is checked
