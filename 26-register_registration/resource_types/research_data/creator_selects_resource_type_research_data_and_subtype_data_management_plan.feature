@@ -9,7 +9,7 @@ Feature: Creator selects Resource type Research Data and Subtype Data Management
             | Search for related Registrations |
 
     @2899
-    Scenario: Creator searches for related Registrations
+    Scenario: Creator searches for related Registrations for a Data Management Plan
         Given Creator sees fields for Data Management Plan subtype
         When they enter a string in the Search for related Registrations field
         Then they see a list of Published Registrations where the search matches either of the Registrations':
@@ -18,7 +18,7 @@ Feature: Creator selects Resource type Research Data and Subtype Data Management
 
     @2853
     Scenario: Creator selects a related Registration for a Data Management Plan
-        Given Creator searches for related Registrations
+        Given Creator searches for related Registrations for a Data Management Plan
         When they select a Registration from the Search for related Registrations field
         Then the selected Registration is shown in list of related Registrations
         And they see the listed Registrations':
