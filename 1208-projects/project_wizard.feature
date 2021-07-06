@@ -3,7 +3,7 @@ Feature: User edits Project
     As a logged in User
     I want to edit existing and create new projects
 
-    @xxx
+    @2903a
     Scenario Outline: User sees the Project Wizard
         Given User opens My Projects
         When they click Create New Project Button
@@ -24,11 +24,10 @@ Feature: User edits Project
         # Save button is removed as Project API demands a PM
         And they see a Next Button
 
-    @xxx
+    @2905
     Scenario: Curator opens a Project in the Project Wizard
-        # Same end result as "User Edits a Project in the Project Wizard"
-        # but this one enables a Curator to edit projects where he's not an
-        # participant (as an ordinary User)
+        # Same end result as "User Edits a Project in the Project Wizard" 
+        # but enables a Curator to edit projects where he's not an participant
         Given User opens Landing Page for Project
         And User is Curator on Project's Project Owner's Institution
         And the project lacks an Approval of type "REK"
@@ -38,7 +37,7 @@ Feature: User edits Project
         Then User sees the Project Wizard
         And it contains data about the Project
 
-    @xxx
+    @2906a
     Scenario Outline: User opens Participants tab for Project
         Given User sees the Project Wizard
         And User has one of these role in the project:
@@ -60,7 +59,16 @@ Feature: User edits Project
             | Draft     | Save draft               |
             | Published | Update published project |
 
-    @xxx
+    @2906b
+    Scenario: User adds a Project Participant
+        Given User opens Dialog for adding Project Participant
+        When they enter a name in the User search field
+        And they select a role
+        And they select a User from the search
+        And they click the Add Button
+        Then they see the User listed as a Project Participant
+
+    @2907a
     Scenario: Privileged user opens Participants tab for Project
         Given User opens Participants tab for Project
         When User has one of these roles in the project:
@@ -69,7 +77,7 @@ Feature: User edits Project
             | Project Manager       |
         Then they see Button Add Project Manager
 
-    @xxxa
+    @2907b
     Scenario Outline: Privileged user opens Dialog for adding Project Manager
         Given Privileged user opens Participants tab for Project
         And User has one of these role in the project:
@@ -81,7 +89,7 @@ Feature: User edits Project
             | Start Date  |
             | User search |
 
-    @xxxb
+    @2907c
     Scenario: Privileged user adds a Project Manager
         Given Privileged user opens Dialog for adding Project Manager
         When they select a Start Date
@@ -90,7 +98,7 @@ Feature: User edits Project
         And they click the Add Button
         Then they see the User listed as a Project Manager
 
-    @xxx
+    @2907d
     Scenario Outline: User opens Dialog for adding Project Participant
         Given User opens Participants tab for Project
         And User has one of these role in the project:
@@ -104,16 +112,7 @@ Feature: User edits Project
             | Local Project Manager |
         And they can see User search field
 
-    @xxx
-    Scenario: User adds a Project Participant
-        Given User opens Dialog for adding Project Participant
-        When they enter a name in the User search field
-        And they select a role
-        And they select a User from the search
-        And they click the Add Button
-        Then they see the User listed as a Project Participant
-
-    @xxx
+    @2908a
     Scenario Outline: User opens Financing tab for Project
         Given User sees the Project Wizard
         And User has the "<Role>" role in the project
@@ -131,21 +130,22 @@ Feature: User edits Project
             | Project Manager       | Enabled     |
             | Local Project Manager | Disabled    |
 
-    @xxx
+    @2908b
     Scenario: User adds a Financing source for Project
         Given User opens Financing tab for Project
         When they enter a search text in the search field
         And they select a Financing source from the search results
         Then they see that the Financing Code is added to the project
 
-    @xxx
+    @2909
     Scenario: User Save a Project draft
         Given User sees the Project Wizard
+        And the Project has a Draft status
         And User has one of these role in the project:
             | Curator               |
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
         When the User clicks on the Save draft Button
-        Then the project is saved with a Draft status
+        Then the Project is saved with a Draft status
         And the User is notified of result

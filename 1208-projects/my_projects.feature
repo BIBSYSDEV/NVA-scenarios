@@ -1,6 +1,6 @@
 Feature: User My Projects
 
-    @2874
+    @2874a
     Scenario Outline: User opens My Projects
         Given that a User is logged in
         When they navigate to the My Projects Page
@@ -17,23 +17,23 @@ Feature: User My Projects
             | Title           |
             | Institution     |
             | Project Manager |
-        And each Project has an Edit button if the User has "<Role>" 
+        And each Project has an Edit button if the User has role: 
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
         And the list can be sorted by:
             | Title           |
             | Institution     |
             | Project Manager |
         And they see pagination buttons for the Concluded Projects list
-        Examples:
-            | Role                  |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
     
+    @2874b
     Scenario: User opens a Project's Landing Page
         Given User opens My Projects
         When they click a Project's Title 
         Then they see the Landing Page for the Project
 
+    @2874c
     Scenario Outline: User Edits a Project in the Project Wizard
         # See also Curator opens a Project in the Project Wizard
         Given User opens My Projects

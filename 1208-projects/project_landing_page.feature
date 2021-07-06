@@ -44,7 +44,7 @@ Feature: Project Landing Page
         When they expand "Results"
         Then they see a list of Results
 
-    @xxx
+    @2904
     Scenario: User Publish a Draft Project
         Given User opens Landing Page for Project
         And the Project status is Draft
@@ -52,7 +52,8 @@ Feature: Project Landing Page
             | Curator         |
             | Project Owner   |
             | Project Manager |
-        And the User see the Publish Button
+        And the project has all obligated fields
+        And the User see the enabled Publish Button
         When the User clicks on the Publish Button
         Then the project status is Published 
         And the Project has a public accessible Landing Page
