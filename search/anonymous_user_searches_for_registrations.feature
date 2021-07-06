@@ -1,6 +1,6 @@
 Feature: Anonymous User searches for Registrations
 
-    @xxx
+    @31
     Scenario: Anonymous User opens search page
         Given an Anonymous User uses a browser
         When they navigate to the search page
@@ -14,6 +14,12 @@ Feature: Anonymous User searches for Registrations
             | Registration Type |
             | Published date    |
             | Contributors      |
+
+    @32
+    Scenario: Anonymous User opens a Registration Landing Page from search page
+        Given Anonymous User opens search page
+        When they click the Registration Title
+        Then Anonymous User views Landing Page for Registration
 
     @xxx
     Scenario: Anonymous User performs a basic free text search
