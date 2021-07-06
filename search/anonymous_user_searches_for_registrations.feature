@@ -8,7 +8,7 @@ Feature: Anonymous User searches for Registrations
         And they see a section with advanced search parameters with filters for:
             | Institution       |
             | Registration Type |
-        And they see a list of Published Registration matching the current search
+        And they see a list of Published Registrations matching the current search
         And they see each Registrations':
             | Title             |
             | Registration Type |
