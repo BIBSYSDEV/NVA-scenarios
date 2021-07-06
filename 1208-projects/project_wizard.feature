@@ -4,7 +4,6 @@ Feature: User edits Project
     I want to edit existing and create new projects
 
     @xxx
-
     Scenario Outline: User sees the Project Wizard
         Given User opens My Projects
         When they click Create New Project Button
@@ -56,7 +55,7 @@ Feature: User edits Project
             | Add Project Participant |
         And they see a Previous Button
         And they see a Support Button
-        And they see a Button "<Persist>" decided by Project's "<Status>"
+        And they see a Button "<Button>" decided by Project's "<Status>"
         And they see a Next Button
         Examples:
             | Role                  |
@@ -64,7 +63,7 @@ Feature: User edits Project
             | Project Owner         |
             | Project Manager       |
         Examples:
-            | Status    | Persist |
+            | Status    | Button |
             | Published | Publish |
             | Draft     | Save    |
 
@@ -80,10 +79,10 @@ Feature: User edits Project
             | Add Project Participant |
         And they see a Previous Button
         And they see a Support Button
-        And they see a Button "<Persist>" decided by Project's "<Status>"
+        And they see a Button "<Button>" decided by Project's "<Status>"
         And they see a Next Button
         Examples:
-            | Status    | Persist |
+            | Status    | Button |
             | Published | Publish |
             | Draft     | Save    |
 
