@@ -1,6 +1,6 @@
 Feature: Anonymous User searches for Registrations
 
-    @31
+    @472
     Scenario: Anonymous User opens search page
         Given an Anonymous User uses a browser
         When they navigate to the search page
@@ -8,12 +8,13 @@ Feature: Anonymous User searches for Registrations
         And they see a section with advanced search parameters with filters for:
             | Institution       |
             | Registration Type |
-        And they see a list of Published Registrations matching the current search
+        And they see a list of 10 Published Registrations matching the current search
         And they see each Registrations':
             | Title             |
             | Registration Type |
             | Published date    |
             | Contributors      |
+        And they see Paging components for the list
 
     @32
     Scenario: Anonymous User opens a Registration Landing Page from search page
@@ -21,7 +22,7 @@ Feature: Anonymous User searches for Registrations
         When they click the Registration Title
         Then Anonymous User views Landing Page for Registration
 
-    @xxx
+    @31
     Scenario: Anonymous User performs a basic free text search
         Given Anonymous User opens search page
         When they enter a text in the search field
