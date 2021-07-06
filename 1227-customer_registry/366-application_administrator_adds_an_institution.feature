@@ -1,5 +1,6 @@
 Feature: Application Administrator adds an Institution
 
+  @test
   @366
   Scenario: Application Administrator adds an Institution
     Given that the user is logged in as Application Administrator

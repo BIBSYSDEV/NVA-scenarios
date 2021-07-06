@@ -1,5 +1,6 @@
 Feature: User sees the menu for Application administrator
 
+    @test
     @350
     Scenario: User sees the menu for Application administrator
         Given that the user is logged in

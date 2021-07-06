@@ -1,5 +1,6 @@
 Feature: Creator previews Registration
 
+    @test
     @1531
     Scenario: Creator previews Registration
         Given that a Creator views a Registration

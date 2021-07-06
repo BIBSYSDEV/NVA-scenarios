@@ -1,5 +1,6 @@
 Feature: Institution Administrator edits My Institution
 
+    @test
     @360
     Scenario: Institution Administrator opens My Institution
         Given that the user is logged in as Institution Administrator
@@ -12,6 +13,7 @@ Feature: Institution Administrator edits My Institution
             | Archive name                  |
         And they see the Save button
 
+    @test
     @361
     Scenario: Institution Administrator edits My Institution
         Given that the user is logged in as Institution Administrator

@@ -1,5 +1,6 @@
 Feature: Non-customer views My Profile
 
+    @test
     @1724
     Scenario: Non-customer views My Profile
         Given that a User is logged in with Feide

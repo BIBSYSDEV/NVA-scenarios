@@ -1,5 +1,6 @@
 Feature: User logs in
 
+  @test
   @217
   Scenario: User without their Feide ID in ARP logs in
     Given that the user logs in with their Feide ID
@@ -8,12 +9,14 @@ Feature: User logs in
     And they see a Create New Author Button
     And they see a Support button
 
+  @test
   @1206
   Scenario: User with their Feide ID in ARP logs in
     Given that the user logs in with their Feide ID
     And their Feide ID is in an ARP entry
     Then they can see their name in the menu
 
+  @test
   @384
   Scenario: User creates a new Author identity
     Given that the user logs in with their Feide ID
@@ -25,6 +28,7 @@ Feature: User logs in
     And their Organization ID (Cristin ID) is added to their Author identity
     And they can see confirmation message that they have connected an Author identity
 
+  @test
   @219
   Scenario: User updates an Author identity
     Given that the user logs in with their Feide ID
@@ -36,6 +40,7 @@ Feature: User logs in
     And their Organization ID (Cristin ID) is added to their Author identity
     And they can see confirmation message that they have connected an Author identity
 
+  @test
   @222
   Scenario: User adds an ORCID to their Author identity
     Given that the user has just connected to an Author identity

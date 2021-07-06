@@ -1,5 +1,6 @@
 Feature: Creator navigates to Contributors tab
 
+  @test
   @417
   Scenario: Creator navigates to Contributors tab
     Given Creator begins registering a Registration in the Wizard
@@ -13,6 +14,7 @@ Feature: Creator navigates to Contributors tab
     And they see Next is enabled
     And they see Save is enabled
 
+  @test
   @1837
   Scenario: Creator adds themselves to the list of Authors
     Given Creator begins registering a Registration in the Wizard
@@ -24,6 +26,7 @@ Feature: Creator navigates to Contributors tab
     Then their Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @test
   @419
   Scenario: Creator adds an Author to the list of Authors
     Given Creator begins registering a Registration in the Wizard
@@ -36,6 +39,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @test
   Scenario: Creator adds an Author to the list of Authors for Resource Type Book, Monograph
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resources tab
@@ -50,6 +54,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @test
   Scenario: Creator adds an Author to the list of Authors for Resource Type Chapter
     Given Creator begins registering a Registration in the Wizard
     And they navigate to the Resources tab
@@ -65,6 +70,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @test
   @2203
   Scenario: Creator adds an Editor to the list of Editors for Resource Type Book, Anthology
     Given Creator begins registering a Registration in the Wizard
@@ -80,6 +86,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Editors
     And their current Affiliations are listed
 
+  @test
   @2204
   Scenario: Creator adds a Supervisor to the list of Supervisors for Resource Type Student Thesis
     Given Creator begins registering a Registration in the Wizard
@@ -96,6 +103,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Supervisors
     And their current Affiliations are listed
 
+  @test
   @788
   Scenario: Creator creates a new Author in the Author dialog
     Given Creator begins registering a Registration in the Wizard

@@ -1,5 +1,6 @@
 Feature: User removes an Institution from My Profile
 
+    @test
     @551
     Scenario: User removes an Institution from My Profile
         Given User sees an Institution from My Profile

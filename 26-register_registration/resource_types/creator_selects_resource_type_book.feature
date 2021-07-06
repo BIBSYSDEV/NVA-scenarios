@@ -38,6 +38,7 @@ Feature: Creator selects Resource type Book
             | Abstract collection |
             | Exhibition catalog  |
 
+    @test
     @1963
     Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
         Given Creator navigates to the Resource Type tab and selects Resource type "Book"

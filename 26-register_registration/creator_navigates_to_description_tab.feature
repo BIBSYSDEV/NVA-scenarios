@@ -1,5 +1,6 @@
 Feature: Creator navigates to Description tab
 
+  @test
   @452
   Scenario: Creator begins Wizard registration and navigates to Description tab
     Given Creator begins registering a Registration in the Wizard
@@ -21,6 +22,7 @@ Feature: Creator navigates to Description tab
     And they see Next is enabled
     And they see Save is enabled
 
+  @test
   Scenario: Creator sees that fields are validated on Description tab
     Given Creator begins Wizard registration and navigates to Description tab
     When they click the Save button
@@ -28,6 +30,7 @@ Feature: Creator navigates to Description tab
       | Title          |
       | Date published |
 
+  @test
   @445
   Scenario: Creator searches for Project
     Given Creator begins Wizard registration and navigates to Description tab
@@ -36,12 +39,14 @@ Feature: Creator navigates to Description tab
     Then they see list of Projects matching the search term
     And they see title and associated Institutions for each Project
 
+  @test
   @446
   Scenario: Creator adds a Project
     Given Creator searches for Project
     When they select a Project from the Search results
     Then the selected Project is added to the list of selected Projects
 
+  @test
   @1774
   Scenario: Creator removes a Project
     Given Creator adds a Project

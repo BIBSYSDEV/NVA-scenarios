@@ -1,5 +1,6 @@
 Feature: User changes their Institution on My Profile
 
+    @test
     @406
     Scenario: User changes their Institution on My Profile
         Given that a User is logged in

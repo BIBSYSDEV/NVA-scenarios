@@ -1,5 +1,6 @@
 Feature: User sees a Subunit from My Profile
 
+    @test
     @405
     Scenario: User sees a Subunit from My Profile
         Given User opens Add Institution from My Profile
