@@ -60,6 +60,20 @@ Feature: User edits Project
             | Published | Update published project |
 
     @2906b
+    Scenario Outline: User opens Dialog for adding Project Participant
+        Given User opens Participants tab for Project
+        And User has one of these role in the project:
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
+        When they click the Add Project Participant Button
+        Then they can select role to be either of:
+            | Project Partcipant    |
+            | Local Project Manager |
+        And they can see User search field
+    
+    @2906c
     Scenario: User adds a Project Participant
         Given User opens Dialog for adding Project Participant
         When they enter a name in the User search field
@@ -97,20 +111,6 @@ Feature: User edits Project
         And they select a User from the search
         And they click the Add Button
         Then they see the User listed as a Project Manager
-
-    @2907d
-    Scenario Outline: User opens Dialog for adding Project Participant
-        Given User opens Participants tab for Project
-        And User has one of these role in the project:
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
-        When they click the Add Project Participant Button
-        Then they can select role to be either of:
-            | Project Partcipant    |
-            | Local Project Manager |
-        And they can see User search field
 
     @2908a
     Scenario Outline: User opens Financing tab for Project
