@@ -41,7 +41,11 @@ Feature: User edits Project
     @xxx
     Scenario Outline: User opens Participants tab for Project
         Given User sees the Project Wizard
-        And User has the "<Role>" role in the project
+        And User has one of these role in the project:
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
         When they click the Participants tab
         Then they see lists of:
             | Project Managers     |
@@ -52,66 +56,53 @@ Feature: User edits Project
         And they see a Button "<Button>" decided by Project's "<Status>"
         And they see a Next Button
         Examples:
-            | Role                  | Status    | Button                   |
-            | Curator               | Published | Update published project |
-            | Curator               | Draft     | Save draft               |
-            | Project Owner         | Published | Update published project |
-            | Project Owner         | Draft     | Save draft               |
-            | Project Manager       | Published | Update published project |
-            | Project Manager       | Draft     | Save draft               |
-            | Local Project Manager | Published | Update published project |
-            | Local Project Manager | Draft     | Save draft               |
+            | Status    | Button                   |
+            | Draft     | Save draft               |
+            | Published | Update published project |
 
     @xxx
     Scenario: Privileged user opens Participants tab for Project
         Given User opens Participants tab for Project
-        And User has the "<Role>" role in the project
-        When they click the Participants tab
-        Then they see Button Add Project Manager
-        Examples:
-            | Role                  |
+        And User has one of these role in the project:
             | Curator               |
             | Project Owner         |
             | Project Manager       |
+        When they see Button Add Project Manager
 
     @xxxa
-    Scenario Outline: User opens Dialog for adding Project Manager
-        Given User opens Participants tab for Project
-        And User has the "<Role>" role in the project
+    Scenario Outline: Privileged user opens Dialog for adding Project Manager
+        Given Privileged user opens Participants tab for Project
+        And User has one of these role in the project:
+            | Curator         |
+            | Project Owner   |
+            | Project Manager |
         When they click the Add Project Manager Button
         Then they see fields:
             | Start Date  |
             | User search |
-        Examples:
-            | Role            |
-            | Curator         |
-            | Project Owner   |
-            | Project Manager |
 
     @xxxb
-    Scenario: User adds a Project Manager
-        Given User opens Dialog for adding Project Manager
+    Scenario: Privileged user adds a Project Manager
+        Given Privileged user opens Dialog for adding Project Manager
         When they select a Start Date
         And they enter a name in the User search field
         And they select a User from the search
         And they click the Add Button
         Then they see the User listed as a Project Manager
 
-
+    @xxx
     Scenario Outline: User opens Dialog for adding Project Participant
         Given User opens Participants tab for Project
-        And User has the "<Role>" role in the project
+        And User has one of these role in the project:
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
         When they click the Add Project Participant Button
         Then they can select role to be either of:
             | Project Partcipant    |
             | Local Project Manager |
         And they can see User search field
-        Examples:
-            | Role                  |
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
 
     @xxx
     Scenario: User adds a Project Participant
@@ -129,14 +120,16 @@ Feature: User edits Project
         When they click the Financing tab
         Then they see fields for:
             | Financing Code |
+        And the field is "<FieldsStatus>"
         And they see a Previous Button
         And they see a Support Button
         And they see a Save and Present Button
         Examples:
-            | Role            |
-            | Curator         |
-            | Project Owner   |
-            | Project Manager |
+            | Role                  | FieldStatus |
+            | Curator               | Enabled     |
+            | Project Owner         | Enabled     |
+            | Project Manager       | Enabled     |
+            | Local Project Manager | Disabled    |
 
     @xxx
     Scenario: User adds a Financing source for Project
@@ -144,33 +137,15 @@ Feature: User edits Project
         When they enter a search text in the search field
         And they select a Financing source from the search results
         Then they see that the Financing Code is added to the project
-        And they see a Previous Button
-        And they see a Support Button
-        And they see a Save and Present Button
 
     @xxx
     Scenario: User Save a Project draft
-    Given User sees the Project Wizard
-    And User has the "<Role>" role in the project
-    When the User clicks on the Save draft Button
-    Then the project is saved with a Draft status
-    And only the "<Role>" role in the project can access it's Landing Page 
-        Examples:
-            | Role                  |
+        Given User sees the Project Wizard
+        And User has one of these role in the project:
             | Curator               |
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
-
-    @xxx
-    Scenario: User Publish a Project
-    Given User opens Landing Page for Project
-    And User has the "<Role>" role in the project
-    When the User clicks on the Publish Button
-    Then the project status is now Published 
-    And it has a public accessible Landing Page
-        Examples:
-            | Role            |
-            | Curator         |
-            | Project Owner   |
-            | Project Manager |
+        When the User clicks on the Save draft Button
+        Then the project is saved with a Draft status
+        And the User is notified of result

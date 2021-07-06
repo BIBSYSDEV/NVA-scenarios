@@ -43,3 +43,16 @@ Feature: Project Landing Page
         Given User opens Landing Page for Project
         When they expand "Results"
         Then they see a list of Results
+
+    @xxx
+    Scenario: User Publish a Draft Project
+        Given User opens Landing Page for Project
+        And the Project status is Draft
+        And User has one of these role in the project:
+            | Curator         |
+            | Project Owner   |
+            | Project Manager |
+        And the User see the Publish Button
+        When the User clicks on the Publish Button
+        Then the project status is Published 
+        And the Project has a public accessible Landing Page
