@@ -33,18 +33,18 @@ Feature: Anonymous User searches for Registrations
             | Contributor names |
         And they see total number of search hits
 
-    @xxx
+    @2901
     Scenario: Anonymous User filters on Institution for Registration Search
         Given Anonymous User opens search page
         When they click on an Institution in the advanced search section
-        Then they see the Checkbox for the Institution is checked
+        Then they see that the Institution is selected
         And they see only Published Registrations where the selected Institution is the Publisher
         And they see total number of search hits
 
-    @xxx
+    @2902
     Scenario: Anonymous User filters on Registration Type for Registration Search
         Given Anonymous User opens search page
         When they click on an Registration Type in the advanced search section
-        Then they see the Checkbox for the Registration Type is checked
+        Then they see that the Registration Type is selected
         And they see only Published Registrations where the selected Type is the Registration Type
         And they see total number of search hits
