@@ -99,10 +99,7 @@ Feature: User edits Project
     @2907b
     Scenario Outline: Privileged user opens Dialog for adding Project Manager
         Given Privileged user opens Participants tab for Project
-        And User has one of these role in the project:
-            | Curator         |
-            | Project Owner   |
-            | Project Manager |
+        And User has role "<Role>" in the project:
         When they click the Add Project Manager Button
         Then they see fields:
             | Start Date  |
