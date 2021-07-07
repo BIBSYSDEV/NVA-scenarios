@@ -4,7 +4,7 @@ Feature: User edits Project
     I want to edit existing and create new projects
 
     @2903a
-    Scenario Outline: User sees the Project Wizard
+    Scenario: User sees the Project Wizard
         Given User opens My Projects
         When they click Create New Project Button
         Then the User is the Project Owner
