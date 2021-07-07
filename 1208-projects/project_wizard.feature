@@ -148,10 +148,7 @@ Feature: User edits Project
     Scenario Outline: User Save a Project draft
         Given User sees the Project Wizard
         And the Project has a Draft status
-        And User has one of these role in the project:
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
+        And User has role "<Role>" in the project:
             | Local Project Manager |
         When the User clicks on the Save draft Button
         Then the Project is saved with a Draft status
