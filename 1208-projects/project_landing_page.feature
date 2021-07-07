@@ -45,7 +45,7 @@ Feature: Project Landing Page
         Then they see a list of Results
 
     @2904
-    Scenario: User Publish a Draft Project
+    Scenario Outline: User Publish a Draft Project
         Given User opens Landing Page for Project
         And the Project status is Draft
         And User has one of these role in the project:
