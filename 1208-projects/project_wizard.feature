@@ -81,7 +81,7 @@ Feature: User edits Project
         Then they see the User listed as a Project Participant
 
     @2907a
-    Scenario: Privileged user opens Participants tab for Project
+    Scenario Outline: Privileged user opens Participants tab for Project
         Given User opens Participants tab for Project
         When User has role "<Role>" in the project
         Then they see Button Add Project Manager
