@@ -4,7 +4,7 @@ Feature: User edits Project
     I want to edit existing and create new projects
 
     @2903a
-    Scenario: User sees the Project Wizard
+    Scenario Outline: User sees the Project Wizard
         Given User opens My Projects
         When they click Create New Project Button
         Then the User is the Project Owner
@@ -21,8 +21,14 @@ Feature: User edits Project
             | End Date                 |
             | Internal Project Code    |
         And they see a Support Button
-        # Save button is removed as Project API demands a PM
+        And they see a Button "<Button>" decided by Project's "<Status>"
+        # Project  API demands a PM to allow a POST, use of this button
+        # will allways give a error msg: "Go to next page and add a PM"
         And they see a Next Button
+        Examples:
+            | Status    | Button                   |
+            | Draft     | Save draft               |
+            | Published | Update published project |
 
     @2905
     Scenario: Curator opens a Project in the Project Wizard
@@ -39,8 +45,13 @@ Feature: User edits Project
 
     @2906a
     Scenario Outline: User opens Participants tab for Project
+        # Det er ikkje full eningheit om formuleringa av dette scenario.
         Given User sees the Project Wizard
         And User has one of these role in the project:
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
         When they click the Participants tab
         Then they see lists of:
             | Project Managers     |
@@ -86,10 +97,10 @@ Feature: User edits Project
         When User has role "<Role>" in the project
         Then they see Button Add Project Manager
         Examples:
-            | Role                  |
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
+            | Role            |
+            | Curator         |
+            | Project Owner   |
+            | Project Manager |
 
 
     @2907b
@@ -101,10 +112,10 @@ Feature: User edits Project
             | Start Date  |
             | User search |
         Examples:
-            | Role                  |
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
+            | Role            |
+            | Curator         |
+            | Project Owner   |
+            | Project Manager |
 
     @2907c
     Scenario: Privileged user adds a Project Manager
