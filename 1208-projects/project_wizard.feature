@@ -153,3 +153,9 @@ Feature: User edits Project
         When the User clicks on the Save draft Button
         Then the Project is saved with a Draft status
         And the User is notified of result
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
