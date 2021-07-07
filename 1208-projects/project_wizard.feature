@@ -145,7 +145,7 @@ Feature: User edits Project
         Then they see that the Financing Code is added to the project
 
     @2909
-    Scenario: User Save a Project draft
+    Scenario Outline: User Save a Project draft
         Given User sees the Project Wizard
         And the Project has a Draft status
         And User has one of these role in the project:
