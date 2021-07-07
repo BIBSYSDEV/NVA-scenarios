@@ -68,6 +68,12 @@ Feature: User edits Project
             | Project Partcipant    |
             | Local Project Manager |
         And they can see User search field
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
     
     @2906c
     Scenario: User adds a Project Participant
