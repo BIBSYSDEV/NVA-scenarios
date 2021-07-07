@@ -41,10 +41,6 @@ Feature: User edits Project
     Scenario Outline: User opens Participants tab for Project
         Given User sees the Project Wizard
         And User has one of these role in the project:
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
         When they click the Participants tab
         Then they see lists of:
             | Project Managers     |
