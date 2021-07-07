@@ -104,6 +104,11 @@ Feature: User edits Project
         Then they see fields:
             | Start Date  |
             | User search |
+        Examples:
+            | Role                  |
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
 
     @2907c
     Scenario: Privileged user adds a Project Manager
