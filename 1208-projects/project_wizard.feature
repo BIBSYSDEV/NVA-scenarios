@@ -62,7 +62,7 @@ Feature: User edits Project
     @2906b
     Scenario Outline: User opens Dialog for adding Project Participant
         Given User opens Participants tab for Project
-        And User has one of these role in the project:
+        And User has role "<Role>" in the project
             | Curator               |
             | Project Owner         |
             | Project Manager       |
