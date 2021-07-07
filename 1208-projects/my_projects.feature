@@ -1,7 +1,7 @@
 Feature: User My Projects
 
     @2874a
-    Scenario Outline: User opens My Projects
+    Scenario: User opens My Projects
         Given that a User is logged in
         When they navigate to the My Projects Page
         Then they see a Create New Project Button
