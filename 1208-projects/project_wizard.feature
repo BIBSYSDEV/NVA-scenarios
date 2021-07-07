@@ -63,10 +63,6 @@ Feature: User edits Project
     Scenario Outline: User opens Dialog for adding Project Participant
         Given User opens Participants tab for Project
         And User has role "<Role>" in the project
-            | Curator               |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
         When they click the Add Project Participant Button
         Then they can select role to be either of:
             | Project Partcipant    |
