@@ -22,8 +22,6 @@ Feature: User edits Project
             | Internal Project Code    |
         And they see a Support Button
         And they see a Button "<Button>" decided by Project's "<Status>"
-        # Project  API demands a PM to allow a POST, use of this button
-        # will allways give a error msg: "Go to next page and add a PM"
         And they see a Next Button
         Examples:
             | Status    | Button                   |
