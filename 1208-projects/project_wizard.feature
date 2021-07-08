@@ -43,7 +43,6 @@ Feature: User edits Project
 
     @2906a
     Scenario Outline: User opens Participants tab for Project
-        # Det er ikkje full eningheit om formuleringa av dette scenario.
         Given User sees the Project Wizard
         And User has one of these role in the project:
             | Curator               |
