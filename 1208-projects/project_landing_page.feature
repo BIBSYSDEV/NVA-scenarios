@@ -1,4 +1,16 @@
 Feature: Project Landing Page
+
+    Project is a vital part of the core data model, it fullfilles two roles:
+    i) it define a scope that connects other core entites together 
+        - Person
+        - Institution
+        - Result
+    ii) it defines this scope by
+        - describing it (Description)
+        - give roles to Persons (Participants)
+        - show the mony trail (Financing)
+        - documents Approvals (and applications)
+
     In order to know about a project
     As an anonymous User
     I want an overview of the projects details 
@@ -9,7 +21,7 @@ Feature: Project Landing Page
 
     In order to correct a project that is missleading
     As a logged in User with relevant access
-    I want to be able to manage all relevant information
+    I want to be able to manage the published project
 
     In order to understand the Reasearch Graph
     As an anonymous User
