@@ -1,4 +1,11 @@
 Feature: Project Landing Page
+    In order to inform about a project 
+    As an anonymous User
+    I want to get an overview of the project and have navigation options for further discovery
+
+    In order to manage a project 
+    As a logged in User 
+    I want to get an overview of my project, before I make it public and have access to edit 
 
     @2630
     Scenario: User opens Landing Page for Project

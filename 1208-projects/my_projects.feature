@@ -1,4 +1,7 @@
 Feature: User My Projects
+    In order know of all project where I'm involved
+    As a logged in User 
+    I want to see lists of active and concluded project, and have access to manage those I'm responsible of
 
     @2874a
     Scenario: User opens My Projects
