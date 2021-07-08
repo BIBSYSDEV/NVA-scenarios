@@ -1,11 +1,25 @@
 Feature: Project Landing Page
-    In order to inform about a project 
+    In order to know about a project
     As an anonymous User
-    I want to get an overview of the project and have navigation options for further discovery
+    I want an overview of the projects details 
 
-    In order to manage a project 
+    In order to publish validated information about a project
     As a logged in User 
-    I want to get an overview of my project, before I make it public and have access to edit 
+    I want to get an preview of my project, before I make it public
+
+    In order to correct a project that is missleading
+    As a logged in User with relevant access
+    I want to be able to manage all relevant information
+
+    In order to understand the Reasearch Graph
+    As an anonymous User
+    I want to experience a high recognition between the Projects and the Outputs Landing Pages desings
+
+    In order to navigate the Reasearch Graph
+    As an anonymous User
+    I want to get all relevant navigation options for further discovery of the projects outputs, praticipants, finances and approvals
+
+    Rule: A project has a persistent identifier, enabling correct citation and coining it as a enity in the Reaserch Graph
 
     @2630
     Scenario: User opens Landing Page for Project

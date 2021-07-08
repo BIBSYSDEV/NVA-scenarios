@@ -1,7 +1,29 @@
 Feature: User edits Project
-    In order to document a project 
-    As a logged in User
-    I want to edit existing and create new projects
+    Background: A User is logged in with relevant access
+
+    In order to manage a projects content
+    I want to be able to manage all relevant information
+
+    In order to achive a low mental load on the user
+    I want to achive a high degree of recognition between the desing of Projects registration wizard and Publications registration wizard
+
+    Rule: Any User can create a project, becoming origin Project Owner
+
+    Rule: The Project Owner can grant the Project Manager role 
+
+    Rule: The Project Owner, the Project Manager and there Curators are the custodian of the project
+
+    Rule: A project can only have one Project Owner, Project Manager and Coordinating Institution - at any given time
+
+    Rule: The Project Manager reside from the Coordinating Institution, but exceptions exists
+
+    Rule: A project have Participents, like the Local Project Manager
+
+    Rule: The Local Project Manager is a Project Manager at his institutions' scope of the project
+
+    Rule: A project may have several different sources of funding
+
+    Rule: Funding organisazations names a funding a project, this is a funding source to our project
 
     @2903a
     Scenario Outline: User sees the Project Wizard

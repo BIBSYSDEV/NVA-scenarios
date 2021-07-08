@@ -1,11 +1,23 @@
 Feature: User My Projects
-    In order know of all project where I'm involved
-    As a logged in User 
+    Background: A User is logged in
+
+    In order to achive a low mental load on the user
+    I want to achive a high degree of recognition between the desing of My Projects and My Publications - both accessible from the top menu
+
+    In order to know of all project where I'm involved
     I want to see lists of active and concluded project, and have access to manage those I'm responsible of
+
+    In order to see all details of a project
+    I want to be able to navigate to the landing page of a project
+
+    In order to create new projects
+    I want to be able to create new projects
+
+    In order to locate the project in mind
+    I want to be able to search in My Projects
 
     @2874a
     Scenario: User opens My Projects
-        Given that a User is logged in
         When they navigate to the My Projects Page
         Then they see a Create New Project Button
         And they see a search field
