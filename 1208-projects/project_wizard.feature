@@ -146,6 +146,8 @@ Feature: User edits Project
         Given User opens Financing tab for Project
         When they enter a search text in the search field
         And they select a Financing source from the search results
+        #https://prosjektbanken.forskningsradet.no/prosjektbanken/rest/cristin/search?query=111
+        #https://beta.explore.openaire.eu/search/advanced/projects?q=&op=and
         Then they see that the Financing Code is added to the project
 
     @2909
