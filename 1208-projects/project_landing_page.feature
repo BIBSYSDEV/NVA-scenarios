@@ -56,7 +56,7 @@ Feature: Project Landing Page
         Given User opens Landing Page for Project
         And the Project status is Draft
         And User has role "<Role>" in the project
-        And the project has all obligated fields
+        And the project has all required fields
         And the User see the enabled Publish Button
         When the User clicks on the Publish Button
         Then the project status is Published 
