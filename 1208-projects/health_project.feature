@@ -25,10 +25,9 @@ Feature: Health related Project
     * Do a REK approval have a field for our Project ID?
     * How do we cleen up that REK is Project Owner on a lot of projects today?
 
-    # Below is <How> the <Whay>, <Who> and <What> is solved according to the rules
     # Given bør kun brukes når det er ein bestemt sekvens av scenario - generelt kan Given utrykkes som ein del av Then -> DRY-code
     # Så langt som mulig bør ikkje Scenario inneholde ord som click og button etc - det skaper vedlikeholdsutfordringer
-    # Test pyramiden oppfordrer til at omfanget av tester skal ligge mot "bunne" av stacken - ikkje på UI. Brudd på dette utfordrer CI, da build'n'deploy raskt vil overstige 10-15 min
+    # Test pyramiden oppfordrer til at omfanget av tester skal ligge mot "bunnen" av stacken - ikkje på UI. Brudd på dette utfordrer CI, da build'n'deploy raskt vil overstige 10-15 min
 
     Background: The Project has a Approval of type "REK"
     # Must be legal for all following Scenarios
