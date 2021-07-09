@@ -1,44 +1,50 @@
 Feature: Health related Project
+    
+    <Whay> --> In order to
+    <Who>  --> As a 
+    <What> --> I want to
+    (<How> --> One or more Scenarios, below Background)
+    
     In order to do health research a project needs an REK approval
     As a logged in User
     I want to see the current REK approval of my project
 
-    Rule: A project with a REK Approval is a Health Project
+    In order to report correctly to HOD about health research project
+    As a Anonymus User
+    I want to see the Clinical Trial Phase for Drug studies on Landig Page
 
-    Rule: A REK approval originate from REK, through a API call
+    Rules:
+    * A project with a REK Approval is a Health Project
+    * A REK approval originate from REK, through a API call
+    * A REK approval containing a ProjectID, update that project 
+    * A REK approval lacking a ProjectID, originate a new Project
+    * Health Project need an updated REK Approval to change title, coordinating institution, start date, end data or participants of type PRO_MANAGER.
 
-    Rule: A REK approval containing a ProjectID, update that project 
-
-    Rule: A REK approval lacking a ProjectID, originate a new Project
-
-    Rule: Health Project can't change title, coordinating institution, start date, end data or participants of type PRO_MANAGER.
+    Questions:
+    * Do REK send us changed/updated approvals today?
+    * Do a REK approval have a field for our Project ID?
+    * How do we cleen up that REK is Project Owner on a lot of projects today?
 
     # Below is <How> the <Whay>, <Who> and <What> is solved according to the rules
-    @xxx
+    # Given bør kun brukes når det er ein bestemt sekvens av scenario - generelt kan Given utrykkes som ein del av Then -> DRY-code
+    # Så langt som mulig bør ikkje Scenario inneholde ord som click og button etc - det skaper vedlikeholdsutfordringer
+    # Test pyramiden oppfordrer til at omfanget av tester skal ligge mot "bunne" av stacken - ikkje på UI. Brudd på dette utfordrer CI, da build'n'deploy raskt vil overstige 10-15 min
+
+    Background: The Project has a Approval of type "REK"
+    # Must be legal for all following Scenarios
+    # Use this is keep your code DRY
+
+    @xxx - referense to Jira task
     Scenario: User opens a Health Project in the Project Wizard
-        And the project has an Approval of type "REK"
-        When they click the Edit button
-        Then User sees the Project Wizard
-        And it contains data about the Project
-        And they see following disabled fields:
+        When the User trys to manage a project 
+        Then is notified that an updated REK approval is needed to change:
             | Title                    |
             | Coordinating Institution |
             | Start Date               |
             | End Date                 |
-        And they see following enabled fields:
-            | Summary                  |
-        And a notification that an changed REK approval is needed to change any of the disabled fields
-
-    @xxx
-    Scenario: User opens Participants tab for a Health Project
-        Given User sees the Project Wizard
-        And the project has an Approval of type "REK"
-        When they click the Participants tab
-        Then they see an disabled Add Project Manager button
-        And a notification that an changed REK approval is needed to add a new Project Manager
+            | Project Manager          | 
  
    @2697
     Scenario: User sees Clinical Trial Phase for Drug studies
-        Given User opens Landing Page for Project
         When the Project is a Drug study
-        Then they can see the Project's Clinical Trial Phase
+        Then the Landing Page contains the Project's Clinical Trial Phase
