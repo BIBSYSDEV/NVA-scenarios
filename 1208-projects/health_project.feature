@@ -11,7 +11,7 @@ Feature: Health related Project
 
     In order to report correctly to HOD about health research project
     As a Anonymus User
-    I want to see the Clinical Trial Phase for Drug studies on Landig Page
+    I want to see the Clinical Trial Phase for Drug studies on Landing Page
 
     Rules:
     * A project with a REK Approval is a Health Project
