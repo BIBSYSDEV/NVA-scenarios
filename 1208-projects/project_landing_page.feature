@@ -8,7 +8,7 @@ Feature: Project Landing Page
     ii) it defines this scope by
         - describing it (Description)
         - give roles to Persons (Participants)
-        - show the mony trail (Financing)
+        - show the money trail (Financing)
         - documents Approvals (and applications)
 
     In order to know about a project
