@@ -1,5 +1,4 @@
 Feature: User edits Project
-    Background: A User is logged in with relevant access
 
     In order to manage a projects content
     I want to be able to manage all relevant information
@@ -7,23 +6,20 @@ Feature: User edits Project
     In order to achive a low mental load on the user
     I want to achive a high degree of recognition between the desing of Projects registration wizard and Publications registration wizard
 
-    Rule: Any User can create a project, becoming origin Project Owner
+    Rules: 
+    * Any User can create a project, becoming origin Project Owner
+    * The User's active Institution affiliation grants it's Curators access to the project
+    * The Project Owner can grant the Project Manager role, both roles have same access to the project
+    * A project can only have one Project Owner, Project Manager and Coordinating Institution - at any given time
+    * A project have Participents, like the Local Project Manager
+    * The Local Project Manager is a Project Manager at his institutions' scope of the project
+    * A project may have several sources of funding (or grants)
+    * Funding organisazations consider there funding a project, but it is a funding source (a grant) from our point of view
+    * Normaly, the Project Manager reside from the Coordinating Institution, but exceptions exists
 
-    Rule: The Project Owner can grant the Project Manager role 
-
-    Rule: The Project Owner, the Project Manager and there Curators are the custodian of the project
-
-    Rule: A project can only have one Project Owner, Project Manager and Coordinating Institution - at any given time
-
-    Rule: The Project Manager reside from the Coordinating Institution, but exceptions exists
-
-    Rule: A project have Participents, like the Local Project Manager
-
-    Rule: The Local Project Manager is a Project Manager at his institutions' scope of the project
-
-    Rule: A project may have several different sources of funding
-
-    Rule: Funding organisazations names a funding a project, this is a funding source to our project
+    Background: A User is logged in with relevant access
+    # The User has a role defined in the project 
+    # or is a Curator for one of the defined users
 
     @2903a
     Scenario Outline: User sees the Project Wizard
@@ -52,12 +48,21 @@ Feature: User edits Project
 
     @2905
     Scenario: Curator opens a Project in the Project Wizard
-        # Same end result as "User Edits a Project in the Project Wizard" 
-        # but enables a Curator to edit projects where he's not an participant
+        # Same result as "User Edits a Project in the Project Wizard",
+        # but enables a Curator to edit projects
         Given User opens Landing Page for Project
         And User is Curator on Project's Project Owner's Institution
         And the project lacks an Approval of type "REK"
-        # A "REK" Approved project is a Health Project. 
+        # See health_related_projects.feature for details.
+        When they click the Edit button
+        Then User sees the Project Wizard
+        And it contains data about the Project
+
+    @2905
+    Scenario: Curator opens a Project in the Project Wizard
+        Given Curator opens Landing Page for Project
+        And is affiliated at Project's Project Owner's Institution
+        And the project lacks an Approval of type "REK"
         # See health_related_projects.feature for details.
         When they click the Edit button
         Then User sees the Project Wizard
