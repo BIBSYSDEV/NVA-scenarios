@@ -58,16 +58,6 @@ Feature: User edits Project
         Then User sees the Project Wizard
         And it contains data about the Project
 
-    @2905
-    Scenario: Curator opens a Project in the Project Wizard
-        Given Curator opens Landing Page for Project
-        And is affiliated at Project's Project Owner's Institution
-        And the project lacks an Approval of type "REK"
-        # See health_related_projects.feature for details.
-        When they click the Edit button
-        Then User sees the Project Wizard
-        And it contains data about the Project
-
     @2906a
     Scenario Outline: User opens Participants tab for Project
         Given User sees the Project Wizard
