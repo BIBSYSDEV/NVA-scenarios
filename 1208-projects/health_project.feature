@@ -36,7 +36,7 @@ Feature: Health related Project
     @xxx - referense to Jira task
     Scenario: User opens a Health Project in the Project Wizard
         When the User tries to edit a project 
-        Then is notified that an updated REK approval is needed to change:
+        Then they are notified that an updated REK approval is needed to change:
             | Title                    |
             | Coordinating Institution |
             | Start Date               |
