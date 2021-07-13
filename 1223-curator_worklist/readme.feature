@@ -1,12 +1,15 @@
 The Worklist is the Curators main tool to keep an overview of requests from the Users. Each request is a part of a registration (drafted or published).
 
-The Editor decide how many Curators are needed at the Institution. Curators have the same access to the worklist and they share responsibillity to answer all requests from Users. The Editor may down-scope a Curators responsibiblity to any formal part of the organization, but the Curator can override this scope to view and assist any Curator (at the same Institution).
+The Editors decide how many Curators the Institution needs. Curators have access to the worklist and share responsibillity to answer requests from Users. A Editor may down-scope a Curators responsibiblity to any formal part of the organization and thus reduce the group of Users this Curator need to handle. The Curator may override this scope to view and assist the other Curators (at the same Institution).
 
-The Worklist offer a seach that enable the Curator to locate request, regardless of type, but results are viewed by types. The result list can then be filterd on the requests state.
+The Worklist offer a seach that enable the Curator to locate request, regardless of type, but results are viewed by types. The result list can then be filterd on the requests current status.
 
 The worklist is diveded into four types of requests:
     Approvals to publish:
         - The Editor decide who can publish and how it is done
+            - Default can any User publish.
+            - Editor may impose a temporly embargo on any files, untill a Curator have review ther content and there lisesens
+            - Editor may restruct all publishing reaght 
         - If restrictions to publish is relevant, a User's request to publish results in a Approval request to a Curator
         - The Curator may review and update and/or have a dialog with the user, before the content is published or the request is declined
     Support request:
@@ -16,7 +19,7 @@ The worklist is diveded into four types of requests:
         - The Curator views the content and decide if a DOI is apropriate and may initiate a dialog, decline the request or mint a DOI.
         - The User may mint a draft DOI, on a draft (unpublished) registration. If the registration is published, then a DOI request is automaticly sendt.
     Ownership request:
-        - Each registration is owned by a User and it's active institution affiliation decide the owning institution.
+        - Each registration is owned by a User and his active institution affiliation decide the owning institution.
         - The active institution affiliation is decided by the log in method (current Feide IDP).
         - Curator at the current owning institution decide if ownerhip should be granted or not in the two cases:
             - Any authenicated User can claim ownership to any registration.
@@ -34,6 +37,8 @@ The Worklist is described by following feature files:
             - Curator can read the request, review the registration and update it, start a dialog with the User or approv publication as it is.
         support_requests:
             - Curator can read the request, review the registration and update it, start a dialog with the User or delete the request.
+        doi_requests:
+            - 
         ownership_request:
             - Curator can read the request, review the registration and update it, start a dialog with the User or delete the request.
 
