@@ -6,7 +6,7 @@ Feature: User sees menu
         Given that the User is not logged in
         When they look at any page in NVA
         Then they see the Log in Button
-        And the see the Language selector
+        And they see the Language selector
 
     @test
     @345
@@ -17,7 +17,7 @@ Feature: User sees menu
         Then they see a Dropdown Menu with items:
             | My user profile |
             | Log out         |
-        And the see the Language selector
+        And they see the Language selector
 
     @test
     @346
@@ -32,7 +32,7 @@ Feature: User sees menu
             | New Registration |
             | My Registrations |
             | My Messages      |
-        And the see the Language selector
+        And they see the Language selector
 
     @test
     @347
@@ -46,7 +46,7 @@ Feature: User sees menu
             | Log out         |
         And they see Menu items:
             | My messages |
-        And the see the Language selector
+        And they see the Language selector
 
     @test
     @348
@@ -59,7 +59,7 @@ Feature: User sees menu
             | Users           |
             | My user profile |
             | Log out         |
-        And the see the Language selector
+        And they see the Language selector
 
     @349
     Scenario: User sees the menu for Editor
@@ -70,7 +70,7 @@ Feature: User sees menu
             | Editor administration |
             | My user profile       |
             | Log out               |
-        And the see the Language selector
+        And they see the Language selector
 
     @test
     @350
@@ -82,4 +82,4 @@ Feature: User sees menu
             | Institutions    |
             | My user profile |
             | Log out         |
-        And the see the Language selector
+        And they see the Language selector
