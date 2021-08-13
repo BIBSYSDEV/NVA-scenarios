@@ -45,7 +45,7 @@ Feature: User sees menu
             | My user profile |
             | Log out         |
         And they see Menu items:
-            | My messages |
+            | My Messages |
         And they see the Language selector
 
     @test
