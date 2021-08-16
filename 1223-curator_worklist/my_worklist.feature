@@ -146,10 +146,10 @@ Feature: Curator opens My Worklist
     Then they see Requests whose owners belong to the "<subunitName>" "<subunitType>"
     And they can see that their viewing scope is limited to requests withtin the "<subunitName>" "<subunitType>".
     Examples:
-      | subunitName                           | subunitType
-      | Faculty of Inf Tech. and Electr. Eng. | faculty
-      | Department of Computer Science        | department
-      | Data and artificial intelligence      | group
+      | subunitName                           | subunitType|
+      | Faculty of Inf Tech. and Electr. Eng. | faculty    |
+      | Department of Computer Science        | department |
+      | Data and artificial intelligence      | group      |
 
 
   @needJiraTag
@@ -173,10 +173,10 @@ Feature: Curator opens My Worklist
     Then they see Requests whose owners belong to the "<subunitName>" "<subunitType>"
     And they can see that their viewing scope is limited to requests withtin the "<subunitName>" "<subunitType>".
     Examples:
-      | subunitName                           | subunitType
-      | Faculty of Inf Tech. and Electr. Eng. | faculty
-      | Department of Computer Science        | department
-      | Data and artificial intelligence      | group
+      | subunitName                           | subunitType|
+      | Faculty of Inf Tech. and Electr. Eng. | faculty    |
+      | Department of Computer Science        | department |
+      | Data and artificial intelligence      | group      |
 
 
   @needJiraTag
@@ -238,10 +238,10 @@ Feature: Curator opens My Worklist
     Then they see Requests whose owners belong to the "<subunitName>" "<subunitType>"
     And they can see that their viewing scope is limited to requests withtin the "<subunitName>" "<subunitType>".
     Examples:
-      | subunitName                           | subunitType
-      | Faculty of Inf Tech. and Electr. Eng. | faculty
-      | Department of Computer Science        | department
-      | Data and artificial intelligence      | group
+      | subunitName                           | subunitType |
+      | Faculty of Inf Tech. and Electr. Eng. | faculty     |
+      | Department of Computer Science        | department  |
+      | Data and artificial intelligence      | group       |
 
 
   @needJiraTag
