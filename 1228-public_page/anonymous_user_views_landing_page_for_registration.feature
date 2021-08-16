@@ -4,7 +4,7 @@ Feature: Anonymous User views Landing Page for Registration
     Scenario: Anonymous User views Landing Page for Registration
         Given the Anonymous User has opened NVA
         When they navigate to Landing Page for a Registration
-        Then they see page fields for
+        Then they see page fields for:
             | Title                           |
             | Abstract                        |
             | NPI                             |
@@ -18,3 +18,8 @@ Feature: Anonymous User views Landing Page for Registration
             | Files                           |
             | DOI link                        |
             | License                         |
+        And they see sharing Buttons for:
+            | Email    |
+            | LinkedIn |
+            | Facebook |
+            | Twitter  |
