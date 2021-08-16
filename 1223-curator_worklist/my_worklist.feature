@@ -138,6 +138,7 @@ Feature: Curator opens My Worklist
     Then the Users Request is displayed to the Curator
 
 
+  @needJiraTag
   Scenario Outline: Curator sees a list of Requests limited by Department scope
     Given that the Curator belongs to institution "NTNU"
     And the Curator has a default Requests viewing scope set to requests for the "<subunitName>" "<subunitType>"
@@ -149,6 +150,34 @@ Feature: Curator opens My Worklist
       | Faculty of Inf Tech. and Electr. Eng. | faculty
       | Department of Computer Science        | department
       | Data and artificial intelligence      | group
+
+
+  @needJiraTag
+  Scenario Outline: Curator changes their default viewing scope.
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "<subunitName>" "<subunitType>"
+    When the Curator changes their viewing scope to "<otherSubUnit>" "<otherSubUnitType>"
+    Then they see Requests of Publication owners who belong to the "<otherSubUnit>" "<otherSubUnitType>"
+    And they can see that their viewing scope is limited to requests withtin the "<otherSubUnit>" "<otherSubUnitType>"
+    Examples:
+      | subunitName                           | subunitType | otherSubUnit                          | otherSubUnitType |
+      | Faculty of Inf Tech. and Electr. Eng. | faculty     | Department of Music                   | department       |
+      | Department of Computer Science        | department  | Faculty of Humanities                 | faculty          |
+      | Data and artificial intelligence      | group       | Faculty of Inf Tech. and Electr. Eng. | faculty          |
+
+  @needJiraTag
+  Scenario Outline: Curator sees a list of Requests limited by Department scope
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "<subunitName>" "<subunitType>"
+    When the Curator views their working list
+    Then they see Requests whose owners belong to the "<subunitName>" "<subunitType>"
+    And they can see that their viewing scope is limited to requests withtin the "<subunitName>" "<subunitType>".
+    Examples:
+      | subunitName                           | subunitType
+      | Faculty of Inf Tech. and Electr. Eng. | faculty
+      | Department of Computer Science        | department
+      | Data and artificial intelligence      | group
+
 
   @needJiraTag
   Scenario Outline: Curator changes their default viewing scope.
@@ -171,10 +200,10 @@ Feature: Curator opens My Worklist
     Then they can see the request
     And they can perform the "<ActionType>" for the "<RequestType>"
     Examples:
-      | newSubUnit                            | newSubUnitType | RequestType     | ActionType   |
-      | Department of Music                   | department     | DoiRequest      | APPROVE      |
-      | Faculty of Humanities                 | faculty        | DoiRequest      | APPROVE      |
-      | Faculty of Inf Tech. and Electr. Eng. | faculty        | DoiRequest      | APPROVE      |
+      | newSubUnit                            | newSubUnitType | RequestType | ActionType |
+      | Department of Music                   | department     | DoiRequest  | APPROVE    |
+      | Faculty of Humanities                 | faculty        | DoiRequest  | APPROVE    |
+      | Faculty of Inf Tech. and Electr. Eng. | faculty        | DoiRequest  | APPROVE    |
 
   Scenario Outline: Curator performs all actions on Request that is not in their default viewing scope
     Given that the Curator belongs to institution "NTNU"
@@ -194,6 +223,108 @@ Feature: Curator opens My Worklist
       | Faculty of Humanities | faculty        | SUPPORT         | SEND_MESSAGE |
 
 
+  @needJiraTag
+  Scenario: Decide which Ownership Requests is in a Curators Scope
+    When the Requests' Resources' Host equals the Curators Host
+    And Curators scope on the Institution include the Resources' Owners' User Profile affiliation to the Institution
+    Then the Users Request is displayed to the Curator
+
+
+  @needJiraTag
+  Scenario Outline: Curator sees a list of Requests limited by Department scope
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "<subunitName>" "<subunitType>"
+    When the Curator views their working list
+    Then they see Requests whose owners belong to the "<subunitName>" "<subunitType>"
+    And they can see that their viewing scope is limited to requests withtin the "<subunitName>" "<subunitType>".
+    Examples:
+      | subunitName                           | subunitType
+      | Faculty of Inf Tech. and Electr. Eng. | faculty
+      | Department of Computer Science        | department
+      | Data and artificial intelligence      | group
+
+
+  @needJiraTag
+  Scenario Outline: Curator changes their default viewing scope.
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "<subunitName>" "<subunitType>"
+    When the Curator changes their viewing scope to "<otherSubUnit>" "<otherSubUnitType>"
+    Then they see Requests of Publication owners who belong to the "<otherSubUnit>" "<otherSubUnitType>"
+    And they can see that their viewing scope is limited to requests withtin the "<otherSubUnit>" "<otherSubUnitType>"
+    Examples:
+      | subunitName                           | subunitType | otherSubUnit                          | otherSubUnitType |
+      | Faculty of Inf Tech. and Electr. Eng. | faculty     | Department of Music                   | department       |
+      | Department of Computer Science        | department  | Faculty of Humanities                 | faculty          |
+      | Data and artificial intelligence      | group       | Faculty of Inf Tech. and Electr. Eng. | faculty          |
+
+  Scenario Outline: Curator performs action on Request that is not in their default viewing scope
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "Department of Computer Science"
+    And there is a "<RequestType>" request from an owner that belongs to "<newSubUnit>" "<newSubUnitType>"
+    When the Curator changes their viewing scope to "<newSubUnit>" "<newSubUnitType>"
+    Then they can see the request
+    And they can perform the "<ActionType>" for the "<RequestType>"
+    Examples:
+      | newSubUnit                            | newSubUnitType | RequestType | ActionType |
+      | Department of Music                   | department     | DoiRequest  | APPROVE    |
+      | Faculty of Humanities                 | faculty        | DoiRequest  | APPROVE    |
+      | Faculty of Inf Tech. and Electr. Eng. | faculty        | DoiRequest  | APPROVE    |
+
+  Scenario Outline: Curator performs all actions on Request that is not in their default viewing scope
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "Department of Computer Science"
+    And there is a "<RequestType>" request from an owner that belongs to "<newSubUnit>" "<newSubUnitType>"
+    When the Curator changes their viewing scope to "<newSubUnit>" "<newSubUnitType>"
+    Then they can see the request
+    And they can peform the "<ActionType>" for the "<RequestType>"
+    Examples:
+      | newSubUnit            | newSubUnitType | RequestType     | ActionType   |
+      | Faculty of Humanities | faculty        | DoiRequest      | APPROVE      |
+      | Faculty of Humanities | faculty        | DoiRequest      | REJECT       |
+      | Faculty of Humanities | faculty        | DoiRequest      | SEND_MESSAGE |
+      | Faculty of Humanities | faculty        | ChangeOwnership | APPROVE      |
+      | Faculty of Humanities | faculty        | ChangeOwnership | REJECT       |
+      | Faculty of Humanities | faculty        | ChangeOwnership | SEND_MESSAGE |
+      | Faculty of Humanities | faculty        | SUPPORT         | SEND_MESSAGE |
+
+  @needJiraTag
+  Scenario: Decide which Ownership Requests is in a Curators Scope
+    When the Requests' Resources' Host equals the Curators Host
+    And Curators scope on the Institution include the Resources' Owners' User Profile affiliation to the Institution
+    Then the Users Request is displayed to the Curator
+
+
+  @needJiraTag
+  Scenario Outline: Curator performs action on Request that is not in their default viewing scope
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "Department of Computer Science"
+    And there is a "<RequestType>" request from an owner that belongs to "<newSubUnit>" "<newSubUnitType>"
+    When the Curator changes their viewing scope to "<newSubUnit>" "<newSubUnitType>"
+    Then they can see the request
+    And they can perform the "<ActionType>" for the "<RequestType>"
+    Examples:
+      | newSubUnit                            | newSubUnitType | RequestType | ActionType |
+      | Department of Music                   | department     | DoiRequest  | APPROVE    |
+      | Faculty of Humanities                 | faculty        | DoiRequest  | APPROVE    |
+      | Faculty of Inf Tech. and Electr. Eng. | faculty        | DoiRequest  | APPROVE    |
+
+  @needJiraTag
+  Scenario Outline: Curator performs all actions on Request that is not in their default viewing scope
+    Given that the Curator belongs to institution "NTNU"
+    And the Curator has a default Requests viewing scope set to requests for the "Department of Computer Science"
+    And there is a "<RequestType>" request from an owner that belongs to "<newSubUnit>" "<newSubUnitType>"
+    When the Curator changes their viewing scope to "<newSubUnit>" "<newSubUnitType>"
+    Then they can see the request
+    And they can peform the "<ActionType>" for the "<RequestType>"
+    Examples:
+      | newSubUnit            | newSubUnitType | RequestType     | ActionType   |
+      | Faculty of Humanities | faculty        | DoiRequest      | APPROVE      |
+      | Faculty of Humanities | faculty        | DoiRequest      | REJECT       |
+      | Faculty of Humanities | faculty        | DoiRequest      | SEND_MESSAGE |
+      | Faculty of Humanities | faculty        | ChangeOwnership | APPROVE      |
+      | Faculty of Humanities | faculty        | ChangeOwnership | REJECT       |
+      | Faculty of Humanities | faculty        | ChangeOwnership | SEND_MESSAGE |
+      | Faculty of Humanities | faculty        | SUPPORT         | SEND_MESSAGE |
 
 
   @needJiraTag
