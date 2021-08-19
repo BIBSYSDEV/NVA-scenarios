@@ -158,11 +158,11 @@ Feature: Curator opens My Worklist
     Then the Curator may change scope to the whole Institution
     And all Requests from all Senders is listed
 
-  Scenario: Curator performs action on Request that is not in their default viewing scope
-    Given the Curator has a default Requests viewing scope set to requests for a specific Institution subunit
-    When the Curator changes their viewing scope to another Institution subunit
-    Then they see only Requests of Publication owners who belong to the new subunit
-    And they can perform all Curator related actions on these Requests
+  Scenario: Curator performs action on Request
+    When the Curator opens the Work List
+    And relevant Requests from Senders is listed
+    Then the Curator may perform actions on listed Requests
+
 
   @needJiraTag
   Scenario: Curator performs action on Request
@@ -170,6 +170,11 @@ Feature: Curator opens My Worklist
     And relevant Requests from Senders is listed
     Then the Curator may perform actions on listed Requests
 
+
+  Scenario: Decide which Ownership Requests is in a Curators Scope
+    When the Requests' Resources' Host equals the Curators Host
+    And Curators scope on the Institution include the Resources' Owners' User Profile affilliation to the Institution
+    Then the Users Request is displayed to the Curator
 
 
 
