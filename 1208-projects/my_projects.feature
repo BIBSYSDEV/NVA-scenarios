@@ -18,7 +18,8 @@ Feature: User My Projects
     In order to create new projects
     I want easy access to create new projects
 
-    Background: A User is logged in
+    Background: 
+        Given A User is logged in
 
     @2874a
     Scenario: User opens My Projects
