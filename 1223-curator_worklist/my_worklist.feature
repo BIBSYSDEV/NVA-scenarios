@@ -31,7 +31,7 @@ Feature: Curator opens My Worklist
     Given Curator is loged in
     And Curator opens My Worklist from main menu
     And My Worklist contains Requests of all four types
-    And all Requsts are sendt by a User Affilliated at Curators Scope
+    And all Requests are sendt by a User Affilliated at Curators Scope
     And the list of Approvals are in focus
 
   @357
