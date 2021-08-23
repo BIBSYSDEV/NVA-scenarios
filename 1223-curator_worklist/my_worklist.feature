@@ -60,11 +60,11 @@ Feature: Curator opens My Worklist
   Scenario: Curator views details of a Request
     When they selects one Request
     Then the Requests is expanded
-    And previews messages are displayed with:
+    And previews messages are displayed chronology with:
       | Submitter name            |
       | Submitter Date and Time   |
       | The full message          |
-    And the Curator can send an answer
+    And the Curator can send a new message (an answer)
     And the Curator can open the Requests Resource
     And the Curator can change Status on the Request
 
