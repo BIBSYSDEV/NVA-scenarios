@@ -40,12 +40,12 @@ Feature: Curator opens My Worklist
   Scenario Outline: Curator views a Request type
     When they click on Requests of type "<Type>"
     Then they see a list of Requests displayed with:
-      | Request status           |
-      | Registration title       |
-      | Submitter name           |
-      | Date                     |
-      | Begining of last message |
-      | Owner                    |
+      | Request status            |
+      | Registration title        |
+      | Submitter name            |
+      | Request Submitter Date    |
+      | Beginning of last message |
+      | Owner name                |
     And they see that each Request can be opened
     Examples:
       | Type      |
@@ -59,9 +59,11 @@ Feature: Curator opens My Worklist
   @updated
   Scenario: Curator views details of a Request
     When they selects one Request
-    Then the Requests message is expanded
-    And possible message previews are displayed
-    And the Owner is viewed
+    Then the Requests is expanded
+    And previews messages are displayed with:
+      | Submitter name            |
+      | Submitter Date and Time   |
+      | The full message          |
     And the Curator can send an answer
     And the Curator can open the Requests Resource
     And the Curator can change Status on the Request
