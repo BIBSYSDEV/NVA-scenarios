@@ -30,22 +30,17 @@ Feature: A short sentence that describes the content
 
     @scenario_tag
     @xxx - referense to Jira task
-    Scenario: User opens a Health Project in the Project Wizard
-        When the User tries to edit a project 
-        Then they are notified that an updated REK approval is needed to change:
-            | Title                    |
-            | Coordinating Institution |
-            | Start Date               |
-            | End Date                 |
-            | Project Manager          |
+    Scenario: A short sentence that describes the scenario
+        When someone do something
+        Then something happens
 
-    Scenario Outline: User Edits a Project in the Project Wizard
-        Given User opens My Projects
-        And User has "<Role>" on the Project
-        When they click the Edit Button 
-        Then they see the Project in the Project Wizard
+    Scenario Outline: A short sentence that describes the scenario
+        Given something has happend
+        And something else has happend
+        When someone "<Role>" do something
+        Then something happens
         Examples:
-            | Role                  |
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
+            | Role   |
+            | Role 1 |
+            | Role 2 |
+            | Role 3 |
