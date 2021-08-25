@@ -23,7 +23,6 @@ Feature: Health related Project
     Background: 
         Given The Project has a Approval of type "REK"
 
-    @xxx - referense to Jira task
     Scenario: User opens a Health Project in the Project Wizard
         When the User tries to edit a project 
         Then they are notified that an updated REK approval is needed to change:
