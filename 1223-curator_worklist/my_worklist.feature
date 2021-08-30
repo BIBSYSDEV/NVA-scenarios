@@ -2,44 +2,77 @@ Feature: Curator opens My Worklist
 
   "@needJiraTag" is used in several files to enable me to locate all new scenarios that is'nt in jira.
   "@updated" is used where I have changed a scenario, that exists in jira - but not updated it there yet.
-	#If a scenarios is deleted, but still exists in Jira - it's noted as a comment
+	#If a scenario is deleted, but still exists in Jira - it's noted as a comment
 
   Vocabulary clearification:
   - A named role is preferd over "they"
   - Resource is prefered over Registration
 
   Rules:
-  - A User has a Host, an Institution (the IDP)
-  - A Curator has a Host (works at an Institution)
-  - A Resource's Host is equal to it's origin Creators' or current Owners'
-  - A Rescourc has a Owner (a User)
-  - The Worklist is populated with Requests
-  - A Request is of a type (four possible)
-  - A Request has a Sender (a User)
-  - A Request has a Custodian (a Curator, that looks after it)
+  - A Editor grant a User the Curator role at an Institution, to serve all users at the Institution
+  - A Editor may define a Curators Scope to serve one or more subunits at the Institution
+  - A Curator may at will change his current Scope, but not his defined Scope
+
+  - A User belongs at an Institution (defiend by the active IDP)
+  - A User may be Affilliated to a subunit at his Institution (defined in his profile)
+  - A User creates Resources (thus becomes it's Owner)
+
+  - A Resource has 0 or more Requests
+
+  - A Request has a Submitter (the Owner or a Curator)
   - A Request has a date of creation
+  - A Request is of a Type (Approval, Support, DOI or Ownership)
+  - A Request is assigned a Curator
+  - A Request has a Status
   - A Request has a date of status change
   - A Request have one or more Messages
-  - A Message has a Writer (the User/Sender or a Curator)
+
+  - A Message has a Submitter (the Owner or a Curator)
   - A Message has a date of creation
-  - A Request's Host is it's Senders'
+
+  The Possible values of the Requests Status:
+   - New <--> Active --> [Conclusion]
+   - The Conclusion value is decided by the Request Type:
+    - Request Type Support : Conclusion == Answered
+    - Other Request Types  : Conclusion is Approved or Declined
+    - It's still pending if a final resting value is needed, like Archived and/or Deleted
 
   Future stuff:
   - The Custodian needs to be notified when a Request is updated (a new Message or someone adopts it)
 
   Background:
-    Given Curator is loged in
+    Given Curator is logged in
     And Curator opens My Worklist from main menu
-    And My Worklist contains Requests of all four types
-    And all Requests are sendt by a User Affilliated at Curators Scope
-    And the list of Approvals are in focus
+    And My Worklist contains Requests of each type:
+      | Approval  | 
+      | Support   | 
+      | DOI       | 
+      | Ownership |
+    And Affilliation of Sender on each Requests is within the Curator´s scope of responsibility
+    And the list of Approvals is in focus
+
+  @needJiraTag
+  Scenario: Curator opens their Worklist
+    When the Curator opens their Worklist
+    Then the Curator see that the Worklist is Scoped
+
+  @needJiraTag
+  Scenario: Curator change Scope of there Worklist
+    When the Curator change Scope to the whole Institution or one or more subunits
+    Then the listed Requests is updated to match the new Scope
+
+  @needJiraTag
+  # Trur denne kan slettes, eller så må den skrives om - trenger dialog
+  Scenario: Curator performs an action on a Request
+    When the Curator views Requests in the Worklist
+    Then the Curator may perform any legal action on the Requests
 
   @357
-    @updated
-    #Replaces @1353, 1354, 2756 and 531
-  Scenario Outline: Curator views a Request type
-    When they click on Requests of type "<Type>"
-    Then they see a list of Requests displayed with:
+  @updated
+  #Replaces @1353, 1354, 2756 and 531
+  Scenario Outline: Curator views all Requests of a type
+    When Curator click on Requests of type "<Type>"
+    Then Curator see a list of Requests displayed with:
       | Request status            |
       | Registration title        |
       | Submitter name            |
@@ -49,50 +82,42 @@ Feature: Curator opens My Worklist
     And they see that each Request can be opened
     Examples:
       | Type      |
-      | Approvals |
+      | Approval  |
 			# Må handtere at Editor kan tillate alle å publisere - kva skjer da med Approvals?
       | Support   |
       | DOI       |
       | Ownership |
 
+  @needJiraTag
+  Scenario: Curator open a unassigned Request
+    When the Curator open a unassigned Request
+    Then the Curator is assigned the Request
+    And the Request Status is set to "Active"
+
+  @needJiraTag
+  Scenario: Curator unassigne a Request
+    When the Curator selects "Mark request unread"
+    Then the Request Status is set to "New"
+    And the Request is unassigned the Curator
+
   @1252
   @updated
-  Scenario: Curator views details of a Request
-    When they selects one Request
-    Then the Requests is expanded
-    And previews messages are displayed chronology with:
+  Scenario: Curator open a assigned Request
+    When the Curator selects a Request
+    Then the Request is expanded
+    And the assigned Curator is viewed
+    And previous messages are displayed chronologically with:
       | Submitter name            |
       | Submitter Date and Time   |
       | The full message          |
-    And the Curator can send a new message (an answer)
+    And the Curator can reply to a message
     And the Curator can open the Requests Resource
-    And the Curator can change Status on the Request
+    And the Curator can change the Status of the Request
 
   @needJiraTag
-  Scenario: Curator opens a Request without owner
-    Given Curator views details of a Request
-    When Owner of the Request is undefined
-    Then the Curator is the Owner of the request
-    And the Requests Status is set to "Active"
-
-  @needJiraTag
-  Scenario: Curator declines Ownership of a Request
-    When the Curator selects "Mark request unread"
-    Then the Requests Status is updated to "New"
-    And the Owner is set to undefined
-
-  @needJiraTag
-  Scenario: User gets an answer on a Support Request
-    When the Curator writes an answer
-    And sends it to the User
-    And the Request type is Support
-    Then the User can see the answer in My Messages
-    And the Request status is set to "Done"
-
-  @needJiraTag
-  Scenario Outline: Curator open the Requests Resource
+  Scenario Outline: Curator open the Request's Resource
     When the Curator opens the Requests Resource
-    Then the Landing Page of the Resourcs is opened
+    Then the Landing Page of the Resource is viewed
     And the Resource "<Type>" Button "<Action>" is visible
     Examples:
       | Type      | Action       |
@@ -102,6 +127,26 @@ Feature: Curator opens My Worklist
       | DOI       | Decline      |
       | Ownership | Change owner |
       | Ownership | Decline      |
+
+  @needJiraTag
+  Scenario Outline: Request change Status when Curator performes an Action
+    When the Curator execute an "<Action>" on a Request "<Type>"
+    Then the Resource Status is updated to "<NewStatus>"
+    Examples:
+      | Type      | Action       | NewStatus |
+      | Approval  | Publish      | Approved  |
+      | Approval  | Decline      | Declined  |
+      | DOI       | Mint DOI     | Approved  |
+      | DOI       | Decline      | Declined  |
+      | Ownership | Change owner | Approved  |
+      | Ownership | Decline      | Declined  |
+
+ @needJiraTag
+  Scenario: User gets an answer to a Support Request
+    Given the Request is of type "Support"
+    When the Curator sends an answer
+    Then the Request status is set to "Answered"
+    And the User can read the answer in My Messages
 
   @needJiraTag
   Scenario: User gets an answer to a Request
@@ -115,7 +160,7 @@ Feature: Curator opens My Worklist
 
   @needJiraTag
   Scenario Outline: Curator change Status on a Request
-    When they select a new status "<Status>" on a Request
+    When Curator selects a new status "<Status>" on a Request
     Then the status of the Request is set to "<Status>"
     Examples:
       | Status   |
@@ -123,63 +168,28 @@ Feature: Curator opens My Worklist
       | Deleted  |
 
   @needJiraTag
-  Scenario: Curator claims a Request
-    When the Curator do either:
-      | send an answer        |
-      | Publish               |
-      | Mint a DOI            |
-      | Decline a DOI         |
-      | Change Owner          |
-      | Decline a Ownerchange |
-    Then the Curator is stored as Owner of the Request
+  Scenario: Curator is Assigned a Request
+    When the Curator:
+      | sends an answer          |
+      | Publishes a resource     |
+      | Mints a DOI              |
+      | Declines a DOI           |
+      | Changes Owner            |
+      | Declines change of owner |
+    Then the Curator is Assigned the Request
 
   @needJiraTag
-  Scenario: Decide which Approval, Support or DOI Requests is in a Curators Scope
-    When the Requests' Host equals the Curators Host
-    And Curators scope on the Institution include the Requests' Users' User Profile affilliation to the Institution
-    Then the Users Request is displayed to the Curator
-
-
-  @needJiraTag
-  Scenario: Curator opens their Work List
-    When the Curator opens the Work List
-    And it is scoped to an institutional subunit
-    Then the Curator see it is scoped to a subunit
-    And all Requests from Senders in this subunit is listed
-
+  Scenario: Decide if an Approval, Support or DOI Requests is in a Curators Scope
+    Given the Request is of type:
+      | Approval |
+      | Support  |
+      | DOI      |
+    When the Requests' Submitter is Affilliated within the Curators Scope
+    And regardless of Scope, if the Curator is assigned the Request
+    Then the Request is part of the Curators Worklist
 
   @needJiraTag
-  Scenario: Curator changes scope of Work List
-    When the Curator opens the Work List
-    Then the Curator may change scope to any other subunit at the institution
-    And all Requests from Senders in this new subunit is listed
-
-  @needJiraTag
-  Scenario: Curator change scope of there Work List to Institution level
-    When the Curator opens the Work List
-    Then the Curator may change scope to the whole Institution
-    And all Requests from all Senders is listed
-
-  Scenario: Curator performs action on Request
-    When the Curator opens the Work List
-    And relevant Requests from Senders is listed
-    Then the Curator may perform actions on listed Requests
-
-
-  @needJiraTag
-  Scenario: Curator performs action on Request
-    When the Curator opens the Work List
-    And relevant Requests from Senders is listed
-    Then the Curator may perform actions on listed Requests
-
-
-  Scenario: Decide which Ownership Requests is in a Curators Scope
-    When the Requests' Resources' Host equals the Curators Host
-    And Curators scope on the Institution include the Resources' Owners' User Profile affilliation to the Institution
-    Then the Users Request is displayed to the Curator
-
-
-
-
-
-
+  Scenario: Decide if an Ownership Requests is in a Curators Scope
+    Given the Request is of type "Ownership"
+    When the Affilliation of the Owner of the Resource associated with the Request is withing Curators Scope 
+    Then the Request is part of the Curators Worklist
