@@ -61,12 +61,6 @@ Feature: Curator opens My Worklist
     When the Curator change Scope to the whole Institution or one or more subunits
     Then the listed Requests is updated to match the new Scope
 
-  @needJiraTag
-  # Trur denne kan slettes, eller så må den skrives om - trenger dialog
-  Scenario: Curator performs an action on a Request
-    When the Curator views Requests in the Worklist
-    Then the Curator may perform any legal action on the Requests
-
   @357
   @updated
   #Replaces @1353, 1354, 2756 and 531
@@ -127,19 +121,6 @@ Feature: Curator opens My Worklist
       | DOI       | Decline      |
       | Ownership | Change owner |
       | Ownership | Decline      |
-
-  @needJiraTag
-  Scenario Outline: Request change Status when Curator performes an Action
-    When the Curator execute an "<Action>" on a Request "<Type>"
-    Then the Resource Status is updated to "<NewStatus>"
-    Examples:
-      | Type      | Action       | NewStatus |
-      | Approval  | Publish      | Approved  |
-      | Approval  | Decline      | Declined  |
-      | DOI       | Mint DOI     | Approved  |
-      | DOI       | Decline      | Declined  |
-      | Ownership | Change owner | Approved  |
-      | Ownership | Decline      | Declined  |
 
  @needJiraTag
   Scenario: User gets an answer to a Support Request
