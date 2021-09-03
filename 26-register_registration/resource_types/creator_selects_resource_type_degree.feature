@@ -42,3 +42,4 @@ Feature: Creator selects Resource type Degree
         Then they see fields:
             | Search box for Series |
             | Series number         |
+            | ISBN                  |
