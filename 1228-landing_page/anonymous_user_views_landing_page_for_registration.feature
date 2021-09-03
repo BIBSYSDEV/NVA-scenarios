@@ -2,8 +2,8 @@ Feature: Anonymous User views Landing Page for Registration
 
     @881
     Scenario: Anonymous User views Landing Page for Registration
-        When a Anonymous user navigate to a Landing Page for a Registration
-        Then they see following
+        When an Anonymous user navigates to a Landing Page for a Resource
+        Then they see
             | Title                           |
             | Abstract                        |
             | NPI                             |
@@ -17,4 +17,4 @@ Feature: Anonymous User views Landing Page for Registration
             | Files                           |
             | DOI link                        |
             | Related Registrations           |
-            | License                         |
+            | License                         |n
