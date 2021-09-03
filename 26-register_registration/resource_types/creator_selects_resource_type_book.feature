@@ -60,5 +60,4 @@ Feature: Creator selects Resource type Book
         When they select Content type "Academic Monograph"
         Then they see fields:
             | Peer reviewed         |
-            | Presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status

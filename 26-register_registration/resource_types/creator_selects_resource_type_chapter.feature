@@ -49,5 +49,4 @@ Feature: Creator selects Resource type Chapter
         When they select Content type "Academic chapter"
         Then they see fields:
             | Peer reviewed         |
-            | Presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status

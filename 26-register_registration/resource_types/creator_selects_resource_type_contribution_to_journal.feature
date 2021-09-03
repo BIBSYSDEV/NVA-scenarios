@@ -119,7 +119,6 @@ Feature: Creator selects Resource type Contribution to journal
             | Research article |
             | Review article   |
         Then they see radio buttons for Peer reviewed
-        And they see radio buttons for Presents new original research
 
     @1659
     Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Resource subtype
