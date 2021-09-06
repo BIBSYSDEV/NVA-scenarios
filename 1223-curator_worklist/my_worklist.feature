@@ -39,6 +39,7 @@ Feature: Curator opens My Worklist
 
   Future stuff:
   - The Custodian needs to be notified when a Request is updated (a new Message or someone adopts it)
+  - There is a need to allow Curators at two Institutions to comunicate
 
   Background:
     Given Curator is logged in
@@ -124,8 +125,7 @@ Feature: Curator opens My Worklist
 
  @needJiraTag
   Scenario: User gets an answer to a Support Request
-    Given the Request is of type "Support"
-    When the Curator sends an answer
+    When the Curator sends an answer of type "Support"
     Then the Request status is set to "Answered"
     And the User can read the answer in My Messages
 
@@ -151,7 +151,7 @@ Feature: Curator opens My Worklist
   @needJiraTag
   Scenario: Curator receives assignment of responses to requests they have previously responded to
     When the Curator:
-      | sends an answer          |
+      | Sends an answer          |
       | Publishes a resource     |
       | Mints a DOI              |
       | Declines a DOI           |
