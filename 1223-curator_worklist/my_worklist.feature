@@ -89,7 +89,7 @@ Feature: Curator opens My Worklist
     And the Request Status is set to "Active"
 
   @needJiraTag
-  Scenario: Curator unassigne a Request
+  Scenario: Curator unassigns a Request
     When the Curator selects "Mark request unread"
     Then the Request Status is set to "New"
     And the Request is unassigned the Curator
@@ -149,7 +149,7 @@ Feature: Curator opens My Worklist
       | Deleted  |
 
   @needJiraTag
-  Scenario: Curator is Assigned a Request
+  Scenario: Curator receives assignment of responses to requests they have previously responded to
     When the Curator:
       | sends an answer          |
       | Publishes a resource     |
@@ -160,17 +160,31 @@ Feature: Curator opens My Worklist
     Then the Curator is Assigned the Request
 
   @needJiraTag
-  Scenario: Decide if an Approval, Support or DOI Requests is in a Curators Scope
+  Scenario: Curator receives Requests in their scope
     Given the Request is of type:
       | Approval |
       | Support  |
       | DOI      |
     When the Requests' Submitter is Affilliated within the Curators Scope
-    And regardless of Scope, if the Curator is assigned the Request
     Then the Request is part of the Curators Worklist
 
   @needJiraTag
-  Scenario: Decide if an Ownership Requests is in a Curators Scope
+  Scenario: Curator receives Requests they have been assigned from outside their scope
+    Given the Request is of type:
+      | Approval |
+      | Support  |
+      | DOI      |
+    When the Curator is assigned the Request
+    Then the Request is part of the Curators Worklist
+
+  @needJiraTag
+  Scenario: Curator receives Ownership requests within their scope
     Given the Request is of type "Ownership"
-    When the Affilliation of the Owner of the Resource associated with the Request is withing Curators Scope 
+    When the Affilliation of the Owner of the Resource associated with the Request is within Curators Scope 
+    Then the Request is part of the Curators Worklist
+
+  @needJiraTag
+  Scenario: Curator receives Ownership requests they have been assigned from outside their scope
+    Given the Request is of type "Ownership"
+    When the Curator is assigned the Request
     Then the Request is part of the Curators Worklist
