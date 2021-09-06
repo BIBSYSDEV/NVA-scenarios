@@ -48,6 +48,5 @@ Feature: Creator selects Resource type Chapter
         Given Creator sees fields for Resource subtype "Chapter in Anthology"
         When they select Content type "Academic chapter"
         Then they see fields:
-            | Peer reviewed         |
-            | Presents new research |
+            | Peer reviewed and presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status
