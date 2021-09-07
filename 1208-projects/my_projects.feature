@@ -1,10 +1,10 @@
 Feature: User My Projects
 
     In order to achive a low mental load on the user
-    I want to achive a high degree of recognition between the desing of My Projects and My Publications - both accessible from the top menu
+    I want to achive a high degree of recognition between the design of My Projects and My Publications - both accessible from the top menu
 
     In order to know of all project where I'm involved
-    I want to see lists of active and concluded project, and have access to manage those I'm responsible of
+    I want to see lists of active and concluded projects, and have access to manage those I'm responsible of
 
     In order to keep projects I'm responsible of up to date
     I want easy access to manage those 

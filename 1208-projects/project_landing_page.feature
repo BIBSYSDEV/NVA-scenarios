@@ -35,7 +35,7 @@ Feature: Project Landing Page
 
     @2630
     Scenario: User opens Landing Page for Project
-        When An Anonymous User open a Project Landing Page
+        When An Anonymous User opens a Project Landing Page
         Then they see:
             | Project Title                |
             | Project Owner Institution    |

@@ -173,18 +173,9 @@ Feature: User edits Project
             Then they see that the Project/Financing Code is added to the project
     
         @2909
-        Scenario Outline: User Save a Project draft
-            Given User sees the Project Wizard
-            And the Project has a Draft status
-            And User has role "<Role>" in the project:
-                | Local Project Manager |
+        Scenario: User Save a Project draft
+            Given User sees a Draft status Project in the Project Wizard
+            And User has role Local Project Manager in the project
             When the User clicks on the Save draft Button
             Then the Project is saved with a Draft status
-            And the User is notified of result
-            Examples:
-                | Role                  |
-                | Curator               |
-                | Project Owner         |
-                | Project Manager       |
-                | Local Project Manager |
-    
+            And the User is notified of result    
