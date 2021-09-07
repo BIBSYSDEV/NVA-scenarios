@@ -17,4 +17,4 @@ Feature: Anonymous User views Landing Page for Registration
             | Files                           |
             | DOI link                        |
             | Related Registrations           |
-            | License                         |n
+            | License                         |
