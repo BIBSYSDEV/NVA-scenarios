@@ -18,3 +18,8 @@ Feature: Anonymous User views Landing Page for Registration
             | DOI link                        |
             | Related Registrations           |
             | License                         |
+        And they see sharing Buttons for:
+            | Email    |
+            | LinkedIn |
+            | Facebook |
+            | Twitter  |
