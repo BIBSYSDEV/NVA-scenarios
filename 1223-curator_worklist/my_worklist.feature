@@ -5,11 +5,11 @@ Feature: Curator opens My Worklist
 	#If a scenario is deleted, but still exists in Jira - it's noted as a comment
 
   Vocabulary clearification:
-  - A named role is preferd over "they"
-  - Resource is prefered over Registration
+  - A named role is preferred over "they"
+  - Resource is preferred over Registration
 
   Rules:
-  - A Editor grant a User the Curator role at an Institution, to serve all users at the Institution
+  - An Editor grant a User the Curator role at an Institution, to serve all users at the Institution
   - A Editor may define a Curators Scope to serve one or more subunits at the Institution
   - A Curator may at will change his current Scope, but not his defined Scope
 
@@ -66,7 +66,7 @@ Feature: Curator opens My Worklist
   @updated
   #Replaces @1353, 1354, 2756 and 531
   Scenario Outline: Curator views all Requests of a type
-    When Curator click on Requests of type "<Type>"
+    When Curator clicks on Requests of type "<Type>"
     Then Curator see a list of Requests displayed with:
       | Request status            |
       | Registration title        |
@@ -84,7 +84,7 @@ Feature: Curator opens My Worklist
       | Ownership |
 
   @needJiraTag
-  Scenario: Curator open a unassigned Request
+  Scenario: Curator opens a unassigned Request
     When the Curator open a unassigned Request
     Then the Curator is assigned the Request
     And the Request Status is set to "Active"
