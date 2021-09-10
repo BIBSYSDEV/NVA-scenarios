@@ -1,0 +1,24 @@
+The Worklist is the Curator's main tool to follow up on Requests from the Users. The Curators share the Worklist and the responsibility to follow up all Requests. Each Request is part of a drafted or published Resource.
+
+Curator Scope
+The Editor can narrow a curator's responsibility to any formal part of the Institusion like an faculty, institute or a reserch group. The Curator may override this and view other Requests at the Institution and thus assist other Curators.
+
+Search the Worklist
+The search enables the Curator to locate Requests. Search results are displayd by Type and may be filtered by Status.
+
+The Worklist may contain Requests of four types:
+    Approval:
+        - The Editor decides who can publish and how it is done
+        - The Curator may have to approve a publication
+        - See approval_requests.features for details
+    Support:
+        - The User may request support from a Curator from any steps in the registration flow
+    DOI:
+        - The Owner on a published Resource, or a Curator, may request a DOI
+        - The Curator inspects the Resource and decides if a DOI is apropriate
+        - The User may mint a draft DOI, on a draft Resource. When the Resource is published, a DOI request is automatically sent.
+        - See doi_requests.features for details
+    Ownership:
+        - Each Resource is owned by a User and the Users (IDP) affiliation decides the owning institution.
+        - Curator at the current owning institution decides on disputed ownership 
+        - See approval_requests.features for details
