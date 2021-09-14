@@ -1,16 +1,5 @@
 Feature: Project Landing Page
 
-    Project is a vital part of the core data model, it fullfilles two roles:
-    i) it define a scope that connects other core entites together 
-        - Person
-        - Institution
-        - Result
-    ii) it defines this scope by
-        - describing it (Description)
-        - give roles to Persons (Participants)
-        - show the money trail (Financing)
-        - documents Approvals (and applications)
-
     In order to know about a project
     As an anonymous User
     I want an overview of the projects details 
@@ -19,35 +8,39 @@ Feature: Project Landing Page
     As a logged in User 
     I want to get an preview of my project, before I make it public
 
-    In order to correct a project that is missleading
+    In order to correct a project that is misleading
     As a logged in User with relevant access
-    I want to be able to manage the published project
+    I want to be able to manage a published project
 
-    In order to understand the Reasearch Graph
+    In order to understand the Research Graph
     As an anonymous User
-    I want to experience a high recognition between the Projects and the Outputs Landing Pages desings
+    I want to experience a high recognition between the Projects and the Outputs Landing Pages desing's
 
-    In order to navigate the Reasearch Graph
+    In order to navigate the Research Graph
     As an anonymous User
-    I want to get all relevant navigation options for further discovery of the projects outputs, praticipants, finances and approvals
+    I want to get all relevant navigation options for further discovery of the project's outputs, participants, finances and approvals
 
-    Rule: A project has a persistent identifier, enabling correct citation and coining it as a enity in the Reaserch Graph
+    Rules: 
+     - A project has a persistent identifier, enabling correct citation and coining it as a entity in the Research Graph
+
+    This file is not reviewed, yet. 
+    Jan Erik 14. sep.
 
     @2630
     Scenario: User opens Landing Page for Project
-        When An Anonymous User opens a Project Landing Page
-        Then they see:
+        When A Anonymous User opens a Project's Landing Page
+        Then the Anonymous User see:
             | Project Title                |
             | Project Owner Institution    |
             | Project Manager              |
             | Project Period               |
             | Financing                    |
             | Approvals                    |
-        And they see collapsed panels:
+        And the Anonymous User see collapsed panels:
             | Scientific summary |
             | Participants       |
             | Results            |
-        And they see number of elements of Participants and Results
+        And the Anonymous User see count of Participants and Results
 
     @2886
     Scenario Outline: Privileged user sees Edit button for Project

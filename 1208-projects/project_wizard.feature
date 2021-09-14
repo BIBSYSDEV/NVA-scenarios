@@ -1,115 +1,90 @@
 Feature: User edits Project
 
-    In order to manage a projects content
-    I want to be able to manage all relevant information
+    In order to achieve a low mental load on the user
+    As Product Owner
+    I want the user to experience a high degree of recognition between the desing of Project's registration wizard and Publication’s registration wizard
 
-    In order to achive a low mental load on the user
-    I want to achive a high degree of recognition between the desing of Projects registration wizard and Publications registration wizard
+    In order to manage a Project's content
+    As a User
+    I want to be able to manage all possible information about the Project in one place
+
+    In most cases the Project Manager reside from the Coordinating Institution
+    Vocabulary warning: Most funding organizations use the term "project" to describe (one of possible many) funding sources a project may have. 
 
     Background: 
-        Given A User is logged in with relevant access
-        # The User has a role defined in the project 
-        # or is a Curator for one of the defined users
+        Given A User is logged in
+        And the User got one of the following roles in the project: 
+            | Curator               |
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
+
+   @needJiraNumber
+   Scenario Outline: User view my Projects
+       When the User edits a Project in the Project Wizard 
+       Then the User can navigate the project wizard’s sections:
+           | Description |
+           | Participants |
+           | Financing    |
+       And the User can request Support from his Curator
+       And the User see an option to exit the wizard
+       And th User see a Button "<Button>" decided by the Projects "<Status"
+       Examples:
+           | Status    | Button                   
+           | Draft     | Save draft               |
+           | Published | Update published project |
 
     Rule: Any User can create a project, becoming origin Project Owner
 
         @2903a
-        Scenario Outline: User sees the Project Wizard
-            Given User opens My Projects
-            When they click Create New Project Button
-            Then the User is the Project Owner
-            And they see tabs:
-                | Description  |
-                | Participants |
-                | Financing    |
-            And they see the Description tab
-            And they see fields:
+        @updated
+        Scenario: User creates a new Project
+            When the User creates a new Project in My Projects
+            Then the User can fill in the following fields in the Description section:
                 | Title                    |
                 | Summary                  |
                 | Coordinating Institution |
                 | Start Date               |
                 | End Date                 |
                 | Internal Project Code    |
-            And they see a Support Button
-            And they see a Button "<Button>" decided by Project's "<Status>"
-            And they see a Next Button
-            Examples:
-                | Status    | Button                   |
-                | Draft     | Save draft               |
-                | Published | Update published project |
+            And the User is the Project Owner
 
-    Rule: The Projects Coordinating Institution grants it's Curators access to the project
-
-       @2905
-       Scenario: Curator opens a Project in the Project Wizard
-           # Same result as "User Edits a Project in the Project Wizard",
-           # but enables a Curator to edit projects
-           Given User opens Landing Page for Project
-           And User is Curator on Project's Coordinating Institution
-           And the project lacks an Approval of type "REK"
-           # See health_related_projects.feature for details.
-           When they click the Edit button
-           Then User sees the Project Wizard
-           And it contains data about the Project
-
-    Rule: A project have Participents, like the Local Project Manager
+    Rule: A project got Participents, like the Local Project Manager
 
         @2906a
-        Scenario Outline: User opens Participants tab for Project
-            Given User sees the Project Wizard
-            And User has one of these role in the project:
+        @updated, replaces 2906b
+        Scenario: User opens the Projects Participants section
+            Given a User with one of these roles:
                 | Curator               |
                 | Project Owner         |
                 | Project Manager       |
                 | Local Project Manager |
-            When they click the Participants tab
-            Then they see lists of:
+            When the User views the Participants of a Project
+            Then the User see lists of:
                 | Project Managers     |
                 | Project Participants |
-            And they see Button Add Project Participant
-            And they see a Previous Button
-            And they see a Support Button
-            And they see a Button "<Button>" decided by Project's "<Status>"
-            And they see a Next Button
-            Examples:
-                | Status    | Button                   |
-                | Draft     | Save draft               |
-                | Published | Update published project |
+            And the User see an option to add Project Participants
+           
+        @2906c
+        Scenario: User adds a Project Participant
+            When the User enter a name in a search field
+            And the User selects a User from the search results
+            And the User grants this User one of the following roles:
+                | Local Project Manager |
+                | Project Member        |
+            Then they see the User listed as a Project Participant with a role
 
-    Rule: The Local Project Manager is a Project Manager at his institutions' scope of the project
-
-       @2906b
-       Scenario Outline: User opens Dialog for adding Project Participant
-           Given User opens Participants tab for Project
-           And User has role "<Role>" in the project
-           When they click the Add Project Participant Button
-           Then they can select role to be either of:
-               | Project Partcipant    |
-               | Local Project Manager |
-           And they can see User search field
-           Examples:
-               | Role                  |
-               | Curator               |
-               | Project Owner         |
-               | Project Manager       |
-               | Local Project Manager |
-       
-       @2906c
-       Scenario: User adds a Project Participant
-           Given User opens Dialog for adding Project Participant
-           When they enter a name in the User search field
-           And they select a role
-           And they select a User from the search
-           And they click the Add Button
-           Then they see the User listed as a Project Participant
-
-    Rule: The Project Owner can grant the Project Manager role, both roles have same access to the project
+    Rule: The Project Owner, the Project Manager and Curator at the Coordinating Institution can grant the Project Manager role to any user, but there can only be one Project Manager at any time
     
         @2907a
-        Scenario Outline: Privileged user opens Participants tab for Project
-            Given User opens Participants tab for Project
-            When User has role "<Role>" in the project
-            Then they see Button Add Project Manager
+        @updated, replaces also 2907b and 2907c
+        Scenario Outline: A User adds a new Project Manager
+            Given a User with role "<Role>" in the project
+            When the User selects a User from a search
+            And the User grants this User the role:
+                | Project Manager |
+            And the User set a Start Date not predating any former Project Managers
+            Then the selected User is listed as Project Manager from Start Date
             Examples:
                 | Role            |
                 | Curator         |
@@ -118,64 +93,40 @@ Feature: User edits Project
 
     Rule: A project can only have one Project Owner, Project Manager and Coordinating Institution - at any given time
 
-        @2907b
-        Scenario Outline: Privileged user opens Dialog for adding Project Manager
-            Given Privileged user opens Participants tab for Project
-            And User has role "<Role>" in the project:
-            When they click the Add Project Manager Button
-            Then they see fields:
-                | Start Date  |
-                | User search |
-            Examples:
-                | Role            |
-                | Curator         |
-                | Project Owner   |
-                | Project Manager |
-    
-        @2907c
-        Scenario: Privileged user adds a Project Manager
-            Given Privileged user opens Dialog for adding Project Manager
-            When they select a Start Date
-            And they enter a name in the User search field
-            And they select a User from the search
-            And they click the Add Button
-            Then they see the User listed as a Project Manager
+        @needJiraNumber
+        Scenario: Missing scenario to fulfil this rule
+            When someone fil it in
+            Then something happens
 
-    Rule: A project may have several sources of funding (or grants)
-       
-       @2908a
-       Scenario Outline: User opens Financing tab for Project
-           Given User sees the Project Wizard
-           And User has the "<Role>" role in the project
-           When they click the Financing tab
-           Then they see fields for:
-               | Financing Code |
-           And the fields are "<FieldStatus>"
-           And they see a Previous Button
-           And they see a Support Button
-           And they see a Save and Present Button
-           Examples:
-               | Role                  | FieldStatus |
-               | Curator               | Enabled     |
-               | Project Owner         | Enabled     |
-               | Project Manager       | Enabled     |
-               | Local Project Manager | Disabled    |
-    
-    Rule: Funding organisazations consider there funding a project, but it is a funding source (a grant) from our point of view
+    Rule: A project may have several sources of funding. Warning: Funding organizations consider their funding to be a project and/or a grant, but from our point of view - it's only a part of the projects total funding.
+
+        @2908a
+        @updated
+        Scenario Outline: User opens Financing tab for Project
+            When a User with role "<Role>" on the project view the Financing tab
+            Then the Financing Code field is "<FieldStatus>"
+            Examples:
+                | Role                  | FieldStatus |
+                | Curator               | Enabled     |
+                | Project Owner         | Enabled     |
+                | Project Manager       | Enabled     |
+                | Local Project Manager | Disabled    |
 
         @2908b
         Scenario: User adds a Financing source for Project
-            Given User opens Financing tab for Project
-            When they enter a search text in the search field
-            And they select a Financing source from the search results
+            When a User enter some text in the Financing Code field
+            And the User select a Financing source from the search results
             #https://prosjektbanken.forskningsradet.no/prosjektbanken/rest/cristin/search?query=111
             #https://beta.explore.openaire.eu/search/advanced/projects?q=&op=and
-            Then they see that the Project/Financing Code is added to the project
+            Then the User see the selected Financing Code listed as on of the Projects Financing Codes 
     
         @2909
-        Scenario: User Save a Project draft
-            Given User sees a Draft status Project in the Project Wizard
-            And User has role Local Project Manager in the project
-            When the User clicks on the Save draft Button
-            Then the Project is saved with a Draft status
-            And the User is notified of result    
+        @deleted Scenario
+
+    Rule: The Projects Coordinating Institution grants it's Curators access to the project
+
+        @2905
+        Scenario: Curator edit a Project in the Project Wizard
+            Given a Curator on the Project's Coordinating Institution
+            When the Curator opens the Project in the Project Wizard
+            Then the Curator can manage the Projects data
