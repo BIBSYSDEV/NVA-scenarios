@@ -1,0 +1,36 @@
+NVA is an institution archive that store metadata and content of many different types and formats. This feature file describes only a part of the total, named NVI.
+
+NVI stands for "Norsk vitenskapsindeks" (Norwegian science index), it is a tentative complete collection of high-quality metadata about academic publications in higher education and research institutions, where authors and institutions of Norwegian concerns are unambiguously connected. 
+
+Academic publication is defined as:
+ - present new insight
+ - be presented in a form that allows the research findings to be verified and/or used in new research
+ - be written in a language and have a distribution that make the publication accessible to the majority of interested researchers
+ - appear in an authorised publication channel (journal, series, book publishers, website) that has procedures for external peer review
+
+"Kanalregisteret" (The Norwegian Register for Scientific Journals, Series and Publishers) documents all publications channels. Most channels are unranked, but through a nomination process some are evaluated as low rank scientific (level 1) or high rank scientific (level 2) for academic publishing. The quality evaluation process is NPI – “Norske Publiseringsindikatoren” (Norwegian Publication Indicator) that aims to promote high-quality research and provide an overview of and insight into research activity.
+
+The Norwegian Ministry of Education and Research grants about NOK 700 million every year, that is divided between the NVI institutions, based on their academic publications in ranked channels (level 1 and 2) the previous year. Every publication produces points, and the points are divided following the authors affiliations.
+
+Rules of Author Affiliation:
+- The Resource Owner and his Curators can affiliate authors
+- Curator can change affiliation on his own authors - on any Resource
+  (Note: Main intention is to enable selection of correct subunit at own Institution. The Curator can "give away" the publication to another institution, this is a final action.)
+
+Institutions NVI process
+- A Published Resource complying to the rules is a NVI Resource.
+- It is marked on the Institution if it is a NVI Institutions.
+- Curator can list NVI Resources that is pending for the next NVI-Report.
+- The NVI-Report can be filtered on NVI-Status ("Approved" and "Not approved").
+- The multi-faceted NVI-Status is defaulted to "Not approved".
+- Curator can "Approve" a NVI Resource if the author is affiliated.
+- The approval verifies the metadata that makes this Resource a NVI Resource.
+- The NVI Resource is "Approved" when all affiliated NVI Institutions have approved it.
+- The Approving Curator may send a message to Owning Curator regarding a NVI Resource.
+
+Details of the NVI-Resource, NVI-Report and NVI-Status
+- The Resource Owner cannot change a NVI Resource that is partly or fully "Approved".
+- If an affiliated Curator judge a NVI Resource to not comply with the rules, then the Resource Owner or his Curator should agree on the metadata or involve the Editors.
+- If a NVI Resource is modified so it no longer is a NVI Resource, then a notification is given before the change is performed.
+- If a partly approved NVI Resource is modified so it needs new approvals, then a notification is given before the change is performed.
+- When a partly approved NVI Resource is modified so it no longer is a NVI Resource, then a notification is sent to all Curator that approved it.
