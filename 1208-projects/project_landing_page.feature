@@ -118,7 +118,7 @@ Feature: Project Landing Page
         And User has role "<Role>" in the project
         When the User clicks on the Publish Button
         Then the project status is Published 
-        And the Landing Page is public accessible 
+        And the Landing Page is publicly accessible 
         Examples:
             | Role            |
             | Curator         |
