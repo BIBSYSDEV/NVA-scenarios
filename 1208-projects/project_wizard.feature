@@ -19,20 +19,20 @@ Feature: User edits Project
             | Project Manager       |
             | Local Project Manager |
 
-   @needJiraNumber
-   Scenario Outline: User view my Projects
-       When the User edits a Project in the Project Wizard 
-       Then the User can navigate the project wizard’s sections:
-           | Description |
-           | Participants |
-           | Financing    |
-       And the User can request Support from his Curator
-       And the User see an option to exit the wizard
-       And the User see a Button "<Button>" decided by the Projects "<Status"
-       Examples:
-           | Status    | Button                   
-           | Draft     | Save draft               |
-           | Published | Update published project |
+    @needJiraNumber
+    Scenario Outline: User view my Projects
+        When the User opens a Project in the Project Wizard 
+        Then the User can navigate the project wizard’s sections:
+            | Description  |
+            | Participants |
+            | Financing    |
+        And the User can request Support from his Curator
+        And the User see an option to exit the wizard
+        And the User see a Button "<Button>" decided by the Projects "<Status"
+        Examples:
+            | Status    | Button                   
+            | Draft     | Save draft               |
+            | Published | Update published project |
 
     Rule: Any User can create a project, becoming origin Project Owner
 
@@ -92,7 +92,6 @@ Feature: User edits Project
                 | Project Manager |
 
     Rule: A project can only have one Project Owner, Project Manager and Coordinating Institution - at any given time
-
 
     Rule: A project may have several sources of funding. Warning: Funding organizations consider their funding to be a project and/or a grant, but from our point of view - it's only a part of the projects total funding.
 

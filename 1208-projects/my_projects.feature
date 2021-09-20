@@ -62,11 +62,11 @@ Feature: User My Projects
 
     @2874c
     Scenario: User Edits a Project in the Project Wizard
-        When a User edits a project from My Projects
-        And the User has one of the following roles: 
+        Given a User with one of the following roles: 
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
+        When the User edits a project from My Projects
         Then they see the Project in the Project Wizard
 
     @2875
