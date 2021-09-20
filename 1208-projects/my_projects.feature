@@ -52,7 +52,7 @@ Feature: User My Projects
             | Title                    |
             | Coordinating Institution |
             | Project Manager          |
-        And the User can navigate through the possible long list of Concluded Projects
+        And the User can navigate through the possibly long list of Concluded Projects
     
     @2874b
     Scenario: User opens a Project's Landing Page
