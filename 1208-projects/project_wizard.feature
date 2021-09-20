@@ -93,10 +93,6 @@ Feature: User edits Project
 
     Rule: A project can only have one Project Owner, Project Manager and Coordinating Institution - at any given time
 
-        @needJiraNumber
-        Scenario: Missing scenario to fulfil this rule
-            When someone fil it in
-            Then something happens
 
     Rule: A project may have several sources of funding. Warning: Funding organizations consider their funding to be a project and/or a grant, but from our point of view - it's only a part of the projects total funding.
 
