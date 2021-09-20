@@ -28,7 +28,7 @@ Feature: User edits Project
            | Financing    |
        And the User can request Support from his Curator
        And the User see an option to exit the wizard
-       And th User see a Button "<Button>" decided by the Projects "<Status"
+       And the User see a Button "<Button>" decided by the Projects "<Status"
        Examples:
            | Status    | Button                   
            | Draft     | Save draft               |
