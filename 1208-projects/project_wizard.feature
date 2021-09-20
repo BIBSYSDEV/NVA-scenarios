@@ -39,7 +39,7 @@ Feature: User edits Project
         @2903a
         @updated
         Scenario: User creates a new Project
-            When the User creates a new Project in My Projects
+            When the User clicks the create a new Project Button in My Projects
             Then the User can fill in the following fields in the Description section:
                 | Title                    |
                 | Summary                  |
