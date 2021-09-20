@@ -116,9 +116,6 @@ Feature: User edits Project
             #https://beta.explore.openaire.eu/search/advanced/projects?q=&op=and
             Then the User see the selected Financing Code listed as on of the Projects Financing Codes 
     
-        @2909
-        @deleted Scenario
-
     Rule: The Projects Coordinating Institution grants it's Curators access to the project
 
         @2905
