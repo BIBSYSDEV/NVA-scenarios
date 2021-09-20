@@ -40,7 +40,7 @@ Feature: User My Projects
             | Project Manager       |
             | Local Project Manager |
             | Participants          |
-        And each Project views it's:
+        And the User can see each Project's:
             | Title                    |
             | Coordinating Institution |
             | Project Manager          |
