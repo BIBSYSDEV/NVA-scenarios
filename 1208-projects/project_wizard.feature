@@ -20,7 +20,7 @@ Feature: User edits Project
             | Local Project Manager |
 
     @needJiraNumber
-    Scenario Outline: User view my Projects
+    Scenario Outline: User opens the Project Wizard
         When the User opens a Project in the Project Wizard 
         Then the User can navigate the project wizard’s sections:
             | Description  |
