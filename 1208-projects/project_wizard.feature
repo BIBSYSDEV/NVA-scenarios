@@ -30,7 +30,7 @@ Feature: User edits Project
         And the User see an option to exit the wizard
         And the User see a Button "<Button>" decided by the Projects "<Status"
         Examples:
-            | Status    | Button                   
+            | Status    | Button                   |
             | Draft     | Save draft               |
             | Published | Update published project |
 
