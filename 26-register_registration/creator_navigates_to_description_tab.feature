@@ -53,12 +53,14 @@ Feature: Creator navigates to Description tab
     When they click the Remove Project icon
     Then they see the Project is removed from the list of selected Projects
 
+  @test
   Scenario: Creator opens dropdown with Allowed Vocabularies
     Given Creator begins Wizard registration and navigates to Description tab
     And their Institution has a Vocabulary set as "Allowed"
     When they click "Add Vocabulary"
     Then they can see a dropdown with Allowed Vocabularies
 
+  @test
   @2446
   Scenario: Creator sees input field for an Allowed Vocabulary
     Given Creator opens dropdown with Allowed Vocabularies
