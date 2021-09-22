@@ -19,7 +19,7 @@ Rules of Author Affiliation:
 
 Institutional NVI process
 - A Published Resource complying to the rules is an NVI Resource.
-- It is marked at the Institution if it is an NVI Institution.
+- Institutions participating in NVI is a subgroup of all Institution.
 - Curator can list NVI Resources that are pending for the next NVI-Report.
 - The NVI-Report can be filtered by NVI-Status ("Approved" and "Not approved").
 - The multi-faceted NVI-Status defaults to "Not approved".
