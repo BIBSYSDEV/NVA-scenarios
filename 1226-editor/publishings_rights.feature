@@ -29,3 +29,4 @@ Feature: Editor decide who got publishing rights
 		| Registrator can only publish metadata  |
 		| Only Curator can publish               |
 	Then the Institutions publications policy is changed accordingly
+	# The policys are used in owner_navigates_to_the_landing_page_for_their_registration.feature 
