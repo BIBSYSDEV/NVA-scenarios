@@ -26,12 +26,13 @@ Feature: Owner navigates to the Landing Page for their Resource
 
     @needJiraTag
     Scenario Outline: Owner wants to publish Resource, all restrictions
-        Given Owner wants to publish their Resource
+        Given Institutions publications policy is "Only Curator can publish"
+        # Pending: Is next line needed?
         And Resource is of type "<ResourceType>" 
-        And Editor has restricted publication of type "<ResourceType>" 
         When the Owner uses the Publish option
-        Then an Approval Request is created
-        And the User is informed that a Publishing Approval is pending and progress can be viwed in My Messages
+        Then the Owner see a landingpage with an unpublished resource
+        And an Approval Request is sent to his Curator
+        And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
         Examples:
             | ResourceType |
             | NVI          |
@@ -39,16 +40,15 @@ Feature: Owner navigates to the Landing Page for their Resource
 
     @needJiraTag
     Scenario Outline: Owner wants to publish Resource, file restrictions
-        Given Owner wants to publish their Resource
+        Given Institutions publications policy is "Registrator can only publish metadata"
+        # Pending: Is next line needed?
         And Resource is of type "<ResourceType>" 
-        And the Editor has restricted access to files of Resources of "<ResourceType>"
         When the Owner uses the Publish option
-        Then an extra embargo is put on all files
+        Then the Owner sees a landingpage with a Published Resource
         And the Resource's status is "Published"
-        And the Landing Page is publicly accessible
-        And an Approval Request is created
-        And the User is informed that the Resource is published but a Publishing Approval is pending to allow access to the files and progress can be viwed in My Messages
-        Examples:
+        And the Resource's content is locked with a pending approval notification
+        And an Approval Request is sent to his Curator
+        And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
         Examples:
             | ResourceType |
             | NVI          |
@@ -56,11 +56,10 @@ Feature: Owner navigates to the Landing Page for their Resource
 
     @needJiraTag
     Scenario: Owner uses the Publish option on Langing Page
-        Given Owner wants to publish their Resource
-        And the Editor has given all users publishing permissions for their own work
+        Given Institutions publications policy is "Registrator got full publishing rights"
         When the Owner uses the Publish option
         Then the Resource's status is "Published"
-        And the Landing Page is publicly accessible
+        And the Owner see a landingpage with a published resource
 
     @test
     @updated - removed "Go back to schema"-button

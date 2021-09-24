@@ -14,7 +14,8 @@ Use of Vocabularies
 Some Institutions wish to arrange resources into classes or categories according to shared qualities or characteristics. To accommodate this goal, the Editor may decide which vocabularies the Users may use in the Registration Wizard. Vocabularies are field-/domain-specific, so Institutions with a strong field focus may wish all Users to use the same vocabulary. Others may offer the User a selection of optional vocabularies.
 
 Publishing permissions
-Any logged-in User can publish a resource, unless the Editor has set permissions to either: 
-Restrict all publishing, demanding a Curator to review even publication of metadata
-Or Users may publish metadata, but impose a temporary embargo on any files until a Curator has reviewed their content and their licenses.
-The Editor can adjust the restrictions to only cover registration types that are of interest for NVI reporting.
+The Editor decide the Institutions publication policy and can choose one of the three options:
+	Registrator got full publishing rights
+	Registrator can only publish metadata
+	Only Curator can publish
+See publishings_rights.feature for details.
