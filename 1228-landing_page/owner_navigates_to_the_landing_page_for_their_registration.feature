@@ -25,34 +25,22 @@ Feature: Owner navigates to the Landing Page for their Resource
         And the user is informed that progress can be viwed in My Messages 
 
     @needJiraTag
-    Scenario Outline: Owner wants to publish Resource, all restrictions
+    Scenario: Owner wants to publish Resource, all restrictions
         Given Institutions publications policy is "Only Curator can publish"
-        # Pending: Is next line needed?
-        And Resource is of type "<ResourceType>" 
         When the Owner uses the Publish option
         Then the Owner see a landingpage with an unpublished resource
         And an Approval Request is sent to his Curator
         And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
-        Examples:
-            | ResourceType |
-            | NVI          |
-            | none-NVI     |
 
     @needJiraTag
-    Scenario Outline: Owner wants to publish Resource, file restrictions
+    Scenario: Owner wants to publish Resource, file restrictions
         Given Institutions publications policy is "Registrator can only publish metadata"
-        # Pending: Is next line needed?
-        And Resource is of type "<ResourceType>" 
         When the Owner uses the Publish option
         Then the Owner sees a landingpage with a Published Resource
         And the Resource's status is "Published"
         And the Resource's content is locked with a pending approval notification
         And an Approval Request is sent to his Curator
         And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
-        Examples:
-            | ResourceType |
-            | NVI          |
-            | none-NVI     |
 
     @needJiraTag
     Scenario: Owner uses the Publish option on Langing Page
