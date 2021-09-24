@@ -12,6 +12,7 @@ Smaller Institutions may deem one User to be both the Editor and the Curator. A 
 
 Use of Vocabularies
 Some Institutions wish to arrange resources into classes or categories according to shared qualities or characteristics. To accommodate this goal, the Editor may decide which vocabularies the Users may use in the Registration Wizard. Vocabularies are field-/domain-specific, so Institutions with a strong field focus may wish all Users to use the same vocabulary. Others may offer the User a selection of optional vocabularies.
+See editor_opens_editor_administration.feature for details.
 
 Publishing permissions
 The Editor decide the Institutions publication policy and can choose one of the three options:
