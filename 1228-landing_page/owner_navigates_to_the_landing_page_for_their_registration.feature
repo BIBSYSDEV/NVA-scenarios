@@ -1,6 +1,6 @@
 Feature: Owner navigates to the Landing Page for their Resource
 
-    @test
+    @test 
     @1231
     Scenario: Owner navigates to the Landing Page for their Published Resource without DOI
         Given that the Creator navigates to the Landing Page for a Resource
@@ -28,7 +28,7 @@ Feature: Owner navigates to the Landing Page for their Resource
     Scenario: Owner wants to publish Resource, all restrictions
         Given Institutions publications policy is "Only Curator can publish"
         When the Owner uses the Publish option
-        Then the Owner see a landingpage with an unpublished resource
+        Then the Owner see a Landing Page with an Unpublished Resource
         And an Approval Request is sent to his Curator
         And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
 
@@ -36,18 +36,18 @@ Feature: Owner navigates to the Landing Page for their Resource
     Scenario: Owner wants to publish Resource, file restrictions
         Given Institutions publications policy is "Registrator can only publish metadata"
         When the Owner uses the Publish option
-        Then the Owner sees a landingpage with a Published Resource
+        Then the Owner sees a Landing Page with a Published Resource
         And the Resource's status is "Published"
         And the Resource's content is locked with a pending approval notification
-        And an Approval Request is sent to his Curator
-        And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
+        And an Approval Request is sent to the Curator
+        And the Owner is notified that a Approval Request is sent to the Curator and progress can be viwed in My Messages
 
     @needJiraTag
     Scenario: Owner uses the Publish option on Langing Page
-        Given Institutions publications policy is "Registrator got full publishing rights"
+        Given Institutions publications policy is "Registrator has full publishing rights"
         When the Owner uses the Publish option
         Then the Resource's status is "Published"
-        And the Owner see a landingpage with a published resource
+        And the Owner sees a Landing Page with a Published Resource
 
     @test
     @updated - removed "Go back to schema"-button
