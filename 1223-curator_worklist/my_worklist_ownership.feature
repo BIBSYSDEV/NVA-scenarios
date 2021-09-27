@@ -16,6 +16,10 @@ Feature: Curator handles an Ownership Request
     As a Editor
     I want a Curator to approve all changes of ownership of Resources
 
+    In order to document important published content at some other Institution
+    As a Editor
+    I want to take ownership of some other Institutions Resource
+
 	Background: 
 		Given a User has created a Request of Ownership
 		And the Curator views the landing page of the Resource assosiated with the Request
