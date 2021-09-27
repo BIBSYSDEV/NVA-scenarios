@@ -1,4 +1,4 @@
-Feature: Editor decide who got publishing rights
+Feature: Editor decides who gets publishing rights
 
 	In order to decide the publishing policy at an Institution
 	As an Editor
@@ -19,13 +19,13 @@ Feature: Editor decide who got publishing rights
 	Scenario: Default publishing rights
 	When the Editor of an Institution hasn’t chosen a policy
 	Then the publications policy is:
-		| Registrator got full publishing rights |
+		| Registrator has full publishing rights |
 
 	@needJiraTag 
-	Scenario: Editor decide publishing rights
+	Scenario: Editor defines publishing rights
 	Given a Editor views the Editor page
 	When the Editor chooses one of the three options:
-		| Registrator got full publishing rights |
+		| Registrator has full publishing rights |
 		| Registrator can only publish metadata  |
 		| Only Curator can publish               |
 	Then the Institutions publications policy is changed accordingly
