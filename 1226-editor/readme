@@ -16,7 +16,7 @@ See editor_opens_editor_administration.feature for details.
 
 Publishing permissions
 The Editor defines the Institutions publication policy and can choose one of the three options:
-	Registrator got full publishing rights
+	Registrator has full publishing rights
 	Registrator can only publish metadata
 	Only Curator can publish
 See publishings_rights.feature for details.
