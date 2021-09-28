@@ -1,5 +1,20 @@
 Feature: User navigates to Landing Page for Registration and can see Files
 
+    @needJiraTag
+    Scenario: User sees the option to claim Ownership of a Resource
+        When the User views the Landing Page 
+        Then the User sees a option to claim Ownership of current Resource
+
+    @needJiraTag
+    Scenario: User uses the option to claim Ownership of current Resource
+        When the User uses the option to claim Ownership of current Resource
+        Then the User must write a claim 
+        And a Ownership Request is sent to the Owners Curator 
+        And the User is notified that progress on this claim can be viewed in My Messages
+
+    # All scenarios below is about "Anonymous User views Landing Page"
+    # they belong on the "Anonymous User views Landing Page for Registration" feature
+
     @1530
     Scenario: Files that are Administrative Agreements are hidden
         Given Anonymous User views Landing Page for Registration

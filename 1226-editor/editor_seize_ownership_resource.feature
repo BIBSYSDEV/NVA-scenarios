@@ -8,23 +8,24 @@ Feature: Editor seizes ownership of a Resource
     	Given a User has published a Resource
 
 	@needJiraTag
-	Scenario: Editor is sees the option to seizes ownership of a resource
+	Scenario: Editor sees the option to seizes Ownership of a Resource
 		When an Editor view a Landing Page of a Published Resource
 		Then the Editor sees a option to seize ownership of the Resource
 
 	@needJiraTag
-	Scenario: Editor seizes ownership of a resource
+	Scenario: Editor seizes Ownership of a Resource
+		Given Editor sees the option to seizes ownership of a resource
 		When the Editor uses the option to seize ownership of the Resource
-		Then the Editor is notified that is an excessive action
-		And ask for a verification that the Editor deem it necessary
+		Then the Editor is notified that this is an excessive action
+		And ask the Editor to verified it is deemed necessary
 		And all other measures have been exhausted
+		And the Editor must write a message to the current Owner
 
 	@needJiraTag
-	Scenario: Editor verifies the intention to seizes ownership of a resource
-		When the Editor acknowledge his intention to seize ownership of the Resource
-		Then the Editor becomes the owner of the Resource
+	Scenario: Editor verifies the intention to seizes Ownership of a Resource
+		Given Editor seizes ownership of a Resource
+		When the Editor acknowledge his intention to seize Ownership of the Resource
+		Then the Editor becomes the Owner of the Resource
 		And the Editors Institution becomes the Owning Institution 
-		# replaces the Owners IDP Institution
-		And the Editor must write a message that is sent to the previous Owner
-		# Do the Editor of the previous Owner need a copy?
-		# The Editor, as the new Owner, can now give ownership of the Resource to any new owner
+		And the message is sendt to the previous Owner
+		# The Editor can now edit the Resource and/or give the ownership to any other User, including hand it back to the previous Owner
