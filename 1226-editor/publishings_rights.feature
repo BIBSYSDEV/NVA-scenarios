@@ -23,7 +23,7 @@ Feature: Editor decides who gets publishing rights
 
 	@needJiraTagApproval
 	Scenario: Editor defines publishing rights
-		Given a Editor views the Editor page
+		Given a Editor opens the Editor page
 		When the Editor chooses one of the three options:
 			| Registrator has full publishing rights |
 			| Registrator can only publish metadata  |
