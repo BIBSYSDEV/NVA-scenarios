@@ -72,13 +72,13 @@ Feature: Owner navigates to the Landing Page for their Resource
         And they see a "Edit registration" button
 
     @needJiraTag
-    Scenario: Owner sees the option to transfers Ownership of a Resource
+    Scenario: Owner sees the option to transfer Ownership of a Resource
         When the Owner views the Landing Page 
-        Then the Owner sees a option to transfers his Ownership of current Resource
+        Then the Owner sees a option to transfer Ownership of Resource
 
     @needJiraTag
     Scenario: Owner transfers Ownership of a Resource
-        When the Owner uses the option to transfers Ownership of current Resource
-        Then the Owner must acknowledging that this is a final action
+        When the Owner uses the option to transfer Ownership of current Resource
+        Then the Owner must acknowledges that this is a final action
         And the Owner must select a new Owner
         And the ownership is transfered to new Owner
