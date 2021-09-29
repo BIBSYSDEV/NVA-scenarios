@@ -45,7 +45,7 @@ Feature: Curator handles an Approval Request
 		And the Editor demands a Approval to open access to Resources' content
 		When the Curator declines the Request
 		Then the Request status is changed to "Declined"
-		And the content of the Resource is still not public accessable
+		And the content of the Resource is still not public accessible
 		# Eller ?!? - må snakke med referansegruppe om denne
 
 	@needJiraTagApproval
