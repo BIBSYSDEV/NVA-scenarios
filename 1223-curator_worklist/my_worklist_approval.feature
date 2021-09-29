@@ -33,7 +33,7 @@ Feature: Curator handles an Approval Request
 	@needJiraTagApproval
 	Scenario: Curator approves an Approval Request to grant open access to content
 		Given the User has published a Resource
-		And the Editor demands a Approval to open access to Resources' content
+		And the Editor on behalf of institution demands a Approval to open access to Resources' content
 		When the Curator approves the Request
 		Then the Request status is changed to "Approved"
 		And the the Resources' content is open accessable 
