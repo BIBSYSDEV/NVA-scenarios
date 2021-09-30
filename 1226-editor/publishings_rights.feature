@@ -15,13 +15,13 @@ Feature: Editor decides who gets publishing rights
 			| Technical administrative employees |
 		Then the User is a Registrator
 
-	@needJiraTagApproval
-		Scenario: Default publishing rights
+	@3196
+	Scenario: Default publishing rights
 		When the Editor of an Institution hasn’t chosen a policy
 		Then the publications policy is:
 			| Registrator has full publishing rights |
 
-	@needJiraTagApproval
+	@3197
 	Scenario: Editor defines publishing rights
 	Given a Editor views the Editor page
 	When the Editor chooses one of the three options:
