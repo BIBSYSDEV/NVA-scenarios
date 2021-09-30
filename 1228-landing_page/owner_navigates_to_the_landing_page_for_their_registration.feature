@@ -30,7 +30,7 @@ Feature: Owner navigates to the Landing Page for their Resource
         When the Owner uses the Publish option
         Then the Owner see a Landing Page with an Unpublished Resource
         And an Approval Request is sent to his Curator
-        And the Owner is notified that a Approval Request is sent to his Curator and progress can be viewed in My Messages
+        And the Owner is notified that an Approval Request is sent to his Curator and progress can be viewed in My Messages
 
     @needJiraTagApproval
     Scenario: Owner wants to publish Resource, file restrictions
@@ -38,9 +38,10 @@ Feature: Owner navigates to the Landing Page for their Resource
         When the Owner uses the Publish option
         Then the Owner sees a Landing Page with a Published Resource
         And the Resource's status is "Published"
-        And the Resource's content is locked with a pending approval notification
+        And the Resource's files, license and embargo date are locked with a pending approval notification
+        And the number of files is visible
         And an Approval Request is sent to the Curator
-        And the Owner is notified that a Approval Request is sent to the Curator and progress can be viewed in My Messages
+        And the Owner is notified that an Approval Request is sent to the Curator and progress can be viewed in My Messages
 
     @needJiraTagApproval
     Scenario: Owner uses the Publish option on Langing Page
