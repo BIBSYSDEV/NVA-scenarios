@@ -21,4 +21,4 @@ The Worklist may contain Requests of four types:
     Ownership:
         - Each Resource is owned by a User and the Users (IDP) affiliation decides the owning institution.
         - Curator at the current owning institution decides on disputed ownership 
-        - See approval_requests.features for details
+        - See ownership_requests.features for details
