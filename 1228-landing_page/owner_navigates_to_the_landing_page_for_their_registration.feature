@@ -18,11 +18,11 @@ Feature: Owner navigates to the Landing Page for their Resource
 
     @needJiraTagApproval
     Scenario: Owner wants to publish their Resource, pending Approval
-        When the Owner previews the Resource's Langing Page
-        And the Registraion has "Draft" Status
+        When the Owner previews the Resource's Landing Page
+        And the Registration has "Draft" Status
         And there is a pending Approval Request on the Resource
         Then they see a "Publishing pending" notice
-        And the user is informed that progress can be viwed in My Messages 
+        And the user is informed that progress can be viewed in My Messages 
 
     @needJiraTagApproval
     Scenario: Owner wants to publish Resource, all restrictions
@@ -30,7 +30,7 @@ Feature: Owner navigates to the Landing Page for their Resource
         When the Owner uses the Publish option
         Then the Owner see a Landing Page with an Unpublished Resource
         And an Approval Request is sent to his Curator
-        And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
+        And the Owner is notified that a Approval Request is sent to his Curator and progress can be viewed in My Messages
 
     @needJiraTagApproval
     Scenario: Owner wants to publish Resource, file restrictions
@@ -40,7 +40,7 @@ Feature: Owner navigates to the Landing Page for their Resource
         And the Resource's status is "Published"
         And the Resource's content is locked with a pending approval notification
         And an Approval Request is sent to the Curator
-        And the Owner is notified that a Approval Request is sent to the Curator and progress can be viwed in My Messages
+        And the Owner is notified that a Approval Request is sent to the Curator and progress can be viewed in My Messages
 
     @needJiraTagApproval
     Scenario: Owner uses the Publish option on Langing Page
