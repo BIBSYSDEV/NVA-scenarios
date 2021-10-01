@@ -30,6 +30,13 @@ Feature: Curator handles an Approval Request
 		Then the Request status is changed to "Approved"
 		And the Resource is published
 
+	@3191
+	Scenario: Curator declines an Approval Request
+		When the Curator declines the Request 
+		And Institutions publications policy is "Only Curator can publish" 
+		Then the Request Status is set to "Declined"
+		And the Curator may send an answer Message with a reason to the User
+
 	@3189
 	Scenario: Curator approves an Approval Request to grant open access to content
 		Given the User has published a Resource
@@ -42,19 +49,7 @@ Feature: Curator handles an Approval Request
 	@3190
 	Scenario: Curator declines access to content
 		Given the User has published a Resource
-		And Institutions publications policy is one of the following:
-			| "Only Curator can publish" |
-			| "Registrator can only publish metadata" |
+		And Institutions publications policy is "Registrator can only publish metadata"
 		When the Curator declines the Request
 		Then the Request status is changed to "Declined"
 		And the content of the Resource is still not public accessible
-		# Eller ?!? - må snakke med referansegruppe om denne
-
-	@3191
-	Scenario: Curator declines an Approval Request
-		When the Curator declines the Request 
-		Then the Request Status is set to "Declined"
-		And the Curator may send an answer Message with a reason to the User
-
-
-
