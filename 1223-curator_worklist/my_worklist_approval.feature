@@ -22,7 +22,7 @@ Feature: Curator handles an Approval Request
 		And the User has created an Approval Request
 		And the Curator views the landing page of the Resource assosiated with the Request
 
-	@needJiraTag
+	@3188
 	Scenario: Curator approves an Approval Request to publish
 		Given the User wants to publish a Resource
 		And the Editor has restricted publishing rights to Curators
@@ -30,25 +30,25 @@ Feature: Curator handles an Approval Request
 		Then the Request status is changed to "Approved"
 		And the Resource is published
 
-	@needJiraTag
+	@3189
 	Scenario: Curator approves an Approval Request to grant open access to content
 		Given the User has published a Resource
-		And the Editor demands a Approval to open access to Resources' content
+		And the Editor on behalf of institution demands a Approval to open access to Resources' content
 		When the Curator approves the Request
 		Then the Request status is changed to "Approved"
 		And the the Resources' content is open accessable 
 		# Don't remove the potentially original embargo on the files
 
-	@needJiraTag
+	@3190
 	Scenario: Curator declines access to content
 		Given the User has published a Resource
 		And the Editor demands a Approval to open access to Resources' content
 		When the Curator declines the Request
 		Then the Request status is changed to "Declined"
-		And the content of the Resource is still not public accessable
+		And the content of the Resource is still not public accessible
 		# Eller ?!? - må snakke med referansegruppe om denne
 
-	@needJiraTag
+	@3191
 	Scenario: Curator declines an Approval Request
 		When the Curator declines the Request 
 		Then the Request Status is set to "Declined"

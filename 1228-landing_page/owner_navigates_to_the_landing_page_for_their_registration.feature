@@ -16,33 +16,34 @@ Feature: Owner navigates to the Landing Page for their Resource
         And the Registraion has "Draft" Status
         Then they see a "Publish" option
 
-    @needJiraTag
+    @3192
     Scenario: Owner wants to publish their Resource, pending Approval
-        When the Owner previews the Resource's Langing Page
-        And the Registraion has "Draft" Status
+        When the Owner previews the Resource's Landing Page
+        And the Registration has "Draft" Status
         And there is a pending Approval Request on the Resource
         Then they see a "Publishing pending" notice
-        And the user is informed that progress can be viwed in My Messages 
+        And the user is informed that progress can be viewed in My Messages 
 
-    @needJiraTag
+    @3193
     Scenario: Owner wants to publish Resource, all restrictions
         Given Institutions publications policy is "Only Curator can publish"
         When the Owner uses the Publish option
         Then the Owner see a Landing Page with an Unpublished Resource
         And an Approval Request is sent to his Curator
-        And the Owner is notified that a Approval Request is sent to his Curator and progress can be viwed in My Messages
+        And the Owner is notified that an Approval Request is sent to his Curator and progress can be viewed in My Messages
 
-    @needJiraTag
+    @3194
     Scenario: Owner wants to publish Resource, file restrictions
         Given Institutions publications policy is "Registrator can only publish metadata"
         When the Owner uses the Publish option
         Then the Owner sees a Landing Page with a Published Resource
         And the Resource's status is "Published"
-        And the Resource's content is locked with a pending approval notification
+        And the Resource's files, license and embargo date are locked with a pending approval notification
+        And the number of files is visible
         And an Approval Request is sent to the Curator
-        And the Owner is notified that a Approval Request is sent to the Curator and progress can be viwed in My Messages
+        And the Owner is notified that an Approval Request is sent to the Curator and progress can be viewed in My Messages
 
-    @needJiraTag
+    @3195
     Scenario: Owner uses the Publish option on Langing Page
         Given Institutions publications policy is "Registrator has full publishing rights"
         When the Owner uses the Publish option
