@@ -38,7 +38,7 @@ Feature: Curator handles an Approval Request
 		When the Curator approves the Request
 		Then the Request status is changed to "Approved"
 		And the the Resource's content is open accessable 
-		And Don't remove the potentially original embargo on the files
+		And don't remove the potentially original embargo on the files
 
 	@3190
 	Scenario: Curator declines access to content
@@ -46,3 +46,4 @@ Feature: Curator handles an Approval Request
 		When the Curator declines the Request
 		Then the Request status is changed to "Declined"
 		And the content of the Resource is still not publicly accessible
+		And the Curator may send an answer Message with a reason to the User
