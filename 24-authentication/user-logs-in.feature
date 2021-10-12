@@ -98,20 +98,3 @@ Feature: User logs in
     And they click Log out
     Then they are logged out of the NVA application
 
-  @1207
-  Scenario: User has no matching Author identity
-    Given that Sandy Jones has a valid Feide ID and password
-    And they do not have a Feide ID in their ARP entry
-    And there are no matching entries in ARP
-    When they log in
-    Then they see the Create Authority dialog
-    And that their name is selected
-
-  @646
-  Scenario: Creator creates own Author identity
-    Given that Sandy Jones has a valid Feide ID and password
-    And there are results for Sandy Jones in ARP
-    And they do not identify with one of the results
-    When they click the Create New Author Button
-    Then they see the Create New Authority dialog
-    And that their name is selected
