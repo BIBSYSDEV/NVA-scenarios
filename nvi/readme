@@ -12,6 +12,21 @@ Academic publications are defined as publications that:
 
 The Norwegian Ministry of Education and Research grants about NOK 700 million every year, which is divided between the NVI institutions, based on their academic publication output in ranked channels (level 1 and 2) the previous year. Every publication produces points, and the points are divided following the authors' affiliations.
 
+Not all institutions are qualified to be part of the NVI process. It is the System Administrator roles responsibility to configure the Institutions to be part of the NVI process. 
+See nvi_institution.feature for details.
+
+The NVI-process is in short that the Users Register Publications and the System Import Publications, this creates Resources, that the Curators validates. Then the Editor decides when an NVI cycle ends and the next starts. For details about the last part, see editor/nvi_report.features.
+
+The NVI process is divided into four stages. The first stage is multi-faceded, where the User drive the prosess to Register a Publication or the Curator might be an User-imitator or an assistent to the User. The system will also automaticaly import know Publications. This stage creates a published Resource in the system. See registration_nvi_resources.feature for details.
+
+Second stage starts when a Curator Validate the Resource, making it an NVI-Resource. See validation_nvi_resource.feature for details.
+
+Third stage is when the Editor state that the Institutions work to validate last years publications is final. This feature are covered in editor/nvi_report.features - as noted above, its a cycle.
+
+Fourth stage is the compiling of the Institutions points. 
+
+
+
 Rules of Author Affiliation:
 - The Resource Owner and their Curators can affiliate authors
 - Curator can change affiliation of their own authors - on any Resource
