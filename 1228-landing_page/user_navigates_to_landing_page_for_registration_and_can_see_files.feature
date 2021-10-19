@@ -1,11 +1,11 @@
 Feature: User navigates to Landing Page for Registration and can see Files
 
-    @needJiraTag
+    @needJiraTagOwnership
     Scenario: User sees the option to claim Ownership of a Resource
         When the User views the Landing Page 
         Then the User sees a option to claim Ownership of current Resource
 
-    @needJiraTag
+    @needJiraTagOwnership
     Scenario: User uses the option to claim Ownership of current Resource
         When the User uses the option to claim Ownership of current Resource
         Then the User must write a claim 

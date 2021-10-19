@@ -34,13 +34,13 @@ Feature: Curator handles an Ownership Request
 		Given a User has created a Request of Ownership
 		And the Curator views the landing page of the Resource assosiated with the Request
 
-	@needJiraTag
+	@needJiraTagOwnership
 	Scenario: Curator declines an Ownership Request
 		When the Curator declines a Request 
 		Then the Request Status is set to "Declined"
 		And the Curator may send a reason to the Request Sender
 
-	@needJiraTag
+	@needJiraTagOwnership
 	Scenario: Curator approves a Ownership Request
 		When Curator approves the Request
 		Then the Request status is "Approved"

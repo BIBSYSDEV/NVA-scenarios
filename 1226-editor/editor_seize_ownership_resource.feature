@@ -7,12 +7,12 @@ Feature: Editor takes ownership of a Resource
     Background: 
     	Given a User has published a Resource
 
-	@needJiraTag
+	@needJiraTagOwnership
 	Scenario: Editor sees the option to takes Ownership of a Resource
 		When an Editor view a Landing Page of a Published Resource
 		Then the Editor sees a option to takes ownership of the Resource
 
-	@needJiraTag
+	@needJiraTagOwnership
 	Scenario: Editor takes Ownership of a Resource
 		Given Editor sees the option to takes ownership of a resource
 		When the Editor uses the option to takes ownership of the Resource
@@ -21,7 +21,7 @@ Feature: Editor takes ownership of a Resource
 		And all other measures have been exhausted
 		And the Editor must write a message to the current Owner
 
-	@needJiraTag
+	@needJiraTagOwnership
 	Scenario: Editor verifies the intention to takes Ownership of a Resource
 		Given Editor takes ownership of a Resource
 		When the Editor acknowledge his intention to takes Ownership of the Resource

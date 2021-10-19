@@ -59,12 +59,12 @@ Feature: Owner navigates to the Landing Page for their Resource
         Then they see a List of all Validation Errors for the Resource
         And they see a "Edit registration" button
 
-    @needJiraTag
+    @needJiraTagOwnership
     Scenario: Owner sees the option to transfer Ownership of a Resource
         When the Owner views the Landing Page 
         Then the Owner sees a option to transfer Ownership of Resource
 
-    @needJiraTag
+    @needJiraTagOwnership
     Scenario: Owner transfers Ownership of a Resource
         When the Owner uses the option to transfer Ownership of current Resource
         Then the Owner must acknowledges that this is a final action
