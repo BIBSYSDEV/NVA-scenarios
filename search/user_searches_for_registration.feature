@@ -5,7 +5,8 @@ Scenario: User searches for title of Published Registration
     When they navigate to the search page
     And they enter the title of the Registration in the search field
 
-    Then they see the Registraion in the list of Published Registrations
+    Then they see the Registration in the list of Published Registrations
+
 
 Scenario: User changes title of Published Registration
     Given User searches for the title of a Published Registration
