@@ -1,7 +1,7 @@
 Feature: User searches for Registration
 
 Scenario: User sees that Published Registration is searchable
-    Given User registers a Published Registration
+    Given User publishes a Registration
     When they navigate to the search page
     And they enter the title of the Registration in the search field
     Then they see the Registration in the list of Published Registrations
