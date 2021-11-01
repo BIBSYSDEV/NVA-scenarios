@@ -3,7 +3,8 @@ Feature: User searches for Registration
 Scenario: User searches for title of Published Registration
     Given User registers a Published Registration
     When they navigate to the search page
-    And they enter the title of the Registraion in the search field
+    And they enter the title of the Registration in the search field
+
     Then they see the Registraion in the list of Published Registrations
 
 Scenario: User changes title of Published Registration
