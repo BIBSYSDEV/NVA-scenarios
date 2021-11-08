@@ -31,7 +31,7 @@ Feature: Creator adds a Contributor
             | Report           | ReportPolicy              | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Report           | ReportResearch            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Report           | ReportWorkingPaper        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | Artistic         | ArtisticDesign            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Artistic         | ArtisticDesign            | Designer, Curator/Organizer, Consultant, Other                                       |
 
     Scenario: Creator selects a Contributor Type
         Given Creator opens the Add Contributor Dialog
