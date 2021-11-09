@@ -37,6 +37,10 @@ Feature: Creator navigates to Contributors tab
       | Report           | ReportPolicy        | Add Author, Add Contributor                 |
       | Report           | ReportResearch      | Add Author, Add Contributor                 |
       | Report           | ReportWorkingPaper  | Add Author, Add Contributor                 |
+      | Presentation     | ConferenceLecture   | Add Author, Add Contributor                 |
+      | Presentation     | ConferencePoster    | Add Author, Add Contributor                 |
+      | Presentation     | Lecture             | Add Author, Add Contributor                 |
+      | Presentation     | OtherPresentation   | Add Author, Add Contributor                 |
       | Artistic         | ArtisticDesign      | Add Contributor                             |
 
   @test
