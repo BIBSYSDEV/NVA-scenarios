@@ -11,6 +11,7 @@ Feature: Creator begins registering a Registration
       | Method               |
       | Link to registration |
       | Upload file          |
+      | Empty Registration   |
 
   @test
   @226
@@ -22,6 +23,7 @@ Feature: Creator begins registering a Registration
     Then they are redirected to the New Registration page
     And they see an Expansion panel for Upload file
     And they see an Expansion panel for Link to resource
+    And they see an Expansion panel for Empty Registration
 
   @test
   @385
@@ -52,3 +54,8 @@ Feature: Creator begins registering a Registration
       | Highwire tag                                       | https://link.springer.com/article/10.1007/s13201-020-01350-9                                    |
       | schema.org                                         | https://e24.no/boers-og-finans/i/AdyrPM/syv-av-tangens-11-referanser-deltok-paa-luksusseminaret |
 
+  @3393
+  Scenario: Creator begins registration with an empty Registration
+    Given Creator begins registering a Registration
+    When they expand the Expansion panel for Empty Registration
+    Then they see a button to start registration
