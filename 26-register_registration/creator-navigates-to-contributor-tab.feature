@@ -5,14 +5,39 @@ Feature: Creator navigates to Contributors tab
   Scenario: Creator navigates to Contributors tab
     Given Creator begins registering a Registration in the Wizard
     When they navigate to the Contributors tab
-    Then they see "Add Contributor" Button is enabled
-    And they see the tab Description is clickable
+    Then they see the tab Description is clickable
     And they see the tab Resource Type is clickable
     And they see the tab Contributors is selected
     And they see the tab Files and License is clickable
     And they see Previous is enabled
     And they see Next is enabled
     And they see Save is enabled
+
+  Scenario Outline: Creator see buttons to add Contributors
+    Given Creator navigates to Contributors tab
+    When the Registration has Registration Type "<RegistrationType>"
+    And the Registration has Registration Subtype "<RegistrationSubtype>"
+    Then they see buttons "<AddContributorButtons>"
+    Examples:
+      | RegistrationType | RegistrationSubtype | AddContributorButtons                       |
+      | Book             | BookAnthology       | Add Editor, Add Contributor                 |
+      | Book             | BookMonograph       | Add Author, Add Contributor                 |
+      | Chapter          | ChapterArticle      | Add Author, Add Contributor                 |
+      | Degree           | DegreeBachelor      | Add Author, Add Supervisor, Add Contributor |
+      | Degree           | DegreeMaster        | Add Author, Add Supervisor, Add Contributor |
+      | Degree           | DegreePhd           | Add Author, Add Supervisor, Add Contributor |
+      | Degree           | OtherStudentWork    | Add Author, Add Supervisor, Add Contributor |
+      | Journal          | FeatureArticle      | Add Author, Add Contributor                 |
+      | Journal          | JournalArticle      | Add Author, Add Contributor                 |
+      | Journal          | JournalCorrigendum  | Add Author, Add Contributor                 |
+      | Journal          | JournalLeader       | Add Author, Add Contributor                 |
+      | Journal          | JournalLetter       | Add Author, Add Contributor                 |
+      | Journal          | JournalReview       | Add Author, Add Contributor                 |
+      | Report           | ReportBasic         | Add Author, Add Contributor                 |
+      | Report           | ReportPolicy        | Add Author, Add Contributor                 |
+      | Report           | ReportResearch      | Add Author, Add Contributor                 |
+      | Report           | ReportWorkingPaper  | Add Author, Add Contributor                 |
+      | Artistic         | ArtisticDesign      | Add Contributor                             |
 
   @test
   @1837
