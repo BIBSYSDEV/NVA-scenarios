@@ -24,6 +24,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Design
             | Date end   |
             | Order      |
         And they see that each Exhibition Place has a Delete Button
+        And they see that each Exhibition Place has an Edit Button
         And they see an Add Exhibition Place Button
 
     @2735
