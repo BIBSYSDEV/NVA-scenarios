@@ -1,5 +1,6 @@
 Feature: Anonymous User views Landing Page for Registration
 
+    @test
     @881
     Scenario: Anonymous User views Landing Page for Registration
         When an Anonymous user navigates to a Landing Page for a Resource
