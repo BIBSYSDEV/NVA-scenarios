@@ -11,6 +11,6 @@ Feature: Request/Draft DOI button is disabled for Registrations with existing DO
         Then they see that the "<button>" button is not visible
     Examples:
         | status    | button      |
-        | Draft     | Reserve DOI |
-        | Published | Request DOI |
+        | Draft     | Reserve a DOI |
+        | Published | Request a DOI |
 # A Publication may have more than one DOI, but NVA is only source for one DOI for each Publication
