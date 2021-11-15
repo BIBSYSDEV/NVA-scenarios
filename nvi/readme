@@ -12,6 +12,22 @@ Academic publications are defined as publications that:
 
 The Norwegian Ministry of Education and Research grants about NOK 700 million every year, which is divided between the NVI institutions, based on their academic publication output in ranked channels (level 1 and 2) the previous year. Every publication produces points, and the points are divided following the authors' affiliations.
 
+Not all institutions qualify to be part of the NVI process. It is the System Administrator's responsibility to configure Institutions to be part of the NVI process. 
+See nvi_institution.feature for details.
+
+The NVI-process can be described in short:
+-   Users Register Publications and System Import Publications, creating Resources
+-   Curators validate Resources
+-   Editors decide when an NVI cycle ends and the next begins (see [Editor reporting](../editor/nvi_report.features)
+
+The NVI process is divided into four stages. The first stage is multi-faceted, where the User drives the prosess to Register Publications. Alternatively, the Curator may provide support to Users and Register Publications on their behalf. The system also impors know Publications automatically. Any of the aforementioned processes may result in a Published Resource in the system. A Published Resource complying to the rules is an NVI-Resource. See [NVI resources](registration_nvi_resources.feature) for details.
+
+The second stage starts when a Curator validates the NVI-Resource, making it an Validated NVI-Resource. See (Vaalidation)[validation_nvi_resource.feature] for details.
+
+The third stage starts when the Editor states that the Institution's work to validate past years publications is concluded. This feature is covered in [Report features](editor/nvi_report.features). As noted above, the process is cyclic.
+
+The fourth stage is the compilation of the Institution's points. 
+
 Rules of Author Affiliation:
 - The Resource Owner and their Curators can affiliate authors
 - Curator can change affiliation of their own authors - on any Resource
