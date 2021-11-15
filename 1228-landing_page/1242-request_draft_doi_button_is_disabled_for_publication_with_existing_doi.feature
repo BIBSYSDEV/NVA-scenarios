@@ -6,7 +6,8 @@ Feature: Request/Draft DOI button is disabled for Registrations with existing DO
         Given that a Creator views the Landing Page for a Registration
 
         And they are the Owner of this Registration
-        And the Registration has status "<status>"
+        And the Registration has status "<Status>"
+
         And the Registration has a DOI
         When they see the Status Bar
         Then they see that the "<Button>" button is not visible
