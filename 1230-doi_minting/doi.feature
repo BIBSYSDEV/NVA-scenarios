@@ -26,7 +26,7 @@ Feature: DOI related scenarios moved from MVP feature
   @1251
   Scenario: Creator opens a Registration with a DOI request
     Given that the Creator Opens a DOI request entry from My Worklist
-    When they click the Edit registration button
+    When they click the Edit Registration button
     Then the Registration is opened in the Wizard on the first tab
 
   @1240
