@@ -26,11 +26,23 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
             | Publication using Dataset |
             | Other related resources   |
 
-    Scenario: Creator adds Publisher
+    Scenario: Creator register dataset using metadata from a source
         Given Creator registers a Dataset
-        When Creator enter the Publisher field all affiliated institutions on his profile is listed
-        And the field is a search box for Kanalregisteret
-        Then creator selects a Publisher from the list or search
+        And Creator started the registeration wizard with an external source
+        Then a read only field named "Link to original version" is displayed
+        And it contain the DOI or link that is the source of the metadata
+        And Creator may optionaly delete it
+
+    Scenario: Creator see default options for Publisher
+        Given Creator registers a Dataset
+        When Creator clicks the Publisher field
+        Then all affiliated institutions on his profile is listed
+        And the field informs "Search for publisher"
+
+    Scenario: Creator searches for Publisher
+        Given Creator see default options for Publisher
+        When Creator enters a search term for Publisher
+        Then they see a list of mathcing Publishers from the channel register
 
     Scenario: Creator adds Process/method
         Given Creator registers a Dataset
