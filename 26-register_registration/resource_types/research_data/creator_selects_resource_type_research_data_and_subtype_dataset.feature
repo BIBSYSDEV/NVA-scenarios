@@ -28,10 +28,10 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
 
     Scenario: Creator register dataset using metadata from a source
         Given Creator registers a Dataset
-        And Creator started the registeration wizard with an external source
+        And Creator started the registration wizard with an external source
         Then a read only field named "Link to original version" is displayed
         And it contain the DOI or link that is the source of the metadata
-        And Creator may optionaly delete it
+        And Creator may optionally delete it
 
     Scenario: Creator see default options for Publisher
         Given Creator registers a Dataset
@@ -42,7 +42,7 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
     Scenario: Creator searches for Publisher
         Given Creator see default options for Publisher
         When Creator enters a search term for Publisher
-        Then they see a list of mathcing Publishers from the channel register
+        Then they see a list of matching Publishers from the channel register
 
     Scenario: Creator adds Process/method
         Given Creator registers a Dataset
@@ -71,20 +71,20 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
     Scenario: Creator adds Data Management Plan
         Given Creator registers a Dataset
         When Creator enter some text in the Data Management Plan field
-        And posible matching resources of type Data Management Plan is listed
+        And matching resources of type Data Management Plan is listed
         Then Creator may select one from the list or store the text entered
         And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Publication using dataset
         Given Creator registers a Dataset
         When Creator enter some text in the Publication using dataset field
-        And posible matching resources of any type is listed
+        And matching resources of any type is listed
         Then Creator may select one from the list or store the text entered
         And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Other related resources
         Given Creator registers a Dataset
         When Creator enter some text in the Other related resources field
-        And posible matching resources of any type is listed
+        And matching resources of any type is listed
         Then Creator may select one from the list or store the text entered
         And Creator may add repeated occurrences of this field
