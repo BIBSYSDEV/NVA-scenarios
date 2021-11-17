@@ -11,6 +11,7 @@ Feature: Creator begins registering a Registration
       | Method               |
       | Link to registration |
       | Upload file          |
+      | Empty Registration   |
 
   @test
   @226
@@ -22,6 +23,7 @@ Feature: Creator begins registering a Registration
     Then they are redirected to the New Registration page
     And they see an Expansion panel for Upload file
     And they see an Expansion panel for Link to resource
+    And they see an Expansion panel for Empty Registration
 
   @test
   @385
@@ -42,13 +44,18 @@ Feature: Creator begins registering a Registration
     When they enter "<Link>" from "<Source>"
     And they click Search
     Then they see metadata about the Link in the Expansion panel
-  Examples:
-  | Source                                             | Link                                                                                            |
-  | Datacite/Crossref                                  | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945                              |
-  | Datacite/Crossref from citation_doi meta tag (DOI) | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945                              |
-  | dc:identifier meta tag                             | https://loar.kb.dk/handle/1902/1674?show=full                                                   |
-  | DC and DCTERMS meta tags                           | https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973                                        |
-  | Open Graph tag                                     | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
-  | Highwire tag                                       | https://link.springer.com/article/10.1007/s13201-020-01350-9                                    |
-  | schema.org                                         | https://e24.no/boers-og-finans/i/AdyrPM/syv-av-tangens-11-referanser-deltok-paa-luksusseminaret |
+    Examples:
+      | Source                                             | Link                                                                                            |
+      | Datacite/Crossref                                  | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945                              |
+      | Datacite/Crossref from citation_doi meta tag (DOI) | https://dlr.unit.no/resources/66888570-3504-4d12-81a4-c3ffe0605945                              |
+      | dc:identifier meta tag                             | https://loar.kb.dk/handle/1902/1674?show=full                                                   |
+      | DC and DCTERMS meta tags                           | https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2638973                                        |
+      | Open Graph tag                                     | https://www.nrk.no/norge/klimakur-2030_-mer-strom-og-mindre-kjott-kan-fa-norge-i-mal-1.14883788 |
+      | Highwire tag                                       | https://link.springer.com/article/10.1007/s13201-020-01350-9                                    |
+      | schema.org                                         | https://e24.no/boers-og-finans/i/AdyrPM/syv-av-tangens-11-referanser-deltok-paa-luksusseminaret |
 
+  @3393
+  Scenario: Creator begins registration with an empty Registration
+    Given Creator begins registering a Registration
+    When they expand the Expansion panel for Empty Registration
+    Then they see a button to start registration
