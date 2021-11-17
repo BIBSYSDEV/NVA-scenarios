@@ -24,13 +24,22 @@ Feature: Creator selects Resource type Artistic Result and subtype Design
             | Date end   |
             | Order      |
         And they see that each Exhibition Place has a Delete Button
+        And they see that each Exhibition Place has an Edit Button
         And they see an Add Exhibition Place Button
 
     @2735
     Scenario: Creator adds an Exhibition Place
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Design"
         When they click the Add Exhibition Place Button
-        Then a new row are added to list of Exhibition Places
+        Then they see the Add Exhibition Place Dialog
+        And they see fields:
+            | Exhibition place |
+            | Date from        |
+            | Date to          |
+        And they see an Add Button
+        When they fill the fields with input data
+        And they click the Add Button
+        Then the new Exhibition Place is listed under Exhibition places
 
     @2736
     Scenario: Creator Deletes an Exhibition Place
