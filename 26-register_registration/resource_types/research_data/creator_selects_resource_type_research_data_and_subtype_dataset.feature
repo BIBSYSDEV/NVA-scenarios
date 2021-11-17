@@ -1,26 +1,27 @@
 Feature: Creator selects Resource type Research Data and Subtype Dataset
 
     Scenario: Creator sees fields for Dataset subtype
-        Given Creator navigates to the Resource Type tab and selects Resource type "Research Data"
+        Given Creator navigates to the Resource Type tab 
+        And selects Resource type "Research Data"
         When Creator select the Resource Subtype "Dataset"
-        And Creator see a question about personal information and confidential data
+        And Creator see two questions about personal information and confidential data
         And two buttons
             | Yes |
             | No  |
 
     Scenario: Creator registers a confidential Dataset
         Given Creator sees fields for Dataset subtype
-        When Creator select "Yes"
+        When Creator select "Yes" on any question
         Then Creator see a user support dialog and is advised to seek help
 
     Scenario: Creator registers a Dataset
         Given Creator sees fields for Dataset subtype
-        When Creator select "No"
+        When Creator select "No" on both questions
         Then Creator see fields:
             | Publisher                 |
             | Process/method            |
             | Country                   |
-            | GPS-coordinates           |
+           #| GPS-coordinates           |
             | Geographic area           |
             | Data Management Plan      |
             | Publication using Dataset |
@@ -56,11 +57,11 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
         Then Creator choose from list of relevant matches
         And Creator may add repeated occurrences of this field
 
-    Scenario: Creator adds GPS-coordinates
-        Given Creator registers a Dataset
-        When Creator enter some GPS-coordinates
-        Then the GPS-coordinates is stored
-        And Creator may add repeated occurrences of this field
+#    Scenario: Creator adds GPS-coordinates
+#        Given Creator registers a Dataset
+#        When Creator enter some GPS-coordinates
+#        Then the GPS-coordinates is stored
+#        And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Geographic area
         Given Creator registers a Dataset
@@ -72,19 +73,18 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
         Given Creator registers a Dataset
         When Creator enter some text in the Data Management Plan field
         And matching resources of type Data Management Plan is listed
-        Then Creator may select one from the list or store the text entered
+        Then Creator may select one from the list 
         And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Publication using dataset
         Given Creator registers a Dataset
         When Creator enter some text in the Publication using dataset field
         And matching resources of any type is listed
-        Then Creator may select one from the list or store the text entered
+        Then Creator may select one from the list 
         And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Other related resources
         Given Creator registers a Dataset
-        When Creator enter some text in the Other related resources field
-        And matching resources of any type is listed
-        Then Creator may select one from the list or store the text entered
+        When Creator enter a URI the Other related resources field
+        Then the URI is stored
         And Creator may add repeated occurrences of this field
