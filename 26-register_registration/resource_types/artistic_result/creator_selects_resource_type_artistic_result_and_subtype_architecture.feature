@@ -18,10 +18,10 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they see that each Exhibition has a Delete Button
     And they see that each Exhibition has an Edit Button
     And see they Buttons for:
-    | Add Competition         |
-    | Add Publication/Mention |
-    | Add Prize/Award         |
-    | Add Exhibition          |
+      | Add Competition         |
+      | Add Publication/Mention |
+      | Add Prize/Award         |
+      | Add Exhibition          |
 
   Scenario: Creator adds an Competition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
