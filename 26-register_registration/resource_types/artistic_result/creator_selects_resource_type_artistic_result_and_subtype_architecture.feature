@@ -17,10 +17,11 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
       | Order |
     And they see that each Exhibition has a Delete Button
     And they see that each Exhibition has an Edit Button
-    And they see an Add Competition Button
-    And they see an Add Publication/Mention Button
-    And they see an Add Prize/Award Button
-    And they see an Add Exhibition Button
+    And see they Buttons for:
+    | Add Competition         |
+    | Add Publication/Mention |
+    | Add Prize/Award         |
+    | Add Exhibition          |
 
   Scenario: Creator adds an Competition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
@@ -37,8 +38,10 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
 
   Scenario: Creator adds an Publication/Mention
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
-    When they click the Add Publication/Mention Button
-    Then they see the Add Publication/Mention Dialog
+    When they click the Button
+      | Add Publication/Mention |
+    Then they see the Dialog for
+      | Add Publication/Mention |
     And they see fields:
       | Name        |
       | Issue       |
