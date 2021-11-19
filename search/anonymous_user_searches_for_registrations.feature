@@ -50,7 +50,7 @@ Feature: Anonymous User searches for Registrations
         And they see only Published Registrations where the selected Type is the Registration Type
         And they see total number of search hits
 
-    @xxx
+    @3429
     Scenario: User adds an advanced filter
         Given Anonymous User opens search page
         When they click the Add Filter Button
