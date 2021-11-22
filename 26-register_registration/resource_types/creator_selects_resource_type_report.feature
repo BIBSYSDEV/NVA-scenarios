@@ -9,6 +9,7 @@ Feature: Creator selects Resource type Report
             | Research report      |
             | Policy report        |
             | Working paper        |
+            | Abstract collection  |
             | Other type of report |
 
     @test
@@ -27,6 +28,7 @@ Feature: Creator selects Resource type Report
             | Research report      |
             | Policy report        |
             | Working paper        |
+            | Abstract collection  |
             | Other type of report |
 
     @test
@@ -47,4 +49,5 @@ Feature: Creator selects Resource type Report
             | Research report      |
             | Policy report        |
             | Working paper        |
+            | Abstract collection  |
             | Other type of report |
