@@ -9,6 +9,7 @@ Feature: Creator selects Resource type Degree
             | Bachelor thesis      |
             | Master thesis        |
             | Doctoral thesis      |
+            | Licentiate thesis    |
             | Other student thesis |
 
     @test
@@ -36,10 +37,14 @@ Feature: Creator selects Resource type Degree
 
     @test
     @2776
-    Scenario: Creator sees series fields for Resource subtypes "Doctoral thesis"
+    Scenario Outline: Creator sees series fields for Resource subtypes "Doctoral thesis" and "Licentiate thesis"
         Given Creator navigates to the Resource Type tab and selects Resource type "Student thesis"
-        When they select the Subtype "Doctoral thesis"
+        When they select the Subtype "<DegreeType>"
         Then they see fields:
             | Search box for Series |
             | Series number         |
             | ISBN                  |
+        Examples:
+            | DegreeType        |
+            | Doctoral thesis   |
+            | Licentiate thesis |
