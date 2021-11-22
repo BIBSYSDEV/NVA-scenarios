@@ -53,6 +53,7 @@ Feature: Creator selects Resource type Book
             | Popular Science Monograph |
             | Textbook                  |
             | Encyclopedia              |
+            | Exhibition catalog        |
 
     @2782
     Scenario: Creator selects Resource subtype "Monograph" and Content type Academic Monograph
