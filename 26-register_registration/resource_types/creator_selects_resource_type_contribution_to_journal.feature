@@ -6,13 +6,14 @@ Feature: Creator selects Resource type Contribution to journal
         When they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         Then they see a list of subtypes:
-            | Journal article |
-            | Feature article |
-            | Comment         |
-            | Book review     |
-            | Leader          |
-            | Corrigendum     |
-            | Booklet         |
+            | Journal article     |
+            | Feature article     |
+            | Comment             |
+            | Book review         |
+            | Leader              |
+            | Corrigendum         |
+            | Booklet             |
+            | Conference abstract |
 
     @1656
     Scenario: Creator sees fields for Journal article
@@ -66,13 +67,14 @@ Feature: Creator selects Resource type Contribution to journal
         When they select the Subtype "<Subtype>"
         Then they see that the Peer Review Details are hidden
         Examples:
-            | Subtype         |
-            | Feature article |
-            | Comment         |
-            | Book review     |
-            | Leader          |
-            | Corrigendum     |
-            | Booklet         |
+            | Subtype             |
+            | Feature article     |
+            | Comment             |
+            | Book review         |
+            | Leader              |
+            | Corrigendum         |
+            | Booklet             |
+            | Conference abstract |
 
     @test
     @1625
@@ -137,13 +139,14 @@ Feature: Creator selects Resource type Contribution to journal
             | Pages to               |
             | Article number         |
         Examples:
-            | Subtype         |
-            | Feature article |
-            | Comment         |
-            | Book review     |
-            | Leader          |
-            | Corrigendum     |
-            | Booklet         |
+            | Subtype             |
+            | Feature article     |
+            | Comment             |
+            | Book review         |
+            | Leader              |
+            | Corrigendum         |
+            | Booklet             |
+            | Conference abstract |
 
     Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
         Given Creator begins registering a Registration in the Wizard with a File
@@ -166,10 +169,11 @@ Feature: Creator selects Resource type Contribution to journal
             | Pages to       |
             | Article number |
         Examples:
-            | Subtype         |
-            | Feature article |
-            | Comment         |
-            | Book review     |
-            | Leader          |
-            | Corrigendum     |
-            | Booklet         |
+            | Subtype             |
+            | Feature article     |
+            | Comment             |
+            | Book review         |
+            | Leader              |
+            | Corrigendum         |
+            | Booklet             |
+            | Conference abstract |
