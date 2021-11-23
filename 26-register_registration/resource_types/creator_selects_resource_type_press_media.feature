@@ -6,7 +6,8 @@ Feature: Creator selects Resource type Press/Media
     When they select the Resource type "Press/Media"
     Then they see a list of subtypes:
       | Interview               |
-      | Documentary             |
+      | Blog                    |
+      | Podcast                 |
       | Programme participation |
       | Programme management    |
 
@@ -15,18 +16,17 @@ Feature: Creator selects Resource type Press/Media
     Given Creator navigates to the Resource Type tab and selects Resource type "Press/Media"
     When they select a Resource Subtype
     Then they see fields:
-      | Place   |
-      | Program |
-      | Type    |
-
-  @3233
-  Scenario: Creator selects a type for subtype Press/Media
-    Given Creator navigates to the Resource Type tab and selects Resource type "Press/Media"
-    When they select Type
-    Then they see fields:
-      | Newspaper |
-      | Journal   |
-      | Radio     |
-      | TV        |
-      | Internet  |
-      | Other     |
+      | DOI                    |
+      | Publisher              |
+      | Name of series/program |
+      | Name of issue/episode  |
+    And they see field Medium with options:
+      | Newspaper or Journal |
+      | Internet             |
+      | Radio                |
+      | TV                   |
+      | Other                |
+    And they see field Format with options:
+      | Text  |
+      | Sound |
+      | Video |
