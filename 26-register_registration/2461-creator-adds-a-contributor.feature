@@ -16,6 +16,7 @@ Feature: Creator adds a Contributor
             | Book             | BookAnthology             | Contact person, Related person, Researcher, Rights holder, Supervisor, Other         |
             | Book             | BookMonograph             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Chapter          | ChapterArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Chapter          | ChapterConferenceAbstract | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Degree           | DegreeBachelor            | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
             | Degree           | DegreeMaster              | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
             | Degree           | DegreePhd                 | Contact person, Editor, Related person, Researcher, Rights holder, Other             |

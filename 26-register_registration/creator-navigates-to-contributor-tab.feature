@@ -23,6 +23,7 @@ Feature: Creator navigates to Contributors tab
       | Book             | BookAnthology             | Add Editor, Add Contributor                 |
       | Book             | BookMonograph             | Add Author, Add Contributor                 |
       | Chapter          | ChapterArticle            | Add Author, Add Contributor                 |
+      | Chapter          | ChapterConferenceAbstract | Add Author, Add Contributor                 |
       | Degree           | DegreeBachelor            | Add Author, Add Supervisor, Add Contributor |
       | Degree           | DegreeMaster              | Add Author, Add Supervisor, Add Contributor |
       | Degree           | DegreePhd                 | Add Author, Add Supervisor, Add Contributor |
