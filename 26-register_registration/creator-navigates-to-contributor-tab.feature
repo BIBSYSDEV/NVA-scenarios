@@ -26,6 +26,7 @@ Feature: Creator navigates to Contributors tab
       | Degree           | DegreeBachelor         | Add Author, Add Supervisor, Add Contributor |
       | Degree           | DegreeMaster           | Add Author, Add Supervisor, Add Contributor |
       | Degree           | DegreePhd              | Add Author, Add Supervisor, Add Contributor |
+      | Degree           | DegreeLicentiate       | Add Author, Add Supervisor, Add Contributor |
       | Degree           | OtherStudentWork       | Add Author, Add Supervisor, Add Contributor |
       | Journal          | FeatureArticle         | Add Author, Add Contributor                 |
       | Journal          | JournalArticle         | Add Author, Add Contributor                 |

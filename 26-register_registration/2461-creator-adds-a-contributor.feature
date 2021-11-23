@@ -19,6 +19,7 @@ Feature: Creator adds a Contributor
             | Degree           | DegreeBachelor            | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
             | Degree           | DegreeMaster              | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
             | Degree           | DegreePhd                 | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
+            | Degree           | DegreeLicentiate          | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
             | Degree           | OtherStudentWork          | Contact person, Editor, Related person, Researcher, Rights holder, Other             |
             | Journal          | FeatureArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Journal          | JournalArticle            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
