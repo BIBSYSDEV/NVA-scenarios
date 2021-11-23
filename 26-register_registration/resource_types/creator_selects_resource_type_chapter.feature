@@ -4,7 +4,7 @@ Feature: Creator selects Resource type Chapter
         Given Creator navigates to Resource Type tab
         When they select the Resource type "Chapter"
         Then they see a list of subtypes:
-            | Chapter of Anthology |
+            | Chapter in Anthology |
             | Conference abstract  |
 
     @2021
