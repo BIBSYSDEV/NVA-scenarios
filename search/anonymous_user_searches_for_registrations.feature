@@ -8,6 +8,7 @@ Feature: Anonymous User searches for Registrations
         And they see a section with advanced search parameters with filters for:
             | Institution       |
             | Registration Type |
+        And they see an Add Filter Button
         And they see a list of 10 Published Registrations matching the current search
         And they see each Registrations':
             | Title             |
@@ -48,3 +49,21 @@ Feature: Anonymous User searches for Registrations
         Then they see that the Registration Type is selected
         And they see only Published Registrations where the selected Type is the Registration Type
         And they see total number of search hits
+
+    @3429
+    Scenario: User adds an advanced filter
+        Given Anonymous User opens search page
+        When they click the Add Filter Button
+        Then they see a select box for Field with options:
+            | Title             |
+            | Abstract          |
+            | Registration type |
+            | Keywords          |
+            | Contributor       |
+            | Year published    |
+        And they see a select box for Operator with options:
+            | Contains        |
+            | Doesn't include |
+        And they see an input field for Value
+        And they see a Remove Filter Button
+        And they see a Search Button
