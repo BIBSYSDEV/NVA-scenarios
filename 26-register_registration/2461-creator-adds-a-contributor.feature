@@ -32,6 +32,7 @@ Feature: Creator adds a Contributor
             | Report           | ReportBasic               | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Report           | ReportPolicy              | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Report           | ReportResearch            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | Report           | ReportAbstractCollection  | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Report           | ReportWorkingPaper        | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Presentation     | ConferenceLecture         | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Presentation     | ConferencePoster          | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
