@@ -1,54 +1,45 @@
 Feature: Project Landing Page
 
-    Project is a vital part of the core data model, it fullfilles two roles:
-    i) it define a scope that connects other core entites together 
-        - Person
-        - Institution
-        - Result
-    ii) it defines this scope by
-        - describing it (Description)
-        - give roles to Persons (Participants)
-        - show the money trail (Financing)
-        - documents Approvals (and applications)
-
     In order to know about a project
     As an anonymous User
-    I want an overview of the projects details 
+    I want an overview of the projects details
 
     In order to publish validated information about a project
-    As a logged in User 
+    As a logged in User
     I want to get an preview of my project, before I make it public
 
-    In order to correct a project that is missleading
+    In order to correct a project that is misleading
     As a logged in User with relevant access
-    I want to be able to manage the published project
+    I want to be able to manage a published project
 
-    In order to understand the Reasearch Graph
+    In order to understand the Research Graph
     As an anonymous User
-    I want to experience a high recognition between the Projects and the Outputs Landing Pages desings
+    I want to experience a high recognition between the Projects and the Outputs Landing Pages desing's
 
-    In order to navigate the Reasearch Graph
+    In order to navigate the Research Graph
     As an anonymous User
-    I want to get all relevant navigation options for further discovery of the projects outputs, praticipants, finances and approvals
+    I want to get all relevant navigation options for further discovery of the project's outputs, participants, finances and approvals
 
-    Rule: A project has a persistent identifier, enabling correct citation and coining it as a enity in the Reaserch Graph
+    Rules:
+    - A project has a persistent identifier, enabling correct citation and coining it as a entity in the Research Graph
+
+    This file is not reviewed, yet.
+    Jan Erik 14. sep.
 
     @2630
     Scenario: User opens Landing Page for Project
-        Given A Anonymous User uses a browser
-        When they open a Project Landing Page
-        Then they see:
-            | Project Title                |
-            | Project Owner Institution    |
-            | Project Manager              |
-            | Project Period               |
-            | Financing                    |
-            | Approvals                    |
-        And they see collapsed panels:
-            | Scientific summary |
-            | Participants       |
-            | Results            |
-        And they see number of elements of Participants and Results
+        When A Anonymous User opens a Project's Landing Page
+        Then the Anonymous User see:
+            | Project Title             |
+            | Project Owner Institution |
+            | Project Manager           |
+            | Project Period            |
+            | Financing                 |
+        And the Anonymous User see collapsed panels:
+            | Summary      |
+            | Participants |
+            | Results      |
+        And the Anonymous User see count of Participants and Results
 
     @2886
     Scenario Outline: Privileged user sees Edit button for Project
@@ -76,7 +67,7 @@ Feature: Project Landing Page
     @2885b
     Scenario: Privileged user clicks the Delete Button for a Project
         Given Privileged user sees Delete button for Project
-        When they click the Delete Button 
+        When they click the Delete Button
         Then they see a Confirm Dialog
 
     @2885c
@@ -88,10 +79,11 @@ Feature: Project Landing Page
         And The Project is removed from the Projects list
 
     @2631
-    Scenario: User opens Scientific summary for a Project
+    Scenario: User opens Summary for a Project
         Given User opens Landing Page for Project
-        When they expand "Scientific summary"
-        Then they see the Scientific summary
+        When they expand "Summary"
+        Then they see "Scientific summary"
+        And they see "Popular science summary"
 
     @2632a
     Scenario: User opens Participants for a Project
@@ -107,7 +99,7 @@ Feature: Project Landing Page
         Given User opens Participants for a Project
         When they see a Project Manager
         Then they see fields:
-            | Start Date  |
+            | Start Date |
 
     @2633
     Scenario: User opens Results for a Project
@@ -117,14 +109,16 @@ Feature: Project Landing Page
 
     @2904
     Scenario Outline: User Publish a Draft Project
-        Given User opens Landing Page for Project
-        And the Project status is Draft
+        Given User opens Landing Page for a Draft Project
+        And it has all required fields:
+            | Title                    |
+            | Coordinating Institution |
+            | Start Date               |
+            | Project Manager          |
         And User has role "<Role>" in the project
-        And the project has all required fields
-        And the User see the enabled Publish Button
         When the User clicks on the Publish Button
-        Then the project status is Published 
-        And the Project has a public accessible Landing Page
+        Then the project status is Published
+        And the Landing Page is publicly accessible
         Examples:
             | Role            |
             | Curator         |

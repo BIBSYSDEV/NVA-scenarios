@@ -1,8 +1,22 @@
 Feature: Curator handles an Ownership Request
 
+	The transfer of ownership is divided between several files:
+		Owner navigates to the Landing Page for their Resource
+			Owner sees the option to transfer Ownership of a Resource
+			Owner transfers Ownership of a Resource
+		User navigates to Landing Page for Registration and can see Files
+		    User sees the option to claim Ownership of a Resource
+    		User uses the option to claim Ownership of current Resource
+		Editor takes ownership of a Resource
+			Editor sees the option to takes Ownership of a Resource
+			Editor takes Ownership of a Resource
+			Editor verifies the intention to takes Ownership of a Resource
+
+    It is only the two "claim Ownership" scenarios that involve the Curator through a Ownership Request.
+
     In order to gain editorial access to a Resource someone else owns
     As a User 
-    I want to be granted ownership of a Resource
+    I want to Request the ownership of a Resource
 
     In order to manage my own work that is currently owned by someone else
     As a User

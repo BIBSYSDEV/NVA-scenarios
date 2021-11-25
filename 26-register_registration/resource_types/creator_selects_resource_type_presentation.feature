@@ -8,6 +8,7 @@ Feature: Creator selects Resource type Presentation
             | Conference lecture |
             | Conference poster  |
             | Lecture            |
+            | Other presentation |
 
     @2764
     Scenario: Creator navigates to the Resource Type tab and selects a Resource subtype for Presentation

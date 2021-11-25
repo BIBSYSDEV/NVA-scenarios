@@ -3,6 +3,10 @@ Feature: A short sentence that describes the content
 
     Free text area, down to the keyword "Background"
 
+    participants  - deltakere
+    participant's - deltakerens
+    participants' - deltakernes
+
     Documentes how this feature is a part of some Outcomes and show how this helps to deliver the stakeholders Vision in the form of:
         <Whay> --> In order to
         <Who>  --> As a 

@@ -1,6 +1,6 @@
 Feature: Owner navigates to the Landing Page for their Resource
 
-    @test
+    @test 
     @1231
     Scenario: Owner navigates to the Landing Page for their Published Resource without DOI
         Given that the Creator navigates to the Landing Page for a Resource
@@ -16,51 +16,39 @@ Feature: Owner navigates to the Landing Page for their Resource
         And the Registraion has "Draft" Status
         Then they see a "Publish" option
 
-    @needJiraTag
+    @3192
     Scenario: Owner wants to publish their Resource, pending Approval
-        When the Owner previews the Resource's Langing Page
-        And the Registraion has "Draft" Status
+        When the Owner previews the Resource's Landing Page
+        And the Registration has "Draft" Status
         And there is a pending Approval Request on the Resource
         Then they see a "Publishing pending" notice
-        And the user is informed that progress can be viwed in My Messages 
+        And the user is informed that progress can be viewed in My Messages 
 
-    @needJiraTag
-    Scenario Outline: Owner wants to publish Resource, all restrictions
-        Given Owner wants to publish their Resource
-        And Resource is of type "<ResourceType>" 
-        And Editor has restricted publication of type "<ResourceType>" 
+    @3193
+    Scenario: Owner wants to publish Resource, all restrictions
+        Given Institutions publications policy is "Only Curator can publish"
         When the Owner uses the Publish option
-        Then an Approval Request is created
-        And the User is informed that a Publishing Approval is pending and progress can be viwed in My Messages
-        Examples:
-            | ResourceType |
-            | NVI          |
-            | none-NVI     |
+        Then the Owner see a Landing Page with an Unpublished Resource
+        And an Approval Request is sent to his Curator
+        And the Owner is notified that an Approval Request is sent to his Curator and progress can be viewed in My Messages
 
-    @needJiraTag
-    Scenario Outline: Owner wants to publish Resource, file restrictions
-        Given Owner wants to publish their Resource
-        And Resource is of type "<ResourceType>" 
-        And the Editor has restricted access to files of Resources of "<ResourceType>"
+    @3194
+    Scenario: Owner wants to publish Resource, file restrictions
+        Given Institutions publications policy is "Registrator can only publish metadata"
         When the Owner uses the Publish option
-        Then an extra embargo is put on all files
+        Then the Owner sees a Landing Page with a Published Resource
         And the Resource's status is "Published"
-        And the Landing Page is publicly accessible
-        And an Approval Request is created
-        And the User is informed that the Resource is published but a Publishing Approval is pending to allow access to the files and progress can be viwed in My Messages
-        Examples:
-        Examples:
-            | ResourceType |
-            | NVI          |
-            | none-NVI     |
+        And the Resource's files, license and embargo date are locked with a pending approval notification
+        And the number of files is visible
+        And an Approval Request is sent to the Curator
+        And the Owner is notified that an Approval Request is sent to the Curator and progress can be viewed in My Messages
 
-    @needJiraTag
+    @3195
     Scenario: Owner uses the Publish option on Langing Page
-        Given Owner wants to publish their Resource
-        And the Editor has given all users publishing permissions for their own work
+        Given Institutions publications policy is "Registrator has full publishing rights"
         When the Owner uses the Publish option
         Then the Resource's status is "Published"
-        And the Landing Page is publicly accessible
+        And the Owner sees a Landing Page with a Published Resource
 
     @test
     @updated - removed "Go back to schema"-button
@@ -70,3 +58,15 @@ Feature: Owner navigates to the Landing Page for their Resource
         And the Resource is a draft
         Then they see a List of all Validation Errors for the Resource
         And they see a "Edit registration" button
+
+    @needJiraTag
+    Scenario: Owner sees the option to transfer Ownership of a Resource
+        When the Owner views the Landing Page 
+        Then the Owner sees a option to transfer Ownership of Resource
+
+    @needJiraTag
+    Scenario: Owner transfers Ownership of a Resource
+        When the Owner uses the option to transfer Ownership of current Resource
+        Then the Owner must acknowledges that this is a final action
+        And the Owner must select a new Owner
+        And the ownership is transfered to new Owner
