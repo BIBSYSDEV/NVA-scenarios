@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Chapter
 
+    @3453
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Chapter"
         Given Creator navigates to Resource Type tab
         When they select the Resource type "Chapter"
