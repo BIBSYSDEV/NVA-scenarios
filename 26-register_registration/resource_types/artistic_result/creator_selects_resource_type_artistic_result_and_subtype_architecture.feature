@@ -18,10 +18,10 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they see that each Exhibition has a Delete Button
     And they see that each Exhibition has an Edit Button
     And see they Buttons for:
-      | Add Competition         |
-      | Add Publication/Mention |
-      | Add Prize/Award         |
-      | Add Exhibition          |
+      | Add Competition            |
+      | Add Publication or Mention |
+      | Add Prize or Award         |
+      | Add Exhibition             |
 
   Scenario: Creator adds an Competition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
@@ -36,12 +36,10 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they click the Add Button
     Then the Competition is listed under Exhibitions
 
-  Scenario: Creator adds an Publication/Mention
+  Scenario: Creator adds an Publication or Mention
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
-    When they click the Button
-      | Add Publication/Mention |
-    Then they see the Dialog for
-      | Add Publication/Mention |
+    When they click the Button Add Publication or Mention
+    Then they see the Dialog for Add Publication or Mention
     And they see fields:
       | Name        |
       | Issue       |
@@ -52,12 +50,12 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they see an Add Button
     When they fill the fields with input data
     And they click the Add Button
-    Then the Publication/Mention is listed under Exhibitions
+    Then the Publication or Mention is listed under Exhibitions
 
-  Scenario: Creator adds an Prize/Award
+  Scenario: Creator adds an Prize or Award
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
-    When they click the Add Prize/Award Button
-    Then they see the Add Prize/Award Dialog
+    When they click the Add Prize or Award Button
+    Then they see the Add Prize or Award Dialog
     And they see fields:
       | Name        |
       | Organizer   |
@@ -67,7 +65,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they see an Add Button
     When they fill the fields with input data
     And they click the Add Button
-    Then the Prize/Award is listed under Exhibitions
+    Then the Prize or Award is listed under Exhibitions
 
   Scenario: Creator adds an Exhibition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
