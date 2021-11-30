@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Artistic Result and subtype Architecture
 
+  @3413
   Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
     Given Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
     When they select Resource Subtype "Architecture"
@@ -23,6 +24,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
       | Add Prize or Award         |
       | Add Exhibition             |
 
+  @3414
   Scenario: Creator adds an Competition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
     When they click the Add Competition Button
@@ -36,6 +38,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they click the Add Button
     Then the Competition is listed under Exhibitions
 
+  @3415
   Scenario: Creator adds an Publication or Mention
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
     When they click the Button Add Publication or Mention
@@ -52,6 +55,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they click the Add Button
     Then the Publication or Mention is listed under Exhibitions
 
+  @3416
   Scenario: Creator adds an Prize or Award
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
     When they click the Add Prize or Award Button
@@ -67,6 +71,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they click the Add Button
     Then the Prize or Award is listed under Exhibitions
 
+  @3417
   Scenario: Creator adds an Exhibition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
     When they click the Add Exhibition Button
