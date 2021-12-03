@@ -106,7 +106,6 @@ Feature: DOI related scenarios moved from MVP feature
     And they see the Create DOI button is enabled
     And they see the Decline DOI button is enabled
 
-  @test
   @512
   Scenario: A Curator approves a DOI request
     Given that a Curator opens a Registration from a DOI Request Worklist Item
