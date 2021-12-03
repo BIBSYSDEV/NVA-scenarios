@@ -102,8 +102,7 @@ Feature: DOI related scenarios moved from MVP feature
     Given that a Curator views details of a Worklist item
     And the item is a DOI request
     When they click "Go to Registration"
-    Then they see the Registration is opened in the Wizard
-    And they see the Submission tab
+    Then they see the Landing Page for Registration
     And they see the Create DOI button is enabled
     And they see the Decline DOI button is enabled
 
@@ -123,7 +122,6 @@ Feature: DOI related scenarios moved from MVP feature
     When they click Decline DOI
     Then they may enter a decline-comment
 
-  @test
   @1244
   Scenario: A Curator declines a DOI request
     Given that a Curator enters a decline comment on a DOI request
