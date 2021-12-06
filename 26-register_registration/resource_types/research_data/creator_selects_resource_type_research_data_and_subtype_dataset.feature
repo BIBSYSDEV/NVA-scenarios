@@ -1,7 +1,7 @@
 Feature: Creator selects Resource type Research Data and Subtype Dataset
 
     Scenario: Creator sees fields for Dataset subtype
-        Given Creator navigates to the Resource Type tab 
+        Given Creator navigates to the Resource Type tab
         And selects Resource type "Research Data"
         When Creator select the Resource Subtype "Dataset"
         And Creator see two questions about personal information and confidential data
@@ -21,7 +21,7 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
             | Publisher                 |
             | Process/method            |
             | Country                   |
-           #| GPS-coordinates           |
+            #| GPS-coordinates           |
             | Geographic area           |
             | Data Management Plan      |
             | Publication using Dataset |
@@ -29,7 +29,7 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
 
     Scenario: Creator register dataset using metadata from a source
         Given Creator registers a Dataset
-        And Creator started the registration wizard with an external source
+        When Creator starts the registration wizard with an external source
         Then a read only field named "Link to original version" is displayed
         And it contain the DOI or link that is the source of the metadata
         And Creator may optionally delete it
@@ -45,9 +45,9 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
         When Creator enters a search term for Publisher
         Then they see a list of matching Publishers from the channel register
 
-    Scenario: Creator adds Process/method
+    Scenario: Creator adds Process or Method
         Given Creator registers a Dataset
-        When Creator enter some text in the Process/method field
+        When Creator enter some text in the Process or Method field
         Then the text is stored
         And Creator may add repeated occurrences of this field
 
@@ -57,11 +57,11 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
         Then Creator choose from list of relevant matches
         And Creator may add repeated occurrences of this field
 
-#    Scenario: Creator adds GPS-coordinates
-#        Given Creator registers a Dataset
-#        When Creator enter some GPS-coordinates
-#        Then the GPS-coordinates is stored
-#        And Creator may add repeated occurrences of this field
+    #    Scenario: Creator adds GPS-coordinates
+    #        Given Creator registers a Dataset
+    #        When Creator enter some GPS-coordinates
+    #        Then the GPS-coordinates is stored
+    #        And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Geographic area
         Given Creator registers a Dataset
@@ -73,14 +73,14 @@ Feature: Creator selects Resource type Research Data and Subtype Dataset
         Given Creator registers a Dataset
         When Creator enter some text in the Data Management Plan field
         And matching resources of type Data Management Plan is listed
-        Then Creator may select one from the list 
+        Then Creator may select one from the list
         And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Publication using dataset
         Given Creator registers a Dataset
         When Creator enter some text in the Publication using dataset field
         And matching resources of any type is listed
-        Then Creator may select one from the list 
+        Then Creator may select one from the list
         And Creator may add repeated occurrences of this field
 
     Scenario: Creator adds Other related resources
