@@ -50,6 +50,15 @@ Feature: Anonymous User searches for Registrations
         And they see only Published Registrations where the selected Type is the Registration Type
         And they see total number of search hits
 
+    @3458
+    Scenario: User sorts Registration Search
+        Given Anonymous User opens search page
+        When they click the "Sort by" field
+        Then they see options to sort by:
+            | Published date (newest first) |
+            | Published date (oldest first) |
+            | Last modified                 |
+
     @3429
     Scenario: User adds an advanced filter
         Given Anonymous User opens search page
