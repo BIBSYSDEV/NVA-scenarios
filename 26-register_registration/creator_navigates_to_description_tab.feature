@@ -70,8 +70,9 @@ Feature: Creator navigates to Description tab
   @test
   @2448
   Scenario: Creator sees input field for a Default Vocabulary
-    Given Creator begins Wizard registration and navigates to Description tab
-    When their Institution has a Vocabulary set as "Default"
+    Given Creator begins Wizard registration
+    And their Institution has a Vocabulary set as "Default"
+    When the User navigates to Description tab
     Then they can see an input field for the Default Vocabulary
 
   Scenario: Creator opens Dialog for creating a new Project
