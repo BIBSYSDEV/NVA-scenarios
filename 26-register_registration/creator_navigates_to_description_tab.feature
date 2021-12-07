@@ -67,6 +67,7 @@ Feature: Creator navigates to Description tab
     When they select an Allowed Vocabulary
     Then they see an input field for the selected Vocabulary
 
+  @test
   @2448
   Scenario: Creator sees input field for a Default Vocabulary
     Given Creator begins Wizard registration and navigates to Description tab
