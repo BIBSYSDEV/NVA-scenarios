@@ -2,12 +2,13 @@ Feature: Creator sees registration is saved with correct values presented on lan
 
 @test
 Scenario Outline:
-  Given Author begins registering a registration
+  Given Author begins registering a Registration
   And selects "<Resource Type>" and "<Subtype>"
   And fill in values for all fields
-  When they saves registration
+  When they saves Registration
   Then they can see the values on the Registration Landing Page
-  And they can see the values in the registration wizard
+  And they can see the values in the Registration Wizard
+
   Examples:
     | Resource Type | Subtype            |
     | Book          | BookMonograph      |
