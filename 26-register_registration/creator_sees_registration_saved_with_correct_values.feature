@@ -1,7 +1,7 @@
 Feature: Creator sees registration is saved with correct values presented on landing page
 
 @test
-Scenario Outline:
+Scenario Outline: Creator sees registration is saved with correct values presented on landing page
   Given Author begins registering a Registration
   And selects "<Resource Type>" and "<Subtype>"
   And fill in values for all fields
