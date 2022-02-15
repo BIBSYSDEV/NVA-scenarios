@@ -1,5 +1,6 @@
 Feature: Creator navigates to Description tab
 
+  @TEST_NP-4018
   @test
   @452
   Scenario: Creator begins Wizard registration and navigates to Description tab
@@ -22,6 +23,7 @@ Feature: Creator navigates to Description tab
     And they see Next is enabled
     And they see Save is enabled
 
+  @TEST_NP-4017
   @test
   Scenario: Creator sees that fields are validated on Description tab
     Given Creator begins Wizard registration and navigates to Description tab
@@ -30,6 +32,7 @@ Feature: Creator navigates to Description tab
       | Title          |
       | Date published |
 
+  @TEST_NP-4021
   @test
   @445
   Scenario: Creator searches for Project
@@ -39,6 +42,7 @@ Feature: Creator navigates to Description tab
     Then they see list of Projects matching the search term
     And they see title and associated Institutions for each Project
 
+  @TEST_NP-4019
   @test
   @446
   Scenario: Creator adds a Project
@@ -46,6 +50,7 @@ Feature: Creator navigates to Description tab
     When they select a Project from the Search results
     Then the selected Project is added to the list of selected Projects
 
+  @TEST_NP-4026
   @test
   @1774
   Scenario: Creator removes a Project
@@ -53,6 +58,7 @@ Feature: Creator navigates to Description tab
     When they click the Remove Project icon
     Then they see the Project is removed from the list of selected Projects
 
+  @TEST_NP-4024
   @test
   Scenario: Creator opens dropdown with Allowed Vocabularies
     Given Creator begins Wizard registration and navigates to Description tab
@@ -60,6 +66,7 @@ Feature: Creator navigates to Description tab
     When they click "Add Vocabulary"
     Then they can see a dropdown with Allowed Vocabularies
 
+  @TEST_NP-4025
   @test
   @2446
   Scenario: Creator sees input field for an Allowed Vocabulary
@@ -67,6 +74,7 @@ Feature: Creator navigates to Description tab
     When they select an Allowed Vocabulary
     Then they see an input field for the selected Vocabulary
 
+  @TEST_NP-4020
   @test
   @2448
   Scenario: Creator sees input field for a Default Vocabulary
@@ -75,6 +83,7 @@ Feature: Creator navigates to Description tab
     When the User navigates to Description tab
     Then they can see an input field for the Default Vocabulary
 
+  @TEST_NP-4022
   Scenario: Creator opens Dialog for creating a new Project
     Given Creator begins Wizard registration and navigates to Description tab
     When they click Button for creating a new Project
@@ -87,6 +96,7 @@ Feature: Creator navigates to Description tab
     And they see a Cancel Button
     And they see a Save Button
 
+  @TEST_NP-4023
   @2556
   Scenario: Creator creates a new Project
     Given Creator opens Dialog for creating a new Project

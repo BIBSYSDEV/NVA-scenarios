@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Artistic Result and subtype Architecture
 
+  @TEST_NP-4036
   @3413
   Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
     Given the creator wants to add an Artistic Result - Architecture
@@ -18,6 +19,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
     And they can delete existing Exhibitions
 
 
+  @TEST_NP-4040
   @3414
   Scenario: Creator adds an Competition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
@@ -27,6 +29,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
       | Date        |
     Then the Competition is listed under Exhibitions
 
+  @TEST_NP-4035
   @3415
   Scenario: Creator adds an Publication or Mention
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
@@ -39,6 +42,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
       | Description |
     Then the Publication or Mention is listed under Exhibitions
 
+  @TEST_NP-4037
   @3416
   Scenario: Creator adds an Prize or Award
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"
@@ -50,6 +54,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Architecture
       | Description |
     Then the Prize or Award is listed under Exhibitions
 
+  @TEST_NP-4038
   @3417
   Scenario: Creator adds an Exhibition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Architecture"

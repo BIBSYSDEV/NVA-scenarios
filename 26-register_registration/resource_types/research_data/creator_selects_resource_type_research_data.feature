@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Research Data
 
+    @TEST_NP-4077
     @2850
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Research Data"
         Given Creator navigates to Resource Type tab

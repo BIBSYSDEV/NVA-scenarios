@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Book
 
+    @TEST_NP-4046
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Book"
         Given Creator navigates to Resource Type tab
         When they select the Resource type "Book"
@@ -9,8 +10,9 @@ Feature: Creator selects Resource type Book
             | Abstract collection |
             | Exhibition catalog  |
 
+    @TEST_NP-4045
     @392
-    Scenario Outline: Creator navigates to the Resource Type tab and selects Resource subtype
+    Scenario Outline: Creator sees fields for Resource type "Book"
         Given Creator navigates to the Resource Type tab and selects Resource type "Book"
         When they select Resource subtype "<BookType>"
         And they see fields:
@@ -24,6 +26,7 @@ Feature: Creator selects Resource type Book
             | Abstract collection |
             | Exhibition catalog  |
 
+    @TEST_NP-4043
     @2229
     Scenario Outline: Creator sees that fields for Book are validated on Resource Type tab
         Given Creator navigates to the Resource Type tab and selects Resource type "Book"
@@ -38,6 +41,7 @@ Feature: Creator selects Resource type Book
             | Abstract collection |
             | Exhibition catalog  |
 
+    @TEST_NP-4044
     @test
     @1963
     Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
@@ -55,6 +59,7 @@ Feature: Creator selects Resource type Book
             | Encyclopedia              |
             | Exhibition catalog        |
 
+    @TEST_NP-4047
     @2782
     Scenario: Creator selects Resource subtype "Monograph" and Content type Academic Monograph
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"

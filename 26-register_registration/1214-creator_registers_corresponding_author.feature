@@ -1,5 +1,6 @@
 Feature: Creator registers Corresponding Author
 
+    @TEST_NP-3993
     @test
     @1214
     Scenario: Creator registers Corresponding Author

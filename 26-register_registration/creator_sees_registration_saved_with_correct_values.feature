@@ -1,5 +1,6 @@
 Feature: Creator sees registration is saved with correct values presented on landing page
 
+@TEST_NP-4032
 @test
 Scenario Outline: Creator sees registration is saved with correct values presented on landing page
   Given Author begins registering a Registration

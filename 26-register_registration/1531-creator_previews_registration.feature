@@ -1,5 +1,6 @@
 Feature: Creator previews Registration
 
+    @TEST_NP-3990
     @test
     @1531
     Scenario: Creator previews Registration

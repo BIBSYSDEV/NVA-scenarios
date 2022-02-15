@@ -1,5 +1,6 @@
 Feature: Creator navigates to Files and License tab
 
+  @TEST_NP-3998
   @test
   @275
   Scenario: Creator navigates to Files and License tab
@@ -15,6 +16,7 @@ Feature: Creator navigates to Files and License tab
     And they see Next is enabled
     And they see Save is enabled
 
+  @TEST_NP-3999
   @2634
   Scenario Outline: Creator looks up a valid Link as a Linked Resource
     Given Creator navigates to Files and License tab
@@ -32,6 +34,7 @@ Feature: Creator navigates to Files and License tab
       | https://github.com/BIBSYSDEV/NVA-Frontend | BIBSYSDEV/NVA-Frontend                                 | Web app for NVA. Contribute to BIBSYSDEV/NVA-Frontend development by creating an account on GitHub.                                                                             | https://opengraph.githubassets.com/9b8b6574086bddaac12ee7cbdde3aeea1bed7d3bbf93b5efe34ea14cb438fc5d/BIBSYSDEV/NVA-Frontend | https://github.com/BIBSYSDEV/NVA-Frontend | GitHub   |
       | https://www.nrk.no/                       | NRK.no – nyheter, tv og radio fra Norge og hele verden | NRK.no er Norges største tilbud på nett: nyheter fra Norge og verden, lokalnyheter, radio- og tv-program, podcast, vær, helse-, kultur-, underholdning-, humor- og debattstoff. | https://gfx.nrk.no/MypkihdsBkCYb-cXvwW8BgLqqp7OO7Fkyj8B_mXoY4Ew                                                            | https://www.nrk.no/                       | NRK      |
 
+  @TEST_NP-3997
   @2636
   Scenario Outline: Creator looks up an invalid Link as Linked Resource
     Given Creator navigates to Files and License tab

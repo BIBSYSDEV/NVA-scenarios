@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Research Data and Subtype Data Management Plan
 
+    @TEST_NP-4078
     @2851
     Scenario: Creator sees fields for Data Management Plan subtype
         Given Creator navigates to the Resource Type tab and selects Resource type "Research Data"
@@ -8,6 +9,7 @@ Feature: Creator selects Resource type Research Data and Subtype Data Management
             | Search for Publisher             |
             | Search for related Registrations |
 
+    @TEST_NP-4079
     @2899
     Scenario: Creator searches for related Registrations for a Data Management Plan
         Given Creator sees fields for Data Management Plan subtype
@@ -16,6 +18,7 @@ Feature: Creator selects Resource type Research Data and Subtype Data Management
             | Title        |
             | Contributors |
 
+    @TEST_NP-4082
     @2853
     Scenario: Creator selects a related Registration for a Data Management Plan
         Given Creator searches for related Registrations for a Data Management Plan
@@ -26,12 +29,14 @@ Feature: Creator selects Resource type Research Data and Subtype Data Management
             | Contributors |
         And each listed Registration has a Remove Button
 
+    @TEST_NP-4080
     @2900
     Scenario: Creator sees fields for Data Management Plan subtype without associated Projects
         Given Creator sees fields for Data Management Plan subtype
         When the Registration doesn't have any associated Projects
         Then they see a message that the Registration must have an associated Project in order to add Financing
 
+    @TEST_NP-4077
     @2852
     Scenario: Creator sees fields for Data Management Plan subtype with associated Project
         Given Creator sees fields for Data Management Plan subtype

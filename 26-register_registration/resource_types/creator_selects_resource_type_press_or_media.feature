@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Press or Media
 
+  @TEST_NP-4072
   @3231
   Scenario: Creator navigates to the Resource Type tab and selects Resource type "Press or Media"
     Given Creator navigates to Resource Type tab
@@ -11,6 +12,7 @@ Feature: Creator selects Resource type Press or Media
       | Programme participation |
       | Programme management    |
 
+  @TEST_NP-4073
   @3232
   Scenario: Creator navigates to the Resource Type tab and selects a Resource subtype for Press or Media
     Given Creator navigates to the Resource Type tab and selects Resource type "Press or Media"

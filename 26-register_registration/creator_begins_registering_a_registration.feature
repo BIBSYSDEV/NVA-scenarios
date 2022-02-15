@@ -1,5 +1,6 @@
 Feature: Creator begins registering a Registration
 
+  @TEST_NP-4016
   @test
   @443
   Scenario Outline: Creator begins registering a Registration in the Wizard
@@ -13,6 +14,7 @@ Feature: Creator begins registering a Registration
       | Upload file          |
       | Empty Registration   |
 
+  @TEST_NP-4012
   @test
   @226
   Scenario: Creator begins registering a Registration
@@ -25,6 +27,7 @@ Feature: Creator begins registering a Registration
     And they see an Expansion panel for Link to resource
     And they see an Expansion panel for Empty Registration
 
+  @TEST_NP-4013
   @test
   @385
   Scenario: Creator begins registration by uploading a file
@@ -36,6 +39,7 @@ Feature: Creator begins registering a Registration
     And they see the Remove button
     And they see the Start button is enabled
 
+  @TEST_NP-4014
   @test
   @228/439/440/441/441/442/2208/2370
   Scenario Outline: Creator begins registering with a Link from a Source
@@ -54,6 +58,7 @@ Feature: Creator begins registering a Registration
       | Highwire tag                                       | https://link.springer.com/article/10.1007/s13201-020-01350-9                                    |
       | schema.org                                         | https://e24.no/boers-og-finans/i/AdyrPM/syv-av-tangens-11-referanser-deltok-paa-luksusseminaret |
 
+  @TEST_NP-4015
   @3393
   Scenario: Creator begins registration with an empty Registration
     Given Creator begins registering a Registration

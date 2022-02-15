@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Other publication
 
+    @TEST_NP-4066
     @1624
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Other publication"
         Given Creator begins registering a Registration in the Wizard with a File
@@ -11,6 +12,7 @@ Feature: Creator selects Resource type Other publication
             | Musical notation  |
             | Other publication |
 
+    @TEST_NP-4069
     @1631
     Scenario: Creator selects Resource type "Other publication" and selects subtype "Map"
         Given Creator begins registering a Registration in the Wizard with a File
@@ -21,6 +23,7 @@ Feature: Creator selects Resource type Other publication
             | Search box for Publisher |
             | Original version         |
 
+    @TEST_NP-4067
     @1632
     Scenario: Creator selects Resource type "Other publication" and selects subtype "Musical notation"
         Given Creator begins registering a Registration in the Wizard with a File
@@ -34,6 +37,7 @@ Feature: Creator selects Resource type Other publication
             | Pages to                 |
             | ISMN                     |
 
+    @TEST_NP-4068
     @1633
     Scenario: Creator selects Resource type "Other publication" and selects subtype "Other publication"
         Given Creator begins registering a Registration in the Wizard with a File
@@ -48,6 +52,7 @@ Feature: Creator selects Resource type Other publication
             | Pages to                    |
             | Total number of pages       |
 
+    @TEST_NP-4016
     @1669
     Scenario: Creator selects Resource type "Other publication" and selects subtype "Feature article"
         Given Creator begins registering a Registration in the Wizard with a File
