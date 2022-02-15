@@ -1,5 +1,6 @@
-Feature: Creator opens an item in My Registratons list
+Feature: Creator opens an item in My Registrations list
 
+    @TEST_NP-4119
     @test
     @355
     Scenario: Creator opens an item in My Registrations list
@@ -15,6 +16,7 @@ Feature: Creator opens an item in My Registratons list
             | Date published               |
             | Primary language for content |
 
+    @TEST_NP-4116
     Scenario: Creator sees Validation Errors for Registration
         Given that the user is logged in as Creator
         And they are on the page My Registrations

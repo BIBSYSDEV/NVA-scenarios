@@ -1,5 +1,6 @@
 Feature: Creator opens their Public Profile from My Publications Page
 
+    @TEST_NP-4125
     @421
     Scenario: Creator opens their Public Profile from My Publications Page
         Given that the user is logged in as Creator

@@ -1,5 +1,6 @@
 Feature: Owner drafts a DOI for a draft Registration
 
+    @TEST_NP-485
     @test
     @1234
     Scenario: Owner drafts a DOI for a draft Registration

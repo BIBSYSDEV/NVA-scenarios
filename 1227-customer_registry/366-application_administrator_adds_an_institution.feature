@@ -1,5 +1,6 @@
 Feature: Application Administrator adds an Institution
 
+  @TEST_NP-4147
   @test
   @366
   Scenario: Application Administrator adds an Institution

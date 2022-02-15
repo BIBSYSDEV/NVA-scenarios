@@ -1,5 +1,6 @@
 Feature: Creator opens My Registrations
 
+  @TEST_NP-4117
   @test
   @354
   Scenario: Creator opens My Registrations

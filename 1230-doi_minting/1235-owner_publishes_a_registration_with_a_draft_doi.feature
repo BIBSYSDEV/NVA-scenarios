@@ -1,5 +1,6 @@
 Feature: Owner publishes a Registration with a Draft DOI
 
+    @TEST_NP-487
     @1235
     Scenario: Owner publishes a Registration with a Draft DOI
         Given that the Owner navigates to the Landing Page for a Registration

@@ -26,6 +26,7 @@ Feature: Project Landing Page
     This file is not reviewed, yet.
     Jan Erik 14. sep.
 
+    @TEST_NP-4083
     @2630
     Scenario: User opens Landing Page for Project
         When A Anonymous User opens a Project's Landing Page
@@ -41,6 +42,7 @@ Feature: Project Landing Page
             | Results      |
         And the Anonymous User see count of Participants and Results
 
+    @TEST_NP-4098
     @2886
     Scenario Outline: Privileged user sees Edit button for Project
         Given User opens Landing Page for Project
@@ -53,6 +55,7 @@ Feature: Project Landing Page
             | Project Manager       |
             | Local Project Manager |
 
+    @TEST_NP-4087
     @2885a
     Scenario Outline: Privileged user sees Delete button for Project
         Given User opens Landing Page for Project
@@ -64,12 +67,14 @@ Feature: Project Landing Page
             | Project Owner   |
             | Project Manager |
 
+    @TEST_NP-4087
     @2885b
     Scenario: Privileged user clicks the Delete Button for a Project
         Given Privileged user sees Delete button for Project
         When they click the Delete Button
         Then they see a Confirm Dialog
 
+    @TEST_NP-4090
     @2885c
     Scenario: Privileged user deletes a Project
         Given Privileged user clicks the Delete Button for a Project
@@ -78,6 +83,7 @@ Feature: Project Landing Page
         And the Project is marked deleted
         And The Project is removed from the Projects list
 
+    @TEST_NP-4096
     @2631
     Scenario: User opens Summary for a Project
         Given User opens Landing Page for Project
@@ -85,6 +91,7 @@ Feature: Project Landing Page
         Then they see "Scientific summary"
         And they see "Popular science summary"
 
+    @TEST_NP-4093
     @2632a
     Scenario: User opens Participants for a Project
         Given User opens Landing Page for Project
@@ -94,6 +101,7 @@ Feature: Project Landing Page
             | Role        |
             | Affiliation |
 
+    @TEST_NP-4097
     @2632b
     Scenario: User sees Project Manager for a Project
         Given User opens Participants for a Project
@@ -101,12 +109,14 @@ Feature: Project Landing Page
         Then they see fields:
             | Start Date |
 
+    @TEST_NP-4092
     @2633
     Scenario: User opens Results for a Project
         Given User opens Landing Page for Project
         When they expand "Results"
         Then they see a list of Results
 
+    @TEST_NP-4094
     @2904
     Scenario Outline: User Publish a Draft Project
         Given User opens Landing Page for a Draft Project

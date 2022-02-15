@@ -1,5 +1,6 @@
 Feature: Prohibit deletion of last Institution Admin
 
+    @TEST_NP-4138
     @test
     @1442
     Scenario: Prohibit deletion of last Institution Admin

@@ -1,5 +1,6 @@
 Feature: Application Administrator opens a Customer Institution
 
+    @TEST_NP-4162
     @test
     @574
     Scenario: Application Administrator opens a Customer Institution

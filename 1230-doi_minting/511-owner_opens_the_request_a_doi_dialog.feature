@@ -1,5 +1,6 @@
 Feature: Owner opens the "Request a DOI" dialog
 
+    @TEST_NP-4188
     @test
     @511
     Scenario: Owner opens the "Request a DOI" dialog

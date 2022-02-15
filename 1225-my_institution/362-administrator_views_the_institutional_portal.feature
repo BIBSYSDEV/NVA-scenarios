@@ -1,5 +1,6 @@
 Feature: Administrator views the Institutional Portal
 
+    @TEST_NP-4148
     @362
     Scenario: Administrator views the Institutional Portal
         Given Administrator edits an Institution

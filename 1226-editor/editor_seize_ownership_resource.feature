@@ -4,14 +4,16 @@ Feature: Editor takes ownership of a Resource
     As an Editor
     I want to seize ownership of the Resource
 
-    Background: 
+    Background:
     	Given a User has published a Resource
 
+    @TEST_NP-4151
 	@needJiraTag
 	Scenario: Editor sees the option to takes Ownership of a Resource
 		When an Editor view a Landing Page of a Published Resource
 		Then the Editor sees a option to takes ownership of the Resource
 
+    @TEST_NP-4152
 	@needJiraTag
 	Scenario: Editor takes Ownership of a Resource
 		Given Editor sees the option to takes ownership of a resource
@@ -21,11 +23,12 @@ Feature: Editor takes ownership of a Resource
 		And all other measures have been exhausted
 		And the Editor must write a message to the current Owner
 
+    @TEST_NP-4150
 	@needJiraTag
 	Scenario: Editor verifies the intention to takes Ownership of a Resource
 		Given Editor takes ownership of a Resource
 		When the Editor acknowledge his intention to takes Ownership of the Resource
 		Then the Editor becomes the Owner of the Resource
-		And the Editor's Institution becomes the Owning Institution 
+		And the Editor's Institution becomes the Owning Institution
 		And the message is sent to the previous Owner
 		# The Editor can now edit the Resource and/or give the ownership to any other User, including hand it back to the previous Owner

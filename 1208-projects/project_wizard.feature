@@ -9,11 +9,11 @@ Feature: User edits Project
     I want to be able to manage all possible information about the Project in one place
 
     In most cases the Project Manager reside from the Coordinating Institution
-    Vocabulary warning: Most funding organizations use the term "project" to describe (one of possible many) funding sources a project may have. 
+    Vocabulary warning: Most funding organizations use the term "project" to describe (one of possible many) funding sources a project may have.
 
-    Background: 
+    Background:
         Given A User is logged in
-        And the User got one of the following roles in the project: 
+        And the User got one of the following roles in the project:
             | Curator               |
             | Project Owner         |
             | Project Manager       |
@@ -21,7 +21,7 @@ Feature: User edits Project
 
     @needJiraNumber
     Scenario Outline: User opens the Project Wizard
-        When the User opens a Project in the Project Wizard 
+        When the User opens a Project in the Project Wizard
         Then the User can navigate the project wizard’s sections:
             | Description  |
             | Participants |
@@ -64,7 +64,7 @@ Feature: User edits Project
                 | Project Managers     |
                 | Project Participants |
             And the User see an option to add Project Participants
-           
+
         @2906c
         Scenario: User adds a Project Participant
             When the User enter a name in a search field
@@ -75,7 +75,7 @@ Feature: User edits Project
             Then they see the User listed as a Project Participant with a role
 
     Rule: The Project Owner, the Project Manager and Curator at the Coordinating Institution can grant the Project Manager role to any user, but there can only be one Project Manager at any time
-    
+
         @2907a
         @updated, replaces also 2907b and 2907c
         Scenario Outline: A User adds a new Project Manager
@@ -113,8 +113,8 @@ Feature: User edits Project
             And the User select a Financing source from the search results
             #https://prosjektbanken.forskningsradet.no/prosjektbanken/rest/cristin/search?query=111
             #https://beta.explore.openaire.eu/search/advanced/projects?q=&op=and
-            Then the User see the selected Financing Code listed as on of the Projects Financing Codes 
-    
+            Then the User see the selected Financing Code listed as on of the Projects Financing Codes
+
     Rule: The Projects Coordinating Institution grants it's Curators access to the project
 
         @2905

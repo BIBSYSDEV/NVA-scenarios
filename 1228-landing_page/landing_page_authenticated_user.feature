@@ -4,6 +4,7 @@ Feature: Authenticated User opens a Resource's Landing Page
 		Given a User has logged in
 		And the User opens a Resource's Landing Page
 
+	@TEST_NP-4167
 	@needJiraTag
 	Scenario: Authenticated User claims ownership of a Resource
 		When the User claims ownership of a Resource
