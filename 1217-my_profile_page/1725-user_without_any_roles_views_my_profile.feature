@@ -1,5 +1,6 @@
 Feature: User without any roles views My Profile
 
+    @TEST_NP-4107
     @test
     @1725
     Scenario: User without any roles views My Profile

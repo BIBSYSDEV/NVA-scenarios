@@ -1,5 +1,6 @@
 Feature: Administrator uploads a new Logo
 
+    @TEST_NP-4149
     @575
     Scenario: Administrator uploads a new Logo
         Given Administrator opens My Institution

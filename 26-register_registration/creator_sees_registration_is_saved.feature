@@ -1,5 +1,6 @@
 Feature: Creator sees Registration is saved
 
+    @TEST_NP-4031
     @test
     @388
     Scenario: Creator sees Registration based on a Link is saved
@@ -10,6 +11,7 @@ Feature: Creator sees Registration is saved
         And they see that Edit is enabled
         And they see that Delete is enabled
 
+    @TEST_NP-4030
     @test
     @391
     Scenario: Creator sees Registration based on file upload is saved

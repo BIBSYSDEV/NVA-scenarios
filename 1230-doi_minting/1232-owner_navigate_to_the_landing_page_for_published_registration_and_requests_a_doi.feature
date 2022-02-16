@@ -1,5 +1,6 @@
 Feature: Owner navigates to the Landing Page for published Registration and requests a DOI
 
+    @TEST_NP-4184
     @test
     @1232
     Scenario: Owner navigates to the Landing page and requests a DOI

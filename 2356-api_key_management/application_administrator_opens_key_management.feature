@@ -1,5 +1,6 @@
 Feature: Application Administrator opens Key Management
 
+    @TEST_NP-4206
     @2332
     Scenario: Application Administrator opens Key Management
         Given that the user is logged in as Application Administrator
@@ -15,6 +16,7 @@ Feature: Application Administrator opens Key Management
         And they see the "Open" Button is enabled for each Key
         And they see the "Delete" Button is enabled for each Key
 
+    @TEST_NP-4215
     @2333
     Scenario: Application Administrator views an API Key Configuration for an Institution
         Given Application Administrator opens Key Management
@@ -27,6 +29,7 @@ Feature: Application Administrator opens Key Management
             | Contact Persons               |
         And they see the "Save" Button is enabled
 
+    @TEST_NP-4216
     Scenario: Application Administrator views the Contact Persons section
         Given Application Administrator views an API Key Configuration for an Institution
         Then they see the Contact Persons section
@@ -36,6 +39,7 @@ Feature: Application Administrator opens Key Management
         And they see the "Remove User" Button for each Contact Person
         And they see the "New Contact Person" Button
 
+    @TEST_NP-4219
     @2378
     Scenario: Application Administrator adds Contact Person to an API Key Configuration for an Institution
         Given Application Administrator views the Contact Persons section

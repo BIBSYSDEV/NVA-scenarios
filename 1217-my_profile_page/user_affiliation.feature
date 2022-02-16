@@ -1,5 +1,6 @@
 Feature: User adds and removes organization
 
+  @TEST_NP-4114
   @test
   @405
   Scenario: User sees a Subunit from My Profile
@@ -8,6 +9,7 @@ Feature: User adds and removes organization
     And they select an Institution
     Then they see Subunit dropdown containing all the subunits at their Institution
 
+  @TEST_NP-4110
   @test
   @407
   Scenario: User selects a Subunit from My Profile
@@ -16,6 +18,7 @@ Feature: User adds and removes organization
     And they click on a subunit
     Then they see the new Institution and subunit in My Profile
 
+  @TEST_NP-4111
   @test
   @410
   Scenario: User opens Add Institution from My Profile
@@ -23,6 +26,7 @@ Feature: User adds and removes organization
     When they click Add Institution
     Then they see the Autosearch box for Institutions
 
+  @TEST_NP-4115
   @test
   @411
   Scenario: User adds an Institution from My Profile
@@ -35,6 +39,7 @@ Feature: User adds and removes organization
     Then they see the new Institution in My Profile
     And they see a button Remove that is enabled for the new Institution
 
+  @TEST_NP-4113
   @test
   @551
   Scenario: User removes an Institution from My Profile

@@ -1,5 +1,6 @@
 Feature: Application Administrator adds an API Key
 
+    @TEST_NP-4214
     @2334
     Scenario: Application Administrator adds an API Key for an Institution
         Given Application Administrator views an API Key Configuration for an Institution
@@ -16,6 +17,7 @@ Feature: Application Administrator adds an API Key
         And they see that the section Key has a "Show Key" Button
         And they see that the section Key has an "Inactive Key" Checkbox
 
+    @TEST_NP-4210
     @2335
     Scenario: Application Administrator views an API Key for an Institution
         Given Application Administrator adds an API Key for an Institution
@@ -24,6 +26,7 @@ Feature: Application Administrator adds an API Key
         And they see the "Copy Key" Button
         And they see the "Rotate Key" Button
 
+    @TEST_NP-4211
     @2336
     Scenario: Application Administrator rotates an API Key for an Institution
         Given Application Administrator views an API Key for an Institution

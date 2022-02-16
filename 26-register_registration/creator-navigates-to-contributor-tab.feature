@@ -1,5 +1,6 @@
 Feature: Creator navigates to Contributors tab
 
+  @TEST_NP-4003
   @test
   @417
   Scenario: Creator navigates to Contributors tab
@@ -13,6 +14,7 @@ Feature: Creator navigates to Contributors tab
     And they see Next is enabled
     And they see Save is enabled
 
+  @TEST_NP-4002
   Scenario Outline: Creator see buttons to add Contributors
     Given Creator navigates to Contributors tab
     When the Registration has Registration Type "<RegistrationType>"
@@ -53,6 +55,7 @@ Feature: Creator navigates to Contributors tab
       | Media            | ProgrammeManagement       | Add Contributor                             |
       | Media            | ProgrammeParticipation    | Add Contributor                             |
 
+  @TEST_NP-4005
   @test
   @1837
   Scenario: Creator adds themselves to the list of Authors
@@ -65,6 +68,7 @@ Feature: Creator navigates to Contributors tab
     Then their Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @TEST_NP-4000
   @test
   @419
   Scenario: Creator adds an Author to the list of Authors
@@ -78,6 +82,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @TEST_NP-4007
   @test
   Scenario: Creator adds an Author to the list of Authors for Resource Type Book, Monograph
     Given Creator begins registering a Registration in the Wizard
@@ -93,6 +98,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @TEST_NP-4010
   @test
   Scenario: Creator adds an Author to the list of Authors for Resource Type Chapter
     Given Creator begins registering a Registration in the Wizard
@@ -109,6 +115,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Authors
     And their current Affiliations are listed
 
+  @TEST_NP-4004
   @test
   @2203
   Scenario: Creator adds an Editor to the list of Editors for Resource Type Book, Anthology
@@ -125,6 +132,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Editors
     And their current Affiliations are listed
 
+  @TEST_NP-4011
   @test
   @2204
   Scenario: Creator adds a Supervisor to the list of Supervisors for Resource Type Student Thesis
@@ -142,6 +150,7 @@ Feature: Creator navigates to Contributors tab
     Then the selected Author identity is added to the list of Supervisors
     And their current Affiliations are listed
 
+  @TEST_NP-4006
   @test
   @788
   Scenario: Creator creates a new Author in the Author dialog
@@ -156,11 +165,13 @@ Feature: Creator navigates to Contributors tab
       | Last name  |
     And they see the "Create new Author" Button in the Create new Author Dialog
 
+  @TEST_NP-4001
   Scenario: Creator sees Button to Verify Contributor
     Given Creator navigates to Contributors tab
     When the Registration has an Unverified Contributor
     Then they see a Button to Verify the Contributor
 
+  @TEST_NP-4008
   Scenario: Creator opens Dialog to Verify Contributor
     Given Creator sees Button to Verify Contributor
     When they click the Button to Verify Contributor
@@ -168,6 +179,7 @@ Feature: Creator navigates to Contributors tab
     And they see a search field prefilled with the selected Contributor's name
     And they see a list of Persons matching the search
 
+  @TEST_NP-4009
   @2467
   Scenario: Creator verifies Contributor
     Given Creator opens Dialog to Verify Contributor

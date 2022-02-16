@@ -10,11 +10,11 @@ Feature: User My Projects
 
     In order to keep projects I'm responsible of up to date
     As a User
-    I want easy access to manage those 
+    I want easy access to manage those
 
     In order to see all details of a project
     As a User
-    I want easy access to the landing page 
+    I want easy access to the landing page
 
     In order to locate the project in mind
     As a User
@@ -24,9 +24,10 @@ Feature: User My Projects
     As a User
     I want easy access to create new projects
 
-    Background: 
+    Background:
         Given A User is logged in
 
+    @TEST_NP-4091
     @2874a
     @updated
     Scenario: User opens My Projects
@@ -44,7 +45,7 @@ Feature: User My Projects
             | Title                    |
             | Coordinating Institution |
             | Project Manager          |
-        And each Project can be edited if the User has one of the following roles: 
+        And each Project can be edited if the User has one of the following roles:
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
@@ -53,22 +54,25 @@ Feature: User My Projects
             | Coordinating Institution |
             | Project Manager          |
         And the User can navigate through the possibly long list of Concluded Projects
-    
+
+    @TEST_NP-4088
     @2874b
     Scenario: User opens a Project's Landing Page
         Given User opens My Projects
-        When the User click a Project's Title 
+        When the User click a Project's Title
         Then the User see the Landing Page for the Project
 
+    @TEST_NP-4084
     @2874c
     Scenario: User Edits a Project in the Project Wizard
-        Given a User with one of the following roles: 
+        Given a User with one of the following roles:
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
         When the User edits a project from My Projects
         Then they see the Project in the Project Wizard
 
+    @TEST_NP-4086
     @2875
     Scenario: User search in My Projects
         When a User enter a search term in the search field on My Projects

@@ -1,5 +1,6 @@
 Feature: Creator deletes an item in My Registrations list
 
+    @TEST_NP-4118
     @test
     @356
     Scenario: Creator deletes an item in My Registrations list

@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Chapter
 
+    @TEST_NP-4049
     @3453
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Chapter"
         Given Creator navigates to Resource Type tab
@@ -8,6 +9,7 @@ Feature: Creator selects Resource type Chapter
             | Chapter in Anthology |
             | Conference abstract  |
 
+    @TEST_NP-4048
     @2021
     Scenario Outline: Creator sees fields for Chapter subtypes
         Given Creator navigates to the Resource Type tab and selects Resource type "Chapter"
@@ -23,6 +25,7 @@ Feature: Creator selects Resource type Chapter
             | Chapter of Anthology | Search box for published Anthologies          |
             | Conference abstract  | Search box for published Abstract collections |
 
+    @TEST_NP-4051
     @395
     Scenario: Creator sees fields for Resource subtype "Chapter in Anthology"
         Given Creator navigates to the Resource Type tab and selects Resource type "Chapter"
@@ -36,6 +39,7 @@ Feature: Creator selects Resource type Chapter
             | Introduction               |
             | Exhibition Catalog Chapter |
 
+    @TEST_NP-4050
     @2785
     Scenario: Creator selects Resource subtype "Chapter in Anthology" and Content type "Academic chapter"
         Given Creator sees fields for Resource subtype "Chapter in Anthology"

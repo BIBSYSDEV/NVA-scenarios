@@ -1,5 +1,6 @@
 Feature: A user navigates to the Public Page for Publication with a Draft DOI
 
+    @TEST_NP-4166
     @1236
     Scenario: A user navigates to the Public Page for Publication with a Draft DOI
         Given that a user navigates to the Public Page for Publication

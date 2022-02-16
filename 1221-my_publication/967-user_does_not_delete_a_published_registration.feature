@@ -1,5 +1,6 @@
 Feature: User does not delete a published Registration
 
+    @TEST_NP-4123
     @967
     Scenario: User does not delete a published Registration
         Given that the user is logged in as Creator

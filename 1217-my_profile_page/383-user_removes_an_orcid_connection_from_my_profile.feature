@@ -1,5 +1,6 @@
 Feature: User removes an ORCID connection from My Profile
 
+    @TEST_NP-4112
     @test
     @383
     Scenario: User removes an ORCID connection from My Profile

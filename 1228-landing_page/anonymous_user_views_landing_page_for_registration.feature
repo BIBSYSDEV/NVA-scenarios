@@ -1,5 +1,6 @@
 Feature: Anonymous User views Landing Page for Registration
 
+    @TEST_NP-4164
     @test
     @881
     Scenario: Anonymous User views Landing Page for Registration

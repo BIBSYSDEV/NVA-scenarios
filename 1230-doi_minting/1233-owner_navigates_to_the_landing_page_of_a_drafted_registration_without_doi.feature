@@ -1,5 +1,6 @@
 Feature: Owner navigates to the Landing Page of a drafted Registration without DOI
 
+    @TEST_NP-4186
     @test
     @1233
     Scenario: Owner navigates to the Landing Page of a drafted Registration without DOI

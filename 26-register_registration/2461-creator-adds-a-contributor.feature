@@ -1,5 +1,6 @@
 Feature: Creator adds a Contributor
 
+    @TEST_NP-3992
     Scenario Outline: Creator opens the Add Contributor Dialog
         Given Creator navigates to Contributors tab
         And the Registration has Registration Type "<RegistrationType>"
@@ -46,11 +47,13 @@ Feature: Creator adds a Contributor
             | Media            | ProgrammeManagement       | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Media            | ProgrammeParticipation    | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
 
+    @TEST_NP-3995
     Scenario: Creator selects a Contributor Type
         Given Creator opens the Add Contributor Dialog
         When they select a Contributor Type
         Then they see a search field
 
+    @TEST_NP-3996
     Scenario: Creator searches for a Contributor
         Given Creator selects a Contributor Type
         When they enter a search term
@@ -59,11 +62,13 @@ Feature: Creator adds a Contributor
         And they see Previous Publications by the Contributors
         And they see the Primary Institution for the Contributors
 
+    @TEST_NP-3991
     Scenario: Creator selects a Contributor from search
         Given Creator searches for a Contributor
         When they click on a Contributor from the search result
         Then they see the "Add" Button is enabled
 
+    @TEST_NP-3994
     Scenario: Creator adds a Contributor to the List of Contributors
         Given Creator selects a Contributor from search
         When they click the "Add" Button

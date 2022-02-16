@@ -9,19 +9,20 @@ Feature: User edits Project
     I want to be able to manage all possible information about the Project in one place
 
     In most cases the Project Manager reside from the Coordinating Institution
-    Vocabulary warning: Most funding organizations use the term "project" to describe (one of possible many) funding sources a project may have. 
+    Vocabulary warning: Most funding organizations use the term "project" to describe (one of possible many) funding sources a project may have.
 
-    Background: 
+    Background:
         Given A User is logged in
-        And the User got one of the following roles in the project: 
+        And the User got one of the following roles in the project:
             | Curator               |
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
 
+    @TEST_NP-4279
     @needJiraNumber
     Scenario Outline: User opens the Project Wizard
-        When the User opens a Project in the Project Wizard 
+        When the User opens a Project in the Project Wizard
         Then the User can navigate the project wizard’s sections:
             | Description  |
             | Participants |
@@ -36,6 +37,7 @@ Feature: User edits Project
 
     Rule: Any User can create a project, becoming origin Project Owner
 
+        @TEST_NP-4284
         @2903a
         @updated
         Scenario: User creates a new Project
@@ -51,8 +53,10 @@ Feature: User edits Project
 
     Rule: A project got Participents, like the Local Project Manager
 
+        @TEST_NP-4285
         @2906a
-        @updated, replaces 2906b
+        @updated
+        #  replaces 2906b
         Scenario: User opens the Projects Participants section
             Given a User with one of these roles:
                 | Curator               |
@@ -64,7 +68,8 @@ Feature: User edits Project
                 | Project Managers     |
                 | Project Participants |
             And the User see an option to add Project Participants
-           
+
+        @TEST_NP-4282
         @2906c
         Scenario: User adds a Project Participant
             When the User enter a name in a search field
@@ -75,9 +80,11 @@ Feature: User edits Project
             Then they see the User listed as a Project Participant with a role
 
     Rule: The Project Owner, the Project Manager and Curator at the Coordinating Institution can grant the Project Manager role to any user, but there can only be one Project Manager at any time
-    
+
+        @TEST_NP-4286
         @2907a
-        @updated, replaces also 2907b and 2907c
+        @updated
+        # replaces also 2907b and 2907c
         Scenario Outline: A User adds a new Project Manager
             Given a User with role "<Role>" in the project
             When the User selects a User from a search
@@ -95,6 +102,7 @@ Feature: User edits Project
 
     Rule: A project may have several sources of funding. Warning: Funding organizations consider their funding to be a project and/or a grant, but from our point of view - it's only a part of the projects total funding.
 
+        @TEST_NP-4283
         @2908a
         @updated
         Scenario Outline: User opens Financing tab for Project
@@ -107,16 +115,18 @@ Feature: User edits Project
                 | Project Manager       | Enabled     |
                 | Local Project Manager | Disabled    |
 
+        @TEST_NP-4281
         @2908b
         Scenario: User adds a Financing source for Project
             When a User enter some text in the Financing Code field
             And the User select a Financing source from the search results
             #https://prosjektbanken.forskningsradet.no/prosjektbanken/rest/cristin/search?query=111
             #https://beta.explore.openaire.eu/search/advanced/projects?q=&op=and
-            Then the User see the selected Financing Code listed as on of the Projects Financing Codes 
-    
+            Then the User see the selected Financing Code listed as on of the Projects Financing Codes
+
     Rule: The Projects Coordinating Institution grants it's Curators access to the project
 
+        @TEST_NP-4280
         @2905
         Scenario: Curator edit a Project in the Project Wizard
             Given a Curator on the Project's Coordinating Institution

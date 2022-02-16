@@ -1,5 +1,6 @@
 Feature: Creator views details of an item in the Messages list
 
+    @TEST_NP-4147
     @1246
     Scenario Outline: Creator views details of an item in the Messages list
         Given that the Creator opens My Messages

@@ -1,5 +1,6 @@
 Feature: Application Administrator opens Institutions
 
+    @TEST_NP-4161
     @test
     @365
     Scenario: Application Administrator opens Institutions

@@ -1,13 +1,14 @@
 Feature: User sees published Registrations
 
+    @TEST_NP-4121
     @913
     Scenario: User sees published Registrations
         Given Creator opens the page My Registrations
         When they click Published Registrations in the navigation bar
         Then they see a list of all published Registrations with the fields
-            | Title      |
-            | Status     |
-            | Created    |
+            | Title   |
+            | Status  |
+            | Created |
         And they see list items with Status
             | Deleted   |
             | Published |

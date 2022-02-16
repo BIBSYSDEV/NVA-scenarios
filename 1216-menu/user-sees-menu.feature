@@ -1,5 +1,6 @@
 Feature: User sees menu
 
+    @TEST_NP-4102
     @test
     @344
     Scenario: Unauthenticated User sees menu
@@ -8,6 +9,7 @@ Feature: User sees menu
         Then they see the Log in Button
         And they see the Language selector
 
+    @TEST_NP-4100
     @test
     @345
     Scenario: User without any role sees menu
@@ -19,6 +21,7 @@ Feature: User sees menu
             | Log out         |
         And they see the Language selector
 
+    @TEST_NP-4103
     @test
     @346
     Scenario: User sees the menu for Creator
@@ -34,6 +37,7 @@ Feature: User sees menu
             | My Messages      |
         And they see the Language selector
 
+    @TEST_NP-4099
     @test
     @347
     Scenario: User sees the menu for Curator
@@ -48,6 +52,7 @@ Feature: User sees menu
             | My Messages |
         And they see the Language selector
 
+    @TEST_NP-4101
     @test
     @348
     Scenario: User sees the menu for Institution-admin
@@ -61,6 +66,7 @@ Feature: User sees menu
             | Log out         |
         And they see the Language selector
 
+    @TEST_NP-4105
     @349
     Scenario: User sees the menu for Editor
         Given that the user is logged in
@@ -72,6 +78,7 @@ Feature: User sees menu
             | Log out               |
         And they see the Language selector
 
+    @TEST_NP-4104
     @test
     @350
     Scenario: User sees the menu for Application administrator

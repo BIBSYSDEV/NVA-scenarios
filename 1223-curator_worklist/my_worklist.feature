@@ -2,7 +2,7 @@ Feature: Curator opens My Worklist
 
   "@needJiraTag" is used in several files to enable me to locate all new scenarios that is'nt in jira.
   "@updated" is used where I have changed a scenario, that exists in jira - but not updated it there yet.
-	#If a scenario is deleted, but still exists in Jira - it's noted as a comment
+  #If a scenario is deleted, but still exists in Jira - it's noted as a comment
 
   Vocabulary clearification:
   - A named role is preferred over "they"
@@ -31,11 +31,11 @@ Feature: Curator opens My Worklist
   - A Message has a date of creation
 
   The Possible values of the Requests Status:
-   - New <--> Active --> [Conclusion]
-   - The Conclusion value is decided by the Request Type:
-    - Request Type Support : Conclusion == Answered
-    - Other Request Types  : Conclusion is Approved or Declined
-    - It's still pending if a final resting value is needed, like Archived and/or Deleted
+  - New <--> Active --> [Conclusion]
+  - The Conclusion value is decided by the Request Type:
+  - Request Type Support : Conclusion == Answered
+  - Other Request Types  : Conclusion is Approved or Declined
+  - It's still pending if a final resting value is needed, like Archived and/or Deleted
 
   Future stuff:
   - The Custodian needs to be notified when a Request is updated (a new Message or someone adopts it)
@@ -45,9 +45,9 @@ Feature: Curator opens My Worklist
     Given Curator is logged in
     And Curator opens My Worklist from main menu
     And My Worklist contains Requests of each type:
-      | Approval  | 
-      | Support   | 
-      | DOI       | 
+      | Approval  |
+      | Support   |
+      | DOI       |
       | Ownership |
     And Affilliation of Sender on each Requests is within the Curator´s scope of responsibility
     And the list of Approvals is in focus
@@ -78,7 +78,7 @@ Feature: Curator opens My Worklist
     Examples:
       | Type      |
       | Approval  |
-			# Må handtere at Editor kan tillate alle å publisere - kva skjer da med Approvals?
+      # Må handtere at Editor kan tillate alle å publisere - kva skjer da med Approvals?
       | Support   |
       | DOI       |
       | Ownership |
@@ -102,9 +102,9 @@ Feature: Curator opens My Worklist
     Then the Request is expanded
     And the assigned Curator is viewed
     And previous messages are displayed chronologically with:
-      | Submitter name            |
-      | Submitter Date and Time   |
-      | The full message          |
+      | Submitter name          |
+      | Submitter Date and Time |
+      | The full message        |
     And the Curator can reply to a message
     And the Curator can open the Requests Resource
     And the Curator can change the Status of the Request
@@ -123,7 +123,7 @@ Feature: Curator opens My Worklist
       | Ownership | Change owner |
       | Ownership | Decline      |
 
- @needJiraTag
+  @needJiraTag
   Scenario: User gets an answer to a Support Request
     When the Curator sends an answer of type "Support"
     Then the Request status is set to "Answered"
@@ -180,7 +180,7 @@ Feature: Curator opens My Worklist
   @needJiraTag
   Scenario: Curator receives Ownership requests within their scope
     Given the Request is of type "Ownership"
-    When the Affilliation of the Owner of the Resource associated with the Request is within Curators Scope 
+    When the Affilliation of the Owner of the Resource associated with the Request is within Curators Scope
     Then the Request is part of the Curators Worklist
 
   @needJiraTag

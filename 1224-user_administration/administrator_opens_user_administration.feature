@@ -1,5 +1,6 @@
 Feature: Administrator opens user administration
 
+    @TEST_NP-4141
     @test
     @359
     Scenario Outline: Administrator opens User Administration
@@ -22,12 +23,14 @@ Feature: Administrator opens user administration
             | Curators       | Curator       | Add Curator       |
             | Editors        | Editor        | Add Editor        |
 
+    @TEST_NP-4142
     Scenario: Administrator inspect a Curators scope
         Given Administrator opens User Administration
         When they see on the Curator section of the User Administration
         Then they see that each Curator has a "Scope" field
         And the "Scope" field is a dropdown containing all levels of their Institution
 
+    @TEST_NP-4139
     @2841
     Scenario: Administrator define a Curators scope
         Given Administrator opens User Administration
@@ -36,12 +39,13 @@ Feature: Administrator opens user administration
         Then the dropdown is closed
         And they see a confirmation message that the Scope was updated
 
+    @TEST_NP-4143
     @test
     @363
     Scenario Outline: Administrator opens the Add Role Dialog
         Given Administrator opens User Administration
         When they click "<Button>" under "<Section>"
-        Then they see the Add Role Dialog 
+        Then they see the Add Role Dialog
         And they see an Information box
         And they see an input field to Search for employees
         And they see a list of employees with an "Add" button
@@ -57,6 +61,7 @@ Feature: Administrator opens user administration
             | Curator       | Add Curator       |
             | Editor        | Add Editor        |
 
+    @TEST_NP-4144
     @test
     @1362
     Scenario Outline: Administrator searches for User
@@ -70,6 +75,7 @@ Feature: Administrator opens user administration
             | Curator       | Add Curator       |
             | Editor        | Add Editor        |
 
+    @TEST_NP-4145
     @test
     @1363
     Scenario Outline: Administrator grants an Employee a role
@@ -84,11 +90,12 @@ Feature: Administrator opens user administration
             | Curator       | Add Curator       |
             | Editor        | Add Editor        |
 
+    @TEST_NP-4140
     @test
-    Scenario Outline: Administrator closes the Add Role Dialog 
+    Scenario Outline: Administrator closes the Add Role Dialog
         Given Administrator opens the Add Role Dialog
         And they click "<Button>" under "<Section>"
-        When they click the "Close" button 
+        When they click the "Close" button
         Then the Add Role Dialog is closed
         Examples:
             | Section       | Button            |

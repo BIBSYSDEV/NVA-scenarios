@@ -1,20 +1,23 @@
 Feature: User navigates to Landing Page for Registration and can see Files
 
+    @TEST_NP-4171
     @needJiraTag
     Scenario: User sees the option to claim Ownership of a Resource
-        When the User views the Landing Page 
+        When the User views the Landing Page
         Then the User sees a option to claim Ownership of current Resource
 
+    @TEST_NP-4178
     @needJiraTag
     Scenario: User uses the option to claim Ownership of current Resource
         When the User uses the option to claim Ownership of current Resource
-        Then the User must write a claim 
-        And a Ownership Request is sent to the Owners Curator 
+        Then the User must write a claim
+        And a Ownership Request is sent to the Owners Curator
         And the User is notified that progress on this claim can be viewed in My Messages
 
     # All scenarios below is about "Anonymous User views Landing Page"
     # they belong on the "Anonymous User views Landing Page for Registration" feature
 
+    @TEST_NP-4180
     @1530
     Scenario: Files that are Administrative Agreements are hidden
         Given Anonymous User views Landing Page for Registration
@@ -22,6 +25,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
         When they view the Files section
         Then they do not see the File that is an Administrative Agreement
 
+    @TEST_NP-4173
     Scenario: Files that are part of Registration are listed
         Given Anonymous User views Landing Page for Registration
         And the Registration contains Files
@@ -34,6 +38,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
             | License |
         And they can see a download button for Files that are not Embargoed
 
+    @TEST_NP-4172
     @2158
     Scenario Outline: Files can be previewed
         Given Anonymous User views Landing Page for Registration
@@ -49,6 +54,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
             | Image            |
             | Microsoft Office |
 
+    @TEST_NP-4170
     Scenario: Automatically preview first File
         Given Anonymous User views Landing Page for Registration
         And the Registration contains Files
@@ -58,6 +64,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
         And the File is automatically downloaded
         And the downloaded File is displayed
 
+    @TEST_NP-4175
     Scenario: Lock Embargoed Files
         Given Anonymous User views Landing Page for Registration
         And the Registration contains a File that is Embargoed

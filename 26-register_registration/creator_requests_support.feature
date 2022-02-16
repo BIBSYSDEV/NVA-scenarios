@@ -1,5 +1,6 @@
 Feature: Creator requests support
 
+    @TEST_NP-4029
     @test
     @1745
     Scenario: Creator opens "Request support" dialog

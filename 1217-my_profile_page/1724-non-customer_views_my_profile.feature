@@ -1,5 +1,6 @@
 Feature: Non-customer views My Profile
 
+    @TEST_NP-4109
     @test
     @1724
     Scenario: Non-customer views My Profile

@@ -1,5 +1,6 @@
 Feature: Editor opens Editor Administration
 
+    @TEST_NP-4153
     @364
     Scenario: Editor opens Editor Administration
         Given that the user is logged in as Editor
@@ -8,6 +9,7 @@ Feature: Editor opens Editor Administration
         And they see a field for Email
         And they see a Save Button that is enabled
 
+    @TEST_NP-4156
     @2445
     Scenario Outline: Editor sees fields for Vocabulary settings
         Given Editor opens Editor Administration

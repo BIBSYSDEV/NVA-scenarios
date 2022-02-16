@@ -1,5 +1,6 @@
 Feature: User navigates back to previous page
 
+    @TEST_NP-4106
     @test
     Scenario: User navigates back to previous page
         Given the user has navigated to any other page than Start Page

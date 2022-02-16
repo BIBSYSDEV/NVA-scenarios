@@ -1,5 +1,6 @@
 Feature: Creator cancels deletion of an item in My Registrations list
 
+    @TEST_NP-4120
     @test
     @576
     Scenario: Creator cancels deletion of an item in My Registrations list

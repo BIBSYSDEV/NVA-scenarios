@@ -1,5 +1,6 @@
 Feature: Creator opens My Messages
 
+    @TEST_NP-4201
     @1238
     Scenario Outline: Creator opens My Messages
         Given that the user is logged in as Creator

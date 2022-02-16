@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Artistic Result
 
+    @TEST_NP-4034
     @2732
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
         Given Creator begins registering a Registration in the Wizard with a File
@@ -14,6 +15,7 @@ Feature: Creator selects Resource type Artistic Result
             | Artistic result - Writing art    |
             | Artistic result - Visual art     |
 
+    @TEST_NP-4033
     @2739
     Scenario: Creator selects Other type of work for Resource Type "Artistic result"
         Given Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
