@@ -109,3 +109,9 @@ Feature: User logs in
     And they click Log out
     Then they are logged out of the NVA application
 
+  Scenario: User logs in based on Customer Institution settings
+    Given that the User is not authenticated
+    When they start logging in
+    Then they must select a Customer Institution
+    When they selecte a Customer Institution
+    Then they can log in with the selected Customer Institution's login flow
