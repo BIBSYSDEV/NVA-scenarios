@@ -113,5 +113,5 @@ Feature: User logs in
     Given that the User is not authenticated
     When they start logging in
     Then they must select a Customer Institution
-    When they selecte a Customer Institution
+    When they have selected a Customer Institution
     Then they can log in with the selected Customer Institution's login flow
