@@ -14,4 +14,9 @@ Feature: Application Administrator adds an Institution
       | Short display name            |
       | Archive name                  |
       | Feide Organization ID         |
+      | ROR ID                        |
+    And they see login options:
+      | Feide   |
+      | MinID   |
+      | HelseID |
     And a button Create that is enabled

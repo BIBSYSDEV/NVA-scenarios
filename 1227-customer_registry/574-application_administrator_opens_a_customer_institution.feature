@@ -12,6 +12,11 @@ Feature: Application Administrator opens a Customer Institution
             | Short display name            |
             | Archive name                  |
             | Feide Organization ID         |
+            | ROR ID                        |
+        And they see login options:
+            | Feide   |
+            | MinID   |
+            | HelseID |
         And they see the Save button
         And they see the list of current Institution Administrators
         And every Institution Administrator has a Remove button
