@@ -1,22 +1,29 @@
 Feature: User logs in
 
+  Scenario: User without Customer Institution logs in
+    Given that the User is not authenticated
+    When they start logging in
+    And their Institution is not a Customer of NVA
+    Then they can log in with Feide
+    And they must create a Profile in Cristin with their login data to use NVA
+
   @TEST_NP-4812
   Scenario: User logs in based on Customer Institution settings
     Given that the User is not authenticated
     When they start logging in
     Then they must select a Customer Institution
-    And they can log in with the selected Customer Institution's login flow
+    And they can log in with the selected Customer Institution's login method
 
   @TEST_NP-4813
-  Scenario: User without profile in Cristin tries to log in
+  Scenario: User without a Profile in Cristin tries to log in
     Given User logs in based on Customer Institution settings
-    When they do not have a profile in Cristin
-    Then they are not logged in
+    When they do not have a Profile in Cristin
+    Then they must create a Profile in Cristin with their login data to use NVA
 
   @TEST_NP-4814
-  Scenario: User with profile in Cristin tries to log in
+  Scenario: User with a Profile in Cristin tries to log in
     Given User logs in based on Customer Institution settings
-    When they have a profile in Cristin
+    When they have a Profile in Cristin
     Then they are logged in
 
   @TEST_NP-4229
