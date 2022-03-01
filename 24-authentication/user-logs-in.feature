@@ -26,6 +26,11 @@ Feature: User logs in
     When they have a Profile in Cristin
     Then they are logged in
 
+  Scenario: User connects to ORCID after login
+    Given User has just logged in
+    When they have not been logged in before
+    Then they can connect to their ORCID profile
+
   @TEST_NP-4229
   @28
   Scenario: A user is already authenticated with Feide (single sign on)
