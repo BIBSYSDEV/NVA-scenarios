@@ -2,10 +2,9 @@ Feature: Administrator opens user administration
 
     @TEST_NP-4141
     @test
-    @359
     Scenario Outline: Administrator opens User Administration
         Given that the user is logged in as Administrator
-        When they click the menu item Users
+        When they click the button Basic data
         Then they see the User Administration page
         And they see that Section "<Section>" lists all users affiliated with their institution with role "<Role>"
         And they see a Button "<Button>"
@@ -31,7 +30,6 @@ Feature: Administrator opens user administration
         And the "Scope" field is a dropdown containing all levels of their Institution
 
     @TEST_NP-4139
-    @2841
     Scenario: Administrator define a Curators scope
         Given Administrator opens User Administration
         When they click on the Scope dropdown for a Curator
@@ -41,7 +39,6 @@ Feature: Administrator opens user administration
 
     @TEST_NP-4143
     @test
-    @363
     Scenario Outline: Administrator opens the Add Role Dialog
         Given Administrator opens User Administration
         When they click "<Button>" under "<Section>"
@@ -63,7 +60,6 @@ Feature: Administrator opens user administration
 
     @TEST_NP-4144
     @test
-    @1362
     Scenario Outline: Administrator searches for User
         Given Administrator opens the Add Role Dialog
         And they click "<Button>" under "<Section>"
@@ -77,7 +73,6 @@ Feature: Administrator opens user administration
 
     @TEST_NP-4145
     @test
-    @1363
     Scenario Outline: Administrator grants an Employee a role
         Given Administrator opens the Add Role Dialog
         And they click "<Button>" under "<Section>"
