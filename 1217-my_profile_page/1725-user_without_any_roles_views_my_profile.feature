@@ -4,7 +4,7 @@ Feature: User without any roles views My Profile
     @test
     @1725
     Scenario: User without any roles views My Profile
-        Given that a User is logged in with Feide
+        Given that a User is logged in
         And their Institution is a Customer of NVA
         And their Administrator has not assigned any roles to them
         When they navigate to My Profile
