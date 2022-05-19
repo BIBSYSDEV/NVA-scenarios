@@ -4,7 +4,7 @@ Feature: Administrator opens user administration
     @test
     Scenario Outline: Administrator opens User Administration
         Given that the user is logged in as Administrator
-        When they click the button Basic data
+        When they click the menu item Basic data
         Then they see the User Administration page
         And they see that Section "<Section>" lists all users affiliated with their institution with role "<Role>"
         And they see a Button "<Button>"
