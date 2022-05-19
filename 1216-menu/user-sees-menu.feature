@@ -29,12 +29,12 @@ Feature: User sees menu
         And they have the "Creator" role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            | My user profile |
-            | Log out         |
+            | My Registrations |
+            | My user profile  |
+            | Log out          |
         And they see Menu items:
             | New Registration |
-            | My Registrations |
-            | My Messages      |
+            | Messages         |
         And they see the Language selector
 
     @TEST_NP-4099
@@ -45,48 +45,47 @@ Feature: User sees menu
         And they have the "Curator" Role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            | My worklist     |
             | My user profile |
             | Log out         |
         And they see Menu items:
-            | My Messages |
+            | Worklist |
+            | Messages |
         And they see the Language selector
 
     @TEST_NP-4101
     @test
-    @348
     Scenario: User sees the menu for Institution-admin
         Given that the user is logged in
         And they have the "Institution-admin" role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            | My institution  |
             | Users           |
             | My user profile |
             | Log out         |
+        And they see Menu items:
+            | Basic data |
         And they see the Language selector
 
     @TEST_NP-4105
-    @349
     Scenario: User sees the menu for Editor
         Given that the user is logged in
         And they have the "Editor" role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            | Editor administration |
-            | My user profile       |
-            | Log out               |
+            | Editor          |
+            | My user profile |
+            | Log out         |
         And they see the Language selector
 
     @TEST_NP-4104
     @test
-    @350
     Scenario: User sees the menu for Application administrator
         Given that the user is logged in
         And they have the "App-admin" role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            | Institutions    |
             | My user profile |
             | Log out         |
+        And they see Menu items:
+            | Basic data |
         And they see the Language selector
