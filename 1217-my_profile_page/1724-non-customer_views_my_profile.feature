@@ -9,4 +9,4 @@ Feature: Non-customer views My Profile
         When they navigate to My Profile
         Then they see that they have no roles
         And they see an information text explaining why they have no roles
-        And they see their Institutions name under Affiliations
+        And they see their Institutions names under Affiliations
