@@ -5,8 +5,8 @@ Feature: Institution Administrator edits My Institution
     @360
     Scenario: Institution Administrator opens My Institution
         Given that the user is logged in as Institution Administrator
-        When they click the menu item Basic data
-        And they click the menu item My institution
+        When they click the menu item Basic Data
+        And they click the menu item My Institution
         Then they see the My Institution page
         And they see fields:
             | Name in organization registry |
