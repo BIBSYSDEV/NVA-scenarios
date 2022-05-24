@@ -18,7 +18,7 @@ There are several types of associations between datasets, DMPs, projects, and ot
 1st, all types of research data (datasets and DMPs) can be associated to any project, like any other research results (on the 1st page of the registration wizard).
 2nd, projects with GrantIDs (a type of financing) should have a DMP (on the expanded project registration wizard).
 3rd, a dataset may point to other research results in NVA that use it.
-4th, a dataset may point to other external research results that are related.
+4th, a dataset may point to other research results that are related (also external to NVA).
 5th, a dataset may point to a DMP in NVA, that it comply with.
 The links in the 3rd, 4th and 5th cases are one-directional, in the first iteration.
 
