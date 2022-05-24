@@ -1,0 +1,109 @@
+Feature: Dataset
+
+	In order to document my findings in journal articles
+	As a User
+	I want to be able to publish my own and others datasets
+
+	In order to document my findings in journal articles
+	As a User
+	I want to be able to link published datasets to my published journal articles
+
+	Background:
+		Given User selects a subtype of Resource type "Research Data"
+		And it is Dataset
+
+	@9141
+	Scenario: User sees information about data that is illegal to publish on this service
+		When the User has selected to register a Dataset
+		Then the User sees information about data that is illegal to publish on this service
+
+	@9141
+	Scenario: User confirms to register data legal to publish
+		Given User sees information about data that is illegal to publish on this service
+		When the User confirms that the data intended to be published is legal 
+		Then the dialog is closed 
+		And the User starts by selecting the Resource Type tab in the Registration Wizard
+	
+	@9141
+	Scenario: User confirms to register a data illegal to publish
+		Given User sees information about data that is illegal to publish in this service
+		When the User confirms that the data intended to be published is illegal 
+		Then the User is prohibit to publish the registration
+		And any registered data is stored as a draft
+		And the User sees the standard user support dialog where the user can ask for assistance
+
+	@9140
+	Scenario: User is informed about further support and registration process
+		Given User confirms to register data illegal to publish
+		When the User has submitted a user support request
+		Then the User is informed that the registration is stored
+		And can be completed at any later stage
+		And answer to the user support request will be visible on "My page"
+
+	@9140
+	Scenario: User adds zero or more geographical data to the dataset
+		Given User confirms to register data legal to publish
+		When the User writes some free text geographical data
+		# Future: Add support for land, region, county and map reference (line, rectangle, point)
+		Then stored it
+
+	@9140
+	Scenario: User adds zero or more use-references to resource published in NVA
+		Given User confirms to register data legal to publish
+		When the user enters some text, a matching list of published results are displayed 
+		And the User may select one result
+		Then store it as depended on this result
+
+	@9140
+	Scenario: User adds zero or more related-references to resource published in NVA
+		Given User confirms to register data legal to publish
+		When the user enters some text, a matching list of published results are displayed 
+		And the User may select one result
+		Then store it as associated to this result
+
+	@9140
+	Scenario: User adds zero or more comply-to-references to a DMP resource published in NVA
+		Given User confirms to register data legal to publish
+		When the user enters some text, a matching list of published DMPs is displayed
+		And the User may select one result
+		Then store it as comply-to to this result
+
+	@9142
+	Scenario: User sees their own published resources in NVA as default matching list
+		Given User adds zero or more use-references to resources published in NVA
+		When the User enters the input field to search for a resource in NVA
+		Then zero to five published results, sorted newest first, are displayed for selection
+		And a list of matches may replace this list 
+
+	@9145
+	Scenario: User confirms publishing the dataset resource
+		When the User have ended the registration wizard 
+		# (pressed "Save and Present" button)
+		And sees the resources' previewed landingpage 
+		Then the User is informed to review registered data
+		And is informed about the risk of publish illegal data
+		And is infomed to contact user support if in doubt
+
+	@9146
+	Scenario: Dataset elements on landingpage
+		When the User sees the landingpage (preview or published)
+		Then the User sees resource type and title on top
+		And then contributors and their affiliations
+		And then a separate line
+		And then publication date, language, publisher and optional DOI
+		And then a separate line
+		And then the abstract
+		And then a separate line
+		And then the keywords
+		And then a separate line
+		And then geographical information
+		And then a separate line
+		And then publications that uses this dataset
+		And then a separate line
+		And then the datasets content (the files)
+		And then a separate line
+		And then the projects assosiated with this dataset
+		And then a separate line
+		And then the DMPs this dataset complay to
+		And then a separate line
+		And then list other related resources

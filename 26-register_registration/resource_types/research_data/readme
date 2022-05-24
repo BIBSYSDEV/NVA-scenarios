@@ -1,0 +1,26 @@
+Research data is one of the main forms of research results in NVA and it contains several types of resources. 
+
+The first iterations will establish the types 'dataset' and 'data management plan' (DMP). 
+('Software' and 'dynamic dataset' (API) are proposed as next iteration.)
+
+Research data is described by following files:
+	research_data.feature
+		- describe the selection of the first two types
+	dataset.feature
+		- describe the details about this type
+	dmp.feature
+		- describe the details about this type
+
+The main reason for starting with dataset and dmp is i) both types are demanded by our user representatives and ii) both are needed to cement the basic structure of NVA internal data structure. 
+
+Internal data structure
+There are several types of associations between datasets, DMPs, projects, and other research results.
+1st, all types of research data (datasets and DMPs) can be associated to any project, like any other research results (on the 1st page of the registration wizard).
+2nd, projects with GrantIDs (a type of financing) should have a DMP (on the expanded project registration wizard).
+3rd, a dataset may point to other research results in NVA that use it.
+4th, a dataset may point to other external research results that are related.
+5th, a dataset may point to a DMP in NVA, that it comply with.
+The links in the 3rd, 4th and 5th cases are one-directional, in the first iteration.
+
+COAR Controlled Vocabularies
+COAR Controlled Vocabularies for Repositories 3rd version place 'data management plan' under the form 'report' together with 'memorandum' and 'clinical study'. 'Dataset' is a form with 13 different sub-types, like 'aggregted data', 'genomic data' and 'labratory notebook'. 'Software' is a type with two sub-types; 'research software' and 'source code'. This will be reviewed in second iteration, for details see https://vocabularies.coar-repositories.org/resource_types/

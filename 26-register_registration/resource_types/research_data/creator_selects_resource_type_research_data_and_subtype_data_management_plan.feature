@@ -1,5 +1,7 @@
 Feature: Creator selects Resource type Research Data and Subtype Data Management Plan
 
+    #Deprecated - to be removed
+
     @TEST_NP-4078
     @2851
     Scenario: Creator sees fields for Data Management Plan subtype
