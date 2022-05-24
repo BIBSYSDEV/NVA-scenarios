@@ -38,17 +38,11 @@ Feature: Creator selects Resource type Contribution to journal
             | Pages to               |
             | Article number         |
         And they see a dropdown for Content Type with options:
-            # Vitenskapelig artikkel (AcademicArticle)
             | Academic article           |
-            # Vitenskapelig oversiktsartikkel (AcademicLiteratureReview)
             | Academic literature review |
-            # Kasuistikk (CaseReport)
             | Case report                |
-            # Studieprotokoll (StudyProtocol)
             | Study protocol             |
-            # Fagartikkel (ProfessionalArticle)
             | Professional article       |
-            # Populærvitenskapelig artikkel (PopularScienceArticle)
             | Popular science article    |
         And they see the Norwegian Science Index (NVI) evaluation status
 
