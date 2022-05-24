@@ -7,13 +7,19 @@ Feature: Creator selects Resource type Contribution to journal
         When they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         Then they see a list of subtypes:
+            # Artikkel i tidsskrift (JournalArticle)
             | Journal article     |
-            | Feature article     |
-            | Comment             |
+            # Kommentar (JournalLetter)
+            | Commentary          |
+            # Bokanmeldelse (JournalReview)
             | Book review         |
-            | Leader              |
+            # Leder (JournalLeader)
+            | Editorial           |
+            # Corrigendum (JournalCorrigendum)
             | Corrigendum         |
-            | Booklet             |
+            # Hefte i tidsskrift (JournalIssue)
+            | Journal issue       |
+            # Konferanseabstrakt (ConferenceAbstract)
             | Conference abstract |
 
     @TEST_NP-4052
@@ -32,12 +38,18 @@ Feature: Creator selects Resource type Contribution to journal
             | Pages to               |
             | Article number         |
         And they see a dropdown for Content Type with options:
-            | Research article        |
-            | Review article          |
-            | Case report             |
-            | Study protocol          |
-            | Professional article    |
-            | Popular science article |
+            # Vitenskapelig artikkel (AcademicArticle)
+            | Academic article           |
+            # Vitenskapelig oversiktsartikkel (AcademicLiteratureReview)
+            | Academic literature review |
+            # Kasuistikk (CaseReport)
+            | Case report                |
+            # Studieprotokoll (StudyProtocol)
+            | Study protocol             |
+            # Fagartikkel (ProfessionalArticle)
+            | Professional article       |
+            # Populærvitenskapelig artikkel (PopularScienceArticle)
+            | Popular science article    |
         And they see the Norwegian Science Index (NVI) evaluation status
 
     @TEST_NP-4053
@@ -72,12 +84,11 @@ Feature: Creator selects Resource type Contribution to journal
         Then they see that the Peer Review Details are hidden
         Examples:
             | Subtype             |
-            | Feature article     |
-            | Comment             |
+            | Commentary          |
             | Book review         |
-            | Leader              |
+            | Editorial           |
             | Corrigendum         |
-            | Booklet             |
+            | Journal issue       |
             | Conference abstract |
 
     @TEST_NP-4059
@@ -125,8 +136,8 @@ Feature: Creator selects Resource type Contribution to journal
     Scenario: Creator sees extra fields for Norwegian Science Index (NVI) compatible Journal article
         Given Creator sees fields for Journal article
         When they set Content Type to one of:
-            | Research article |
-            | Review article   |
+            | Academic article           |
+            | Academic literature review |
         Then they see fields:
             | Peer reviewed and presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status
@@ -148,12 +159,11 @@ Feature: Creator selects Resource type Contribution to journal
             | Article number         |
         Examples:
             | Subtype             |
-            | Feature article     |
-            | Comment             |
+            | Commentary          |
             | Book review         |
-            | Leader              |
+            | Editorial           |
             | Corrigendum         |
-            | Booklet             |
+            | Journal issue       |
             | Conference abstract |
 
     @TEST_NP-4058
@@ -179,10 +189,9 @@ Feature: Creator selects Resource type Contribution to journal
             | Article number |
         Examples:
             | Subtype             |
-            | Feature article     |
-            | Comment             |
+            | Commentary          |
             | Book review         |
-            | Leader              |
+            | Editorial           |
             | Corrigendum         |
-            | Booklet             |
+            | Journal issue       |
             | Conference abstract |
