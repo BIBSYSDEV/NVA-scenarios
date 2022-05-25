@@ -24,7 +24,7 @@ Feature: Dataset
 		Then the dialog is closed 
 	
 	@9141
-	Scenario: User confirms to register a data illegal to publish
+	Scenario: User confirms to register data illegal to publish
 		Given User sees information about data that is illegal to publish in this service
 		When the User confirms that the data intended to be published is illegal 
 		Then the User is prohibit to publish the registration
