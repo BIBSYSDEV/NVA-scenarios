@@ -22,7 +22,6 @@ Feature: Dataset
 		Given User sees information about data that is illegal to publish on this service
 		When the User confirms that the data intended to be published is legal 
 		Then the dialog is closed 
-		And the User starts by selecting the Resource Type tab in the Registration Wizard
 	
 	@9141
 	Scenario: User confirms to register a data illegal to publish
