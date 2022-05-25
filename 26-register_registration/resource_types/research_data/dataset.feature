@@ -9,8 +9,8 @@ Feature: Dataset
 	I want to be able to link published datasets to my published journal articles
 
 	Background:
-		Given User selects a subtype of Resource type "Research Data"
-		And it is Dataset
+		Given User selects Resource type "Research Data"
+		And they select Dataset as subtype
 
 	@9141
 	Scenario: User sees information about data that is illegal to publish on this service
