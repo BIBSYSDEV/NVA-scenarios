@@ -11,8 +11,8 @@ Feature: Data Management Plan (DMP)
 	I want to be able to publish new versions of my DMP
 
 	Background:
-		Given User selects a subtype of Resource type "Research Data"
-		And it is a DMP
+		Given User selects Resource type "Research Data"
+		And they select DMP as subtype
 
 	Scenario: Title
 		Given something
