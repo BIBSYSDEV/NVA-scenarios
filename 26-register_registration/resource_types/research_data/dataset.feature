@@ -63,9 +63,8 @@ Feature: Dataset
 	@9140
 	Scenario: User adds zero or more comply-to-references to a DMP resource published in NVA
 		Given User confirms to register data legal to publish
-		When the user enters some text, a matching list of published DMPs is displayed
-		And the User may select one result
-		Then store it as comply-to to this result
+		When they search for published DMPs
+		Then they can store any result as a comply-to-reference
 
 	@9142
 	Scenario: User sees their own published resources in NVA as default matching list
