@@ -5,7 +5,7 @@ The first iterations will establish the types 'dataset' and 'data management pla
 
 Research data is described by following files:
 	research_data.feature
-		- describe the selection of the first two types
+		- describe the selection of Dataset and DMP
 	dataset.feature
 		- describe the details about this type
 	dmp.feature
