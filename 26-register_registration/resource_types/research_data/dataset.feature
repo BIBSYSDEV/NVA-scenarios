@@ -84,25 +84,10 @@ Feature: Dataset
 		And is infomed to contact user support if in doubt
 
 	@9146
-	Scenario: Dataset elements on landingpage
-		When the User sees the landingpage (preview or published)
-		Then the User sees resource type and title on top
-		And then contributors and their affiliations
-		And then a separate line
-		And then publication date, language, publisher and optional DOI
-		And then a separate line
-		And then the abstract
-		And then a separate line
-		And then the keywords
-		And then a separate line
-		And then geographical information
-		And then a separate line
-		And then publications that uses this dataset
-		And then a separate line
-		And then the datasets content (the files)
-		And then a separate line
-		And then the projects assosiated with this dataset
-		And then a separate line
-		And then the DMPs this dataset complay to
-		And then a separate line
-		And then list other related resources
+	Scenario: Use see Landing Page for Dataset
+		When User opens Landing Page for a Dataset
+		Then they see then geographical information
+		And they see then publications that uses this dataset
+		And they see then the projects assosiated with this dataset
+		And they see then the DMPs this dataset complay to
+		And they see then list other related resources
