@@ -70,7 +70,7 @@ Feature: Dataset
 	@9142
 	Scenario: User sees their own published resources in NVA as default matching list
 		Given User adds zero or more use-references to resources published in NVA
-		When the User enters the input field to search for a resource in NVA
+		When the User select the input field to search for a resource in NVA
 		Then zero to five published results, sorted newest first, are displayed for selection
 		And a list of matches may replace this list 
 
