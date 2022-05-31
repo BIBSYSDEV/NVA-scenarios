@@ -76,11 +76,10 @@ Feature: Dataset
 
 	@9145
 	Scenario: User confirms publishing the dataset resource
-		When the User have ended the registration wizard 
-		# (pressed "Save and Present" button)
-		And sees the resources' previewed landingpage 
-		Then the User is informed to review registered data
-		And is informed about the risk of publish illegal data
+		Given User is watching Landing Page for a Dataset
+		And all required fields are filled
+		When they click Publish button
+		Then they are warned about publishing sesitive data
 		And is infomed to contact user support if in doubt
 
 	@9146
