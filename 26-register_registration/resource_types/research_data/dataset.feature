@@ -56,7 +56,7 @@ Feature: Dataset
 	@9140
 	Scenario: User adds zero or more related-references to resource published in NVA
 		Given User confirms to register data legal to publish
-		When the user enters some text, a matching list of published results are displayed 
+		When they search for related-references among all published results
 		And the User may select one result
 		Then store it as associated to this result
 
