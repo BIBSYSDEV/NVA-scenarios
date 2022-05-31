@@ -49,22 +49,21 @@ Feature: Dataset
 	@9140
 	Scenario: User adds zero or more use-references to resource published in NVA
 		Given User confirms to register data legal to publish
-		When the user enters some text, a matching list of published results are displayed 
-		And the User may select one result
-		Then store it as depended on this result
+		When the User search for published Registrations
+		Then the User can store any result as a use-reference
 
 	@9140
 	Scenario: User adds zero or more related-references to resource published in NVA
 		Given User confirms to register data legal to publish
-		When they search for related-references among all published results
-		And the User may select one result
-		Then store it as associated to this result
+		When the User search for published Registrations
+		Then the User can store any result as a related-reference
+		# future scenario will allow use of external IRI, not only internal
 
 	@9140
 	Scenario: User adds zero or more comply-to-references to a DMP resource published in NVA
 		Given User confirms to register data legal to publish
-		When they search for published DMPs
-		Then they can store any result as a comply-to-reference
+		When the User search for published DMPs
+		Then the User can store any result as a comply-to-reference
 
 	@9142
 	Scenario: User sees their own published resources in NVA as default matching list
