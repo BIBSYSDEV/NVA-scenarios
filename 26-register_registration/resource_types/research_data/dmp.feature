@@ -17,7 +17,7 @@ Feature: Data Management Plan (DMP)
 
 	Scenario: User sees a prefilled Publisher field
 		When the User sees the Publisher field
-		Then the coresponding institution is prefilled
+		Then the corresponding institution is prefilled
 
 	Scenario: User changes the prefilled Publisher
 		When the User search for a Publisher in the Publisher field
