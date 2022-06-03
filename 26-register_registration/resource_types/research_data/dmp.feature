@@ -21,7 +21,7 @@ Feature: Data Management Plan (DMP)
 
 	Scenario: User changes the prefilled Publisher
 		When the User search for a Publisher in the Publisher field
-		Then the User may select an other Publisher 
+		Then the User may replace the prefilled Publisher with a Publisher from the search result
 
 	Scenario: User adds zero or more related-references to resource published in NVA
 		When the User search for published Registrations in NVA
