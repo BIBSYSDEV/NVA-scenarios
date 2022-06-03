@@ -78,7 +78,7 @@ Feature: Dataset
 		And all required fields are filled
 		When the User click the Publish button
 		Then the User is warned about the implications if sensitive data is published
-		And if the User is in doubt, contact user support
+		And the User has an option to contact user support
 
 	@9146
 	Scenario: Use see Landing Page for Dataset
