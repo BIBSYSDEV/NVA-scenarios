@@ -7,6 +7,7 @@ Feature: Creator selects Resource type Chapter
         When they select the Resource type "Chapter"
         Then they see a list of subtypes:
             | Chapter in Anthology |
+            | Chapter in Report    |
             | Conference abstract  |
 
     @TEST_NP-4048
@@ -23,7 +24,8 @@ Feature: Creator selects Resource type Chapter
         Examples:
             | ChapterType          | ContainerField                                |
             | Chapter of Anthology | Search box for published Anthologies          |
-            | Conference abstract  | Search box for published Abstract collections |
+            | Chapter in Report    | Search box for published Reports              |
+            | Conference abstract  | Search box for published Abstract Collections |
 
     @TEST_NP-4051
     @395
