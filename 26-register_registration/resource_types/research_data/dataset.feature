@@ -19,7 +19,7 @@ Feature: Dataset
 
 	@9141
 	Scenario: User confirms to register data legal to publish
-		Given User sees information about data that is illegal to publish on this service
+		Given User sees information about types data that are illegal to publish on this service
 		When the User confirms that the data intended to be published is legal 
 		Then the dialog is closed 
 	
