@@ -25,7 +25,7 @@ Feature: Dataset
 	
 	@9141
 	Scenario: User confirms to register data illegal to publish
-		Given User sees information about data that is illegal to publish in this service
+		Given User sees information about types of data that are illegal to publish in this service
 		When the User confirms that the data intended to be published is illegal 
 		Then the User is prohibited to publish the Registration
 		And any registered data is stored as a draft
