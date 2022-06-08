@@ -5,10 +5,8 @@ Feature: Creator selects Resource type Book
         Given Creator navigates to Resource Type tab
         When they select the Resource type "Book"
         Then they see a list of subtypes:
-            | Anthology           |
-            | Monograph           |
-            | Abstract collection |
-            | Exhibition catalog  |
+            | Anthology |
+            | Monograph |
 
     @TEST_NP-4045
     @392
@@ -20,11 +18,9 @@ Feature: Creator selects Resource type Book
             | ISBN                  |
             | Total number of pages |
         Examples:
-            | BookType            |
-            | Anthology           |
-            | Monograph           |
-            | Abstract collection |
-            | Exhibition catalog  |
+            | BookType  |
+            | Anthology |
+            | Monograph |
 
     @TEST_NP-4043
     @2229
@@ -35,11 +31,9 @@ Feature: Creator selects Resource type Book
         Then they can see "Mandatory" error messages for fields:
             | Publisher |
         Examples:
-            | BookType            |
-            | Anthology           |
-            | Monograph           |
-            | Abstract collection |
-            | Exhibition catalog  |
+            | BookType  |
+            | Anthology |
+            | Monograph |
 
     @TEST_NP-4044
     @test
