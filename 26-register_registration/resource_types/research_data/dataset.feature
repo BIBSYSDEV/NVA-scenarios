@@ -13,7 +13,7 @@ Feature: Dataset
 		And they select Dataset as subtype
 
 	@9141
-	Scenario: User sees information about data that is illegal to publish on this service
+	Scenario: User sees information about types of data that are illegal to publish on this service
 		When the User has selected to register a Dataset
 		Then the User sees information about data that is illegal to publish on this service
 
