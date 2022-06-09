@@ -10,3 +10,4 @@ Feature: Non-customer views My Profile
         Then they see that they have no roles
         And they see an information text explaining why they have no roles
         And they see their Institutions names under Affiliations
+        And they see their Feide Host ID
