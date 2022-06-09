@@ -32,7 +32,6 @@ Feature: User logs in
     Then they can connect to their ORCID profile
 
   @TEST_NP-4229
-  @28
   Scenario: A user is already authenticated with Feide (single sign on)
     Given that the user is already authenticated with Feide
     When they navigate to the Start page
@@ -44,7 +43,6 @@ Feature: User logs in
 
   @TEST_NP-4233
   @test
-  @353
   Scenario: A user logs out
     Given that the user is logged in
     When they click on the Menu
