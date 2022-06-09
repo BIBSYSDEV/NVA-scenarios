@@ -1,0 +1,19 @@
+The Administrator is the main custodian of the technical aspects of the Institutional repository. The Editor is their business counterpart.
+An Institution must have both roles assigned to be operational.
+
+Any administrator is the Administrator
+The Administrator may grant the Administrator role to other Registrators, at the same Institution. There is no built-in support for sharing responsibility between Administrator.
+
+Manage persons
+Persons exists and may be granted a role in the institutional repository. There is three possible ways the institutional repository may know about a person:
+i) the person and the employments are imported (from the institutions human-relation system)
+ii) the person logs into the institutional repository with Feide or ID-Porten
+iii) the person logs into the institutional repository with ORCID (future)
+See administrator_manage_persons_employments_roles.feature
+
+Manage employments
+Persons needs to be employed at the institution to be granted the Registrator role, that give access to register and publish new content in the institution’s repository. The Registrator role is a prerequisite to be granted any other roles, like curator, editor, or administrator.
+See administrator_manage_persons_employments_roles.feature
+
+API key (future)
+Integrations through API may need a “key” og “token” to get access. The Administrator can create keys allowing write access to relevant topics.
