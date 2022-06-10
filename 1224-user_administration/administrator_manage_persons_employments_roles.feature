@@ -134,9 +134,16 @@ Feature: Administrator manage Persons, employments, and roles
 		And each got a count of occurrences of the actual roles in the personal register
 		And all is prechecked, except the "Expired access"
 
-	Scenario: Administrator filters the list of Persons
-		When the Administrator changes the filter options
-		Then the personal register list is displayed accordingly
+	Scenario Outline: Administrator filters the list of Persons
+		When the Administrator changes the filter options to <Option>
+		Then the personal register list is displayed a list of <Option>
+	Examples:
+	  | Option         |
+  	  | Registrator    |
+	  | Curator        |
+	  | Editor         |
+	  | Administrator  |
+	  | Expired access |
 
 	Scenario: Administrator wish to invite an unknown Person to the Institutional personal register
 		Given the new Person is not employed at any Institutions
