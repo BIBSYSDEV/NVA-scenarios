@@ -46,6 +46,7 @@ Feature: Administrator manage Persons, employments, and roles
 		And each Persons employments sub-unit-affiliation at current institution is displayed
 		And Persons with more than one employment at current institution has an "show more"-option
 		And each Person has an option to edit
+		And there is a search option to locate some persons
 		And the menu has an option to filter the list
 		And the menu has an option to employ a new Person
 		And the column titles can be used to sort the list
@@ -122,6 +123,11 @@ Feature: Administrator manage Persons, employments, and roles
 		And the save option is activated
 		When the Administrator uses the save options
 		Then all changes are stored
+
+	Scenario: Administrator uses search to locate person
+		Given Default start screen on Basic data
+		When the Administrator fills inn the search field 
+		Then the list is updated accordingly regarding person name
 
 	Scenario: Administrator opens the option to filter the list of Persons
 		When the Administrator open the filter option
