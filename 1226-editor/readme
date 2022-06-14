@@ -2,10 +2,10 @@ The Editor is the main custodian of the business aspects of the Institutional re
 An Institution must have both roles assigned to be operational.
 
 Any editor is the Editor
-The Editor may grant the Editor role to other Users, at the same Institution. There is no built-in support for sharing responsibibility between Editors. The Editors decide how many Curators the Institution needs.
+The Editor may grant the Editor role to other Registrators, at the same Institution. There is no built-in support for sharing responsibibility between Editors. The Editors decide how many Curators the Institution needs.
 
 Editor is the teamlead of the Curators
-A Curator's default responsibility is all Users at the Institution, but the Editor may narrow it to any formal part of the Institusion and thus reduce the group of Users this Curator is responsible for. Any unresolved conflicts or requests from own Users, or conflicts involving Users from other Institutions, might be an Editor's task. It is advised that the Editor User is also assigned the Curator role.
+A Curator's default responsibility is all Registrators at the Institution, but the Editor may narrow it to any formal part of the Institusion and thus reduce the group of Registrators this Curator is responsible for. Any unresolved conflicts or requests from own Registrators, or conflicts involving Registrators from other Institutions, might be an Editor's task. It is advised that the Editor is also assigned the Curator role.
 
 How many Editors and Curators?
 Smaller Institutions may deem one User to be both the Editor and the Curator. A larger institution may need a handful of Curators. A large Institution may deem it necessary to define each second-to-top level Curator an Editor and each Editor may have several Curators. Some reasearch teams may create enoungh work to need their own Curators.
