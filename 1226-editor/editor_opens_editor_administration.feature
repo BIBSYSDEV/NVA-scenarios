@@ -24,12 +24,13 @@ Feature: Editor opens Editor Administration
             | Institutions configuration |
             | Vocabulary settings        |
             | Publishing strategi        |
-    #        | DOI configurasjon          |
-    #        | Sletting av publikasjoner  |
-    #        | NVI-rapportering           |
+    #        | DOI configurasjon            |
+    #        | curator's responsibility     |
+    #        | change owner of registration | 
+    #        | Sletting av publikasjoner    |
+    #        | NVI-rapportering             |
+    #        | Lisenser og filer            |
         And "Institutions configuration" is the active choice
-
-Kall inn til møte med ref.gr. i neste veke
 
     @TEST_NP-4156
     @2445
