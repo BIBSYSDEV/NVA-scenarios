@@ -350,7 +350,6 @@ Feature: MVP features for NVA
     Then they see a menu containing
       | My Profile          |
       | User administration |
-      | My Institution      |
       | Log Out             |
 
   @349
