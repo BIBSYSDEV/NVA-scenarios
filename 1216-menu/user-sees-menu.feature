@@ -29,12 +29,11 @@ Feature: User sees menu
         And they have the "Creator" role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            | My Registrations |
-            | My user profile  |
-            | Log out          |
+            # | My Registrations |
+            | My user profile |
+            | Log out         |
         And they see Menu items:
-            | New Registration |
-            | Messages         |
+            | My page |
         And they see the Language selector
 
     @TEST_NP-4099
@@ -49,7 +48,7 @@ Feature: User sees menu
             | Log out         |
         And they see Menu items:
             | Worklist |
-            | Messages |
+            | My page  |
         And they see the Language selector
 
     @TEST_NP-4101
@@ -59,11 +58,11 @@ Feature: User sees menu
         And they have the "Institution-admin" role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            | Users           |
             | My user profile |
             | Log out         |
         And they see Menu items:
             | Basic data |
+            | My page    |
         And they see the Language selector
 
     @TEST_NP-4105
@@ -88,4 +87,5 @@ Feature: User sees menu
             | Log out         |
         And they see Menu items:
             | Basic data |
+            | My page    |
         And they see the Language selector
