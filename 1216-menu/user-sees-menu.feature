@@ -29,7 +29,6 @@ Feature: User sees menu
         And they have the "Creator" role
         When they look at any page in NVA
         Then they see a Dropdown Menu with items:
-            # | My Registrations |
             | My user profile |
             | Log out         |
         And they see Menu items:
