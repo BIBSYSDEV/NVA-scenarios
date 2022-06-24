@@ -32,7 +32,8 @@ Feature: User sees menu
             | My user profile |
             | Log out         |
         And they see Menu items:
-            | My page |
+            | New Registration |
+            | My page          |
         And they see the Language selector
 
     @TEST_NP-4099
