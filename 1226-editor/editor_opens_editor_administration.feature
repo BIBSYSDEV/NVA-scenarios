@@ -2,7 +2,7 @@ Feature: Editor opens Editor Administration
 
     In order to inform about the institution's configurations
     As an Editor
-    I want to see institution names, codes, and institutional author 
+    I want to see institution names, codes, and institutional author
 
     Background:
         Given a logged in Editor
@@ -25,23 +25,8 @@ Feature: Editor opens Editor Administration
             | Publishing strategi        |
     #        | DOI configurasjon            |
     #        | curator's responsibility     |
-    #        | change owner of registration | 
+    #        | change owner of registration |
     #        | Sletting av publikasjoner    |
     #        | NVI-rapportering             |
     #        | Lisenser og filer            |
         And "Institution's configuration" is the active choice
-
-    @TEST_NP-4156
-    @2445
-    Scenario Outline: Editor sees fields for Vocabulary settings
-        Given Editor opens Editor Administration
-        And they see Vocabulary settings
-        Then they can set "<Vocabulary>" to be one of:
-            | Disabled |
-            | Allowed  |
-            | Default  |
-        And they see a Save Button
-        Examples:
-            | Vocabulary    |
-            | HRCS Activity |
-            | HRCS Category |
