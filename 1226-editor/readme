@@ -1,4 +1,4 @@
-The Editor is the main custodian of the business aspects of the Institutional repository. The Administrator is their technical counterpart. 
+The Editor is the main custodian of the business aspects of the Institutional repository. The Administrator is their technical counterpart.
 An Institution must have both roles assigned to be operational.
 
 Any editor is the Editor
@@ -12,17 +12,17 @@ Smaller Institutions may deem one User to be both the Editor and the Curator. A 
 
 The Editor's main menu has following options and the first is the default choice:
     Institutions configuration     -> editor_opens_editor_administration.feature
-    Vocabulary settings            -> editor_opens_editor_administration.feature
+    Vocabulary settings            -> vocabulary_settings.feature
     Publishing strategi            -> publishings_rights.feature
-   #DOI configurasjon              -> 
-   #curator's responsibility       -> 
-   #change owner of registration   -> editor_seize_ownership_resource.feature 
-   #Sletting av publikasjoner      -> 
+   #DOI configurasjon              ->
+   #curator's responsibility       ->
+   #change owner of registration   -> seize_ownership.feature
+   #Sletting av publikasjoner      ->
    #NVI-rapportering               -> nvi_report.featrure
-   #Lisenser og filer              -> 
+   #Lisenser og filer              ->
 
 Institutions configuration
-This is the starting point for Editor's menu. It lists the institutions registered official names in different languages, it's short name, author identity and a possible Feide domain. This is read-only information about how the institution is configured. 
+This is the starting point for Editor's menu. It lists the institutions registered official names in different languages, it's short name, author identity and a possible Feide domain. This is read-only information about how the institution is configured.
 The Editor may choose any other options from the menu, as listed above.
 
 Use of Vocabularies
