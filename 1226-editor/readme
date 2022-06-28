@@ -14,7 +14,7 @@ The Editor's main menu has following options and the first is the default choice
     Institutions configuration     -> editor_opens_editor_administration.feature
     Vocabulary settings            -> vocabulary_settings.feature
     Publishing strategi            -> publishings_rights.feature
-   #DOI configurasjon              ->
+    DOI configurasjon              -> doi_configuration.feature
    #curator's responsibility       ->
    #change owner of registration   -> seize_ownership.feature
    #Sletting av publikasjoner      ->
