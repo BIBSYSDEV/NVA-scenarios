@@ -18,7 +18,7 @@ The Editor's main menu has following options and the first is the default choice
    #curator's responsibility       ->
    #change owner of registration   -> seize_ownership.feature
    #Sletting av publikasjoner      ->
-   #NVI-rapportering               -> nvi_report.featrure
+    NVI-rapportering               -> nvi_report.featrure
    #Lisenser og filer              ->
 
 Institutions configuration

@@ -23,10 +23,10 @@ Feature: Editor opens Editor Administration
             | Institutions configuration |
             | Vocabulary settings        |
             | Publishing strategi        |
-    #        | DOI configurasjon            |
+            | DOI configurasjon            |
     #        | curator's responsibility     |
     #        | change owner of registration |
     #        | Sletting av publikasjoner    |
-    #        | NVI-rapportering             |
+            | NVI-rapportering             |
     #        | Lisenser og filer            |
         And "Institution's configuration" is the active choice
