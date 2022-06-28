@@ -24,7 +24,7 @@ Feature: Editor opens Editor Administration
             | Vocabulary settings        |
             | Publishing strategi        |
             | DOI configurasjon            |
-    #        | curator's responsibility     |
+            | Curator's responsibility     |
     #        | change owner of registration |
     #        | Sletting av publikasjoner    |
             | NVI-rapportering             |

@@ -15,7 +15,7 @@ The Editor's main menu has following options and the first is the default choice
     Vocabulary settings            -> vocabulary_settings.feature
     Publishing strategi            -> publishings_rights.feature
     DOI configurasjon              -> doi_configuration.feature
-   #curator's responsibility       ->
+    curator's responsibility       -> curators_responsibility.feature
    #change owner of registration   -> seize_ownership.feature
    #Sletting av publikasjoner      ->
     NVI-rapportering               -> nvi_report.featrure
