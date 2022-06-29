@@ -30,16 +30,16 @@ Feature: Editor manages curators area of responsibility
         Then the list item is highlighted
         And the ORCID is displayed (if present)
         And the Curator's different "area of responsibility" can be deleted
-        And the add-"area of responsibility" option is made larger to simplify use
+        And the add "area of responsibility" option is made larger to simplify use
 
     @needJiraTag
-    Scenario: Editor delete an Curators area of responsibility
+    Scenario: Editor delete an Curator's area of responsibility
         Given Editor activates a Curator in the list
-        When the Editor uses the option to delete an Curators area of responsibility
+        When the Editor uses the option to delete an Curator's area of responsibility
         Then the deleted area of responsibility is removed
 
     @needJiraTag
-    Scenario: Editor add a area of responsibility to an Curator
-       When the Editor uses the option to add too an Curators area of responsibility
+    Scenario: Editor adds an area of responsibility to a Curator
+       When the Editor selects the option to add an area of responsibility for a Curator
        Then the Editor may select one or more sub-units of own Institution
        And the selected sub-units is added to the Curators area of responsibility
