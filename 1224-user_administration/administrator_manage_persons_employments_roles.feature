@@ -1,4 +1,4 @@
-Feature: Administrator manage Persons, employments, and roles 
+Feature: Administrator manage Persons, employments, and roles
 
 	In order to know about the existence of a Person
 	As an Administrator
@@ -11,12 +11,12 @@ Feature: Administrator manage Persons, employments, and roles
 	In order to connect a Person to my Institution
 	As an Administrator
 	I want the Persons employment to be imported
-	
+
 	In order to connect a Person to my Institution
 	As an Administrator
 	I want to add an employment of a Person
 
-	In order to manage access 
+	In order to manage access
 	As an Administrator
 	I want to have a start-date and possibly a end-date on all employments
 
@@ -33,13 +33,13 @@ Feature: Administrator manage Persons, employments, and roles
 	I want to add the roles Curator, Editor and Administrator to Persons
 
 	Background:
-		Given an Administrator is logged in 
+		Given an Administrator is logged in
 
 	Scenario: Default start screen on Basic data
-		When an Administrator enters the Basic data menu 
+		When an Administrator enters the Basic data menu
 		Then the Administrator see a list of Persons employed at his institution
 		And each Person’s internal identifier, name, and external identifier is displayed
-		And the external identifier is a Person Number 
+		And the external identifier is a Person Number
 		# (future) or an - in case of only an ORCID
 		And the Person Number is displayed as date of birth followed by 5 stars (*)
 		And each Person’s name is followed by the ORCID-logo if an ORCID is connected
@@ -59,10 +59,10 @@ Feature: Administrator manage Persons, employments, and roles
 		# one Person in current database has 14 employments
 
 	Scenario: Administrator edit a Person at his institution
-		When the Administrator uses the edit option on a Person 
+		When the Administrator uses the edit option on a Person
 		Then Create or edit a Person and his emplyment and roles
 
-	Scenario: Administrator adds a new employment to a Person 
+	Scenario: Administrator adds a new employment to a Person
 		Given the new Person is known by the personal register
 		And is not employed at current Institution
 		When the Administrator look up or search and selects the Person
@@ -112,7 +112,7 @@ Feature: Administrator manage Persons, employments, and roles
 
 	Scenario: Administrator close the edit Person dialog
 		Given Administrator edit a Person at his institution
-		And the Administrator has added or changed information in the dialog 
+		And the Administrator has added or changed information in the dialog
 		When the Administrator uses one of the close options
 		Then a dialog informing about loss of data is displayed
 		And the Administrator can choose to close or abort the close action
@@ -126,7 +126,7 @@ Feature: Administrator manage Persons, employments, and roles
 
 	Scenario: Administrator uses search to locate person
 		Given Default start screen on Basic data
-		When the Administrator fills inn the search field 
+		When the Administrator fills inn the search field
 		Then the list is updated accordingly regarding person name
 
 	Scenario: Administrator opens the option to filter the list of Persons
