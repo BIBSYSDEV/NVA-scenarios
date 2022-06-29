@@ -29,7 +29,7 @@ Feature: Editor manages curators area of responsibility
         When the Editor moves mouse over a Curator in the list
         Then the list item is highlighted
         And the ORCID is displayed (if present)
-        And the curators different "area of responsibility" can be deleted
+        And the Curator's different "area of responsibility" can be deleted
         And the add-"area of responsibility" option is made larger to simplify use
 
     @needJiraTag
