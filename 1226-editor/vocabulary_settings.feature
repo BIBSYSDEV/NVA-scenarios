@@ -6,7 +6,7 @@ Feature: Editor decide on institutions Vocabulary settings
 
     In order to enable Registrators to use vocabulary
     As an Editor
-    I want to activate or hide supported Vocabularys
+    I want to activate or hide supported Vocabularies
 
     Background:
         Given a logged in Editor
