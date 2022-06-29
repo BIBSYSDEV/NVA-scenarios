@@ -9,7 +9,7 @@ Feature: Editor sees DOI configuration
 
     @needJiraTag
     Scenario: Editor opens institutions DOI configuration
-        Given the Institusion don't have an DOI configuration
+        Given the Institution don't have an DOI configuration
         When the Editor opens the institution's DOI configuration menu item
         Then the Editor sees a link to Sikt to order DOI service
         And some other text informing about the DOI service
