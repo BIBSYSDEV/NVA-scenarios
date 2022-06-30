@@ -26,20 +26,43 @@ Feature: Editor manages curators area of responsibility
     @needJiraTag
     Scenario: Editor activates a Curator in the list
         Given Editor views curators and area of responsibility
-        When the Editor moves mouse over a Curator in the list
+        When the Editor moves (the mouse) over a Curator in the list
         Then the list item is highlighted
-        And the ORCID is displayed (if present)
-        And the curators different "area of responsibility" can be deleted
         And the add-"area of responsibility" option is made larger to simplify use
 
     @needJiraTag
-    Scenario: Editor delete an Curators area of responsibility
-        Given Editor activates a Curator in the list
-        When the Editor uses the option to delete an Curators area of responsibility
-        Then the deleted area of responsibility is removed
+    Scenario: Editor moves over a ORCID icon
+        When the Editor moves (the mouse) over a ORCID icon
+        Then the 16 digit ORCID ID is viewed (formated as "0000-0000-0000-0000")
+        And the viwed ID must be possible to copy
 
     @needJiraTag
-    Scenario: Editor add a area of responsibility to an Curator
-       When the Editor uses the option to add too an Curators area of responsibility
-       Then the Editor may select one or more sub-units of own Institution
-       And the selected sub-units is added to the Curators area of responsibility
+    Scenario: Editor moves over a "See more"-option in the list
+        Given Editor views curators and area of responsibility
+        When the Editor moves (the mouse) over a "See more"-option in the liste
+        Then the Curators entire list of area of responsibility is displayed
+
+    @needJiraTag
+    Scenario: Editor edit an Curators area of responsibility
+        Given Editor activates a Curator in the list
+        When the Editor uses the option to edit an Curators area of responsibility
+        Then the Institution's sub-units is displayed
+        And any current area of responsibility is selected
+
+    @needJiraTag
+    Scenario: Editor aborts the edit of an Curators area of responsibility
+        Given Editor edit an Curators area of responsibility
+        When the Editor aborts or closes the displayed sub-units
+        Then no changes is done to Curators area of responsibility
+
+    @needJiraTag
+    Scenario: Editor persist changes to a Curators area of responsibility
+        Given Editor edit an Curators area of responsibility
+        When the Editor persist any changes to an Curators area of responsibility
+        Then the changed sub-units is persisted to the Curators area of responsibility
+
+    @needJiraTag
+    Scenario: Editor have persisted a change to a Curators area of responsibility
+        Given Editor persist changes to a Curators area of responsibility
+        When the Editor have persisted any change to an Curators area of responsibility
+        Then the changed Curator is highlighted in the list
