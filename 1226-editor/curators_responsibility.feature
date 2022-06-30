@@ -28,10 +28,11 @@ Feature: Editor manages curators area of responsibility
         Then the list item is highlighted
         And the add-"area of responsibility" option is made larger to simplify use
 
-    Scenario: Editor moves over a ORCID icon
-        When the Editor moves (the mouse) over a ORCID icon
-        Then the 16 digit ORCID ID is viewed (formated as "0000-0000-0000-0000")
-        And the viwed ID must be possible to copy
+    Scenario: Editor hovers over an ORCID icon
+        Given Editor views curators and area of responsibility
+        When the Editor hovers over an ORCID icon
+        Then the 16 digit ORCID ID is viewed (formatted as "0000-0000-0000-0000")
+        And the viewed ID must be possible to copy
 
     Scenario: Editor moves over a "See more"-option in the list
         Given Editor views curators and area of responsibility
