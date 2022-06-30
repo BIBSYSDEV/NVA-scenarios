@@ -24,7 +24,7 @@ Feature: Editor manages curators area of responsibility
 
     Scenario: Editor activates a Curator in the list
         Given Editor views curators and area of responsibility
-        When the Editor moves (the mouse) over a Curator in the list
+        When the Editor hovers over a Curator in the list
         Then the list item is highlighted
         And the add-"area of responsibility" option is made larger to simplify use
 
