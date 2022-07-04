@@ -28,7 +28,7 @@ Feature: Data Management Plan (DMP)
 		Then the User can store any search result as a related-reference
 		# future scenario will allow use of external IRI, not only internal
 
-    Scenario: User removes an related-references to resource
-        Given User adds zero or more related-references to resource published in NVA
-        When the User removes a related-reference resource 
-        Then the related-reference is removed 
+  Scenario: User removes an related-references to resource
+    Given User adds zero or more related-references to resource published in NVA
+    When the User removes a related-reference resource
+    Then the related-reference is removed 
