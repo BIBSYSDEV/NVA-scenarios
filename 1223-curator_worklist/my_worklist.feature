@@ -1,33 +1,27 @@
 Feature: Curator opens My Worklist
 
-  "@needJiraTag" is used in several files to enable me to locate all new scenarios that is'nt in jira.
-  "@updated" is used where I have changed a scenario, that exists in jira - but not updated it there yet.
-  #If a scenario is deleted, but still exists in Jira - it's noted as a comment
-
-  Vocabulary clearification:
-  - A named role is preferred over "they"
-  - Resource is preferred over Registration
-
   Rules:
-  - An Editor grant a User the Curator role at an Institution, to serve all users at the Institution
-  - A Editor may define a Curators Scope to serve one or more subunits at the Institution
-  - A Curator may at will change his current Scope, but not his defined Scope
+  - The Curator role serve all users at the Institution
+  - A Editor may define a Curators responsibility to one or more subunits at the Institution
+  - A Curator sees defualt all Requests that is part of his Editor defined area of responsibility
+  - A Curator may at will change his current area of responsibility, to assist other Curators
 
-  - A User belongs at an Institution (defiend by the active IDP)
-  - A User may be Affilliated to a subunit at his Institution (defined in his profile)
-  - A User creates Resources (thus becomes it's Owner)
+  - A Registrar belongs at an Institution (defiend by the active IDP or by selection)
+  - A Registrar may be Affilliated to a subunit at his Institution (defined by his employment)
+  - A Registrar creates Resources (thus becomes it's Owner)
 
   - A Resource has 0 or more Requests
 
   - A Request has a Submitter (the Owner or a Curator)
   - A Request has a date of creation
   - A Request is of a Type (Approval, Support, DOI or Ownership)
-  - A Request is assigned a Curator
+  - A Request is pending or assigned a Curator
   - A Request has a Status
   - A Request has a date of status change
-  - A Request have one or more Messages
+  - A Request have 0 or more Messages
 
   - A Message has a Submitter (the Owner or a Curator)
+  - A Request has a Receiver (the non-submitter)
   - A Message has a date of creation
 
   The Possible values of the Requests Status:
