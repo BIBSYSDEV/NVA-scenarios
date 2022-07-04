@@ -3,7 +3,7 @@ Feature: Curator opens My Worklist
   Rules:
   - The Curator role serve all users at the Institution
   - A Editor may define a Curators responsibility to one or more subunits at the Institution
-  - A Curator sees defualt all Requests that is part of his Editor defined area of responsibility
+  - A Curator sees default all Requests that is part of his Editor defined area of responsibility
   - A Curator may at will change his current area of responsibility, to assist other Curators
 
   - A Registrar belongs at an Institution (defiend by the active IDP or by selection)
