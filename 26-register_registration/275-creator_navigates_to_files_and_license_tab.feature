@@ -8,6 +8,7 @@ Feature: Creator navigates to Files and License tab
     When they navigate to the Files and License tab
     Then they see the File upload widget
     And they see an Input Field for Linked Resources
+    And they have the option to mark that the Resource has no File or Linked Resource
     And they see the tab Description is clickable
     And they see the tab Resource Type is clickable
     And they see the tab Contributors is clickable
@@ -23,16 +24,19 @@ Feature: Creator navigates to Files and License tab
     When they enter "<Link>" in the Linked Resource field
     And they click the Add Link Button
     Then the Link is listed under Linked Resources
-    And they see that the Title is "<Title>"
-    And they see that the Description is "<Description>"
-    And they see that the Image is "<Image>"
     And they see that the URL is "<URL>"
-    And they see that the Site Name is "<SiteName>"
     And they see a Button to remove the Link
     Examples:
-      | Link                                      | Title                                                  | Description                                                                                                                                                                     | Image                                                                                                                      | URL                                       | SiteName |
-      | https://github.com/BIBSYSDEV/NVA-Frontend | BIBSYSDEV/NVA-Frontend                                 | Web app for NVA. Contribute to BIBSYSDEV/NVA-Frontend development by creating an account on GitHub.                                                                             | https://opengraph.githubassets.com/9b8b6574086bddaac12ee7cbdde3aeea1bed7d3bbf93b5efe34ea14cb438fc5d/BIBSYSDEV/NVA-Frontend | https://github.com/BIBSYSDEV/NVA-Frontend | GitHub   |
-      | https://www.nrk.no/                       | NRK.no – nyheter, tv og radio fra Norge og hele verden | NRK.no er Norges største tilbud på nett: nyheter fra Norge og verden, lokalnyheter, radio- og tv-program, podcast, vær, helse-, kultur-, underholdning-, humor- og debattstoff. | https://gfx.nrk.no/MypkihdsBkCYb-cXvwW8BgLqqp7OO7Fkyj8B_mXoY4Ew                                                            | https://www.nrk.no/                       | NRK      |
+      | Link                                      |
+      | https://github.com/BIBSYSDEV/NVA-Frontend |
+      | https://www.nrk.no/                       |
+
+  Scenario: Creator marks that a Resource has no File or Linked Resource
+    Given Creator navigates to Files and License tab
+    When they wish to mark that a Resource have no File or Linked Resource
+    Then they see a warning message that the Resource will have no File or Linked Resource
+    And they see they can cancel marking the Resource
+    And they see they can confirm marking the Resource
 
   @TEST_NP-3997
   @2636
