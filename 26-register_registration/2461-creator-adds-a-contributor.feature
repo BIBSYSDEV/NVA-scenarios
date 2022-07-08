@@ -41,12 +41,12 @@ Feature: Creator adds a Contributor
             | Presentation      | Lecture                       | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Presentation      | OtherPresentation             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Artistic          | ArtisticDesign                | Designer, Curator/Organizer, Consultant, Other                                       |
-            | MediaContribution | MediaFeatureArticle           | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | MediaContribution | MediaReaderOpinion            | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | MediaContribution | MediaInterview                | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | MediaContribution | MediaBlogPost                 | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | MediaContribution | MediaPodcast                  | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
-            | MediaContribution | MediaParticipationInRadioOrTv | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
+            | MediaContribution | MediaFeatureArticle           | Other                                                                                |
+            | MediaContribution | MediaReaderOpinion            | Other                                                                                |
+            | MediaContribution | MediaInterview                | Journalist, Interviewee, Other                                                       |
+            | MediaContribution | MediaBlogPost                 | Other                                                                                |
+            | MediaContribution | MediaPodcast                  | Program host, Participant, Other                                                     |
+            | MediaContribution | MediaParticipationInRadioOrTv | Program host, Participant, Other                                                     |
 
     @TEST_NP-3995
     Scenario: Creator selects a Contributor Type
