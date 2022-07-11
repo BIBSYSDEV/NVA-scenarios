@@ -1,6 +1,5 @@
 Feature: Creator selects Resource type Artistic Result and subtype Film
 
-
   Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Film"
     Given Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
     When they select Resource Subtype "Film"
