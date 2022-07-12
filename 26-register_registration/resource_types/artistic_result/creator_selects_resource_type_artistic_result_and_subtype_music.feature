@@ -14,15 +14,23 @@ Feature: Creator selects Resource type Artistic Result and subtype Music
   Scenario: Creator adds a Concert to a Music result
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     When they add a Concert with details for:
-      | Place  |
-      | Date   |
-      | Extent |
-      | Works  |
+      | Part of a series/tour |
+      | Place                 |
+      | Date                  |
+      | Extent                |
+      | Works                 |
     And each Work has details for:
       | Title    |
       | Composer |
       | Premiere |
     Then the Concert is listed under Exhibitions
+
+  Scenario: Creator selects that a Concert is part of a series/tour
+    Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
+    When they select "Part of a series/tour"
+    Then they see field:
+      | Date from |
+      | Date end  |
 
   Scenario: Creator adds a Audio/visual publication to a Music result
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
@@ -47,7 +55,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Music
   Scenario: Creator adds a Music score to a Music result
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     When they add a Music score with details for:
-      | Score     |
+      | Ensemble  |
       | Movements |
       | Extent    |
       | Publisher |
