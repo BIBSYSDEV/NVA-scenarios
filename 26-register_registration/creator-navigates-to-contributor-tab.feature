@@ -21,40 +21,41 @@ Feature: Creator navigates to Contributors tab
     And the Registration has Registration Subtype "<RegistrationSubtype>"
     Then they see buttons "<AddContributorButtons>"
     Examples:
-      | RegistrationType | RegistrationSubtype       | AddContributorButtons                       |
-      | Book             | BookAnthology             | Add Editor, Add Contributor                 |
-      | Book             | BookMonograph             | Add Author, Add Contributor                 |
-      | Chapter          | ChapterArticle            | Add Author, Add Contributor                 |
-      | Chapter          | ChapterConferenceAbstract | Add Author, Add Contributor                 |
-      | Degree           | DegreeBachelor            | Add Author, Add Supervisor, Add Contributor |
-      | Degree           | DegreeMaster              | Add Author, Add Supervisor, Add Contributor |
-      | Degree           | DegreePhd                 | Add Author, Add Supervisor, Add Contributor |
-      | Degree           | DegreeLicentiate          | Add Author, Add Supervisor, Add Contributor |
-      | Degree           | OtherStudentWork          | Add Author, Add Supervisor, Add Contributor |
-      | Journal          | FeatureArticle            | Add Author, Add Contributor                 |
-      | Journal          | JournalArticle            | Add Author, Add Contributor                 |
-      | Journal          | JournalCorrigendum        | Add Author, Add Contributor                 |
-      | Journal          | JournalLeader             | Add Author, Add Contributor                 |
-      | Journal          | JournalLetter             | Add Author, Add Contributor                 |
-      | Journal          | JournalReview             | Add Author, Add Contributor                 |
-      | Journal          | JournalBooklet            | Add Author, Add Contributor                 |
-      | Journal          | JournalConferenceAbstract | Add Author, Add Contributor                 |
-      | Report           | ReportBasic               | Add Author, Add Contributor                 |
-      | Report           | ReportPolicy              | Add Author, Add Contributor                 |
-      | Report           | ReportResearch            | Add Author, Add Contributor                 |
-      | Report           | ReportAbstractCollection  | Add Author, Add Contributor                 |
-      | Report           | ReportWorkingPaper        | Add Author, Add Contributor                 |
-      | Presentation     | ConferenceLecture         | Add Author, Add Contributor                 |
-      | Presentation     | ConferencePoster          | Add Author, Add Contributor                 |
-      | Presentation     | Lecture                   | Add Author, Add Contributor                 |
-      | Presentation     | OtherPresentation         | Add Author, Add Contributor                 |
-      | Artistic         | ArtisticDesign            | Add Contributor                             |
-      | Artistic         | MovingPicture             | Add Contributor                             |
-      | Media            | Interview                 | Add Author, Add Contributor                 |
-      | Media            | Blog                      | Add Author, Add Contributor                 |
-      | Media            | Podcast                   | Add Contributor                             |
-      | Media            | ProgrammeManagement       | Add Contributor                             |
-      | Media            | ProgrammeParticipation    | Add Contributor                             |
+      | RegistrationType  | RegistrationSubtype           | AddContributorButtons                       |
+      | Book              | BookAnthology                 | Add Editor, Add Contributor                 |
+      | Book              | BookMonograph                 | Add Author, Add Contributor                 |
+      | Chapter           | ChapterArticle                | Add Author, Add Contributor                 |
+      | Chapter           | ChapterConferenceAbstract     | Add Author, Add Contributor                 |
+      | Degree            | DegreeBachelor                | Add Author, Add Supervisor, Add Contributor |
+      | Degree            | DegreeMaster                  | Add Author, Add Supervisor, Add Contributor |
+      | Degree            | DegreePhd                     | Add Author, Add Supervisor, Add Contributor |
+      | Degree            | DegreeLicentiate              | Add Author, Add Supervisor, Add Contributor |
+      | Degree            | OtherStudentWork              | Add Author, Add Supervisor, Add Contributor |
+      | Journal           | FeatureArticle                | Add Author, Add Contributor                 |
+      | Journal           | JournalArticle                | Add Author, Add Contributor                 |
+      | Journal           | JournalCorrigendum            | Add Author, Add Contributor                 |
+      | Journal           | JournalLeader                 | Add Author, Add Contributor                 |
+      | Journal           | JournalLetter                 | Add Author, Add Contributor                 |
+      | Journal           | JournalReview                 | Add Author, Add Contributor                 |
+      | Journal           | JournalBooklet                | Add Author, Add Contributor                 |
+      | Journal           | JournalConferenceAbstract     | Add Author, Add Contributor                 |
+      | Report            | ReportBasic                   | Add Author, Add Contributor                 |
+      | Report            | ReportPolicy                  | Add Author, Add Contributor                 |
+      | Report            | ReportResearch                | Add Author, Add Contributor                 |
+      | Report            | ReportAbstractCollection      | Add Author, Add Contributor                 |
+      | Report            | ReportWorkingPaper            | Add Author, Add Contributor                 |
+      | Presentation      | ConferenceLecture             | Add Author, Add Contributor                 |
+      | Presentation      | ConferencePoster              | Add Author, Add Contributor                 |
+      | Presentation      | Lecture                       | Add Author, Add Contributor                 |
+      | Presentation      | OtherPresentation             | Add Author, Add Contributor                 |
+      | Artistic          | ArtisticDesign                | Add Contributor                             |
+      | Artistic          | MovingPicture                 | Add Contributor                             |
+      | MediaContribution | MediaFeatureArticle           | Add Author, Add Contributor                 |
+      | MediaContribution | MediaReaderOpinion            | Add Author, Add Contributor                 |
+      | MediaContribution | MediaInterview                | Add Contributor                             |
+      | MediaContribution | MediaBlogPost                 | Add Author, Add Contributor                 |
+      | MediaContribution | MediaPodcast                  | Add Contributor                             |
+      | MediaContribution | MediaParticipationInRadioOrTv | Add Contributor                             |
 
   @TEST_NP-4005
   @test
