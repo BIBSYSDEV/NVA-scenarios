@@ -49,6 +49,7 @@ Feature: Creator navigates to Contributors tab
       | Presentation      | Lecture                       | Add Author, Add Contributor                 |
       | Presentation      | OtherPresentation             | Add Author, Add Contributor                 |
       | Artistic          | ArtisticDesign                | Add Contributor                             |
+      | Artistic          | PerformingArts                | Add Contributor                             |
       | Artistic          | MovingPicture                 | Add Contributor                             |
       | Artistic          | MusicPerformance              | Add Contributor                             |
       | MediaContribution | MediaFeatureArticle           | Add Author, Add Contributor                 |
