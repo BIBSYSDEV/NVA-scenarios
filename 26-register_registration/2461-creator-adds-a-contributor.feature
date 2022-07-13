@@ -41,6 +41,7 @@ Feature: Creator adds a Contributor
             | Presentation      | Lecture                       | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Presentation      | OtherPresentation             | Contact person, Editor, Related person, Researcher, Rights holder, Supervisor, Other |
             | Artistic          | ArtisticDesign                | Designer, Curator/Organizer, Consultant, Other                                       |
+            | Artistic          | MusicPerformance              | Soloist, Conductor, Musician, Composer, Organizer, Writer, Other                     |
             | MediaContribution | MediaFeatureArticle           | Other                                                                                |
             | MediaContribution | MediaReaderOpinion            | Other                                                                                |
             | MediaContribution | MediaInterview                | Journalist, Interviewee, Other                                                       |
