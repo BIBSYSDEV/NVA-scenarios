@@ -50,6 +50,7 @@ Feature: Creator navigates to Contributors tab
       | Presentation      | OtherPresentation             | Add Author, Add Contributor                 |
       | Artistic          | ArtisticDesign                | Add Contributor                             |
       | Artistic          | MovingPicture                 | Add Contributor                             |
+      | Artistic          | MusicPerformance              | Add Contributor                             |
       | MediaContribution | MediaFeatureArticle           | Add Author, Add Contributor                 |
       | MediaContribution | MediaReaderOpinion            | Add Author, Add Contributor                 |
       | MediaContribution | MediaInterview                | Add Contributor                             |
