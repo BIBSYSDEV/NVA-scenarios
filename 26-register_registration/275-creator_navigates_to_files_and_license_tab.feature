@@ -50,6 +50,7 @@ Feature: Creator navigates to Files and License tab
       | Link                       |
       | https://github.com/xxx/yyy |
 
+  @TEST_NP-13016
   Scenario: Creator adds a file
     Given Creator navigates to Files and License tab
     When they add a file to the File upload widget
