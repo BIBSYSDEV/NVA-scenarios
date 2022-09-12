@@ -51,12 +51,14 @@ Feature: Creator navigates to Files and License tab
       | https://github.com/xxx/yyy |
 
   @TEST_NP-13016
+  @test
   Scenario: Creator adds a file
     Given Creator navigates to Files and License tab
     When they add a file to the File upload widget
     Then they can see the file in the list of files
 
   @TEST_NP-12277
+  @test
   Scenario: Creator deletes a file
     Given Creator open a Registration with a file
     And navigates to Files and License tab
