@@ -49,3 +49,15 @@ Feature: Creator navigates to Files and License tab
     Examples:
       | Link                       |
       | https://github.com/xxx/yyy |
+
+  Scenario: Creator adds a file
+    Given Creator navigates to Files and License tab
+    When they add a file to the File upload widget
+    Then they can see the file in the list of files
+
+  @TEST_NP-12277
+  Scenario: Creator deletes a file
+    Given Creator open a Registration with a file
+    And navigates to Files and License tab
+    When they delete a file
+    Then they no longer see the file in the list of files
