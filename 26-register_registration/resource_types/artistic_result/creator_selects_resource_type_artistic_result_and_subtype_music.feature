@@ -1,5 +1,7 @@
 Feature: Creator selects Resource type Artistic Result and subtype Music
 
+  @TEST_NP-13241
+  @test
   Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     Given Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
     When they select Resource Subtype "Music"
@@ -11,6 +13,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Music
     And they can edit existing Exhibitions
     And they can delete existing Exhibitions
 
+  @TEST_NP-13242
+  @test
   Scenario: Creator adds a Concert to a Music result
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     When they add a Concert with details for:
@@ -25,6 +29,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Music
       | Premiere |
     Then the Concert is listed under Exhibitions
 
+  @TEST_NP-13243
+  @test
   Scenario: Creator selects that a Concert is part of a series/tour
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     When they select "Part of a series/tour"
@@ -32,6 +38,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Music
       | Date from |
       | Date end  |
 
+  @TEST_NP-13244
+  @test
   Scenario: Creator adds a Audio/visual publication to a Music result
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     When they add a Audio/visual publication with details for:
@@ -52,6 +60,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Music
       | Extent   |
     Then the Audio/visual publication is listed under Exhibitions
 
+  @TEST_NP-13245
+  @test
   Scenario: Creator adds a Music score to a Music result
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     When they add a Music score with details for:
@@ -63,6 +73,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Music
       | ISRC      |
     Then the Music score is listed under Exhibitions
 
+  @TEST_NP-13246
+  @test
   Scenario: Creator adds a Other performance to a Music result
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Music"
     When they add a Other performance with details for:

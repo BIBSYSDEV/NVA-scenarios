@@ -1,5 +1,7 @@
 Feature: Creator selects Resource type Artistic Result and subtype Performing arts
 
+  @TEST_NP-13248
+  @test
   Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Performing arts"
     Given Creator navigates to the Resource Type tab and selects Resource type "Artistic Result"
     When they select Resource Subtype "Performing arts"
@@ -18,6 +20,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Performing ar
     And they see that each Exhibition Place has an Edit Button
     And they see an Add Exhibition Place Button
 
+  @TEST_NP-13249
+  @test
   # Similar to Scenario for adding Exhibition Place to Artistic Design
   Scenario: Creator adds an Exhibition Place to Performing arts
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Performing arts"
