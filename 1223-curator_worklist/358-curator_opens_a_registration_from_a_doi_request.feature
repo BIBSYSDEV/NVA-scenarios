@@ -13,6 +13,7 @@ Feature: Curator opens a Registration from a DOI Request
         And the Decline DOI button is enabled
 
     @TEST_NP-4132
+    @test
     @512
     Scenario: A Curator approves a DOI request
         Given Curator opens a Registration from a DOI Request
@@ -22,6 +23,7 @@ Feature: Curator opens a Registration from a DOI Request
         And the Message is marked as Approved in their Worklist
 
     @TEST_NP-4126
+    @test
     @1244
     Scenario: Curator declines a DOI request
         Given Curator opens a Registration from a DOI Request

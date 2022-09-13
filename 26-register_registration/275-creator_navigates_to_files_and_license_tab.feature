@@ -57,10 +57,20 @@ Feature: Creator navigates to Files and License tab
     When they add a file to the File upload widget
     Then they can see the file in the list of files
 
+  @TEST_NP-13337
+  @test
+  Scenario: Creator sees information about file
+    Given Creator adds a file
+    When they see the file in the list of files
+    Then they can see information about:
+      | Version          |
+      | Publish date     |
+      | Terms of use     |
+
   @TEST_NP-12277
   @test
-  Scenario: Creator deletes a file
+  Scenario: Creator removes a file
     Given Creator open a Registration with a file
     And navigates to Files and License tab
-    When they delete a file
+    When they remove a file
     Then they no longer see the file in the list of files

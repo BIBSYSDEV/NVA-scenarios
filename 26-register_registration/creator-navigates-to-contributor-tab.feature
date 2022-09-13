@@ -15,6 +15,7 @@ Feature: Creator navigates to Contributors tab
     And they see Save is enabled
 
   @TEST_NP-4002
+  @test
   Scenario Outline: Creator see buttons to add Contributors
     Given Creator navigates to Contributors tab
     When the Registration has Registration Type "<RegistrationType>"
@@ -171,12 +172,14 @@ Feature: Creator navigates to Contributors tab
     And they see the "Create new Author" Button in the Create new Author Dialog
 
   @TEST_NP-4001
+  @test
   Scenario: Creator sees Button to Verify Contributor
     Given Creator navigates to Contributors tab
     When the Registration has an Unverified Contributor
     Then they see a Button to Verify the Contributor
 
   @TEST_NP-4008
+  @test
   Scenario: Creator opens Dialog to Verify Contributor
     Given Creator sees Button to Verify Contributor
     When they click the Button to Verify Contributor
@@ -186,6 +189,7 @@ Feature: Creator navigates to Contributors tab
 
   @TEST_NP-4009
   @2467
+  @test
   Scenario: Creator verifies Contributor
     Given Creator opens Dialog to Verify Contributor
     When they select a Person from the Search Results

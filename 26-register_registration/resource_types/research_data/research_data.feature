@@ -8,6 +8,7 @@ Feature: Research data
 		Given A User is logged in
 		And the User starts an new registration
 
+	@TEST_NP-13302
 	@9140
 	Scenario: User selects a subtype of Resource type "Research Data"
     When the User navigates to the Resource Type tab in the registration wizard
