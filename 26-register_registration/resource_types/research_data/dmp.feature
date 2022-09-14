@@ -32,7 +32,7 @@ Feature: Data Management Plan (DMP)
 		# future scenario will allow use of external IRI, not only internal
 
 	@TEST_NP-13298
-	Scenario: User removes an related-references to resource
+	Scenario: User removes a related-references to resource
 		Given User adds zero or more related-references to resource published in NVA
 		When the User removes a related-reference resource
 		Then the related-reference is removed
