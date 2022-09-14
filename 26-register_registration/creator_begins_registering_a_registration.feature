@@ -59,6 +59,7 @@ Feature: Creator begins registering a Registration
       | schema.org                                         | https://e24.no/boers-og-finans/i/AdyrPM/syv-av-tangens-11-referanser-deltok-paa-luksusseminaret |
 
   @TEST_NP-4015
+  @test
   @3393
   Scenario: Creator begins registration with an empty Registration
     Given Creator begins registering a Registration

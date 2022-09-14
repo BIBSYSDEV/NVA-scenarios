@@ -8,6 +8,7 @@ Feature: Editor decides who gets publishing rights
 		Given an Institution with one or more Editor roles
 
 	@TEST_NP-4159
+	@test
 	@needJiraTag
 	# - this scenario might be a duplicate to @1424
 	Scenario: The logged-in User is a Registrator
@@ -18,6 +19,7 @@ Feature: Editor decides who gets publishing rights
 		Then the User is a Registrator
 
 	@TEST_NP-4157
+	@test
 	@3196
 	Scenario: Default publishing rights
 		When the Editor of an Institution hasn’t chosen a policy
@@ -25,6 +27,7 @@ Feature: Editor decides who gets publishing rights
 			| Registrator has full publishing rights |
 
 	@TEST_NP-4158
+	@test
 	@3197
 	Scenario: Editor defines publishing rights
 		Given a Editor views the Editor page

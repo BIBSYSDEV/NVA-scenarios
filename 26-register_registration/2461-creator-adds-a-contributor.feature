@@ -1,6 +1,7 @@
 Feature: Creator adds a Contributor
 
     @TEST_NP-3992
+    @test
     Scenario Outline: Creator opens the Add Contributor Dialog
         Given Creator navigates to Contributors tab
         And the Registration has Registration Type "<RegistrationType>"
@@ -53,12 +54,14 @@ Feature: Creator adds a Contributor
             | MediaContribution | MediaParticipationInRadioOrTv | Program host, Participant, Other                                                                                                                                              |
 
     @TEST_NP-3995
+    @test
     Scenario: Creator selects a Contributor Type
         Given Creator opens the Add Contributor Dialog
         When they select a Contributor Type
         Then they see a search field
 
     @TEST_NP-3996
+    @test
     Scenario: Creator searches for a Contributor
         Given Creator selects a Contributor Type
         When they enter a search term
@@ -68,12 +71,14 @@ Feature: Creator adds a Contributor
         And they see the Primary Institution for the Contributors
 
     @TEST_NP-3991
+    @test
     Scenario: Creator selects a Contributor from search
         Given Creator searches for a Contributor
         When they click on a Contributor from the search result
         Then they see the "Add" Button is enabled
 
     @TEST_NP-3994
+    @test
     Scenario: Creator adds a Contributor to the List of Contributors
         Given Creator selects a Contributor from search
         When they click the "Add" Button

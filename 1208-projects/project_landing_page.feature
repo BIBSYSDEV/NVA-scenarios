@@ -27,6 +27,7 @@ Feature: Project Landing Page
     Jan Erik 14. sep.
 
     @TEST_NP-4083
+    @test
     @2630
     Scenario: User opens Landing Page for Project
         When A Anonymous User opens a Project's Landing Page

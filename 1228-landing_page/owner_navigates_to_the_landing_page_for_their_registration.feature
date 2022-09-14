@@ -15,6 +15,7 @@ Feature: Owner navigates to the Landing Page for their Resource
     @implemented
     @TEST_NP-4169
     @TESTSET_NP-4235
+    @test
     Scenario: Owner wants to publish Resource
         When the Owner previews the Resource's Landing Page
         And the Registraion has "Draft" Status

@@ -84,6 +84,7 @@ Feature: Creator navigates to Description tab
     Then they can see an input field for the Default Vocabulary
 
   @TEST_NP-4022
+  @test
   Scenario: Creator opens Dialog for creating a new Project
     Given Creator begins Wizard registration and navigates to Description tab
     When they click Button for creating a new Project
@@ -97,6 +98,7 @@ Feature: Creator navigates to Description tab
     And they see a Save Button
 
   @TEST_NP-4023
+  @test
   @2556
   Scenario: Creator creates a new Project
     Given Creator opens Dialog for creating a new Project

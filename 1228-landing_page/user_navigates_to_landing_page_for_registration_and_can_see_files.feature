@@ -18,6 +18,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
     # they belong on the "Anonymous User views Landing Page for Registration" feature
 
     @TEST_NP-4180
+    @test
     @1530
     Scenario: Files that are Administrative Agreements are hidden
         Given Anonymous User views Landing Page for Registration
@@ -26,6 +27,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
         Then they do not see the File that is an Administrative Agreement
 
     @TEST_NP-4173
+    @test
     Scenario: Files that are part of Registration are listed
         Given Anonymous User views Landing Page for Registration
         And the Registration contains Files
@@ -39,6 +41,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
         And they can see a download button for Files that are not Embargoed
 
     @TEST_NP-4172
+    @test
     @2158
     Scenario Outline: Files can be previewed
         Given Anonymous User views Landing Page for Registration
@@ -55,6 +58,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
             | Microsoft Office |
 
     @TEST_NP-4170
+    @test
     Scenario: Automatically preview first File
         Given Anonymous User views Landing Page for Registration
         And the Registration contains Files
@@ -65,6 +69,7 @@ Feature: User navigates to Landing Page for Registration and can see Files
         And the downloaded File is displayed
 
     @TEST_NP-4175
+    @test
     Scenario: Lock Embargoed Files
         Given Anonymous User views Landing Page for Registration
         And the Registration contains a File that is Embargoed

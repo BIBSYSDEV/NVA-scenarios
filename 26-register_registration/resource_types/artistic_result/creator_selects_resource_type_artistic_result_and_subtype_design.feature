@@ -1,5 +1,6 @@
 Feature: Creator selects Resource type Artistic Result and subtype Design
 
+    @test
     @TEST_NP-4039
     @2733
     Scenario: Creator navigates to the Resource Type tab and selects Resource subtype "Design"
@@ -28,6 +29,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Design
         And they see that each Exhibition Place has an Edit Button
         And they see an Add Exhibition Place Button
 
+    @test
     @TEST_NP-4042
     @2735
     Scenario: Creator adds an Exhibition Place
@@ -43,6 +45,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Design
         And they click the Add Button
         Then the new Exhibition Place is listed under Exhibition places
 
+    @test
     @TEST_NP-4041
     @2736
     Scenario: Creator Deletes an Exhibition Place
