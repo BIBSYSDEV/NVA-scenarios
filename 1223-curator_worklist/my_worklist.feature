@@ -52,16 +52,17 @@ Feature: Curator opens My Worklist
     And Affilliation of Sender on each Requests is within the Curator´s scope of responsibility
     And the list of Approvals is in focus
 
-  @needJiraTag
+  @TEST_NP-4430
   Scenario: Curator opens their Worklist
     When the Curator opens their Worklist
     Then the Curator see that the Worklist is Scoped
 
-  @needJiraTag
+  @TEST_NP-4428
   Scenario: Curator change Scope of there Worklist
     When the Curator change Scope to the whole Institution or one or more subunits
     Then the listed Requests is updated to match the new Scope
 
+  @TEST_NP-4431
   @357
   @updated
   #Replaces @1353, 1354, 2756 and 531
@@ -83,18 +84,20 @@ Feature: Curator opens My Worklist
       | DOI       |
       | Ownership |
 
+  @TEST_NP-4427
   @needJiraTag
   Scenario: Curator opens a unassigned Request
     When the Curator open a unassigned Request
     Then the Curator is assigned the Request
     And the Request Status is set to "Active"
 
-  @needJiraTag
+  @TEST_NP-4435
   Scenario: Curator unassigns a Request
     When the Curator selects "Mark request unread"
     Then the Request Status is set to "New"
     And the Request is unassigned the Curator
 
+  @TEST_NP-4439
   @1252
   @updated
   Scenario: Curator open a assigned Request
@@ -109,7 +112,7 @@ Feature: Curator opens My Worklist
     And the Curator can open the Requests Resource
     And the Curator can change the Status of the Request
 
-  @needJiraTag
+  @TEST_NP-4433
   Scenario Outline: Curator open the Request's Resource
     When the Curator opens the Requests Resource
     Then the Landing Page of the Resource is viewed
@@ -123,13 +126,13 @@ Feature: Curator opens My Worklist
       | Ownership | Change owner |
       | Ownership | Decline      |
 
-  @needJiraTag
+  @TEST_NP-4434
   Scenario: User gets an answer to a Support Request
     When the Curator sends an answer of type "Support"
     Then the Request status is set to "Answered"
     And the User can read the answer in My Messages
 
-  @needJiraTag
+  @TEST_NP-4429
   Scenario: User gets an answer to a Request
     When the Curator writes an answer
     And sends it to the User
@@ -139,7 +142,7 @@ Feature: Curator opens My Worklist
       | Ownership |
     Then the User can see the answer in My Messages
 
-  @needJiraTag
+  @TEST_NP-4440
   Scenario Outline: Curator change Status on a Request
     When Curator selects a new status "<Status>" on a Request
     Then the status of the Request is set to "<Status>"
@@ -148,7 +151,7 @@ Feature: Curator opens My Worklist
       | Archived |
       | Deleted  |
 
-  @needJiraTag
+  @TEST_NP-4432
   Scenario: Curator receives assignment of responses to requests they have previously responded to
     When the Curator:
       | Sends an answer          |
@@ -159,7 +162,7 @@ Feature: Curator opens My Worklist
       | Declines change of owner |
     Then the Curator is Assigned the Request
 
-  @needJiraTag
+  @TEST_NP-4438
   Scenario: Curator receives Requests in their scope
     Given the Request is of type:
       | Approval |
@@ -168,7 +171,7 @@ Feature: Curator opens My Worklist
     When the Requests' Submitter is Affilliated within the Curators Scope
     Then the Request is part of the Curators Worklist
 
-  @needJiraTag
+  @TEST_NP-4426
   Scenario: Curator receives Requests they have been assigned from outside their scope
     Given the Request is of type:
       | Approval |
@@ -177,13 +180,13 @@ Feature: Curator opens My Worklist
     When the Curator is assigned the Request
     Then the Request is part of the Curators Worklist
 
-  @needJiraTag
+  @TEST_NP-4436
   Scenario: Curator receives Ownership requests within their scope
     Given the Request is of type "Ownership"
     When the Affilliation of the Owner of the Resource associated with the Request is within Curators Scope
     Then the Request is part of the Curators Worklist
 
-  @needJiraTag
+  @TEST_NP-4437
   Scenario: Curator receives Ownership requests they have been assigned from outside their scope
     Given the Request is of type "Ownership"
     When the Curator is assigned the Request
