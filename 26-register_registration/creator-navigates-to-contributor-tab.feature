@@ -60,6 +60,8 @@ Feature: Creator navigates to Contributors tab
       | MediaContribution | MediaBlogPost                 | Add Author, Add Contributor                 |
       | MediaContribution | MediaPodcast                  | Add Contributor                             |
       | MediaContribution | MediaParticipationInRadioOrTv | Add Contributor                             |
+      | ResearchData      | DataManagementPlan            | Add Author, Add Contributor                 |
+      | ResearchData      | Dataset                       | Add Contributor                             |
 
   @TEST_NP-4005
   @test
