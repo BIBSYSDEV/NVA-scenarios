@@ -57,7 +57,6 @@ Feature: Creator adds a Contributor
             | ResearchData      | DataManagementPlan            | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
             | ResearchData      | Dataset                       | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
 
-
     @TEST_NP-3995
     @test
     Scenario: Creator selects a Contributor Type
