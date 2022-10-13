@@ -54,6 +54,8 @@ Feature: Creator navigates to Contributors tab
       | Artistic          | PerformingArts                | Add Contributor                             |
       | Artistic          | MovingPicture                 | Add Contributor                             |
       | Artistic          | MusicPerformance              | Add Contributor                             |
+      | Artistic          | LiteraryARts                  | Add Contributor                             |
+      | Artistic          | VisualArts                    | Add Contributor                             |
       | MediaContribution | MediaFeatureArticle           | Add Author, Add Contributor                 |
       | MediaContribution | MediaReaderOpinion            | Add Author, Add Contributor                 |
       | MediaContribution | MediaInterview                | Add Contributor                             |
