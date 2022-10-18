@@ -14,26 +14,21 @@ Feature: Creator selects Resource type Artistic Result and subtype Visual Arts
       | AudioArt             |
       | ArtistBook           |
       | Other                |
-    And they see a list of Exhibition Places
-    And they see that each Exhibition Place has a Remove Button
-    And they see that each Exhibition Place has an Edit Button
-    And they see an Add Exhibition Place Button
+    And they see a list of Exhibitions
+    And they see that each Exhibition has a Remove Button
+    And they see that each Exhibition has an Edit Button
+    And they see an Add Exhibition Button
 
-  Scenario: Creator adds an Exhibition Place
+  Scenario: Creator adds an Exhibition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Visual Arts"
-    When they click the Add Exhibition Place Button
-    Then they see the Add Exhibition Place Dialog
-    And they see fields:
+    When they add a Exhibition with details for:
       | Exhibition place |
       | Date from        |
       | Date to          |
-    And they see an Add Button
-    When they fill the fields with input data
-    And they click the Add Button
-    Then the new Exhibition Place is listed under Exhibition places
+    Then the new Exhibition is listed under Exhibitions
 
-  Scenario: Creator Deletes an Exhibition Place
+  Scenario: Creator removes an Exhibition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Visual Arts"
-    And they see an item in the list of Exhibition Places
-    When they click the Delete Exhibition Place Button
-    Then the row is removed from list of Exhibition Places
+    And they see an item in the list of Exhibitions
+    When they click the Remove Exhibition Button
+    Then the row is removed from list of Exhibitions
