@@ -15,9 +15,13 @@ Feature: Creator selects Resource type Media Contribution
 
   @TEST_NP-4073
   @test
-  Scenario: Creator navigates to the Resource Type tab and selects a Resource subtype for Media Contribution
+  Scenario: Creator navigates to the Resource Type tab and selects a non-periodical subtype for "Media Contribution"
     Given Creator navigates to the Resource Type tab and selects Resource type "Media Contribution"
-    When they select a Resource Subtype
+    When the selected Resource subtype is one of:
+      | Interview                    |
+      | Blog post                    |
+      | Podcast                      |
+      | Participation in Radio or TV |
     Then they see field Medium with options:
       | Newspaper or Journal |
       | Internet             |
@@ -33,3 +37,16 @@ Feature: Creator selects Resource type Media Contribution
       | Name of series or program |
       | Name of issue or episode  |
     And they can see the DOI
+
+  Scenario: Creator navigates to the Resource Type tab and selects a periodical subtype for "Media Contribution"
+    Given Creator navigates to the Resource Type tab and selects Resource type "Media Contribution"
+    When the selected Resource subtype is one of:
+      | Feature Article |
+      | Reader Opinion  |
+    And they see fields:
+      | Search-box for Journal |
+      | Volume                 |
+      | Issue                  |
+      | Pages from             |
+      | Pages to               |
+      | Article number         |
