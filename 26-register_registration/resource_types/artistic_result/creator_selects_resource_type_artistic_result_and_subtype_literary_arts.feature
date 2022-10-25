@@ -20,7 +20,6 @@ Feature: Creator selects Resource type Artistic Result and subtype Literary Arts
       | Web Publication          |
       | Performance              |
       | Audio/Visual Publication |
-    And they see an Add Announcement Button
 
   Scenario: Creator adds an Monograph
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Literary Arts"
