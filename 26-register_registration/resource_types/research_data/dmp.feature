@@ -42,7 +42,7 @@ Feature: Data Management Plan (DMP)
 		When the user types an external link in the External link field
 		And the user adds the link
 		Then the user sees the saved link
-		And the user sees a Remove relation button
+		And the user has the option to remove the saved link
 
 	@TEST_NP-16255
 	Scenario: User removes an external link to a resource
