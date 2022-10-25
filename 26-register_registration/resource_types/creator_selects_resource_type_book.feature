@@ -62,6 +62,4 @@ Feature: Creator selects Resource type Book
     Scenario: Creator selects Resource subtype "Monograph" and Content type Academic Monograph
         Given Creator navigates to the Resource Type tab and selects Resource subtype "Monograph"
         When they select Content type "Academic Monograph"
-        Then they see fields:
-            | Peer reviewed and presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status

@@ -68,23 +68,6 @@ Feature: Creator selects Resource type Contribution to journal
             | Pages to       |
             | Article number |
 
-    @TEST_NP-4054
-    @1409
-    Scenario Outline: Creator selects Contribution to Journal and Peer Review Details are hidden
-        Given Creator begins registering a Registration in the Wizard with a File
-        And they navigate to the Resource Type tab
-        And they select the Resource type "Contribution to journal"
-        When they select the Subtype "<Subtype>"
-        Then they see that the Peer Review Details are hidden
-        Examples:
-            | Subtype             |
-            | Commentary          |
-            | Book review         |
-            | Editorial           |
-            | Corrigendum         |
-            | Journal issue       |
-            | Conference abstract |
-
     @TEST_NP-4059
     @test
     @1625
@@ -132,8 +115,6 @@ Feature: Creator selects Resource type Contribution to journal
         When they set Content Type to one of:
             | Academic article           |
             | Academic literature review |
-        Then they see fields:
-            | Peer reviewed and presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status
 
     @TEST_NP-4055
