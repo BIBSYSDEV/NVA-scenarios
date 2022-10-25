@@ -46,12 +46,17 @@ Feature: Creator adds a Contributor
             | Artistic          | PerformingArts                | Dancer, Actor, Choreographer, Director, Scenographer, Costume designer, Producer, Artistic director, Dramatist, Librettist, Dramaturge, Sound designer, Light designer, Other |
             | Artistic          | MovingPicture                 | Director, Screenwriter, Producer, Photographer, Production designer, Video editor, Sound design, VFX Supervisor, Other                                                        |
             | Artistic          | MusicPerformance              | Soloist, Conductor, Musician, Composer, Organizer, Writer, Other                                                                                                              |
+            | Artistic          | LiteraryArts                  | Author, Translator, Editor, Other                                                                                                                                             |
+            | Artistic          | VisualArts                    | Artist, Curator, Consultant, Other                                                                                                                                            |
             | MediaContribution | MediaFeatureArticle           | Other                                                                                                                                                                         |
             | MediaContribution | MediaReaderOpinion            | Other                                                                                                                                                                         |
             | MediaContribution | MediaInterview                | Journalist, Interviewee, Other                                                                                                                                                |
             | MediaContribution | MediaBlogPost                 | Other                                                                                                                                                                         |
             | MediaContribution | MediaPodcast                  | Program host, Participant, Other                                                                                                                                              |
             | MediaContribution | MediaParticipationInRadioOrTv | Program host, Participant, Other                                                                                                                                              |
+            | ResearchData      | DataManagementPlan            | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
+            | ResearchData      | Dataset                       | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
+            | OtherPublication  | Map                           | Contact person, Rights holder, Other                                                                                                                                          |
 
     @TEST_NP-3995
     @test

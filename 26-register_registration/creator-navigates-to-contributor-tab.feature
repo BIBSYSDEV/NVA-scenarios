@@ -54,12 +54,17 @@ Feature: Creator navigates to Contributors tab
       | Artistic          | PerformingArts                | Add Contributor                             |
       | Artistic          | MovingPicture                 | Add Contributor                             |
       | Artistic          | MusicPerformance              | Add Contributor                             |
+      | Artistic          | LiteraryArts                  | Add Contributor                             |
+      | Artistic          | VisualArts                    | Add Contributor                             |
       | MediaContribution | MediaFeatureArticle           | Add Author, Add Contributor                 |
       | MediaContribution | MediaReaderOpinion            | Add Author, Add Contributor                 |
       | MediaContribution | MediaInterview                | Add Contributor                             |
       | MediaContribution | MediaBlogPost                 | Add Author, Add Contributor                 |
       | MediaContribution | MediaPodcast                  | Add Contributor                             |
       | MediaContribution | MediaParticipationInRadioOrTv | Add Contributor                             |
+      | ResearchData      | DataManagementPlan            | Add Author, Add Contributor                 |
+      | ResearchData      | Dataset                       | Add Contributor                             |
+      | OtherPublication  | Map                           | Add Contributor                             |
 
   @TEST_NP-4005
   @test
