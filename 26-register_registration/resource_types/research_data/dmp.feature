@@ -48,4 +48,4 @@ Feature: Data Management Plan (DMP)
 	Scenario: User removes an external link to a resource
 		Given the user adds an external links to a resource published in NVA
 		When the user removes an external link
-		Then the external link is removed
+		Then the user sees the external link is removed
