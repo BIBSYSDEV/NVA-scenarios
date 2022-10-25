@@ -20,8 +20,6 @@ Feature: Creator selects Resource type Artistic Result and subtype Literary Arts
       | Web Publication          |
       | Performance              |
       | Audio/Visual Publication |
-    And they see that each Announcement has a Remove Button
-    And they see that each Announcement has an Edit Button
     And they see an Add Announcement Button
 
   Scenario: Creator adds an Monograph
@@ -32,6 +30,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Literary Arts
       | ISBN        |
       | Total pages |
     Then the Monograph is listed under Announcements
+    And they can edit the Monograph
+    And they can remove the Monograph
 
   Scenario: Creator adds an Web Publication
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Literary Arts"
@@ -40,6 +40,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Literary Arts
       | Publisher |
       | Year      |
     Then the Web Publication is listed under Announcements
+    And they can edit the Web Publication
+    And they can remove the Web Publication
 
   Scenario: Creator adds an Performance
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Literary Arts"
@@ -52,6 +54,8 @@ Feature: Creator selects Resource type Artistic Result and subtype Literary Arts
       | Play    |
       | Other   |
     Then the Performance is listed under Announcements
+    And they can edit the Performance
+    And they can remove the Performance
 
   Scenario: Creator adds an Audio/Visual Publication
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Literary Arts"
@@ -68,3 +72,5 @@ Feature: Creator selects Resource type Artistic Result and subtype Literary Arts
       | Podcast   |
       | Other     |
     Then the Audio/Visual Publication is listed under Announcements
+    And they can edit the Audio/Visual Publication
+    And they can remove the Audio/Visual Publication
