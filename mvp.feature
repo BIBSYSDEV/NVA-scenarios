@@ -53,7 +53,6 @@ Feature: MVP features for NVA
     Then they see an Information box with text "Before you register the chapter, you need to register the book"
     And they see field "Link to publication"
     And they see a Search box for "Published in"
-    And they see a preselected value for Peer review "Not peer reviewed"
     And they see field for Page number from
     And they see field for Page number to
     And they see a Search box for "Series title"
@@ -89,10 +88,10 @@ Feature: MVP features for NVA
     And they have not filled out any input fields in the Wizard
     When they navigate to the Submission tab
     Then they see a Validation Section with description of errors
-      | Description: Title is mandatory                        |
-      | References: Subtype, journal, peer review is mandatory |
-      | Contributors: Minimum one contributor required         |
-      | Files: Minimum one file required                       |
+      | Description: Title is mandatory                |
+      | References: Subtype and journal is mandatory   |
+      | Contributors: Minimum one contributor required |
+      | Files: Minimum one file required               |
   @386
   Scenario: Creator begins registration by using suggestions from ORCID
     Given Creator begins registering a Publication
@@ -146,7 +145,6 @@ Feature: MVP features for NVA
       | Page from                                     |
       | Page to                                       |
       | Article number                                |
-      | Peer review                                   |
 
   Scenario: Creator verifies initial metadata on the Contributors tab for a registration
     Given Creator begins registering with a Link with direct data from Datacite/CrossRef
@@ -705,16 +703,3 @@ Feature: MVP features for NVA
     When they see the File box
     Then they see that the file can't be downloaded
     And they see the delayed publishing date
-
-  @1409
-  Scenario Outline: Creator selects Publication in Journal and Peer Review Details are hidden
-    Given that a Creator navigates to the Resource Type tab
-    And they select type Publication in Journal
-    When they select <Subtype>
-    Then they see that the Peer Review Details are hidden
-    Examples:
-      | Subtype              |
-      | Short communication  |
-      | Leader               |
-      | Letter to the editor |
-      | Review               |

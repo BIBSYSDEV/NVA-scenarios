@@ -50,6 +50,4 @@ Feature: Creator selects Resource type Chapter
     Scenario: Creator selects Resource subtype "Chapter in Anthology" and Content type "Academic chapter"
         Given Creator sees fields for Resource subtype "Chapter in Anthology"
         When they select Content type "Academic chapter"
-        Then they see fields:
-            | Peer reviewed and presents new research |
         And they see the Norwegian Science Index (NVI) evaluation status
