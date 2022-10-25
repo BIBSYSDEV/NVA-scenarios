@@ -64,6 +64,7 @@ Feature: Creator navigates to Contributors tab
       | MediaContribution | MediaParticipationInRadioOrTv | Add Contributor                             |
       | ResearchData      | DataManagementPlan            | Add Author, Add Contributor                 |
       | ResearchData      | Dataset                       | Add Contributor                             |
+      | OtherPublication  | Map                           | Add Contributor                             |
 
   @TEST_NP-4005
   @test

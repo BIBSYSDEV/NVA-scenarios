@@ -56,6 +56,7 @@ Feature: Creator adds a Contributor
             | MediaContribution | MediaParticipationInRadioOrTv | Program host, Participant, Other                                                                                                                                              |
             | ResearchData      | DataManagementPlan            | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
             | ResearchData      | Dataset                       | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
+            | OtherPublication  | Map                           | Contact person, Rights holder, Other                                                                                                                                          |
 
     @TEST_NP-3995
     @test
