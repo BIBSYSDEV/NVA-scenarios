@@ -40,7 +40,7 @@ Feature: Data Management Plan (DMP)
 	@TEST_NP-16254
 	Scenario: User adds an external links to a resource published in NVA
 		When the user types an external link in the External link field
-		And the user presses the Add link button
+		And the user adds the link
 		Then the user sees the saved link
 		And the user sees a Remove relation button
 
