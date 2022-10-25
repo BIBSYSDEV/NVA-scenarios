@@ -15,7 +15,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Visual Arts
       | ArtistBook           |
       | Other                |
     And they see a list of Exhibitions
-    And they see an Add Exhibition Button
+    And they can add an Exhibition
 
   Scenario: Creator adds an Exhibition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Visual Arts"
