@@ -18,7 +18,7 @@ Feature: Creator selects Resource type Artistic Result and subtype Visual Arts
 
   Scenario: Creator adds an Exhibition
     Given Creator navigates to the Resource Type tab and selects Resource subtype "Visual Arts"
-    When they add a Exhibition with details for:
+    When they add an Exhibition with details for:
       | Exhibition place |
       | Date from        |
       | Date to          |
