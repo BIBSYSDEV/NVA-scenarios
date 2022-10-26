@@ -36,3 +36,16 @@ Feature: Data Management Plan (DMP)
 		Given User adds zero or more related-references to resource published in NVA
 		When the User removes a related-reference resource
 		Then the related-reference is removed
+
+	@TEST_NP-16254
+	Scenario: User adds an external links to a DMP
+		When the user types in an external link
+		And the user adds the link
+		Then the user sees the saved link
+		And the user has the option to remove the saved link
+
+	@TEST_NP-16255
+	Scenario: User removes an external link to a resource
+		Given User adds an external links to a DMP
+		When the user removes an external link
+		Then the user sees the external link is removed
