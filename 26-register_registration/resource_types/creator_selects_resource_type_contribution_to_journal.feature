@@ -1,6 +1,7 @@
 Feature: Creator selects Resource type Contribution to journal
 
     @TEST_NP-4060
+    @test
     @274
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Contribution to journal"
         Given Creator begins registering a Registration in the Wizard
@@ -23,6 +24,7 @@ Feature: Creator selects Resource type Contribution to journal
             | Conference abstract |
 
     @TEST_NP-4052
+    @test
     @1656
     Scenario: Creator sees fields for Journal article
         Given Creator begins registering a Registration in the Wizard
@@ -46,6 +48,7 @@ Feature: Creator selects Resource type Contribution to journal
         And they see the Norwegian Science Index (NVI) evaluation status
 
     @TEST_NP-4053
+    @test
     Scenario: Creator sees that fields for Journal article are validated
         Given Creator begins registering a Registration in the Wizard
         And they navigate to the Resource Type tab
@@ -76,6 +79,7 @@ Feature: Creator selects Resource type Contribution to journal
         And they see a disabled field for Journal based on selected Journal article
 
     @TEST_NP-4056
+    @test
     Scenario: Creator sees that fields for Resource subtype "Corrigendum" are validated
         Given Creator begins registering a Registration in the Wizard
         And they navigate to the Resource Type tab
@@ -88,6 +92,7 @@ Feature: Creator selects Resource type Contribution to journal
         And they can see an error message for fields "Pages from"
 
     @TEST_NP-4057
+    @test
     @2685
     Scenario: Creator sees extra fields for Norwegian Science Index (NVI) compatible Journal article
         Given Creator sees fields for Journal article
@@ -97,6 +102,7 @@ Feature: Creator selects Resource type Contribution to journal
         And they see the Norwegian Science Index (NVI) evaluation status
 
     @TEST_NP-4055
+    @test
     @1659
     Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Resource subtype
         Given Creator begins registering a Registration in the Wizard
@@ -120,6 +126,7 @@ Feature: Creator selects Resource type Contribution to journal
             | Conference abstract |
 
     @TEST_NP-4058
+    @test
     Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
         Given Creator begins registering a Registration in the Wizard
         And they navigate to the Resource Type tab
