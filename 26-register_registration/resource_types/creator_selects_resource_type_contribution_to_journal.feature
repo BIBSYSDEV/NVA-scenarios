@@ -25,13 +25,12 @@ Feature: Creator selects Resource type Contribution to journal
     @TEST_NP-4052
     @1656
     Scenario: Creator sees fields for Journal article
-        Given Creator begins registering a Registration in the Wizard with a Link
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select Resource subtype Journal article
         And they see fields:
             | Search-box for Journal |
-            | DOI                    |
             | Volume                 |
             | Issue                  |
             | Pages from             |
@@ -48,25 +47,16 @@ Feature: Creator selects Resource type Contribution to journal
 
     @TEST_NP-4053
     Scenario: Creator sees that fields for Journal article are validated
-        Given Creator begins registering a Registration in the Wizard with a File
+        Given Creator begins registering a Registration in the Wizard
         And they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select Resource subtype Journal article
-        And they enter an invalid value in fields:
-            | Volume         |
-            | Issue          |
-            | Pages from     |
-            | Pages to       |
-            | Article number |
+        And they enter numbers for "Pages from" and "Pages to"
+        And the number for "Pages from" is greater than the number for "Pages to"
         When they click the Save button
         Then they can see "Mandatory" error messages for fields:
             | Search box for Journal |
-        And they can see "Invalid format" error messages for fields:
-            | Volume         |
-            | Issue          |
-            | Pages from     |
-            | Pages to       |
-            | Article number |
+        And they can see an error messages for field "Pages from"
 
     @TEST_NP-4059
     @test
@@ -78,7 +68,6 @@ Feature: Creator selects Resource type Contribution to journal
         And they select the Resource subtype "Corrigendum"
         Then they see fields:
             | Search box for "Journal article" |
-            | DOI                              |
             | Volume                           |
             | Issue                            |
             | Pages from                       |
@@ -92,21 +81,11 @@ Feature: Creator selects Resource type Contribution to journal
         And they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select the Resource subtype "Corrigendum"
-        And they enter an invalid value in fields:
-            | Volume         |
-            | Issue          |
-            | Pages from     |
-            | Pages to       |
-            | Article number |
+        And the number for "Pages from" is greater than the number for "Pages to"
         When they click the Save button
         Then they can see "Mandatory" error messages for fields:
             | Search box for "Journal article" |
-        And they can see "Invalid format" error messages for fields:
-            | Volume         |
-            | Issue          |
-            | Pages from     |
-            | Pages to       |
-            | Article number |
+        And they can see an error message for fields "Pages from"
 
     @TEST_NP-4057
     @2685
@@ -126,7 +105,6 @@ Feature: Creator selects Resource type Contribution to journal
         And they select Resource subtype "<Subtype>"
         Then they see fields:
             | Search box for Journal |
-            | DOI                    |
             | Volume                 |
             | Issue                  |
             | Pages from             |
@@ -147,21 +125,11 @@ Feature: Creator selects Resource type Contribution to journal
         And they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select Resource subtype "<Subtype>"
-        And they enter an invalid value in fields:
-            | Volume         |
-            | Issue          |
-            | Pages from     |
-            | Pages to       |
-            | Article number |
+        And the number for "Pages from" is greater than the number for "Pages to"
         When they click the Save button
         Then they can see "Mandatory" error messages for fields:
             | Search box for Journal |
-        And they can see "Invalid format" error messages for fields:
-            | Volume         |
-            | Issue          |
-            | Pages from     |
-            | Pages to       |
-            | Article number |
+        And they can see an error message for fields "Pages from"
         Examples:
             | Subtype             |
             | Commentary          |
