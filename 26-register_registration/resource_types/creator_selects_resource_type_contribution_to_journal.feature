@@ -3,7 +3,7 @@ Feature: Creator selects Resource type Contribution to journal
     @TEST_NP-4060
     @274
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Contribution to journal"
-        Given Creator begins registering a Registration in the Wizard with a File
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         Then they see a list of subtypes:
@@ -62,7 +62,7 @@ Feature: Creator selects Resource type Contribution to journal
     @test
     @1625
     Scenario: Creator sees fields for Resource subtype "Corrigendum"
-        Given Creator begins registering a Registration in the Wizard with a Link
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select the Resource subtype "Corrigendum"
@@ -77,7 +77,7 @@ Feature: Creator selects Resource type Contribution to journal
 
     @TEST_NP-4056
     Scenario: Creator sees that fields for Resource subtype "Corrigendum" are validated
-        Given Creator begins registering a Registration in the Wizard with a File
+        Given Creator begins registering a Registration in the Wizard
         And they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select the Resource subtype "Corrigendum"
@@ -99,7 +99,7 @@ Feature: Creator selects Resource type Contribution to journal
     @TEST_NP-4055
     @1659
     Scenario Outline: Creator sees fields for Norwegian Science Index (NVI) incompatible Resource subtype
-        Given Creator begins registering a Registration in the Wizard with a Link
+        Given Creator begins registering a Registration in the Wizard
         When they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select Resource subtype "<Subtype>"
@@ -121,7 +121,7 @@ Feature: Creator selects Resource type Contribution to journal
 
     @TEST_NP-4058
     Scenario Outline: Creator sees that fields for Norwegian Science Index (NVI) incompatible Resource subtype are validated
-        Given Creator begins registering a Registration in the Wizard with a File
+        Given Creator begins registering a Registration in the Wizard
         And they navigate to the Resource Type tab
         And they select the Resource type "Contribution to journal"
         And they select Resource subtype "<Subtype>"
