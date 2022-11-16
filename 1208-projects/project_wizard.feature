@@ -19,6 +19,41 @@ Feature: User edits Project
             | Project Manager       |
             | Local Project Manager |
 
+    Scenario: User opens the Project Wizard to register a new Project
+        When the User selects Create new Project
+        Then they see the Project Wizard start page
+        And they can select:
+            | Search for Financing |
+            | Empty registration   |
+
+    Scenario: User opens the Project Wizard and start registering a Project with Financing selected
+        When the User opens the Project Wizard to register a new Project
+        And they search for Financing
+        Then they select from a list of relevant Financing
+        And the Wizard is opened on the Metadata page
+        And metadata from Financing is filled in
+
+    Scenario: User opens the Project Wizard and start registering a Project without Financing selected
+        When the User opens the Project Wizard to register a new Project
+        And they select Empty registration
+        Then the Wizard is opened on the Metadata page
+        And no metadata is filled in
+
+    Scenario: The User opens the Project Wizard on the Metadata page
+        When the Wizard is opened on the Metadata page
+        Then the User can fill in fields for:
+            | Title                    |
+            | Coordinating Institution |
+            | Start date               |
+            | End date                 |
+            | Participants             |
+            | Financing                |
+        And they have an option to exit the Wizard
+        # do the "last page" have a name?
+        And they have an option to go to the last page of the Wizard
+
+
+
     @TEST_NP-4279
     @needJiraNumber
     Scenario Outline: User opens the Project Wizard

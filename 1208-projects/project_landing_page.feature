@@ -33,15 +33,22 @@ Feature: Project Landing Page
         When A Anonymous User opens a Project's Landing Page
         Then the Anonymous User see:
             | Project Title             |
-            | Project Owner Institution |
+            | Coordinating Institution  |
             | Project Manager           |
             | Project Period            |
             | Financing                 |
-        And the Anonymous User see collapsed panels:
-            | Summary      |
-            | Participants |
-            | Results      |
-        And the Anonymous User see count of Participants and Results
+        And the Anonymous User see expandable panels for:
+            | Summary              |
+            | Keywords             |
+            | Participants         |
+            | Results              |
+            | Data Management Plan |
+            | Associated Projects  |
+        And the Anonymous User see counts of:
+            | Keywords            |
+            | Participants        |
+            | Results             |
+            | Associated Projects |
 
     @TEST_NP-4098
     @2886
@@ -86,7 +93,7 @@ Feature: Project Landing Page
 
     @TEST_NP-4096
     @2631
-    Scenario: User opens Summary for a Project
+    Scenario: User expand Summary for a Project
         Given User opens Landing Page for Project
         When they expand "Summary"
         Then they see "Scientific summary"
@@ -94,7 +101,7 @@ Feature: Project Landing Page
 
     @TEST_NP-4093
     @2632a
-    Scenario: User opens Participants for a Project
+    Scenario: User expand Participants for a Project
         Given User opens Landing Page for Project
         When they expand "Participants"
         Then they see a list of Participants and their:
@@ -105,14 +112,14 @@ Feature: Project Landing Page
     @TEST_NP-4097
     @2632b
     Scenario: User sees Project Manager for a Project
-        Given User opens Participants for a Project
+        Given User expand Participants for a Project
         When they see a Project Manager
         Then they see fields:
             | Start Date |
 
     @TEST_NP-4092
     @2633
-    Scenario: User opens Results for a Project
+    Scenario: User expand Results for a Project
         Given User opens Landing Page for Project
         When they expand "Results"
         Then they see a list of Results
