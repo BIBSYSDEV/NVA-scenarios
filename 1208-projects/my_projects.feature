@@ -56,7 +56,7 @@ Feature: User My Projects
             | Title                    |
             | Coordinating Institution |
             | Prosjekt category        |
-        And the User can navigate through the possibly long list of Concluded Projects
+        And the User can navigate through the list of Concluded Projects
 
     @TEST_NP-4088
     @2874b
