@@ -55,7 +55,7 @@ Feature: User My Projects
         And the list can be sorted by:
             | Title                    |
             | Coordinating Institution |
-            | Prosjekt category        |
+            | Project category        |
         And the User can navigate through the list of Concluded Projects
 
     @TEST_NP-4088
