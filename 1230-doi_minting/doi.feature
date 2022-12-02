@@ -1,4 +1,4 @@
-Feature: DOI related scenarios moved from MVP feature
+Feature: DOI related scenarios
 
   @TEST_NP-4192
   @1248
