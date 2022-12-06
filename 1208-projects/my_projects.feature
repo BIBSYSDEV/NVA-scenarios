@@ -1,80 +1,86 @@
-Feature: Creator navigates to Files and License tab
+Feature: User My Projects
 
-  @TEST_NP-3998
-  @test
-  Scenario: Creator navigates to Files and License tab
-    Given Creator begins registering a Registration in the Wizard
-    When they navigate to the Files and License tab
-    Then they see the File upload widget
-    And they see an Input Field for Linked Resources
-    And they have the option to mark that the Resource has no File or Linked Resource
-    And they see the tab Description is clickable
-    And they see the tab Resource Type is clickable
-    And they see the tab Contributors is clickable
-    And they see the tab Files and License is selected
-    And they see Previous is enabled
-    And they see Save is enabled
+    In order to achive a low mental load on the user
+    As Product Owner
+    I want to achive a high degree of recognition between the design of My Projects and My Publications - both accessible from the top menu
 
-  @TEST_NP-3999
-  Scenario Outline: Creator looks up a valid Link as a Linked Resource
-    Given Creator navigates to Files and License tab
-    When they enter "<Link>" in the Linked Resource field
-    And they click the Add Link Button
-    Then the Link is listed under Linked Resources
-    And they see that the URL is "<URL>"
-    And they see a Button to remove the Link
-    Examples:
-      | Link                                      |
-      | https://github.com/BIBSYSDEV/NVA-Frontend |
-      | https://www.nrk.no/                       |
+    In order to know of all project where I'm involved
+    As a User
+    I want to see lists of active and concluded projects, and have access to manage those I'm responsible of
 
-  @TEST_NP-22030
-  @test
-  Scenario: Creator marks that a Resource has no File or Linked Resource
-    Given Creator navigates to Files and License tab
-    When they wish to mark that a Resource have no File or Linked Resource
-    Then they see a warning message that the Resource will have no File or Linked Resource
-    And they see they can cancel marking the Resource
+    In order to keep projects I'm responsible of up to date
+    As a User
+    I want easy access to manage those
 
-  @TEST_NP-22031
-  @test
-  Scenario: Creator marks a File with Administrative Agrement
-    Given Creator navigates to Files and License tab
-    When they upload a File
-    And they mark the File with Administrative Agreement
-    Then the File is not presented on the Landing Page
+    In order to see all details of a project
+    As a User
+    I want easy access to the landing page
 
-  @TEST_NP-3997
-  Scenario Outline: Creator looks up an invalid Link as Linked Resource
-    Given Creator navigates to Files and License tab
-    When they enter "<Link>" in the Linked Resource field
-    And they click the Add Link Button
-    Then they see an error message that the Link could not be added
+    In order to locate the project in mind
+    As a User
+    I want easy access to search in My Projects
 
-    Examples:
-      | Link                       |
-      | https://github.com/xxx/yyy |
+    In order to create new projects
+    As a User
+    I want easy access to create new projects
 
-  @TEST_NP-13016
-  @test
-  Scenario: Creator adds a file
-    Given Creator navigates to Files and License tab
-    When they add a file to the File upload widget
-    Then they can see the file in the list of files
+    Background:
+        Given A User is logged in
 
-  @TEST_NP-13337
-  @test
-  Scenario: Creator sees information about file
-    Given Creator adds a file
-    When they see the file in the list of files
-    Then they can see information about:
-      | Version      |
-      | Terms of use |
+    @TEST_NP-4091
+    @2874a
+    @updated
+    Scenario: User opens My Projects
+        When a User navigate to My Projects Page
+        Then the User see a option to create a new project
+        And the User see a search field
+        And the User see a list of Active Projects
+        And the User can select a list of Concluded Projects
+        And the User can select a list of Active Projects
+        And the User can select a list of Draft Projects
+        And the lists contains Projects where the User has one of the following roles:
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
+            | Participants          |
+        And the User can see each Project's:
+            | Type                     |
+            | Project category         |
+            | Title                    |
+            | Project participants     |
+            | Coordinating Institution |
+            | Status                   |
+        And each Project can be edited if the User has one of the following roles:
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
+        And the list can be sorted by:
+            | Title                    |
+            | Coordinating Institution |
+            | Project category         |
 
-  @TEST_NP-12277
-  @test
-  Scenario: Creator removes a file
-    Given Creator open a Registration with a file
-    And navigates to Files and License tab
-    When they remove a file
-    Then they no longer see the file in the list of files
+    @TEST_NP-4088
+    @2874b
+    Scenario: User opens a Project's Landing Page
+        Given User opens My Projects
+        When the User click a Project's Title
+        Then the User see the Landing Page for the Project
+
+    @TEST_NP-4084
+    @2874c
+    Scenario: User Edits a Project in the Project Wizard
+        Given a User with one of the following roles:
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
+        When the User edits a project from My Projects
+        Then they see the Project in the Project Wizard
+
+    @TEST_NP-4086
+    @2875
+    Scenario: User search in My Projects
+        When a User enter a search term in the search field on My Projects
+        Then the User see Projects matching the search term in the Project's:
+            | Title                    |
+            | Coordinating Institution |
+            | Participants             |
