@@ -39,11 +39,11 @@ Feature: Creator navigates to Files and License tab
   @TEST_NP-22031
   @test
   Scenario: Creator marks file for storage, not publishing
-
     Given Creator navigates to Files and License tab
-    When upload a File
+    When they upload a File
     And they mark the File with Administrative Agreement
-    Then they File is not presented on the Landing Page
+    Then the File is not presented on the Landing Page
+
 
   @TEST_NP-3997
   Scenario Outline: Creator looks up an invalid Link as Linked Resource
