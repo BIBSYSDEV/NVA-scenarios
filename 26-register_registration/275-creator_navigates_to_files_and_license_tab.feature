@@ -38,7 +38,8 @@ Feature: Creator navigates to Files and License tab
 
   @TEST_NP-22031
   @test
-  Scenario: Creator marks a File with Administrative Agrement
+  Scenario: Creator marks file for storage, not publishing
+
     Given Creator navigates to Files and License tab
     When upload a File
     And they mark the File with Administrative Agreement
