@@ -69,19 +69,6 @@ Feature: User edits Project
 
     Rule: Any User can create a project, becoming origin Project Owner
 
-        # @TEST_NP-4284
-        # @2903a
-        # @updated
-        # Scenario: User creates a new Project
-        #     When the User clicks the create a new Project Button in My Projects
-        #     Then the User can fill in the following fields in the Description section:
-        #         | Title                    |
-        #         | Summary                  |
-        #         | Coordinating Institution |
-        #         | Start Date               |
-        #         | End Date                 |
-        #         | Internal Project Code    |
-        #     And the User is the Project Owner
 
     Rule: A project got Participents, like the Local Project Manager
 
