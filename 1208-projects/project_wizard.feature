@@ -66,21 +66,6 @@ Feature: User edits Project
             | Associated Projects  |
         And the User have the option to save the Project
 
-    # @TEST_NP-4279
-    # @needJiraNumber
-    # Scenario Outline: User opens the Project Wizard
-    #     When the User opens a Project in the Project Wizard
-    #     Then the User can navigate the project wizard’s sections:
-    #         | Description  |
-    #         | Participants |
-    #         | Financing    |
-    #     And the User can request Support from his Curator
-    #     And the User see an option to exit the wizard
-    #     And the User see a Button "<Button>" decided by the Projects "<Status"
-    #     Examples:
-    #         | Status    | Button                   |
-    #         | Draft     | Save draft               |
-    #         | Published | Update published project |
 
     Rule: Any User can create a project, becoming origin Project Owner
 
