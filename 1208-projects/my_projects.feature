@@ -35,7 +35,7 @@ Feature: User My Projects
         Then the User see a option to create a new project
         And the User see a search field
         And the User see a list of Active Projects
-        And the User can select a list of Concluded Projects
+        And the User see a collapsed list of Concluded Projects
         And the lists contains Projects where the User has one of the following roles:
             | Project Owner         |
             | Project Manager       |
