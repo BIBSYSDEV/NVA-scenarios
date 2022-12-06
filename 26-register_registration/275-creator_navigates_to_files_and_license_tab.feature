@@ -71,6 +71,8 @@ Feature: Creator navigates to Files and License tab
     Then they can see information about:
       | Version      |
       | Terms of use |
+      | Publish date |
+
 
   @TEST_NP-12277
   @test
