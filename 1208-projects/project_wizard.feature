@@ -53,7 +53,7 @@ Feature: User edits Project
         # do the "last page" have a name?
         And they have an option to go to the last page of the Wizard
 
-    Scenario: The User opesn the Project Wizard on the last page
+    Scenario: The User openn the Project Wizard on the last page
         When the Wizard is opened on the last page
         Then the User can fill in fields for:
             | Description          |
