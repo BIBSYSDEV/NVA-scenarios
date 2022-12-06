@@ -45,7 +45,6 @@ Feature: User My Projects
             | Participants          |
         And the User can see each Project's:
             | Type                     |
-            | Project category         |
             | Title                    |
             | Project participants     |
             | Coordinating Institution |
