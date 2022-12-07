@@ -41,7 +41,7 @@ Feature: Creator navigates to Files and License tab
   Scenario: Creator marks file for storage, not publishing
     Given Creator navigates to Files and License tab
     When they upload a File
-    And they mark the File with Administrative Agreement
+    And they mark the File for storage
     Then the File is not presented on the Landing Page
 
 
