@@ -35,16 +35,20 @@ Feature: User My Projects
         Then the User see a option to create a new project
         And the User see a search field
         And the User see a list of Active Projects
-        And the User see a collapsed list of Concluded Projects
+        And the User can select a list of Concluded Projects
+        And the User can select a list of Active Projects
+        And the User can select a list of Draft Projects
         And the lists contains Projects where the User has one of the following roles:
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
             | Participants          |
         And the User can see each Project's:
+            | Type                     |
             | Title                    |
+            | Project participants     |
             | Coordinating Institution |
-            | Project Manager          |
+            | Status                   |
         And each Project can be edited if the User has one of the following roles:
             | Project Owner         |
             | Project Manager       |
@@ -52,8 +56,7 @@ Feature: User My Projects
         And the list can be sorted by:
             | Title                    |
             | Coordinating Institution |
-            | Project Manager          |
-        And the User can navigate through the possibly long list of Concluded Projects
+            | Project category         |
 
     @TEST_NP-4088
     @2874b

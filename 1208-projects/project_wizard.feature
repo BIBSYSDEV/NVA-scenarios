@@ -19,37 +19,56 @@ Feature: User edits Project
             | Project Manager       |
             | Local Project Manager |
 
-    @TEST_NP-4279
-    @needJiraNumber
-    Scenario Outline: User opens the Project Wizard
-        When the User opens a Project in the Project Wizard
-        Then the User can navigate the project wizard’s sections:
-            | Description  |
-            | Participants |
-            | Financing    |
-        And the User can request Support from his Curator
-        And the User see an option to exit the wizard
-        And the User see a Button "<Button>" decided by the Projects "<Status"
-        Examples:
-            | Status    | Button                   |
-            | Draft     | Save draft               |
-            | Published | Update published project |
+    Scenario: User opens the Project Wizard to register a new Project
+        When the User selects Create new Project
+        Then they see the Project Wizard start page
+        And they can select:
+            | Search for Financing |
+            | Empty registration   |
+
+    Scenario: User opens the Project Wizard and start registering a Project with Financing selected
+        When the User opens the Project Wizard to register a new Project
+        And they search for Financing
+        Then they select from a list of relevant Financing
+        And the Wizard is opened on the Metadata page
+        And metadata from Financing is filled in
+
+    Scenario: User opens the Project Wizard and start registering a Project without Financing selected
+        When the User opens the Project Wizard to register a new Project
+        And they select Empty registration
+        Then the Wizard is opened on the Metadata page
+        And no metadata is filled in
+
+    Scenario: The User opens the Project Wizard on the Metadata page
+        When the Wizard is opened on the Metadata page
+        Then the User can fill in fields for:
+            | Title                    |
+            | Coordinating Institution |
+            | Start date               |
+            | End date                 |
+        And the User can add:
+            | Participants             |
+            | Financing                |
+        And they have an option to exit the Wizard
+        # do the "last page" have a name?
+        And they have an option to go to the last page of the Wizard
+
+    Scenario: The User openn the Project Wizard on the last page
+        When the Wizard is opened on the last page
+        Then the User can fill in fields for:
+            | Description          |
+            | Keywords             |
+            | Project type         |
+            | Project webpage      |
+        And the User can add:
+            | Data Management Plan |
+            | Results              |
+            | Associated Projects  |
+        And the User have the option to save the Project
+
 
     Rule: Any User can create a project, becoming origin Project Owner
 
-        @TEST_NP-4284
-        @2903a
-        @updated
-        Scenario: User creates a new Project
-            When the User clicks the create a new Project Button in My Projects
-            Then the User can fill in the following fields in the Description section:
-                | Title                    |
-                | Summary                  |
-                | Coordinating Institution |
-                | Start Date               |
-                | End Date                 |
-                | Internal Project Code    |
-            And the User is the Project Owner
 
     Rule: A project got Participents, like the Local Project Manager
 
@@ -90,8 +109,7 @@ Feature: User edits Project
             When the User selects a User from a search
             And the User grants this User the role:
                 | Project Manager |
-            And the User set a Start Date not predating any former Project Managers
-            Then the selected User is listed as Project Manager from Start Date
+            Then the selected User is listed as Project Manager
             Examples:
                 | Role            |
                 | Curator         |
