@@ -2,11 +2,15 @@ Feature: User My Projects
 
     In order to achive a low mental load on the user
     As Product Owner
-    I want to achive a high degree of recognition between the design of My Projects and My Publications - both accessible from the top menu
+    I want to achive a high degree of recognition between the design of My Projects and My Publications - both paret of My Page - accessible from the top menu
 
     In order to know of all project where I'm involved
     As a User
     I want to see lists of active and concluded projects, and have access to manage those I'm responsible of
+
+    In order to keep projects I'm responsible of up to date
+    As a User
+    I want to see lists of draft projects, and have easy access to compleate and publish them
 
     In order to keep projects I'm responsible of up to date
     As a User
@@ -26,24 +30,33 @@ Feature: User My Projects
 
     Background:
         Given A User is logged in
-
-    @TEST_NP-4091
-    @2874a
-    @updated
-    Scenario: User opens My Projects
-        When a User navigate to My Projects Page
-        Then the User see a option to create a new project
-        And the User see a search field
-        And the User see a list of Active Projects
-        And the User can select a list of Concluded Projects
-        And the User can select a list of Active Projects
-        And the User can select a list of Draft Projects
-        And the lists contains Projects where the User has one of the following roles:
+        And the User got one of the following roles:
+            | Registrator           |
             | Project Owner         |
             | Project Manager       |
             | Local Project Manager |
             | Participants          |
-        And the User can see each Project's:
+
+    @TEST_NP-4091
+    @2874a
+    Scenario: User navigate to My Page and selects Project registrations
+        When a User navigate to My Page and selects Project registrations
+        Then the User sees all active projects where the User has one of the following roles:
+            | Project Owner         |
+            | Project Manager       |
+            | Local Project Manager |
+            | Participants          |
+        And the User has an option to create a new project
+        And the User see a search field to locate projects
+        And the User can select a list of Active Projects
+        And the User can select a list of Concluded Projects
+        And the User can select a list of Draft Projects
+
+    @2874b
+    Scenario: User inspects a listed Project
+        Given User navigate to My Page and selects Project registrations
+        When the User inspects a listed project
+        Then the User see can see each Project's:
             | Type                     |
             | Title                    |
             | Project participants     |
@@ -59,21 +72,18 @@ Feature: User My Projects
             | Project category         |
 
     @TEST_NP-4088
-    @2874b
+    @2874c
     Scenario: User opens a Project's Landing Page
-        Given User opens My Projects
-        When the User click a Project's Title
-        Then the User see the Landing Page for the Project
+        Given User navigate to My Page and selects Project registrations
+        When the User selects a Project's presentation area/line in table
+        Then the User is presented the Landing Page for the Project
 
     @TEST_NP-4084
-    @2874c
+    @2874d
     Scenario: User Edits a Project in the Project Wizard
-        Given a User with one of the following roles:
-            | Project Owner         |
-            | Project Manager       |
-            | Local Project Manager |
-        When the User edits a project from My Projects
-        Then they see the Project in the Project Wizard
+        Given User navigate to My Page and selects Project registrations
+        When the User activate the option to Edit a project
+        Then the Project is opend in the Project Wizard
 
     @TEST_NP-4086
     @2875
