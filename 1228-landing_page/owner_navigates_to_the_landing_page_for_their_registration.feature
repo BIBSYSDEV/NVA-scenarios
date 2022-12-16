@@ -4,12 +4,11 @@ Feature: Owner navigates to the Landing Page for their Resource
     @1231
     @TEST_NP-4168
     @TESTSET_NP-4235
-    Scenario: Owner navigates to the Landing Page for their Published Resource without DOI
-        Given that the Creator navigates to the Landing Page for a Resource
-        And they are the Owner of the Resource
-        And the Resource has no DOI
-        When they see the Status Bar
-        Then they see buttons for "Request a DOI" and "Edit Resource"
+    Scenario: Owner Requests a DOI
+        Given the owner opens the Landing Page of their Registration
+        And the Registration has no DOI
+        When they request a DOI
+        Then they can see a reserved DOI
 
     @needJiraTag
     @implemented
