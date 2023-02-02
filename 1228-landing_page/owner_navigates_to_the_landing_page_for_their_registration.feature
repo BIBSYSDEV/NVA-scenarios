@@ -113,7 +113,7 @@ Feature: Owner navigates to the Landing Page for their Resource
         And they are the Owner of the Registration
         When they draft a DOI
         Then the Landing Page for Registration is displayed
-        And the option to draft a DOI is displayed as "DOI pending" and is disabled
+        And the option to draft a DOI is not displayed
         And the Draft DOI is added to the metadata
         And the Landing Page for Registration contains the Draft DOI
         And the Draft DOI is not a link
