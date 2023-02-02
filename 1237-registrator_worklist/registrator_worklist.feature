@@ -12,9 +12,10 @@ Feature: Registrator worklist
         And they see that items' status is one of <RequestStatus>
         And they see that each item in the list is expandable
         Examples:
-            | RequestType      | RequestStatus                 |
-            | DoiRequests      | Approved, Rejected, Requested |
-            | Support Requests | Pending, Resolved             |
+            | RequestType         | RequestStatus                 |
+            | DoiRequests         | Approved, Rejected, Requested |
+            | Publishing Requests | Approved, Rejected, Requested |
+            | Support Requests    | Pending, Resolved             |
 
     @TEST_NP-4147
     @1246
