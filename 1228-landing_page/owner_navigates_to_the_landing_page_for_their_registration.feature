@@ -102,7 +102,7 @@ Feature: Owner navigates to the Landing Page for their Resource
         And the option to draft a DOI is displayed as "DOI pending" and is disabled
         And the Landing Page for Registration lists the Draft DOI
         And the Draft DOI is still not a link
-        And the DOI request is listed in the Owners work list
+        And the DOI request is listed in My Messages
         And the DOI request is listed in the Curators work list
 
     @TEST_NP-4199
