@@ -38,11 +38,6 @@ Feature: Curator opens My Worklist
   Background:
     Given Curator is logged in
     And Curator opens My Worklist from main menu
-    And My Worklist contains Requests of each type:
-      | Approval  |
-      | Support   |
-      | DOI       |
-      | Ownership |
     And Affilliation of Sender on each Requests is within the Curator´s scope of responsibility
     And the list of Approvals is in focus
 
@@ -50,9 +45,14 @@ Feature: Curator opens My Worklist
   Scenario: Curator opens their Worklist
     When the Curator opens their Worklist
     Then the Curator see that the Worklist is Scoped
+    And the Worklist contains Requests of type:
+      | Approval  |
+      | Support   |
+      | DOI       |
+      | Ownership |
 
   @TEST_NP-4428
-  Scenario: Curator change Scope of there Worklist
+  Scenario: Curator change Scope of their Worklist
     When the Curator change Scope to the whole Institution or one or more subunits
     Then the listed Requests is updated to match the new Scope
 
@@ -109,16 +109,16 @@ Feature: Curator opens My Worklist
   @TEST_NP-4433
   Scenario Outline: Curator open the Request's Resource
     When the Curator opens the Requests Resource
+    And the Resource have a Request of type "<Type>"
     Then the Landing Page of the Resource is viewed
+    And the Curator has the option to "<Action>"
+    And the Curator can Decline the Request
     And the Resource "<Type>" Button "<Action>" is visible
     Examples:
       | Type      | Action       |
       | Approval  | Publish      |
-      | Approval  | Decline      |
       | DOI       | Mint DOI     |
-      | DOI       | Decline      |
       | Ownership | Change owner |
-      | Ownership | Decline      |
 
   @TEST_NP-4434
   Scenario: User gets an answer to a Support Request
