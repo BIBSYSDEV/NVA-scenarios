@@ -56,7 +56,7 @@ Feature: Owner navigates to the Landing Page for their Resource
     @3195
     @TEST_NP-4179
     @TESTSET_NP-4235
-    Scenario: Owner uses the Publish option on Langing Page
+    Scenario: Owner uses the Publish option on Landing Page
         Given Institutions publications policy is "Registrator has full publishing rights"
         When the Owner uses the Publish option
         Then the Resource's status is "Published"
@@ -89,3 +89,55 @@ Feature: Owner navigates to the Landing Page for their Resource
         Then the Owner must acknowledges that this is a final action
         And the Owner must select a new Owner
         And the ownership is transfered to new Owner
+
+    @TEST_NP-4200
+    @1235
+    @test
+    Scenario: Owner navigates to the Landing Page and publish a Registration with a drafted DOI
+        Given that the Owner navigates to a Registration's Landing Page
+        And the Registration has status Draft
+        And the Registration has a Draft DOI
+        When the Owner publishes the Registration
+        Then the Landing Page for Registration is displayed
+        And the option to draft a DOI is displayed as "DOI pending" and is disabled
+        And the Landing Page for Registration lists the Draft DOI
+        And the Draft DOI is still not a link
+        And the DOI request is listed in My Messages
+        And the DOI request is listed in the Curators work list
+
+    @TEST_NP-4199
+    @1234
+    @test
+    Scenario: Owner drafts a DOI for an unpublished Registration
+        Given that the Owner View Landing Page for Registration for unpublished Registration without DOI
+        And they are the Owner of the Registration
+        When they draft a DOI
+        Then the Landing Page for Registration is displayed
+        And the option to draft a DOI is not displayed
+        And the Draft DOI is added to the metadata
+        And the Landing Page for Registration contains the Draft DOI
+        And the Draft DOI is not a link
+
+    @TEST_NP-4191
+    @1233
+    @test
+    Scenario: Owner navigates to the Landing Page for Registration for unpublished Registration without DOI
+        Given that the Owner view Landing Page for Registration
+        And the Registration is not Published
+        And the Registration has no DOI
+        When they look at the Status Bar
+        Then they see options for Draft a DOI and Edit Registration
+
+    @TEST_NP-4184
+    @1232
+    @test
+    Scenario: Owner navigates to the Landing page and requests a DOI
+        Given that the Creator navigates to the Landing page for published Registration without DOI
+        And they are the Owner of the Registration
+        When they request a DOI
+        And optional add a message to the Curator
+        Then the Landing page is displayed
+        And the "Request a DOI" button is no longer visible
+        And the request is listed in My Messages
+        And the request is listed in Curator Worklist
+
