@@ -8,7 +8,7 @@ Feature: User opens the page My Profile
     @test
     @352
     Scenario: User opens the page My Profile
-        When they click the menu item My Profile
+        When they select User profile
         Then they see My Profile
         And they see their Profile page which includes information for
             | Real name     |
