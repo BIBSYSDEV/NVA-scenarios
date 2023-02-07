@@ -21,7 +21,8 @@ Feature: User opens the page My Profile
 
     Scenario: User view Resources where they are a validated contributor
         When the User selects Registrations
-        Then the User see theres Registrations
+        Then the User see their Registrations
+
         And the User may filter on following
             | Draft                |
             | For approval         |
