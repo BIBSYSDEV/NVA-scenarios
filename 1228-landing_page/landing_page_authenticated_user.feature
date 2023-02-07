@@ -18,5 +18,5 @@ Feature: Authenticated User opens a Resource's Landing Page
 		Then the User has access to an Edit option
 
 	Scenario: Editor sees Edit button for Resource
-		When a Editor view a landingpage
+		When a Editor view a Landing Page
 		Then the Editor has access to an Edit option
