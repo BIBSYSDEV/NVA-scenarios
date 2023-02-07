@@ -9,8 +9,7 @@ Feature: User opens the page My Profile
     @352
     Scenario: User opens the page My Profile
         When they select User profile
-        Then they see My Profile
-        And they see their Profile page which includes information for
+        Then they see their Profile page which includes information for
             | Real name     |
             | Feide ID      |
             | Email         |
