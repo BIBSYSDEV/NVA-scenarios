@@ -2,7 +2,7 @@ Feature: User opens the page My Profile
 
   Background:
     Given a User has logged in
-    And the User opens his My Profile
+    And the User opens My Profile
 
     @TEST_NP-4108
     @test
