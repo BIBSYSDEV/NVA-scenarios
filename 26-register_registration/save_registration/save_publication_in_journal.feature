@@ -10,7 +10,12 @@ Feature: Save registration for Publication in journal
 
         Examples:
             | Subtype            |
-            | JournalArticle     |
+            | AcademicArticle |
+            | AcademicLiteratureReview |
+            | CaseReport |
+            | StudyProtocol |
+            | ProfessionalArticle |
+            | PopularScienceArticle |
             | JournalLetter      |
             | JournalReview      |
             | JournalLeader      |
