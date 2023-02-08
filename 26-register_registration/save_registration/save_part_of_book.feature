@@ -10,6 +10,12 @@ Feature: Save registration for Part of book
 
         Examples:
             | Subtype                   |
-            | ChapterArticle            |
+            | AcademicChapter |
+            | NonFictionChapter |
+            | PopularScienceChapter |
+            | TextbookChapter |
+            | EncyclopediaChapter |
+            | Introduction |
+            | ExhibitionCatalogChapter |
             | ChapterInReport           |
             | ChapterConferenceAbstract |
