@@ -10,5 +10,10 @@ Feature: Save registration for Book
 
         Examples:
             | Subtype       |
-            | BookMonograph |
+            | AcademicMonograph |
+            | NonFictionMonograph |
+            | PopularScienceMonograph |
+            | Textbook |
+            | Encyclopedia |
+            | ExhibitionCatalog |
             | BookAnthology |
