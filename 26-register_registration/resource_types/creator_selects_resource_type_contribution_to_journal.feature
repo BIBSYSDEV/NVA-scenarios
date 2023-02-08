@@ -6,9 +6,9 @@ Feature: Creator selects Resource type Contribution to journal
         Given Creator begins registering a Registration in the Wizard
         When they navigate to the Resource Type tab
         Then they can select Journal Resource types:
-            # Vitenskapelig artikkel (Academic article)
+            # Vitenskapelig artikkel (AcademicArticle)
             | Academic article           |
-            # Vitenskapelig oversiktsartikkel (Academic literature review)
+            # Vitenskapelig oversiktsartikkel (AcademicLiteratureReview)
             | Academic literature review |
             # Kasuistikk (CaseReport)
             | Case report                |

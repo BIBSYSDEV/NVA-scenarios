@@ -19,52 +19,67 @@ Feature: Creator navigates to Contributors tab
   Scenario Outline: Creator see buttons to add Contributors
     Given Creator navigates to Contributors tab
     When the Registration has Registration Type "<RegistrationType>"
-    And the Registration has Registration Subtype "<RegistrationSubtype>"
     Then they see buttons "<AddContributorButtons>"
     Examples:
-      | RegistrationType  | RegistrationSubtype           | AddContributorButtons                       |
-      | Book              | BookAnthology                 | Add Editor, Add Contributor                 |
-      | Book              | BookMonograph                 | Add Author, Add Contributor                 |
-      | Chapter           | ChapterArticle                | Add Author, Add Contributor                 |
-      | Chapter           | ChapterConferenceAbstract     | Add Author, Add Contributor                 |
-      | Degree            | DegreeBachelor                | Add Author, Add Supervisor, Add Contributor |
-      | Degree            | DegreeMaster                  | Add Author, Add Supervisor, Add Contributor |
-      | Degree            | DegreePhd                     | Add Author, Add Supervisor, Add Contributor |
-      | Degree            | DegreeLicentiate              | Add Author, Add Supervisor, Add Contributor |
-      | Degree            | OtherStudentWork              | Add Author, Add Supervisor, Add Contributor |
-      | Journal           | FeatureArticle                | Add Author, Add Contributor                 |
-      | Journal           | JournalArticle                | Add Author, Add Contributor                 |
-      | Journal           | JournalCorrigendum            | Add Author, Add Contributor                 |
-      | Journal           | JournalLeader                 | Add Author, Add Contributor                 |
-      | Journal           | JournalLetter                 | Add Author, Add Contributor                 |
-      | Journal           | JournalReview                 | Add Author, Add Contributor                 |
-      | Journal           | JournalBooklet                | Add Author, Add Contributor                 |
-      | Journal           | JournalConferenceAbstract     | Add Author, Add Contributor                 |
-      | Report            | ReportBasic                   | Add Author, Add Contributor                 |
-      | Report            | ReportPolicy                  | Add Author, Add Contributor                 |
-      | Report            | ReportResearch                | Add Author, Add Contributor                 |
-      | Report            | ReportAbstractCollection      | Add Author, Add Contributor                 |
-      | Report            | ReportWorkingPaper            | Add Author, Add Contributor                 |
-      | Presentation      | ConferenceLecture             | Add Author, Add Contributor                 |
-      | Presentation      | ConferencePoster              | Add Author, Add Contributor                 |
-      | Presentation      | Lecture                       | Add Author, Add Contributor                 |
-      | Presentation      | OtherPresentation             | Add Author, Add Contributor                 |
-      | Artistic          | ArtisticDesign                | Add Contributor                             |
-      | Artistic          | Architecture                  | Add Contributor                             |
-      | Artistic          | PerformingArts                | Add Contributor                             |
-      | Artistic          | MovingPicture                 | Add Contributor                             |
-      | Artistic          | MusicPerformance              | Add Contributor                             |
-      | Artistic          | LiteraryArts                  | Add Contributor                             |
-      | Artistic          | VisualArts                    | Add Contributor                             |
-      | MediaContribution | MediaFeatureArticle           | Add Author, Add Contributor                 |
-      | MediaContribution | MediaReaderOpinion            | Add Author, Add Contributor                 |
-      | MediaContribution | MediaInterview                | Add Contributor                             |
-      | MediaContribution | MediaBlogPost                 | Add Author, Add Contributor                 |
-      | MediaContribution | MediaPodcast                  | Add Contributor                             |
-      | MediaContribution | MediaParticipationInRadioOrTv | Add Contributor                             |
-      | ResearchData      | DataManagementPlan            | Add Author, Add Contributor                 |
-      | ResearchData      | Dataset                       | Add Contributor                             |
-      | OtherPublication  | Map                           | Add Contributor                             |
+      | RegistrationType              | AddContributorButtons                       |
+      | BookAnthology                 | Add Editor, Add Contributor                 |
+      | AcademicMonograph             | Add Author, Add Contributor                 |
+      | NonFictionMonograph           | Add Author, Add Contributor                 |
+      | PopularScienceMonograph       | Add Author, Add Contributor                 |
+      | Textbook                      | Add Author, Add Contributor                 |
+      | Encyclopedia                  | Add Author, Add Contributor                 |
+      | ExhibitionCatalog             | Add Author, Add Contributor                 |
+      | AcademicChapter               | Add Author, Add Contributor                 |
+      | NonFictionChapter             | Add Author, Add Contributor                 |
+      | PopularScienceChapter         | Add Author, Add Contributor                 |
+      | TextbookChapter               | Add Author, Add Contributor                 |
+      | EncyclopediaChapter           | Add Author, Add Contributor                 |
+      | Introduction                  | Add Author, Add Contributor                 |
+      | ExhibitionCatalogChapter      | Add Author, Add Contributor                 |
+      | ChapterInReport               | Add Author, Add Contributor                 |
+      | ChapterConferenceAbstract     | Add Author, Add Contributor                 |
+      | DegreeBachelor                | Add Author, Add Supervisor, Add Contributor |
+      | DegreeMaster                  | Add Author, Add Supervisor, Add Contributor |
+      | DegreePhd                     | Add Author, Add Supervisor, Add Contributor |
+      | DegreeLicentiate              | Add Author, Add Supervisor, Add Contributor |
+      | OtherStudentWork              | Add Author, Add Supervisor, Add Contributor |
+      | AcademicArticle               | Add Author, Add Contributor                 |
+      | AcademicLiteratureReview      | Add Author, Add Contributor                 |
+      | JournalLetter                 | Add Author, Add Contributor                 |
+      | JournalReview                 | Add Author, Add Contributor                 |
+      | JournalLeader                 | Add Author, Add Contributor                 |
+      | JournalCorrigendum            | Add Author, Add Contributor                 |
+      | JournalIssue                  | Add Author, Add Contributor                 |
+      | ConferenceAbstract            | Add Author, Add Contributor                 |
+      | CaseReport                    | Add Author, Add Contributor                 |
+      | StudyProtocol                 | Add Author, Add Contributor                 |
+      | ProfessionalArticle           | Add Author, Add Contributor                 |
+      | PopularScienceArticle         | Add Author, Add Contributor                 |
+      | ReportBasic                   | Add Author, Add Contributor                 |
+      | ReportPolicy                  | Add Author, Add Contributor                 |
+      | ReportResearch                | Add Author, Add Contributor                 |
+      | ReportAbstractCollection      | Add Author, Add Contributor                 |
+      | ReportWorkingPaper            | Add Author, Add Contributor                 |
+      | ConferenceLecture             | Add Author, Add Contributor                 |
+      | ConferencePoster              | Add Author, Add Contributor                 |
+      | Lecture                       | Add Author, Add Contributor                 |
+      | OtherPresentation             | Add Author, Add Contributor                 |
+      | ArtisticDesign                | Add Contributor                             |
+      | Architecture                  | Add Contributor                             |
+      | PerformingArts                | Add Contributor                             |
+      | MovingPicture                 | Add Contributor                             |
+      | MusicPerformance              | Add Contributor                             |
+      | LiteraryArts                  | Add Contributor                             |
+      | VisualArts                    | Add Contributor                             |
+      | MediaFeatureArticle           | Add Author, Add Contributor                 |
+      | MediaReaderOpinion            | Add Author, Add Contributor                 |
+      | MediaInterview                | Add Contributor                             |
+      | MediaBlogPost                 | Add Author, Add Contributor                 |
+      | MediaPodcast                  | Add Contributor                             |
+      | MediaParticipationInRadioOrTv | Add Contributor                             |
+      | DataManagementPlan            | Add Author, Add Contributor                 |
+      | Dataset                       | Add Contributor                             |
+      | Map                           | Add Contributor                             |
 
   @TEST_NP-4005
   @test
