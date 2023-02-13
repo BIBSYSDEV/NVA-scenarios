@@ -29,7 +29,7 @@ Feature: Creator selects Resource type Book
 
     @TEST_NP-4043
     @test
-    Scenario Outline: Creator sees that fields for Book are validated on Resource Type tab
+    Scenario: Creator sees that fields for Book are validated on Resource Type tab
         Given Creator sees fields for Book
         When they click the Save button
         Then they can see "Mandatory" error messages for fields:
