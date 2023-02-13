@@ -16,7 +16,7 @@ Feature: Creator selects Resource type Book
 
     @TEST_NP-4045
     @test
-    Scenario Outline: Creator sees fields for Book
+    Scenario: Creator sees fields for Book
         Given Creator navigates to the Resource Type tab and sees Resource types for "Book"
         When they select any Book type
         And they see fields:
