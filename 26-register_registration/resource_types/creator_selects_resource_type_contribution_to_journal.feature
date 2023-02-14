@@ -88,7 +88,7 @@ Feature: Creator selects Resource type Contribution to journal
         When they click the Save button
         Then they can see "Mandatory" error messages for fields:
             | Search field for Journal article |
-        And they can see an error message for fields "Pages from"
+        And they can see error messages for fields "Pages from" and "Pages to"
 
     @TEST_NP-4057
     @test
