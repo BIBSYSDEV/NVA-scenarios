@@ -94,7 +94,10 @@ Feature: Creator selects Resource type Contribution to journal
     @test
     Scenario Outline: Creator sees extra fields for Norwegian Science Index (NVI) compatible Journal types
         Given Creator navigates to the Resource Type tab and see list of Journal types
-        When they select type to be either of:
+        When they select type to be "<type>":
+        Then they see the Norwegian Science Index (NVI) evaluation status
+        Examples:
+            | Type                          |
             | Academic article           |
             | Academic literature review |
         Then they see the Norwegian Science Index (NVI) evaluation status
