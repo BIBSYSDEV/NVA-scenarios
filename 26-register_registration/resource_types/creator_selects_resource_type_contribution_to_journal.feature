@@ -72,7 +72,7 @@ Feature: Creator selects Resource type Contribution to journal
         Given Creator navigates to the Resource Type tab and see list of Journal types
         When they select the Resource type "Corrigendum"
         Then they see fields:
-            | Search box for Journal article |
+            | Search field for Journal article |
             | Volume                         |
             | Issue                          |
             | Pages from                     |
