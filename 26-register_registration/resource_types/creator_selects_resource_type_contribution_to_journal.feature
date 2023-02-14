@@ -73,11 +73,11 @@ Feature: Creator selects Resource type Contribution to journal
         When they select the Resource type "Corrigendum"
         Then they see fields:
             | Search field for Journal article |
-            | Volume                         |
-            | Issue                          |
-            | Pages from                     |
-            | Pages to                       |
-            | Article number                 |
+            | Volume                           |
+            | Issue                            |
+            | Pages from                       |
+            | Pages to                         |
+            | Article number                   |
         And they see a disabled field for Journal based on selected Journal article
 
     @TEST_NP-4056
@@ -97,6 +97,6 @@ Feature: Creator selects Resource type Contribution to journal
         When they select type to be "<type>":
         Then they see the Norwegian Science Index (NVI) evaluation status
         Examples:
-            | Type                          |
+            | Type                       |
             | Academic article           |
             | Academic literature review |
