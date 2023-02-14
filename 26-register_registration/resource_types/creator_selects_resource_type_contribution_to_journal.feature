@@ -92,7 +92,7 @@ Feature: Creator selects Resource type Contribution to journal
 
     @TEST_NP-4057
     @test
-    Scenario: Creator sees extra fields for Norwegian Science Index (NVI) compatible Journal types
+    Scenario Outline: Creator sees extra fields for Norwegian Science Index (NVI) compatible Journal types
         Given Creator navigates to the Resource Type tab and see list of Journal types
         When they select type to be either of:
             | Academic article           |
