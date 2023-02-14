@@ -100,4 +100,3 @@ Feature: Creator selects Resource type Contribution to journal
             | Type                          |
             | Academic article           |
             | Academic literature review |
-        Then they see the Norwegian Science Index (NVI) evaluation status
