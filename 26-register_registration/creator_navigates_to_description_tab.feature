@@ -94,7 +94,7 @@ Feature: Creator navigates to Description tab
   @test
   Scenario: Creator adds funding
     Given Creator begins Wizard registration and navigates to Description tab
-    When they uses the option to add funding
+    When they add funding
     Then they see an option to add a funding source
     And they see an option to cancel the funding source
 
