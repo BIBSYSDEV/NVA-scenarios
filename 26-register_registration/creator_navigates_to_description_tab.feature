@@ -111,7 +111,7 @@ Feature: Creator navigates to Description tab
     And they add funding
     And they select NFR as a funding source
     When they select a NFR Project
-    Then they can see the sum for the funding
+    Then they can add a sum for the funding
 
   @test
   Scenario: Creator adds funding from a non-NFR funding source
