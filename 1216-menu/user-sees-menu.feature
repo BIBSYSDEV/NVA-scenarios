@@ -41,8 +41,8 @@ Feature: User sees menu
         When they look at any page in NVA
         Then they can Log out
         And Then they can navigate to:
-            | My page  |
-            | Worklist |
+            | My page |
+            | Tasks   |
         And they can select Language
 
     @TEST_NP-4101
