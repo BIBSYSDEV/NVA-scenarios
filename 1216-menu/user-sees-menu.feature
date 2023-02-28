@@ -40,7 +40,7 @@ Feature: User sees menu
         And they have the "Curator" Role
         When they look at any page in NVA
         Then they can Log out
-        And Then they can navigate to:
+        And they can navigate to:
             | My page |
             | Tasks   |
         And they can select Language
