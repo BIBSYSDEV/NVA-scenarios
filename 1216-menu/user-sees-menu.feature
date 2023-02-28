@@ -17,7 +17,7 @@ Feature: User sees menu
         And they have no NVA role
         When they look at any page in NVA
         Then they can Log out
-        Then they can navigate to My page
+        And they can navigate to My page
         And they can select Language
 
     @TEST_NP-4103
