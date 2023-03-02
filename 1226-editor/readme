@@ -20,6 +20,7 @@ The Editor's main menu has following options and the first is the default choice
    #Sletting av publikasjoner      ->
     NVI-rapportering               -> nvi_report.featrure
    #Lisenser og filer              ->
+    Writing access                 -> 1228-landing_page.feature
 
 Institutions configuration
 This is the starting point for Editor's menu. It lists the institutions registered official names in different languages, it's short name, author identity and a possible Feide domain. This is read-only information about how the institution is configured.
