@@ -57,6 +57,9 @@ Feature: Creator adds a Contributor
             | ResearchData      | DataManagementPlan            | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
             | ResearchData      | Dataset                       | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
             | OtherPublication  | Map                           | Contact person, Rights holder, Other                                                                                                                                          |
+            | Exhibition        | ExhibitionProduction          | Contact person, Rights holder, Other                                                                                                                                          |
+            | Exhibition        | ExhibitionCatalog             | Contact person, Rights holder, Other                                                                                                                                          |
+            | Exhibition        | ExhibitionCatalogChapter      | Contact person, Rights holder, Other                                                                                                                                          |
 
     @TEST_NP-3995
     @test
