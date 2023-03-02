@@ -90,3 +90,36 @@ Feature: Creator navigates to Description tab
     Given Creator begins Wizard registration and navigates to Description tab
     When the user opens the Project wizard Dialog for creating a new Project
     Then User opens the Project Wizard to register a new Project
+
+  @test
+  Scenario: Creator adds funding
+    Given Creator begins Wizard registration and navigates to Description tab
+    When they add funding
+    Then they can select a funding source
+    And they see an option to cancel the funding source
+
+  @test
+  Scenario: Creator adds funding from NFR
+    Given Creator begins Wizard registration and navigates to Description tab
+    And they add funding
+    When they select NFR as a funding source
+    Then they can search for NFR Project
+    
+  @test
+  Scenario: Creator adds funding from a NFR Project
+    Given Creator begins Wizard registration and navigates to Description tab
+    And they add funding
+    And they select NFR as a funding source
+    When they select a NFR Project
+    Then they can add a sum for the funding
+
+  @test
+  Scenario: Creator adds funding from a non-NFR funding source
+    Given Creator begins Wizard registration and navigates to Description tab
+    And they add funding
+    When they select a non-NFR funding source
+    Then they can register:
+    | Project name |
+    | ID           |
+    | Sum          | 
+

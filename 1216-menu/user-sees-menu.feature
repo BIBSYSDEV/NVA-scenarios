@@ -6,8 +6,8 @@ Feature: User sees menu
     Scenario: Unauthenticated User sees menu
         Given that the User is not logged in
         When they look at any page in NVA
-        Then they see the Log in Button
-        And they see the Language selector
+        Then they can Log in
+        And they can select Language
 
     @TEST_NP-4100
     @test
@@ -16,10 +16,9 @@ Feature: User sees menu
         Given that the user is logged in
         And they have no NVA role
         When they look at any page in NVA
-        Then they see a Dropdown Menu with items:
-            | My user profile |
-            | Log out         |
-        And they see the Language selector
+        Then they can Log out
+        And they can navigate to My page
+        And they can select Language
 
     @TEST_NP-4103
     @test
@@ -28,13 +27,10 @@ Feature: User sees menu
         Given that the user is logged in
         And they have the "Creator" role
         When they look at any page in NVA
-        Then they see a Dropdown Menu with items:
-            | My user profile |
-            | Log out         |
-        And they see Menu items:
-            | New Registration |
-            | My page          |
-        And they see the Language selector
+        Then they can Log out
+        And Then they can navigate to My page
+        And they can start registring New Registration
+        And they can select Language
 
     @TEST_NP-4099
     @test
@@ -43,13 +39,11 @@ Feature: User sees menu
         Given that the user is logged in
         And they have the "Curator" Role
         When they look at any page in NVA
-        Then they see a Dropdown Menu with items:
-            | My user profile |
-            | Log out         |
-        And they see Menu items:
-            | Worklist |
-            | My page  |
-        And they see the Language selector
+        Then they can Log out
+        And they can navigate to:
+            | My page |
+            | Tasks   |
+        And they can select Language
 
     @TEST_NP-4101
     @test
@@ -57,24 +51,22 @@ Feature: User sees menu
         Given that the user is logged in
         And they have the "Institution-admin" role
         When they look at any page in NVA
-        Then they see a Dropdown Menu with items:
-            | My user profile |
-            | Log out         |
-        And they see Menu items:
-            | Basic data |
+        Then they can Log out
+        And Then they can navigate to:
             | My page    |
-        And they see the Language selector
+            | Basic data |
+        And they can select Language
 
     @TEST_NP-4105
     Scenario: User sees the menu for Editor
         Given that the user is logged in
         And they have the "Editor" role
         When they look at any page in NVA
-        Then they see a Dropdown Menu with items:
-            | Editor          |
-            | My user profile |
-            | Log out         |
-        And they see the Language selector
+        Then they can Log out
+        And they can navigate to:
+            | My page     |
+            | Editor page |
+        And they can select Language
 
     @TEST_NP-4104
     @test
@@ -82,10 +74,8 @@ Feature: User sees menu
         Given that the user is logged in
         And they have the "App-admin" role
         When they look at any page in NVA
-        Then they see a Dropdown Menu with items:
-            | My user profile |
-            | Log out         |
-        And they see Menu items:
-            | Basic data |
+        Then they can Log out
+        And they can navigate to:
             | My page    |
-        And they see the Language selector
+            | Basic data |
+        And they can select Language
