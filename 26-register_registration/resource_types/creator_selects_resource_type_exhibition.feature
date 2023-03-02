@@ -3,10 +3,8 @@ Feature: Creator selects Resource tyoe "Exhibition"
     Scenario: Creator navigates to the Resource Type tab and selects Resource type "Exhibition"
         Given Creator starts registering a Registration
         When they navigates to the Resource type tab
-        Then they see a list of Exhibition types:
-            | ExhibitionProduction     |
-            | ExhibitionCatalog        |
-            | ExhibitionCatalogChapter |
+        Then they see a Exhibition types:
+            | ExhibitionProduction |
 
     Scenario: Creator selects Resource type ExhibitionProduction
         Given Creator navigates to the Resource Type tab and selects Resource type "Exhibition"

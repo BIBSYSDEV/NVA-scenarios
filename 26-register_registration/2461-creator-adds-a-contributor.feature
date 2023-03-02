@@ -73,8 +73,6 @@ Feature: Creator adds a Contributor
             | Dataset                       | Data collector, Data curator, Data manager, Distributor, Editor, Related person, Researcher, Rights holder, Supervisor, Other                                                 |
             | Map                           | Contact person, Rights holder, Other                                                                                                                                          |
             | ExhibitionProduction          | Contact person, Rights holder, Other                                                                                                                                          |
-            | ExhibitionCatalog             | Contact person, Rights holder, Other                                                                                                                                          |
-            | ExhibitionCatalogChapter      | Contact person, Rights holder, Other                                                                                                                                          |
 
     @TEST_NP-3995
     @test
