@@ -1,15 +1,15 @@
-Feature: Creator opens their Public Profile from My Publications Page
+Feature: Creator opens their Research Profile from My Page
 
     @TEST_NP-4125
-    @421
-    Scenario: Creator opens their Public Profile from My Publications Page
+    @test
+    Scenario: Creator opens their Research Profile from My Page
         Given that the user is logged in as Creator
-        And they open My Publications page
-        When they click Public Profile
-        Then they see their Public Profile
+        And they open My Page
+        When they select Research Profile
+        Then they see their Research Profile
         And they see fields:
             | Name                                                                              |
-            | Institutions                                                                      |
+            | Employments                                                                      |
             | Public email                                                                      |
             | ORCID                                                                             |
             | List of publications where the user is a contributor and with status is Published |
