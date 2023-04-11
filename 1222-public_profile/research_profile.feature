@@ -18,5 +18,5 @@ Feature: Scenarios for Research Profile
     @test
     Scenario: User opens a Research Profile from a Landing Page for Publication
         Given the User views a Landing Page for a Publication
-        When they click a Contributor
+        When they click a verified Contributor
         Then they see the Contributor's Resarch Profile page
