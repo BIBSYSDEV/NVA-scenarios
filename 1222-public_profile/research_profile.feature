@@ -3,7 +3,7 @@ Feature: Scenarios for Research Profile
     @TEST_NP-4125
     @test
     Scenario: Creator opens their Research Profile from My Page
-        Given that the user is logged in as Creator
+        Given that the user is authenticated
         And they open My Page
         When they select Research Profile
         Then they see their Research Profile
