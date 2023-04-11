@@ -15,7 +15,7 @@ Feature: My Registrations
             | Draft    |
             | Rejected |
 
-  @test
+    @test
     Scenario: Creator opens an item in My Registrations list
         Given that the user is logged in as Creator
         And they have navigated to Registrations in My page
