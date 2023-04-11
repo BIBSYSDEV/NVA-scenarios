@@ -1,6 +1,6 @@
 Feature: My Registrations
 
-@test
+    @test
     Scenario: Creator opens My Registrations
         Given the user is logged in as Creator
         When they navigate to My Page
