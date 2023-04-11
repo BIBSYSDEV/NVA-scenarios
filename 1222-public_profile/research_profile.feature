@@ -12,7 +12,7 @@ Feature: Scenarios for Research Profile
             | Employments                                                                       |
             | Public email                                                                      |
             | ORCID                                                                             |
-            | List of publications where the user is a contributor and with status is Published |
+            | List of publications where the user is a contributor and with status Published |
 
     @TEST_NP-4124
     @test
