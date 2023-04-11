@@ -23,7 +23,7 @@ Feature: My Registrations
         Then they see the item is opened in the Wizard
         And they see the Description tab
 
-  @test
+    @test
     Scenario: Creator sees Validation Errors for Registration
         Given Creator navigate to My Page and select Registrations
         When they Edit a Registration with Validation Errors
