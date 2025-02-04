@@ -7,9 +7,9 @@ Feature: Report on behalf of (Local) Project Manager
     Then they should be able to upsert <Input>
     # And it should be logged that an kbs_admin edited the data
 
-  Examples:
-    | Input |
-    | Inclusion number |
-    | Date of first inclusion |
-    | Date of last inclusion |
-    | Local inclusion number |
+    Examples:
+      | Input                   |
+      | Inclusion number        |
+      | Date of first inclusion |
+      | Date of last inclusion  |
+      | Local inclusion number  |

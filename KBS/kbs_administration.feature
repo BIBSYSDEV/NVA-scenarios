@@ -3,44 +3,57 @@ Feature: KBS administration
   Background:
     Given a user is logged in as KBS Manager
 
-  Scenario: Create a period for reporting
-    Given there exists no period for reporting year YYYY
+  Scenario: Create a reporting period
+    Given that no period for reporting year YYYY exists
     And the year YYYY is not in the future
     Then the user should be able to create a period for year YYYY
-    And this period should initially be open
+    When the period is created
+    Then the period should initially be open
 
-  Scenario: Close a period for reporting
+  Scenario: Close a reporting period
     Given there is an open period
     Then the user should be able to close the period
-    When the user closes the given peroid
-    Then no one can report for the given period
+    When the user closes the peroid
+    Then no one can report for the period
 
-  Scenario: Open a period for reporting
-    Given there is a closed period for year YYYY
-    And the period for year YYYY is not finalized
+  Scenario: Open a reporting period
+    Given there is a closed period
+    And the period is not finalized
     Then the user should be able to open the period
 
-  Scenario: Finalize reporting period
-    Given there is a closed period for year YYYY
+  Scenario Outline: Finalize reporting period
+    Given a closed period
     Then the user should be able to finalize the period
-    And the system produces a finalized kbs report for year YYYY
+    When the user finalizes the period
+    Then the system produces and uploads to NVA a KBS Report for the period
     # Should this be a separate step/manually done? Think of potential CTIS data
-    And the report should contain columns Project identifier, -name, reprting period, and number of inclusions
+    And the user should not be able to <Action> the period
 
-  Scenario: Produce report for an open period
-    Given an open period exists
-    Then the user should be able to produce a report for the given open period
+    Examples:
+      | Action |
+      | Open   |
+      | Close  |
 
-  Scenario: Produce report for a closed period
-    Given a closed period exists
-    Then the user should be able to produce a report for the given closed period
+  Scenario Outline: Produce a KBS Report
+    Given a non finalized period
+    When the user requests a KBS report for the period
+    Then a report should be procuced and downloaded
+    And it should contain column <Column>
 
-  Scenario: Should not produce report for already finalized report
-    Given a finalized period exists
-    Then the user should not be able to produce a report for the given finalized period
+    Examples:
+      | Column               |
+      | Project Identifier   |
+      | Project Name         |
+      | Reporting Period     |
+      | Number of Inclusions |
 
-  Scenario: List Projects and their reported inclusion numbers for a given open/closed period
-    Given an open/closed period exists
-    Then the user should be able to list all KBS Projects for the given period
-    And number of inclusions for each Project
-    And Projects missing inclusion numbers are marked
+  Scenario: Should not produce KBS Report for finalized period
+    Given a finalized period
+    Then the user should not be able to produce a KBS Report for the period
+
+  Scenario: Inspect KBS related Projects for a non finalized period
+    Given a non finalized period
+    When the user wants to inspect KBS related Projects for the period
+    Then all KBS Candidates for the period should be provided
+    And all KBS Reportable Projects for the period should be provided
+    And number of inclusions for each KBS Reportable Project should be provided
