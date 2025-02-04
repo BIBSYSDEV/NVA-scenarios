@@ -3,7 +3,7 @@ Feature: Local Project Manager reports KBS data
   Scenario: Notification of KBS reporting
     Given a user logged in as Local Project Manager
     And their Project is marked for KBS reporting
-    And Local KBS data is not yet reported
+    And local KBS data is not yet reported
     And the reporting period is still open
     Then the user should recieve a notification
 

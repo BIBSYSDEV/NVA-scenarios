@@ -19,9 +19,9 @@ inclusion should be reported when known.
 To assist the Project Manager, Local Project Managers may report
 their local inclusion numbers as well.
 
-To oversee the reporting process each year, a "KBS Controller" 
-is assigned to follow up all Project Managers and make sure 
-all KBS reporting is done.  
+To oversee the reporting process each year, a "KBS Controller"/
+"KBS Manager" is assigned to follow up all Project Managers and 
+make sure all KBS reporting is done.  
 When a Controller sees fit, usually when all KBS related Projects
 are done reporting, they close reporting for the previous year. 
 Then, a final report for that year is produced, containing all 
