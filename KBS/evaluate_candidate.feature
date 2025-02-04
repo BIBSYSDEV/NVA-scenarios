@@ -19,22 +19,22 @@ Feature: Evaluating KBS Candidates
   Scenario: Notification of KBS Candidate
     Given a user logged in as Project Manager
     And at least one of their Projects is listed as a KBS Candidate
-    Then the user is notified that they must decide if the Project is Reportable
+    Then they are notified that they must decide if the Project is Reportable
 
   Scenario: See a list of KBS candidates
     Given a user logged in as Project Manager
-    When the user requests all of their KBS candidates
-    Then all KBS Candidates where the user is Project Manager should be provided
+    When they request a list all of their KBS candidates
+    Then all KBS Candidates where they are Project Manager should be provided
 
   Scenario: Mark candidate for KBS reporting
     Given a user logged in as Project Manager
     And their Project is a KBS Candidate
-    Then the user should be able to decide if the Project is Reportable
+    Then they should be able to decide if the Project is Reportable
 
   Scenario: Undo KBS Reportable decision
     Given a user logged in as Project Manager
-    And the user has decided if their Project is Reportable
+    And they has decided if their Project is Reportable
     And the given reporting period is open
-    Then the user should be able to undo the decision
-    When the user undoes the decision
+    Then they should be able to undo the decision
+    When they undoes the decision
     Then KBS related data for that Project for the given period should be deleted
