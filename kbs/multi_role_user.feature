@@ -5,4 +5,4 @@ Feature: Multi role user
     And Local Project Manager on a second KBS Project
     And Project Participant on a third KBS Project
     When requesting their KBS Projects
-    Then all KBS Projects where they have a role should be provided
+    Then all KBS Projects where they have a role are provided
