@@ -1,0 +1,1 @@
+# TODO: Create Gherkin scenarios from https://sikt.atlassian.net/wiki/spaces/NVAP/pages/2847703136/NVI+Point+calculation+rules
