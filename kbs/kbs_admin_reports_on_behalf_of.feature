@@ -4,8 +4,9 @@ Feature: Report on behalf of (Local) Project Manager
     Given a user logged in as KBS Admin
 
   Scenario Outline: KBS Admin should be able to decide if a Project is KBS Reportable
-    When a Project becomes a KBS Candidate
-    Then the user should be able to decide that the Project is <Status>
+    Given a KBS Candidate
+    When the user decide that the Project is <Status>
+    Then the Project is <Status>
 
     Examples:
       | Status             |
@@ -13,8 +14,9 @@ Feature: Report on behalf of (Local) Project Manager
       | not KBS Reportable |
 
   Scenario Outline: KBS Admin should be able to insert KBS Metadata
-    When a Project becomes KBS Reportable
-    Then the user should be able to insert <KBS Metadata>
+    Given a KBS Reportable Project
+    When the user reports <KBS Metadata>
+    Then <KBS Metadata> is saved
 
     Examples:
       | KBS Metadata            |
@@ -24,9 +26,10 @@ Feature: Report on behalf of (Local) Project Manager
       | Local inclusion number  |
 
   Scenario Outline: KBS Admin should be able to override KBS Metadata
-    When a Project becomes KBS Reportable
-    And the Project Manager has inserted <KBS Metadata>
-    Then the user should be able to override <KBS Metadata>
+    Given a KBS Reportable Project
+    And the Project Manager has reported <KBS Metadata>
+    When the user reports <KBS Metadata>
+    Then new <KBS Metadata> is saved
 
     Examples:
       | KBS Metadata            |
@@ -36,5 +39,6 @@ Feature: Report on behalf of (Local) Project Manager
       | Local inclusion number  |
 
   Scenario: KBS Admin should not be able to edit non KBS Metadata
-    When a Project becomes KBS Reportable
-    Then they should not be able to edit non KBS Metadata
+    Given a KBS Reportable Project
+    When the user edits non KBS Metadata
+    Then they are denied
