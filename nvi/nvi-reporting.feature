@@ -1,4 +1,6 @@
 # Copied from https://sikt.atlassian.net/browse/NP-48230
+
+@NotImplemented
 Feature: NVI reporting
 
   Scenario: Self-report completion of "NVI Control and Approval"
