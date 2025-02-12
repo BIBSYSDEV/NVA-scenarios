@@ -8,7 +8,7 @@ Feature: Project Manager reports KBS data
     And KBS Metadata is not yet reported
     And the Reporting Period is open
     When they log in
-    Then they recieve a notification
+    Then they receive a notification
 
   Scenario: Requesting KBS Projects
     When requesting their KBS Projects
@@ -44,16 +44,16 @@ Feature: Project Manager reports KBS data
   Scenario: First Inclusion Date cannot be after Last Inclusion Date
     Given Last Inclusion Date set
     When the user reports First Inclusion Date as a date after Last Inclusion Date
-    Then they recieve an error
+    Then they receive an error
 
   Scenario: Last Inclusion Date cannot be before First Inclusion Date
     Given First Inclusion Date set
     When the user reports Last Inclusion Date as a date before First Inclusion Date
-    Then they recieve an error
+    Then they receive an error
 
   Scenario: Last Inclusion Date cannot be in a future year
     When the user reports Last Inclusion Date as a date in a future year
-    Then they recieve an error
+    Then they receive an error
 
   Scenario Outline: Inclusion date should not be restricted to REK/CTIS Approval period
     When reporting <Inclusion Date> outside of an REK/CTIS Approval period

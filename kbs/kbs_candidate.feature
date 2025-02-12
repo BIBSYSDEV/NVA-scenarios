@@ -39,10 +39,6 @@ Feature: Evaluating KBS Candidates
     When a Project has a Last Inclusion Date from a previous Reporting Year
     Then the Project is not a KBS Candidate
 
-  Scenario: When a Project is not a KBS Candidate then it is not a KBS Candidate
-    When a Project is not a KBS Candidate
-    Then it is not a KBS Candidate
-
   Scenario Outline: When a KBS Candidate changes fields such that it no longer comply with KBS requirements it is no longer a KBS Candidate
     Given a KBS Candidate
     When <Field> changes to a non-KBS-complicit value
@@ -62,7 +58,7 @@ Feature: Evaluating KBS Candidates
     When a KBS Candidate becomes KBS Reportable
     Then it is no longer a KBS Candidate
 
-  Scenario: When a KBS Candidate is decided to not be KBS Reportable, it should no longer be a KBS Candidate
+  Scenario: When a KBS Candidate is marked not to be KBS Reportable, it should no longer be a KBS Candidate
     When a KBS Candidate is decided to not be KBS Reportable
     Then it is no longer a KBS Candidate
 
@@ -91,11 +87,11 @@ Feature: Evaluating KBS Candidates
     When they request KBS Candidates
     Then no KBS Candidates are provided
 
-  Scenario Outline: Decide if KBS Candidate is KBS Reportable when user is Project Manager
+  Scenario Outline: Mark KBS Candidate as KBS Reportable when user is Project Manager
     Given a user logged in as Project Manager
     And a Project where they are Project Manager is a KBS Candidate
-    When they decide that the Project is <KBS Status>
-    Then the Project is <Status>
+    When they mark the Project <KBS Status>
+    Then the Project is <KBS Status>
 
     Examples:
       | KBS Status         |

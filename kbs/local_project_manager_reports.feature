@@ -9,7 +9,7 @@ Feature: Local Project Manager reports KBS data
     And local KBS Metadata is not yet reported
     And the Reporting Period is open
     When they log in
-    Then they recieve a notification
+    Then they receive a notification
 
   Scenario: Requesting KBS Projects
     When requesting their KBS Projects

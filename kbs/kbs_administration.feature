@@ -5,29 +5,29 @@ Feature: KBS Admin administration
 
   Scenario: Should be able to close an open Reporting Period
     Given an open Reporting Period
-    When the user close the period
+    When the user closes the period
     Then it is closed
 
   Scenario: Should be able to close an open Reporting Period when there are KBS Candidates
     Given an open Reporting Period
     And a KBS Candidate for the given period exists
-    When the user close the period
+    When the user closes the period
     Then it is closed
 
   Scenario: Should be able to close an open reporting period when there are Reportable Projects yet to report
     Given an open Reporting Period
     And a KBS Reportable Project for given period has yet to report
-    When the user close the period
+    When the user closes the period
     Then it is closed
 
   Scenario: Open a reporting period
     Given a closed Reporting Period
-    When the user open the period
+    When the user opens the period
     Then it is open
 
   Scenario: Opening a period should allow KBS reporting
     Given a closed Reporting Period
-    When the user open the period
+    When the user opens the period
     And a Project Manager reports for their KBS Reportable Project
     Then the KBS Reportable Project is reported
 
@@ -88,13 +88,13 @@ Feature: Non KBS Admin user
     Then they are denied
 
     Examples:
-      | Status    | Action   |
-      | Open      | Close    |
-      | Open      | Finalize |
-      | Closed    | Open     |
-      | Closed    | Finalize |
-      | Finalized | Open     |
-      | Finalized | Close    |
+      | Status    | Action    |
+      | Open      | Closes    |
+      | Open      | Finalizes |
+      | Closed    | Opens     |
+      | Closed    | Finalizes |
+      | Finalized | Opens     |
+      | Finalized | Closes    |
 
   Scenario Outline: No one can report for a closed Reporting Period
     Given a closed Reporting Period
