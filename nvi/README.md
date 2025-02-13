@@ -1,39 +1,45 @@
+# NVI - Norsk vitenskapsindeks
+
 NVA is an institutional archive that stores metadata and content of many different types and formats. This feature file describes only a part of the total functionality, named NVI.
 
-NVI stands for "Norsk vitenskapsindeks" (Norwegian science index), it is a tentative, complete collection of high-quality metadata about academic publications produced by higher education and research institutions, to which Norwegian authors and institutions are unambiguously affiliated. 
+NVI stands for "Norsk vitenskapsindeks" (Norwegian science index), it is a tentative, complete collection of high-quality metadata about academic publications produced by higher education and research institutions, to which Norwegian authors and institutions are unambiguously affiliated.
 
 Academic publications are defined as publications that:
- - present new insight
- - are presented in a form that allows the research findings to be verified and/or used in new research
- - are written in a language and have a distribution that makes the publication accessible to the majority of interested researchers
- - appear in an authorised publication channel (journal, series, book publishers, website) that has procedures for external peer review
+
+- present new insight
+- are presented in a form that allows the research findings to be verified and/or used in new research
+- are written in a language and have a distribution that makes the publication accessible to the majority of interested researchers
+- appear in an authorised publication channel (journal, series, book publishers, website) that has procedures for external peer review
 
 "Kanalregisteret" (The Norwegian Register for Scientific Journals, Series and Publishers) documents all publications channels. Most channels are unranked, but — through a nomination process — some are evaluated as low rank scientific (level 1) or high rank scientific (level 2) for academic publishing. The quality evaluation process is NPI – “Norske Publiseringsindikatoren” (Norwegian Publication Indicator) that aims to promote high-quality research and provide an overview of and insight into research activity.
 
 The Norwegian Ministry of Education and Research grants about NOK 700 million every year, which is divided between the NVI institutions, based on their academic publication output in ranked channels (level 1 and 2) the previous year. Every publication produces points, and the points are divided following the authors' affiliations.
 
-Not all institutions qualify to be part of the NVI process. It is the System Administrator's responsibility to configure Institutions to be part of the NVI process. 
+Not all institutions qualify to be part of the NVI process. It is the System Administrator's responsibility to configure Institutions to be part of the NVI process.
 See nvi_institution.feature for details.
 
 The NVI-process can be described in short:
--   Users Register Publications and System Import Publications, creating Resources
--   Curators validate Resources
--   Editors decide when an NVI cycle ends and the next begins (see [Editor reporting](../editor/nvi_report.features)
+
+- Users Register Publications and System Import Publications, creating Resources
+- Curators validate Resources
+- Editors decide when an NVI cycle ends and the next begins (see [Editor reporting](../editor/nvi_report.features)
 
 The NVI process is divided into four stages. The first stage is multi-faceted, where the User drives the prosess to Register Publications. Alternatively, the Curator may provide support to Users and Register Publications on their behalf. The system also impors know Publications automatically. Any of the aforementioned processes may result in a Published Resource in the system. A Published Resource complying to the rules is an NVI-Resource. See [NVI resources](registration_nvi_resources.feature) for details.
 
-The second stage starts when a Curator validates the NVI-Resource, making it an Validated NVI-Resource. See (Vaalidation)[validation_nvi_resource.feature] for details.
+The second stage starts when a Curator validates the NVI-Resource, making it an Validated NVI-Resource. See [Vaalidation](validation_nvi_resource.feature) for details.
 
 The third stage starts when the Editor states that the Institution's work to validate past years publications is concluded. This feature is covered in [Report features](editor/nvi_report.features). As noted above, the process is cyclic.
 
-The fourth stage is the compilation of the Institution's points. 
+The fourth stage is the compilation of the Institution's points.
 
 Rules of Author Affiliation:
+
 - The Resource Owner and their Curators can affiliate authors
 - Curator can change affiliation of their own authors - on any Resource
   (Note: the main intention is to enable selection of correct subunit at own Institution. The Curator can "give away" the publication to another institution, this is a final action.)
 
 Institutional NVI process
+
 - A Published Resource complying to the rules is an NVI Resource.
 - Institutions participating in NVI is a subgroup of all Institution.
 - Curator can list NVI Resources that are pending for the next NVI-Report.
@@ -45,6 +51,7 @@ Institutional NVI process
 - The Approving Curator may send a message to Owning Curator regarding a NVI Resource.
 
 Details of the NVI-Resource, NVI-Report and NVI-Status
+
 - The Resource Owner cannot change an NVI Resource that is partially or fully "Approved".
 - If an affiliated Curator judges an NVI Resource to not comply with the rules, the Resource Owner or their Curator should agree on the metadata or involve the Editors.
 - If a NVI Resource is modified so it no longer is an NVI Resource, a notification is given before the change is performed.
