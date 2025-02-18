@@ -1,44 +1,47 @@
-Feature: Report on behalf of (Local) Project Manager
+Feature: KBS Admin reports on behalf of (Local) Project Manager
 
   Background:
     Given a user logged in as KBS Admin
 
-  Scenario Outline: KBS Admin should be able to mark a Project KBS Reportable or not
+  Scenario: KBS Admin can mark that a KBS Candidate should report for KBS
     Given a KBS Candidate
-    When the user marks the Project <KBS Status>
-    Then the Project is <KBS Status>
+    When the user marks that it should report for KBS
+    Then the Project is a KBS Project
+    And the Project is not a KBS Candidate
+
+  Scenario: KBS Admin can mark that a KBS Candidate should not report for KBS
+    Given a KBS Candidate
+    When the user marks that it should not report for KBS
+    Then the Project is not a KBS Project
+    And the Project is not a KBS Candidate
+
+  Scenario Outline: KBS Admin can provide missing KBS Metadata
+    Given a KBS Project
+    And the KBS Project has no value for <KBS Metadata>
+    When the user edits the Project
+    Then they can set a value for <KBS Metadata>
 
     Examples:
-      | KBS Status         |
-      | KBS Reportable     |
-      | not KBS Reportable |
+      | KBS Metadata             |
+      | Recruitment Number       |
+      | First Recruitment Date   |
+      | Last Recruitment Date    |
+      | Local Recruitment Number |
 
-  Scenario Outline: KBS Admin should be able to insert KBS Metadata
-    Given a KBS Reportable Project
+  Scenario Outline: KBS Admin can override KBS Metadata
+    Given a KBS Project
+    And the KBS Project has a value for <KBS Metadata>
     When the user edits the Project
     Then they can set a new value for <KBS Metadata>
 
     Examples:
-      | KBS Metadata            |
-      | Inclusion number        |
-      | Date of first inclusion |
-      | Date of last inclusion  |
-      | Local inclusion number  |
+      | KBS Metadata             |
+      | Recruitment Number       |
+      | First Recruitment Date   |
+      | Last Recruitment Date    |
+      | Local Recruitment Number |
 
-  Scenario Outline: KBS Admin should be able to override KBS Metadata
-    Given a KBS Reportable Project
-    And a Project Manager has set a value for <KBS Metadata>
-    When the user edits the Project
-    Then they can set a new value for <KBS Metadata>
-
-    Examples:
-      | KBS Metadata            |
-      | Inclusion number        |
-      | Date of first inclusion |
-      | Date of last inclusion  |
-      | Local inclusion number  |
-
-  Scenario: KBS Admin should not be able to edit non KBS Metadata
-    Given a KBS Reportable Project
+  Scenario: KBS Admin cannot edit non KBS Metadata
+    Given a KBS Project
     When the user edits the Project
     Then they cannot set new values for metadata unrelated to KBS reporting

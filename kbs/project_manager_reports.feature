@@ -4,7 +4,7 @@ Feature: Project Manager reports KBS data
     Given a user is logged in as Project Manager
 
   Scenario: Notification of KBS reporting
-    Given their Project is KBS Reportable
+    Given their Project is a KBS Project
     And KBS Metadata is not yet reported
     And the Reporting Period is open
     When they log in
@@ -12,16 +12,16 @@ Feature: Project Manager reports KBS data
 
   Scenario: Requesting KBS Projects
     When requesting their KBS Projects
-    Then all KBS Projects where they are Project Manager are provided
+    Then all KBS Projects where they are Project Manager are returned
 
-  Scenario: Report Number of Inclusions for given Reporting Period
-    Given their Project is KBS Reportable
+  Scenario: Report Recruitment Number for given Reporting Period
+    Given their Project is a KBS Project
     And the Reporting Period is open
-    When they report Number of Inclusions
-    Then Number of Inclusions for the period is saved
+    When they report Recruitment Number
+    Then Recruitment Number for the period is saved
 
-  Scenario Outline: Number of Inclusions should only be zero or a positive integer
-    When the user reports Number of Inclusions as a <Value>
+  Scenario Outline: Only zero or a positive integer allowed input for Recruitment Number
+    When the user reports Recruitment Number as a <Value>
     Then they receive <Response>
 
     Examples:
@@ -30,63 +30,63 @@ Feature: Project Manager reports KBS data
       | zero             | success  |
       | negative integer | error    |
 
-  Scenario Outline: Report Inclusion Date
+  Scenario Outline: Report Recruitment Date
     Given their Project is KBS Reportable
     And the Reporting Period is open
-    When the user reports <Inclusion Date>
-    Then <Inclusion Date> is saved
+    When the user reports <Recruitment Date>
+    Then <Recruitment Date> is saved
 
     Examples:
-      | Inclusion Date       |
-      | First Inclusion Date |
-      | Last Inclusion Date  |
+      | Recruitment Date       |
+      | First Recruitment Date |
+      | Last Recruitment Date  |
 
-  Scenario: First Inclusion Date cannot be after Last Inclusion Date
-    Given Last Inclusion Date set
-    When the user reports First Inclusion Date as a date after Last Inclusion Date
+  Scenario: First Recruitment Date cannot be after Last Recruitment Date
+    Given Last Recruitment Date set
+    When the user reports First Recruitment Date as a date after Last Recruitment Date
     Then they receive an error
 
-  Scenario: Last Inclusion Date cannot be before First Inclusion Date
-    Given First Inclusion Date set
-    When the user reports Last Inclusion Date as a date before First Inclusion Date
+  Scenario: Last Recruitment Date cannot be before First Recruitment Date
+    Given First Recruitment Date set
+    When the user reports Last Recruitment Date as a date before First Recruitment Date
     Then they receive an error
 
-  Scenario: Last Inclusion Date cannot be in a future year
-    When the user reports Last Inclusion Date as a date in a future year
+  Scenario: Last Recruitment Date cannot be in a future year
+    When the user reports Last Recruitment Date as a date in a future year
     Then they receive an error
 
-  Scenario Outline: Inclusion date should not be restricted to REK/CTIS Approval period
-    When reporting <Inclusion Date> outside of an REK/CTIS Approval period
+  Scenario Outline: Recruitment date should not be restricted to REK/CTIS Approval period
+    When reporting <Recruitment Date> outside of an REK/CTIS Approval period
     Then the date is saved
 
     Examples:
-      | Inclusion Date       |
-      | First Inclusion Date |
-      | Last Inclusion Date  |
+      | Recruitment Date       |
+      | First Recruitment Date |
+      | Last Recruitment Date  |
 
-  Scenario Outline: Inclusion date should not be restricted to Project period
-    When reporting <Inclusion Date> outside of the Project Period
+  Scenario Outline: Recruitment date should not be restricted to Project period
+    When reporting <Recruitment Date> outside of the Project Period
     Then the date is saved
 
     Examples:
-      | Inclusion Date       |
-      | First Inclusion Date |
-      | Last Inclusion Date  |
+      | Recruitment Date       |
+      | First Recruitment Date |
+      | Last Recruitment Date  |
 
-  Scenario: See Local Number of Inclusions from Local Project Managers
-    Given their Project is KBS Reportable
+  Scenario: See Local Recruitment Numbers from Local Project Managers
+    Given their Project is a KBS Project
     And the Reporting Period is open
-    When they request Local Number of Inclusions
-    Then Local Project Managers and their local inclusion numbers are provided
+    When they request Local Recruitment Numbers
+    Then Local Project Managers and their Local Recruitment Numbers are returned
 
-  Scenario: Should not be able to edit inclusion numbers of Local Project Managers
-    When the user edits local inclusion numbers
+  Scenario: Should not be able to edit Recruitment Numbers of Local Project Managers
+    When the user edits Local Recruitment Numbers
     Then they are denied
 
-  Scenario Outline: When a KBS Reportable Project changes fields such that it no longer comply with KBS requirements it is no longer a KBS Reportable Project
-    Given a KBS Reportable Project
+  Scenario Outline: When a Project Manager changes fields such that the Project is no longer eligible for KBS reporting, then it is no longer a KBS Project
+    Given a KBS Project
     When the user changes <Field> to a non-KBS-complicit value
-    Then it is no longer a KBS Reportable Project
+    Then it is no longer a KBS Project
     And the user is alerted
     And KBS Metadata is deleted
 

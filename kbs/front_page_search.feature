@@ -1,12 +1,14 @@
-Feature: Front page search for KBS
+Feature: Anonymous user finds KBS reports
 
-  Scenario: Filter by KBS reported year
+  Background:
     Given a user is on the Project Search Page
+    And is not logged in
+
+  Scenario: Find KBS Projects in a given year
     When they filter by KBS Reporting Year
-    Then only KBS Reportable Projects for the KBS Reporting Year are provided
+    Then only KBS Projects for the chosen KBS Reporting Year are returned
 
   @ignore("uncertain_if_filter_should_be_included")
-  Scenario: Filter by KBS Reportable Projects
-    Given a user is on the Project Search Page
-    When they filter by KBS Reportable Projects
-    Then only KBS Reportable Projects are provided
+  Scenario: Filter by KBS Projects
+    When they filter by KBS Projects
+    Then only KBS Projects are returned
