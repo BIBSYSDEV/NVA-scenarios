@@ -110,11 +110,11 @@ Feature: Non KBS Admin user
       | Project Participant   |
       | None Project Role     |
 
-  Scenario: Should not be able to inspect a Reporting Period
+  Scenario: Cannot inspect a Reporting Period
     When the user inspects a Reporting Period
     Then they are denied
 
-  Scenario: Should not be able to request a KBS Report
+  Scenario: Cannot request a KBS Report
     When the user requests a KBS Report
     Then they are denied
 

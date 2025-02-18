@@ -31,7 +31,7 @@ Feature: Project Manager reports KBS data
       | negative integer | error    |
 
   Scenario Outline: Report Recruitment Date
-    Given their Project is KBS Reportable
+    Given their Project is a KBS Project
     And the Reporting Period is open
     When the user reports <Recruitment Date>
     Then <Recruitment Date> is saved
