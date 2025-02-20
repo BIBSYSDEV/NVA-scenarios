@@ -1,7 +1,16 @@
-# Copied from https://sikt.atlassian.net/browse/NP-48230
-
 @NotImplemented
 Feature: NVI reporting
+This feature covers all aspects of NVI reporting, including:
+- Managing state of reporting periods
+- Ensuring immutable reports
+- Compiling reported results into a published dataset
+- Optional self-reporting of approval status per institution
+
+# The NVI reporting process is managed by the System Administrator.
+# The System Administrator is responsible for opening and closing NVI reporting periods.
+# The System Administrator is responsible for ensuring that all NVI candidates are resolved before closing the reporting period.
+# The System Administrator is responsible for ensuring that all approved results are marked as "NVI reported" before closing the reporting period.
+# The System Administrator is responsible for compiling reported results into a published dataset.
 
   Scenario: Self-report completion of "NVI Control and Approval"
     Given an NVI period is open,
@@ -57,7 +66,28 @@ Feature: NVI reporting
     Given "NVI reported results are marked",
     When a System Administrator closes the NVI period,
     Then descriptive metadata for all "NVI reported" results is compiled into a dataset,
-    And a schema describing the dataset syntax is added as a seperate file,
+    And a schema describing the dataset syntax is added as a separate file,
     And the dataset is published in NVA by Sikt,
     And a publishing file request is created,
     And a DOI request is created.
+
+  Rule: Publications can be in one of three states: Non-candidate, Candidate, Reported
+    # A Publication can only have one NVI state at a time.
+    # A Publication can be in one of the following states:
+    # - Non-candidate
+    # - Candidate
+    # - Reported
+
+  Rule: Reported results are immutable
+
+  Rule: Reported results are not re-evaluated
+
+  Rule: The System Administrator manages the NVI reporting process
+    The System Administrator is responsible for opening and closing NVI reporting periods.
+
+  Rule: Institutions can self-report their NVI control status
+
+    WIP: Figure this stuff out
+    Scenario: Disputed Candidate is Reported
+    Scenario: Disputed Reported publication is updated (moved from closed to open period)
+    Scenario: Reported publication is moved from closed to open period
