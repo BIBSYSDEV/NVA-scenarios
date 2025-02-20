@@ -57,3 +57,18 @@ Details of the NVI-Resource, NVI-Report and NVI-Status
 - If a NVI Resource is modified so it no longer is an NVI Resource, a notification is given before the change is performed.
 - If a partially approved NVI Resource is modified so it needs new approvals, a notification is given before the change is performed.
 - When a partially approved NVI Resource is modified so it no longer is a NVI Resource, a notification is sent to all Curator that approved it.
+
+## Vocabulary
+
+This section defines relevant terms specific to NVI and these features.
+The purpose of this is to ensure that all stakeholders have a common understanding of the terms used in the features,
+and to avoid redefining terms in each feature file.
+For clarity, the table includes both the English and Norwegian version of the term.
+
+| English term   | Norwegian term         | Description                                                               |
+| -------------- | ---------------------- | ------------------------------------------------------------------------- |
+| NVI            | Norsk vitenskapsindeks | A collection of metadata about publications that fulfill certain criteria |
+| NVA            | Nasjonalt vitenarkiv   | An archive for scientific research, containing both metadata and content  |
+
+TMP: Redaktør/Editor tildeler roller. Institution-admin tildeler Redaktør-rolle. Wtf. Per institusjon i alle fall.
+`resource-all` = hva som helst med publikasjoner/resultater.
