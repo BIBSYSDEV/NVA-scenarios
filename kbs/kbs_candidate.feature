@@ -2,7 +2,7 @@ Feature: Evaluating KBS Candidates
 
   Scenario Outline: Project satisfies requirements to be a KBS Candidate (REK)
     Given a Reporting Period
-    When a Project is a Health Project Type <Type>
+    When a Project is a Health Project of type <Type>
     And has an active Approval from REK during the period
     And Last Recruitment Date is not set
     Then the Project is a KBS Candidate
@@ -15,7 +15,7 @@ Feature: Evaluating KBS Candidates
   @ignore("until_CTIS_is_integrated")
   Scenario Outline: Project satisfies requirements to be a KBS Candidate (CTIS)
     Given a Reporting Period
-    When a Project is a Health Project Type <Type>
+    When a Project is a Health Project of type <Type>
     And has an active Approval from CTIS during the period
     And Last Recruitment Date is not set
     Then the Project is a KBS Candidate
@@ -41,7 +41,7 @@ Feature: Evaluating KBS Candidates
 
   Scenario Outline: KBS Candidate Metadata changes so that it is no longer a KBS Candidate
     Given a KBS Candidate
-    When <Field> changes to a non-KBS-complicit value
+    When <Field> changes values such that the Project is no longer eligible for KBS reporting
     Then it is no longer a KBS Candidate
 
     Examples:
@@ -49,7 +49,7 @@ Feature: Evaluating KBS Candidates
       | Health Project Type    |
       | Approval from REK/CTIS |
 
-  Scenario: When a Project has reported for KBS previously, it must still satisfy KBS requirements to be a KBS Candidate
+  Scenario: When a Project has been reported as a Clinical Trial, it must still satisfy KBS requirements to be a KBS Candidate
     Given a Project that was a KBS Project previous Reporting Period
     When it changes fields such that it is no longer eligible for KBS reporting
     Then it is not a KBS Candidate
@@ -91,25 +91,25 @@ Feature: Evaluating KBS Candidates
   Scenario: Mark KBS Candidate as a KBS Project when user is Project Manager
     Given a user logged in as Project Manager
     And a Project where they are Project Manager is a KBS Candidate
-    When they mark the Project to be a KBS Project
+    When they mark the KBS Candidate as reportable
     Then the Project is a KBS Project
 
   Scenario: Mark KBS Candidate as not a KBS Project when user is Project Manager
     Given a user logged in as Project Manager
     And a Project where they are Project Manager is a KBS Candidate
-    When they mark the Project to not be a KBS Project
+    When they mark the KBS Candidate as not reportable
     Then the Project is not a KBS Project
 
-  Scenario: Cannot mark KBS Candidate as a KBS Project when user is not Project Manager
+  Scenario: Cannot mark KBS Candidate as reportable when user is not Project Manager
     Given a user is not Project Manager on a Project
     And the Project is a KBS Candidate
-    When they mark the Project to be a KBS Project
+    When they mark the KBS Candidate as reportable
     Then they are denied
 
-  Scenario: Cannot mark KBS Candidate as not a KBS Project when user is not Project Manager
+  Scenario: Cannot mark KBS Candidate as not reportable when user is not Project Manager
     Given a user is not Project Manager on a Project
     And the Project is a KBS Candidate
-    When they mark the Project not to be a KBS Project
+    When they mark the KBS Candidate as not reportable
     Then they are denied
 
   Scenario Outline: Undo KBS Project marking

@@ -5,13 +5,13 @@ Feature: KBS Admin reports on behalf of (Local) Project Manager
 
   Scenario: KBS Admin can mark that a KBS Candidate should report for KBS
     Given a KBS Candidate
-    When the user marks that it should report for KBS
+    When the user marks the KBS Candidate as reportable
     Then the Project is a KBS Project
     And the Project is not a KBS Candidate
 
   Scenario: KBS Admin can mark that a KBS Candidate should not report for KBS
     Given a KBS Candidate
-    When the user marks that it should not report for KBS
+    When the user marks the KBS Candidate as not reportable
     Then the Project is not a KBS Project
     And the Project is not a KBS Candidate
 

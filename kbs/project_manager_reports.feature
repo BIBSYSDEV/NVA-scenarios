@@ -85,7 +85,7 @@ Feature: Project Manager reports KBS data
 
   Scenario Outline: When a Project Manager changes fields such that the Project is no longer eligible for KBS reporting, then it is no longer a KBS Project
     Given a KBS Project
-    When the user changes <Field> to a non-KBS-complicit value
+    When the user changes <Field> such that the Project is no longer eligible for KBS reporting
     Then it is no longer a KBS Project
     And the user is alerted
     And KBS Metadata is deleted
