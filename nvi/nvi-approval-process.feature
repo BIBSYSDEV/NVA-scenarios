@@ -28,15 +28,6 @@ Feature: NVI approval process
     Then the approval status is set back to Pending
     And the rejection note that followed the rejection is removed
 
-  # *candidate-affecting fields are changed:
-  # level, publication type (category), creators with affiliations, points and year
-  Scenario: Reset NVI Candidate on change
-    Given an NVI candidate
-    When one or more of the candidate-affecting fields are changed
-    And the NVI candidate is still a candidate
-    Then reset the approval status for all involved institutions for the NVI candidate.
-    And the points should be updated according to the new factors.
-
   Scenario: NVI curator adds note to Candidate
     Given a logged in user
     And the user is part of an NVI institution
