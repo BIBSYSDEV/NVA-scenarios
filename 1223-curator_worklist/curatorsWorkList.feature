@@ -99,7 +99,7 @@ Scenario: Curator performs a new search on the Task page
 	Then I should see the corresponding tasks displayed according to other field values
 
 Scenario Outline: Curator selects new Display options on the Task page
-	When I select a new Display option <option>
+	When I select a new Display option "<option>"
 	Then I should see the corresponding tasks displayed according to other field values
 	Examples:
 	| option  |
