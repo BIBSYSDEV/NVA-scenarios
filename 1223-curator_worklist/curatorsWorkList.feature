@@ -48,13 +48,7 @@ Scenario Outline: Menu on Task page
 
 Scenario: List of fields on Task page
 	When I navigate to the Task page
-	Then I should see the following fields: <field>
-	And the status should be set to "Pending" by default
-	And the display option should be "Show all"
-	And "Task without curator" should be selected
-	And the Curator field should be set to me
-	And the area of responsibility should reflect my curator permissions
-	Examples:
+	Then I should see the following fields:
 		| field                |
 		| Status               | 
 		| Search               | 
@@ -65,6 +59,11 @@ Scenario: List of fields on Task page
 		| Start date           | 
 		| End date             | 
 		| Select category      | 
+	And the status should be set to "Pending" by default
+	And the display option should be "Show all"
+	And "Task without curator" should be selected
+	And the Curator field should be set to me
+	And the area of responsibility should reflect my curator permissions
 
 Scenario: Curator filters by request types
 	When I change which menu options are activated 
