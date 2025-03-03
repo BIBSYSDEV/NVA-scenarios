@@ -34,7 +34,7 @@ Scenario Outline: Curator opens the task page
 Scenario Outline: Menu on Task page
         Given a user with a curator role "<role>"
 	When I navigate to the Task page
-	Then I should see a menu containing <options>
+	Then I should see a menu containing "<options>"
 	And each option should be represented by a checkbox
 	And each checkbox label should display the count of occurrences for that option
 	Examples:
