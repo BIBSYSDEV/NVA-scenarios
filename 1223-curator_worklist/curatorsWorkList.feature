@@ -32,7 +32,7 @@ Scenario Outline: Curator opens the task page
         | Thesis curator       | 
 
 Scenario Outline: Menu on Task page
-        Given a user with a curator role <role>
+        Given a user with a curator role "<role>"
 	When I navigate to the Task page
 	Then I should see a menu containing <options>
 	And each option should be represented by a checkbox
