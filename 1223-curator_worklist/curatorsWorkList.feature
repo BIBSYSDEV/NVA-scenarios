@@ -101,7 +101,7 @@ Scenario: Curator performs a new search on the Task page
 	When I execute a new search
 	Then I should see the corresponding tasks displayed according to other field values
 
-Scenario: Curator selects new Display options on the Task page
+Scenario Outline: Curator selects new Display options on the Task page
 	When I select a new Display option <option>
 	Then I should see the corresponding tasks displayed according to other field values
 	Examples:
