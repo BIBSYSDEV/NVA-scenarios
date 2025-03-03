@@ -21,7 +21,7 @@ Scenario: Display of a number alert Task menu item
 	And the status is "Pending"
 
 Scenario Outline: Curator opens the task page
-	Given a user with a curator role <role>
+	Given a user with a curator role "<role>"
 	When I navigate to the Task page
 	Then I can see all my personal tasks
 	And other tasks related to me
