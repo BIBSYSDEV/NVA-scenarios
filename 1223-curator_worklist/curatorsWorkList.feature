@@ -20,7 +20,7 @@ Scenario: Display of a number alert Task menu item
 	Then I know how many tasks I am assigned as a curator
 	And the status is "Pending"
 
-Scenario: Curator opens the task page
+Scenario Outline: Curator opens the task page
 	Given a user with a curator role <role>
 	When I navigate to the Task page
 	Then I can see all my personal tasks
