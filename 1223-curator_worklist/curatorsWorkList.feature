@@ -80,7 +80,6 @@ Scenario: Curator sorts and navigates the task list
 Scenario: Curator inspects a task in the task page
 	When I inspect a randomly selected task
 	Then I should see the following fields describing the task: 
-		| field                                       |
 		| The color of the request type               | 
 		| The icon of the registration type           | 
 		| The name of the registration type           | 
