@@ -5,7 +5,7 @@ Background:
 Scenario: Display of alert on Task menu item
 	Given the curator has an alert
 	When I see the Task menu item
-	Then I should see two types of alerts: <alert>
+	Then I should see two types of alerts: "<alert>"
 	Examples:
 		| alert         |
 		| A bell symbol |
