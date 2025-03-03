@@ -33,17 +33,18 @@ Scenario Outline: Curator opens the task page
         | NVI curator          | 
         | Thesis curator       | 
 
-Scenario: Menu on Task page
+Scenario Outline: Menu on Task page
+        Given a user with a curator role <role>
 	When I navigate to the Task page
 	Then I should see a menu containing <options>
 	And each option should be represented by a checkbox
 	And each checkbox label should display the count of occurrences for that option
 	Examples:
-		| options                            |
-		| Publishing requests                |
-		| Student thesis publishing requests |
-		| DOI requests                       |
-		| Curator support requests           |
+		| role                 | options                            |
+		| File curator         | Publishing requests                |
+		| Thesis curator       | Student thesis publishing requests |
+		| DOI curator          | DOI requests                       |
+		| User support curator | Curator support requests           |
 
 Scenario: List of fields on Task page
 	When I navigate to the Task page
