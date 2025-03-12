@@ -1,4 +1,4 @@
-Feature Channel ownership enforced
+Feature: Channel ownership enforced
 
   Scenario Outline: An unclaimed channel should not have constraints
     Given a user is Registrator
