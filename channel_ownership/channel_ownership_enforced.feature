@@ -1,6 +1,6 @@
 Feature Channel ownership enforced
 
-  Scenario Outline: Registrator is allowed to register metadata with an unclaimed channel
+  Scenario Outline: An unclaimed channel should not have constraints
     Given a user is Registrator
     And they select an uclaimed channel
     When they <Action>
