@@ -1,4 +1,4 @@
-Feature Channel ownership enforced - register metadata
+Feature Channel ownership enforced
 
   Scenario Outline: Registrator is allowed to register metadata with an unclaimed channel
     Given a user is Registrator
