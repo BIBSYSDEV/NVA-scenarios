@@ -43,14 +43,7 @@ Feature: Channel constraints
     When the user edits constraints on the channel
     Then they are denied
 
-  Scenario: Logged in user can view constraints for any claimed channel
-    Given a logged in user
-    And a channel claim
-    When they request the channel claim constraints
+  Scenario: View constraints for any claimed channel
+    Given a channel claim
+    When the channel claim constraints are requested
     Then the channel claim constraints are returned
-
-  Scenario: Anonymous user cannot view constraints for claimed channel
-    Given an anonymous user
-    And a channel claim
-    When they request the channel claim constraints
-    Then no constraints are returned

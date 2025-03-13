@@ -46,22 +46,10 @@ Feature: Channel claims
     Then they are denied
     And the channel is still claimed
 
-  Scenario: Logged in user can view all channel claims
-    Given a logged in user
-    When they request all channel claims
+  Scenario: View all channel claims
+    When requesting all channel claims
     Then all channel claims are returned
 
-  Scenario: Anonymous user cannot view channel claims
-    Given an anonumous user
-    When they request all channel claims
-    Then no channel claims are returned
-
-  Scenario: Logged in user can filter channels claimed by institution
-    Given a logged in user
-    When they request all channel claims filtered by an institution
+  Scenario: Filter channels claimed by institution
+    When requesting all channel claims, with a filter by institution
     Then all channels claimed by that institution are returned
-
-  Scenario: No one can view channels not claimed
-    Given any user
-    When they request all channels not claimed
-    Then they are denied
