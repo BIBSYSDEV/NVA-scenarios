@@ -50,6 +50,6 @@ Feature: Channel claims
     When requesting all channel claims
     Then all channel claims are returned
 
-  Scenario: Filter channels claimed by institution
+  Scenario: Filter channel claims by institution
     When requesting all channel claims, with a filter by institution
     Then all channels claimed by that institution are returned
