@@ -13,20 +13,20 @@ Feature: Channel claims
     Then the channel is claimed by the users institution
 
   Scenario: Editor can abandon claim of a channel for their own institution
-    Given a user logge in as Editor
+    Given a user logged in as Editor
     And a channel claimed by their institution
     When the channel claim us abandoned by the user
     Then the channel is unclaimed
 
   Scenario: Editor cannot claim a channel on behalf of another institution
-    Given a user logge in as Editor
+    Given a user logged in as Editor
     And an unclaimed channel
     When the user claims the channel on behalf of another institution
     Then they are denied
     And the channel is still unclaimed
 
   Scenario: Editor cannot abandon claim of a channel on behalf of another institution
-    Given a user logge in as Editor
+    Given a user logged in as Editor
     And a channel claimed by another institution
     When the channel claim us abandoned by the user
     Then they are denied

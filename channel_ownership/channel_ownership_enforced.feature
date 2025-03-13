@@ -2,7 +2,7 @@ Feature: Channel ownership enforced
 
   Scenario Outline: An unclaimed channel should not have constraints
     Given a user is Registrator
-    And they select an uclaimed channel
+    And they select an unclaimed channel
     When they <Action>
     Then they are allowed
 
