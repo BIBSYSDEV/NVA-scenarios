@@ -1,7 +1,7 @@
 Feature: Channel claims
 
-  Scenario: Already claimed channel cannot be claimed
-    When a channel is claimed by institution A
+  Scenario: Owned channel cannot be claimed
+    When a channel is owned by institution A
     Then the channel cannot be claimed by insitution B
 
   Scenario: Editor can claim a channel for their institution
@@ -17,12 +17,14 @@ Feature: Channel claims
     Then an Editor at institution B cannot abandon the channel claim
 
   Scenario: Non-editor cannot claim a channel
-    When a user is not Editor
-    Then they cannot claim a channel
+    Given a user is not Editor
+    When they inspect an unclaimed channel
+    Then they cannot claim it
 
   Scenario: Non-editor cannot abandon claim of a channel
-    When a user is not Editor
-    Then they cannot abandon a channel claim
+    Given a user is not Editor
+    When they inspect a claimed channel
+    Then they cannot abandon the claim
 
   Scenario: View all channel claims
     When requesting all channel claims
