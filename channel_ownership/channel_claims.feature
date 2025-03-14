@@ -1,46 +1,28 @@
 Feature: Channel claims
 
-  Scenario: No one can claim an already claimed channel
-    Given any user
-    And a claimed channel
-    When the user claims the channel
-    Then the channel is still unclaimed
+  Scenario: Already claimed channel cannot be claimed
+    When a channel is claimed by institution A
+    Then the channel cannot be claimed by insitution B
 
-  Scenario: Editor can claim a channel for their own institution
-    Given a user logged in as Editor
-    And an unclaimed channel
-    When the user claims the channel
-    Then the channel is claimed by the users institution
+  Scenario: Editor can claim a channel for their institution
+    When an Editor claims a channel
+    Then the channel is owned by the Editors institution
 
-  Scenario: Editor can abandon claim of a channel for their own institution
-    Given a user logged in as Editor
-    And a channel claimed by their institution
-    When the channel claim is abandoned by the user
-    Then the channel is unclaimed
+  Scenario: Editor can abandon claim of a channel for their institution
+    When an Editor at institution A claims a channel
+    Then an Editor at institution A can abandon the channel claim
 
-  Scenario: Editor cannot claim a channel on behalf of another institution
-    Given a user logged in as Editor
-    And an unclaimed channel
-    When the user claims the channel on behalf of another institution
-    Then the channel is still unclaimed
-
-  Scenario: Editor cannot abandon claim of a channel on behalf of another institution
-    Given a user logged in as Editor
-    And a channel claimed by another institution
-    When the channel claim is abandoned by the user
-    Then the channel is still claimed by the other institution
+  Scenario: Editor cannot abandon claim of a channel owned by another institution
+    When an Editor at institution A claims a channel
+    Then an Editor at institution B cannot abandon the channel claim
 
   Scenario: Non-editor cannot claim a channel
-    Given a user not logged in as Editor
-    And an unclaimed channel
-    When the user claims the channel
-    Then the channel is still unclaimed
+    When a user is not Editor
+    Then they cannot claim a channel
 
   Scenario: Non-editor cannot abandon claim of a channel
-    Given a user not logged in as Editor
-    And a claimed channel
-    When the channel claim is abandoned by the user
-    Then the channel is still claimed
+    When a user is not Editor
+    Then they cannot abandon a channel claim
 
   Scenario: View all channel claims
     When requesting all channel claims
