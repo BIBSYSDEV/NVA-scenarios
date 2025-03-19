@@ -23,3 +23,8 @@ Feature: Tickets are sent to curators at the channel owner
     When metadata is registered
     Then a ticket is not sent to curators at contributors institution
     And a ticket is sent to curators at the channel owner
+
+    Scenario: Tickets regarding student thesis should only be handled by student thesis curator
+      Given a publication with a Degree-category
+      When a publishing request is sent
+      Then only student thesis curator can approve ticket
