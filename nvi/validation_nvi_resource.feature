@@ -4,68 +4,72 @@ Feature: Validation of an NVI resource
 
 	In order to view the current status of the NVI-prosess
 	As a Curator
-	I want to see how many Resources are Validated, Nominated for Validation, and Candidates for Validation
+	I want to see the current status compared with last year's results
 
 	In order to view the current status of the NVI-prosess
 	As a Curator
-	I want to see the current status compared with last year's results
-
-	In order to Validate a Nominated Resource
-	As a Curator
-	I want to see the list of Nominated Resources - Resources that has been Validated by some other Institution and implies my Instituion by affiliation
-
-	In order to Validate a Candidate Resource
-	As an Curator
-	I want to see the list of Candidate Resources - Resources that no other Institution has Validated yet, but qualify to be NVI-Resources and implies my Institution by affiliation
+	I want to see how many Resources have the status Candidate, Being checked, Approved, Rejected or Dispute.
 
 	In order to inspect a Resource
 	As an Curator
-	I want to be able to navigate to the Resource Landing Page from all lists
-
-	# Skal Curator også få liste med potensielle NVI-ressurser?
-	#	- Regler for at ein ressurs er "potensielle NVI-ressurser" må da avklares
+	I want to be able to navigate to the Resource Landing Page 
 
 	Background:
-		Given an logged-in Curator at an NVI-Institution
+  		Given a logged-in User
+  		And the User has the role "NVI-Curator" at an NVI-Institution
+  		And the User has navigated to the NVI section from the Tasks option in the main menu
 
-	@needJiraTag 
-	Scenario: Curator views NVI-report status at own Institution
-		When a Curator uses the option to view the NVI-Report status at own Institution
-		Then the Curator sees a visualization of current progress compared with last year 
-		And it contains number of Validated Resources
-		And it contains number of Nominated Resources
-		And it contains number of Candidate Resources
+	Scenario: List of fields on NVI page
+  	When the User sees the NVI section
+  	Then the following fields are visible:
+   		| field                 |
+   		| Search                | 
+    	| Curator               | 
+    	| Area of responsibility| 
+    	| Exclude subunits      | 
+    	| Year                  | 
+    	| List of candidates    | 
+  	And the Year field is set to the currently open NVI period by default
+  	And the Curator field is set to none by default
+  	And the Area of responsibility field reflects my curator permissions
 
-	@needJiraTag 
-	Scenario: Curator views list of Resources Validated for NVI-reporting
-		When a Curator uses the option to view the list of Validated Resources
-		Then the Curator sees a list of Resources that are Validated by all Institutions that are affiliated to the Resource by Authors
+	Scenario: Menu on NVI page
+	When the User navigate to the Task page
+	Then a menu containing following objects are visable:
+		| objects        |
+		| a progress bar | 
+		| Status menu    | 
 
-	@needJiraTag 
-	Scenario: Curator view to-do list of Resources Nominated to be part of the NVI-report
-		When a Curator uses the option to view the list of Nominated Resources
-		Then the Curator sees a list of Resources that are Validated by at least one other Institution, but not their Institution
-		And there is an option to inspect the Resource
-		And there is an option to Validate each Resource on behalf of their Institution
-
-	@needJiraTag 
-	Scenario: Curator views complete list of Resources Nominated to be part of the NVI-report
-		When a Curator uses the option to view the list Nominated Resources
-		And the Curator asserts that Resources Validated by own Institution should be listed
-		Then the Curator sees a list of all Resources that are Validated by at least one other Institution, including their own Institution
-		And there is an option to inspect the Resource
-		And there is an option to Validate each Resource on behalf of their Institution
-
-	@needJiraTag 
-	Scenario: Curator views list of NVI-report Candidates
-		When a Curator uses the option to view the list Candidate Resources
-		Then the Curator sees a list of Resources that fulfill the criteria to be NVI Resources
+	Scenario Outline:
+		When the User select a status
 		And the Resources have authors that are affiliated with the Curator's Institution
-		And no other Institution has Validated the Resource
+		And the authors affiliation is within the Users Area of responibiliy
+		And status for own institution is "<Own institution>"
+		And status for other institutions is "<Other institutions>"
+		Then the Results are listed under "<Status>"
 
-	@needJiraTag 
-	Scenario: Curator inspects a Resource from the list of Nominated Resources
-		Given a Curator views the list of Resources Nominated to be part of the NVI-Report
-		When the Curator uses the option to view details about a Resource
-		Then the Curator sees a list with Validation statuses for all affiliated Institutions 
-		And there is an option to Validate the Resource on behalf of their Institution
+		Examples:
+		| Status                                      | Own institution | Other institutions         | 
+		| Candidate                                   | Candidate       | No status                  | 
+		| Candidate - Waiting for your institution    | Candidate       | Approved                   |
+		| Being checked                               | Being checked   | No status                  |
+		| Being checked - Waiting for your institution| Being checked   | Approved                   | 
+		| Approved                                    | Approved        | No status                  | 
+		| Approved - Waiting for other institution    | Approved        | Being checked              | 
+		| Rejected                                    | Rejected        | No status                  | 
+		| Rejected - Waiting for other institution    | Rejected        | Candidate or Being checked |
+		| Dispute                                     | Rejected        | Approved                   |
+		| Dispute                                     | Approved        | Rejected                   |
+		| Dispute                                     | Candidate       | Dispute                    |
+
+	Scenario: The progress bar display the current NVI-report status
+		When the User wish to see details 
+		Then the User may select "Show reporting status"
+
+	Scenario: Show reporting status
+  		When the User select "Show reporting status"
+  		Then the User see a table displaying status for the current open NVI-periode by default
+  		And the columns show NVI resource statuses
+  		And the rows represent my institution's subunits
+  		And I can select to view any previous year
+  		And I has an export option
