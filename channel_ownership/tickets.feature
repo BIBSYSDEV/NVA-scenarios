@@ -1,30 +1,29 @@
-Feature: Tickets are sent to curators at the channel owner
+Feature: Tickets are sent to and handled by the channel owner
 
-  Background:
-    Given metadata registered on a claimed channel
-    And the channel claim has an allow-all policy for registering metadata
-    And publication instance type is part of channel scope
+  Scenario: Channel owner is receiver of file approval tickets
+    Given a publication
+    And the publication has a claimed channel as publisher
+    And the publication is within channel claim scope
+    When a file approval ticket is created
+    Then the channel owner receives the ticket
 
-  Scenario: Ticket sent to Registrators institution
-    Given a Registrator
-    And Registrators institution owns the channel
-    When metadata is registered
-    Then a ticket is sent to curators at Registrators institution
+  Scenario: Curating institution is not receiver of file approval tickets
+    Given a publication
+    And the publication has a claimed channel as publisher
+    And the publication is within channel claim scope
+    When a file approval ticket is created
+    Then curating institution does not receive the ticket
 
-  Scenario: Ticket sent to Channel owner, not Registrators institution
-    Given a Registrator
-    And Registrators institution does not own the channel
-    When metadata is registered
-    Then a ticket is sent to curators at the channel owner
-    And a ticket is not sent to curators at Registrators institution
+  Scenario: Channel owner approves file approval tickets
+    Given a publication
+    And the publication has a claimed channel as publisher
+    And the publication is within channel claim scope
+    When a file approval ticket is created
+    Then the channel owner can approve the ticket
 
-  Scenario: Ticket sent to Channel owner, not contributors institution
-    Given a contributor not from the channel owner
-    When metadata is registered
-    Then a ticket is not sent to curators at contributors institution
-    And a ticket is sent to curators at the channel owner
-
-    Scenario: Tickets regarding student thesis should only be handled by student thesis curator
-      Given a publication with a Degree-category
-      When a publishing request is sent
-      Then only student thesis curator can approve ticket
+  Scenario: Ticket cannot be transferred to another institution when channel is claimed
+    Given a publication
+    And the publication has a claimed channel as publisher
+    And the publication is within channel claim scope
+    When a user tries to transfer the ticket
+    Then the they are denied

@@ -52,3 +52,22 @@ Feature: Creator selects Resource type Degree
             | DegreeType        |
             | Doctoral thesis   |
             | Licentiate thesis |
+
+    Scenario Outline: Embargo files for resource type "Student thesis" should have restricted access
+        Given a file with embargo
+        And the file is uploaded to a publication
+        And the file has status "<FileStatus>"
+        And the publication is a degree
+        When "<User>" performs action
+            | Download       |
+            | Write metadata |
+            | Delete         |
+        Then the outcome is "<Outcome>"
+
+        Examples:
+            | User                                                       | FileStatus   | Outcome |
+            | File owner                                                 | Not approved | Allowed |
+            | File owner                                                 | Approved     | Denied  |
+            | File curator for file owner                                | Any          | Denied  |
+            | Student file curator for file owner                        | Any          | Denied  |
+            | Student embargo file curator for file owner                | Any          | Allowed |
