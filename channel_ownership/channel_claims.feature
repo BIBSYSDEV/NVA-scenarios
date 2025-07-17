@@ -1,28 +1,24 @@
 Feature: Channel claims
 
-  Scenario: Owned channel cannot be claimed
-    When a channel is owned by institution A
+  Scenario: Claimed channel cannot be claimed
+    When a channel is claimed by institution A
     Then the channel cannot be claimed by insitution B
 
-  Scenario: Editor can claim a channel for their institution
-    When an Editor claims a channel
-    Then the channel is owned by the Editors institution
+  Scenario: App Admin can claim channel for any institution
+    When App Admin claims a channel on behalf of institution A
+    Then the channel is claimed by institution A
 
-  Scenario: Editor can abandon claim of a channel for their institution
-    When an Editor at institution A claims a channel
-    Then an Editor at institution A can abandon the channel claim
+  Scenario: App Admin can abandon claim of a channel for any institution
+    When an institution has a channel claim
+    Then App Admin can abandon the channel claim
 
-  Scenario: Editor cannot abandon claim of a channel owned by another institution
-    When an Editor at institution A claims a channel
-    Then an Editor at institution B cannot abandon the channel claim
-
-  Scenario: Non-editor cannot claim a channel
-    Given a user is not Editor
+  Scenario: Only App Admin can claim a channel
+    Given a user is not App Admin
     When they inspect an unclaimed channel
     Then they cannot claim it
 
-  Scenario: Non-editor cannot abandon claim of a channel
-    Given a user is not Editor
+  Scenario: Only App Admin can abandon claim of a channel
+    Given a user is not App Admin
     When they inspect a claimed channel
     Then they cannot abandon the claim
 
